@@ -2236,6 +2236,11 @@ label start:
     menu:
         "뭐야...":
             ch_monica "그, 그게…… 훌쩍."
+
+            player "소난다……"
+
+            ## 모니카 시무룩한 표정
+            ch_monica "?"
             pass
         "왜 울고 있는거야?":
             ch_monica "그, 그게…… 훌쩍."
@@ -2764,12 +2769,12 @@ label start:
     player "힘이 들면, 피부에 좋지 않습니다. 그렇기 때문에 나는 생각합니다. 피부에 좋지 않으면, 땀이 나는 것이 아닌가 하고."
 
     hide stand_Monica
-    show stand_kuka with dissolve ## 쿠우카 망상하는 표정
+    show stand_Kuka with dissolve ## 쿠우카 망상하는 표정
     ch_kuka "뇌가 겁탈당하고 있어요……!!"
 
     player "하지만 온천이라면 어떨까?"
 
-    hide stand_kuka
+    hide stand_Kuka
     show stand_Yuki at left ## 유키 놀라는 표정, 밝게
     show stand_Ninon_surprise at right ## 니논 놀라는 표정, 어둡게
 
@@ -2783,7 +2788,103 @@ label start:
     hide stand_Yuki
     hide stand_Ninon_surprise
 
-    show stand_Monica 
+    show stand_Monica with dissolve ## 시무룩한 표정
+
+    ch_monica "다…… 좋은데, 온천이 특훈과 무슨 관계가 있는 건가……?"
+
+    hide stand_Monica
+
+    show stand_Ninon with dissolve
+
+    ch_ninon "후, 아직 멀었군요 입니다, 모니카 씨!"
+
+    ch_ninon "분명 조금 전 쇼군이 지적한 문제는, 요컨대 TEAMWORK가 부족하다는 사실!"
+
+    ch_ninon "우리가 충분히 강하다는 것은 모니카 씨도 인정하셨다 입니다."
+
+    hide stand_Ninon
+
+    show stand_Ninon_daiji with dissolve ## 니논 비장한 표정
+
+    ch_ninon "그렇다면 우리에게 남은 과제는 바로 「단합」!!"
+
+    ch_ninon "지금까지 니논은 단순무쉭한 수련법만을 고집해왔소 입니다. 하지만 쇼군은! 그보다 한 차원 높은! 격이 다른 강함을 추구하는 것입니다!! 길드 합숙을 통한 유대감 증진, 그리고 이어지는 UNION BURST!!!"
+
+    ch_ninon "동시에 「온천」이라는 명답을 제시하여! 피부를 염려하는 유키 씨의 불만까지 해치워 버린 것이다 입니다!!"
+
+    hide stand_Ninon_daiji
+
+    show stand_Ninon_wink with dissolve
+
+    ch_ninon "역시 쇼군, 실로 지혜로운 판단이 아닐 수 없소 입니다!! 존경하오 입니다~!"
+
+    ## 니논 어둡게
+
+    show stand_Monica at veryleft ## 모니카 놀란 표정
+
+    ch_monica "오오……! 그런 것이었나! 나도 아직 한참 부족하군…….!!"
+
+    ## 모니카 어둡게
+
+    show stand_Yuki at right ## 유키 웃는 표정
+
+    ch_yuki "뭐~ 그런 이유라면 어울려 주지 못할 것도 없긴 해~ 이런 것까지 신경써 주다니, 꽤나 섬세하잖아?"
+
+    hide stand_Monica
+    hide stand_Ninon_wink
+    hide stand_Yuki
+
+    ch_nar "……뭐지?"
+
+    ch_nar "콧코로한테 온천 여행 가자고 했다가 주인님은 염치도 없냐고 한소리 들었던 게 생각나서 막 던져 본 건데……"
+
+    ch_nar "역시…… 이 정도로 잘생겼으니 무슨 말을 해도 먹히는 건가. 이런 이런……."
+
+    ch_nar "못생겼다는 건 대체 어떤 기분일까……? 하루만 못생겨 봤으면 좋겠다."
+
+    ch_nar "앗, 나도 참. 말도 안 되는 소릴. 하하하."
+
+    ## 니논, 모니카, 유키 cg 어둡게
+
+    show stand_Kuka with dissolve ## 쿠우카 기본 표정
+
+    ch_kuka "그……러면, 온천에 가서는 구체적으로 어떤 일을 하게 되나요……?"
+
+    ## 쿠우카 망상하는 표정
+
+    ch_kuka "여, 역시 혼욕을 노리시는 건가요?! 모두가 지켜보는 가운데 쿠우카의 치부를 억지로 드러내 보이게 하려는 속셈인 거네요!!! 치욕감에 정신을 차리지 못하는 쿠우카의 주변을 수많은 남성들이 에워싸고선…… 으헤헷…… 쿠헤헤헤헷……"
+
+    ## 쿠우카 어둡게
+
+    ch_ayumi "호……호호흐호, 혼, 혼욕?! 서, 스, 서, 선배와 함께?!!?"
+
+    hide stand_Kuka
+    show stand_Monica with dissolve ## 뚱한 표정 
+
+    ch_monica "……그대들이 뭘 상상하는 건지 잘은 모르겠다만……"
+
+    ch_monica "최소한 건전한 속내가 아니라는 것만은 분명해 보이는군……."
+
+    ## 모니카 웃는 표정
+
+    ch_monica "그건 그렇다 치고, 귀공."
+
+    ch_monica "먼저 온천이라는 장소를 언급한 만큼 따로 생각해 둔 곳이 있는 거겠지? 우리는 전적으로 귀공의 계획에 따르겠네."
+
+    hide stand_Monica
+    
+    player "뎃?"
+
+    show stand_Ninon_wink with dissolve
+
+    ch_ninon "장소라면 걱정 맛세이 입니다! 전부 니논에게 맡기는 겁니다~!"
+
+    hide stand_Ninon_wink
+    show stand_Ninon with dissolve
+
+    ch_ninon "지난번 마물 토벌 이후, 아직까지도 오에도 여러분의 열화와 같은 INVITATION이 끊이질 않고 있는데……"
+
+    hide stand_Ninon
 
 
     return

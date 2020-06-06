@@ -1,0 +1,11 @@
+audio/
+cache/
+images/
+saves/
+
+*.opus
+*.png
+*.bak
+gui/
+
+NanumGothic.ttf
