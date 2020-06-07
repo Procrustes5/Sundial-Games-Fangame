@@ -123,6 +123,10 @@ init:
     define point_ninon = 0
     define point_kuka = 0
     define point_yuki = 0
+    define ninon = 0
+    define kuka = 0
+    define yuki = 0
+    define monica = 0
 ## 받침 유무 판별기 #######################
 init python:
           
@@ -2544,16 +2548,16 @@ label start:
 ## 캐릭터 선택 분기 #########################
     menu:
         "어설픈 실력과 저돌적인 행동으로 쉽게 위험에 빠지는 것":
-            $point_ninon = point_ninon + 1
+            $love_point = ninon
 
         "동료를 신뢰하지 않고 독단적으로 행동하는 것":
-            $point_monica = point_monica + 1
+            $point_point = monica
 
         "순간의 욕망을 억제하지 못하고 충동적으로 행동하는 것":
-            $point_kuka = point_kuka + 1
+            $point_point = kuka
 
         "자기 자신만을 중시하며 동료를 배려하지 않는 것":
-            $point_yuki = point_yuki + 1
+            $point_point = yuki
 
     show stand_Monica with dissolve ## 기본 표정
 
@@ -3089,6 +3093,254 @@ label onsen:
     show stand_Kuka with dissolve ## 쿠우카 놀란 표정
 
     ch_kuka "저…… 정말 피로 쓴 글씨인가요……?! 히이이……."
+
+    hide stand_Kuka
+    show stand_Monica with dissolve ## 모니카 화난 표정
+
+    ch_monica "이렇게 곳곳에 흩뿌려져 있는 형태는 인위적으로 연출했다고 보긴 어려워."
+
+    ch_monica "모종의 이유로 피를 흘리면서까지 편지를 쓸 수밖에 없었던 상황이었을지도……."
+
+    hide stand_Monica
+    show stand_Yuki with dissolve ## 유키 뚱한 표정
+
+    ch_yuki "잠깐, 너무 진지하게 받아들이는 거 아니야? 저 빨간 자국이 진짜 피가 맞다 쳐도, 이상한 점이 한두 개가 아니잖아."
+
+    hide stand_Yuki
+    show stand_Ninon_surprise with dissolve ## 니논 놀란 표정
+
+    ## 니논 어둡게
+
+    ch_ayumi "마지막 힘을 짜내어 써 놓은 편지를…… 다른 누군가가 발견해서 여기로 몰래 보내 준 것 아닐까요……? 우으…… 제가 말하면서도 무서워요……."
+
+    hide stand_Ninon_surprise
+    show stand_Monica with dissolve ## 모니카 화난 표정
+
+    ch_monica "뭐…… 자세한 내막은 직접 가서 알아내면 될 뿐이다. 편지의 마지막에 언급된 ‘구라노스케’라는 인물에 대해서도 석연치 않은 부분이 많고……"
+
+    ch_monica "……귀공은 어떻게 할 텐가? 위험할 수도 있는 일이다. 이건 우리가 해결해야 할 문제고, ‘바이스플뤼겔 랜드솔지부’에 소속되지 않은 귀공이 우리와 함께해야 할 의무는 없어."
+
+    show stand_Monica at movetoleft ## 모니카 화난 표정
+    show stand_Ninon at right ## 니논 웃는 표정
+
+    ch_ninon "니논도 동의하오 입니다. 비록 쇼군과 떨어지게 되는 것은 애통하나, 쇼군이 다치는 것은 그 무엇과도 비교할 수 없는 비극 입니다!"
+    
+    player "……."
+
+    hide stand_Monica
+    hide stand_Ninon
+
+    ch_nar "이 녀석들과 함께 가지 않으면…… 미식전으로 돌아가는 수밖에 없겠지."
+
+    ch_nar "그런데 돌아간다고 해 봤자……"
+
+    ch_nar "나를 약골에 머저리 취급하는 것들만 있는 데다, 유일하게 내 편이었던 마망도 이제는 없다."
+
+    ch_nar "조금 멍청하긴 해도…… 이 녀석들은 내가 무슨 말을 하든 편들어주고, 귀 기울여 주는데,"
+
+    ch_nar "차라리 여기에 있는 게 낫지 않을까?"
+
+    ## 마을 bgm으로 변경
+
+    player "……저기, 물어볼 게 있는데."
+
+## 선택지 ##########################################
+    menu:
+        "니논에게 의견을 묻는다.":
+            if love_point == ninon:
+                $point_ninon += 1
+            elif love_point != ninon:
+                $point_ninon = 0
+            
+            player "니논은 내가 어떻게 했으면 좋겠어?"
+
+            show stand_Ninon_surprise ## 니논 매우 놀란 표정
+
+            ch_ninon "니, 니논에게 질문하셨나이까 입니다?!"
+
+            hide stand_Ninon_surprise
+            show stand_Ninon_embarassed ## 니논 당황한 표정
+
+            ch_ninon "에……."
+
+            hide stand_Ninon_embarassed
+            show stand_Ninon_down ## 니논 시무룩한 표정
+
+            ch_ninon "……쇼군을 보퓔하는 신하로서, 쇼군의 안녕을 최우선으로 여기는 것이 쥐당하오나……"
+
+            hide stand_Ninon_down
+            show stand_Ninon_embarassed ## 니논 당황한 표정
+
+            ch_ninon "마음 속 깊은 곳에서는…… 쇼군이 니논들을 이끌어 달라고 외치고 있소 입니다……!!"
+
+            hide stand_Ninon_embarassed
+            show stand_Ninon_innocence ## 니논 억울한 표정
+
+            ch_ninon "송구하기 그쥐없사옵니다, 쇼군!!! 니논은 기꺼이 할복할 것입니다!!"
+
+            player "아니…… 할복은 안 해도 되니까……."
+
+            player "아무튼, 니논이 그렇게까지 말한다면……"
+
+            player "같이 갈까, 온천."
+
+            hide stand ninon_innocence
+
+            pass
+
+        "모니카에게 의견을 묻는다.":
+            if love_point == monica:
+                $point_monica += 1
+            elif love_point != monica:
+                $point_monica = 0
+            
+            player "모니카는 내가 어떻게 했으면 좋겠어?"
+
+            show stand_Monica with dissolve ## 모니카 놀란 표정
+
+            ch_monica "……내 의견을 묻는 건가?"
+
+            ch_monica "뭐어…… 위험할 것이라 경고하기도 했고, 귀공이 관여할 필요가 없는 일인 것도 사실이지만……"
+
+            ## hide stand_Monica
+            ## show stand_Monica ## 모니카 웃는 표정
+
+            ch_monica "개인적인 바람으로는, 우리와 동행해 주었으면 한다."
+
+            ch_monica "염치 없는 부탁인 것은 알고 있네."
+
+            ch_nar "뭐?! 알고 있었다고?!"
+
+            ch_monica "하지만…… 뭐랄까, 귀공과 함께라면 무슨 일이든 잘 풀릴 것만 같은 느낌이 들어. 단지 그뿐이다."
+
+            ## hide stand_Monica
+            ## show stand_Monica ## 모니카 당황한 표정
+
+            ch_monica "아, 오해는 말아 다오! 의견을 물었기에 진솔하게 대답한 것일 뿐이다."
+
+            ch_monica "몇 번이고 말하지만, 절대로 강요하지 않아. 귀공의 판단을 존중하겠네."
+
+            player "……그런가."
+
+            player "그럼…… 같이 가지 뭐. 나도 싫지 않아."
+
+            hide stand_Monica
+
+            pass
+        
+        "쿠우카에게 의견을 묻는다.":
+            if love_point == kuka:
+                $point_kuka += 1
+            elif love_point != kuka:
+                $point_kuka = 0
+
+            player "쿠우카는 내가 어떻게 했으면 좋겠어?"
+
+            show stand_Kuka with dissolve ## 쿠우카 부끄러워하는 표정
+
+            ch_kuka "엣? 에?! 쿠, 쿠우카 말인가요?!"
+
+            ## 쿠우카 부끄러워하는 표정으로 변경
+
+            ch_kuka "아, 아뇨, 그…… 저기, 너무 갑작스럽게 물어보셔서……"
+
+            ch_kuka "쿠…… 쿠우카는…………"
+
+            ## 쿠우카 망상하는 표정으로 변경
+
+            ch_kuka "여, 역시 안돼!! 쿠우카를 곧 버릴 물건처럼 심하게 다루어 주셨으면 좋겠다고 말하는 건 역시 무리……!! 그, 그렇군요. 그런 것이었군요! 일부러 쿠우카가 모두의 앞에서 파렴치한 말을 하도록 유도하고, 주변에서 쏟아지는 경멸의 눈빛을 버티지 못해 주저앉은 쿠우카를 들…"
+
+            player "따라오지 말라는 거지?"
+
+            ## 쿠우카 대사 글꼴 크기 크게 + 굵게
+
+            ch_kuka "{size=+ 10}{b}같이 가주세요옷!!!!!!!!{/b}{/size}"
+
+            player "처음부터 그랬으면 됐잖아……."
+
+            player "아무튼…… 그래."
+
+            player "같이 가자, 온천."
+
+            hide stand_Kuka
+
+            pass
+        
+        "유키에게 의견을 묻는다.":
+            if love_point == yuki:
+                $point_yuki += 1
+            elif love_point != yuki:
+                $point_yuki = 0
+
+            player "유키는 내가 어떻게 했으면 좋겠어?"
+
+            show stand_Yuki with dissolve ## 웃는 표정
+
+            ch_yuki "응? 나 말이야?"
+
+            ## 유키 자뻑하는 표정
+
+            ch_yuki "……흐흥♪"
+
+            ## 유키 질색하는 표정
+
+            ch_yuki "너 같은 건 안 따라왔으면 좋겠는데?"
+
+            player "어?"
+
+            ## 유키 자뻑하는 표정
+
+            ch_yuki "……라고 하면, 정말로 안 따라올 거야?"
+
+            player "……어…… 그게……"
+
+            ch_yuki "농담이야~ 나랑 떨어지는 게 그렇게까지 싫었어?"
+
+            ch_yuki "표정으로 다 드러난다구. 귀엽네~"
+
+            ## 유키 웃는 표정
+
+            ch_yuki "네가 함께 가는 거라면, 난 찬성이야."
+
+            ch_yuki "온천이니까…… 평소보다 조금 더 대담한 모습을 보여 줄 수 있겠네?"
+
+            ## 유키 자뻑하는 표정
+
+            ch_yuki "꺄~ 부끄러워~"
+
+            ch_nar "전혀 부끄러워하는 표정이 아니잖아……"
+
+            player "대담한 모습인지 뭔지는 모르겠고…… 아무튼 같이 가자는 뜻으로 받아들이면 되는 거지?"
+
+            player "같이 가자, 온천."
+
+            hide stand_Yuki
+
+            pass
+
+
+        "다시 생각해 보니 이것들 의견은 별로 중요하지 않은 것 같다.":
+            if love_point == ninon:
+                $point_ninon -= 1
+            elif love_point == monica:
+                $point_monica -= 1
+            elif love_point == kuka:
+                $point_kuka -= 1
+            elif love_point == yuki:
+                $point_yuki -= 1
+            
+            player "아니…… 아무것도 아니야."
+
+            player "기왕 도와주기로 했는데, 갑자기 빠지는 것도 좀 이상하잖아? 같이 가자."
+
+            pass
+        
+    show stand_Ninon_panic with dissolve ## 니논 놀란 표정
+
+    ch_ninon "니논은 기쁩뉘다만……, 쇼군은 정말 괜찮으신가요 입니다……?"
+
+        
+
 
     return
 ## 미니 게임 CG 라벨 ########################
