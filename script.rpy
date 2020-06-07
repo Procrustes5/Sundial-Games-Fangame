@@ -97,6 +97,11 @@ init:
     define player = Character("name", dynamic = True)
 
     define monster = Character("마물", color = "#ffffff")
+
+    define ch_peco = Character("페코린느", color = "#f2a20c")
+
+    define ch_kyaru = Character("배신자", color = "#071469")
+
 ## 나래이터류 ############################
 init:
     define narrator = Character(None, kind = nvl)
@@ -178,7 +183,7 @@ define persistent.unlock_1 = False
 ## 시작 전 로고 화면 ######################
 label splashscreen:
     scene logo_head onlayer middle with fade
-    $ renpy.pause(3, hard = True)
+    $ renpy.pause(2, hard = True)
     show black onlayer background
     hide logo_head onlayer middle with fade
     return
@@ -2778,12 +2783,12 @@ label start:
     show stand_Yuki at left ## 유키 놀라는 표정, 밝게
     show stand_Ninon_surprise at right ## 니논 놀라는 표정, 어둡게
 
-    ch_yuki "온!"
+    ch_yuki "온!" ## 유키 줌 인
 
     #show stand_Yuki at left ## 유키 어둡게
     #show stand_Ninon_surprise at right ##니논 밝게
 
-    ch_ninon "천!"
+    ch_ninon "천!" ## 니논 줌 인
 
     hide stand_Yuki
     hide stand_Ninon_surprise
@@ -2880,12 +2885,210 @@ label start:
     ch_ninon "장소라면 걱정 맛세이 입니다! 전부 니논에게 맡기는 겁니다~!"
 
     hide stand_Ninon_wink
-    show stand_Ninon with dissolve
+    show stand_Ninon with dissolve ## 니논 웃는 표정
 
     ch_ninon "지난번 마물 토벌 이후, 아직까지도 오에도 여러분의 열화와 같은 INVITATION이 끊이질 않고 있는데……"
 
     hide stand_Ninon
+    show stand_Ninon_down with dissolve ## 니논 시무룩한 표정
 
+    ch_ninon "여기 이중에…… 어…… 어디 있냐 입니다……?"
+
+    hide stand_Ninon_down
+    show stand_Ninon ## 니논 웃는 표정
+
+    extend "앗, 발견 입니다."
+
+    ch_ninon "오에도 사상 최고 이빠이로 큰 대형 온천의 초대장도 잔뜩 왔다 입니다~!"
+
+    ch_ninon "그러면~ 가장 마지막에 온 초대장을 개봉해 보도록 하겠습니다~~!! 두구두구두구……"
+
+    hide stand_Ninon
+    show stand_Ninon_surprise ## 니논 놀란 표정
+
+    ch_ninon "………………."
+
+    ch_ninon "………………………………."
+
+    hide stand_Ninon_surprise
+    show stand_Yuki ## 유키 화난 표정
+
+    ch_yuki "~~~아, 정말! 답답하게 뭐하는 거야? 안 읽어 줄 거면 차라리……"
+
+    ## 유키 부끄러워하는 표정
+
+    extend "앗…… 화내는 얼굴도 어쩜 이렇게 새침하고 귀여울 수가…… 세상에……. 거울에서 눈을 뗄 수가…"
+
+    hide stand_Yuki
+    show stand_Monica ## 모니카 화난 표정
+
+    ch_monica "둘 다 뭘 하고 있는 건가, 대체?! 니논, 편지를 이리로 넘겨라!"
+
+    hide stand_Monica
+    show stand_Ninon_surprise ## 니논 놀란 표정
+
+    ch_ninon "……모니카 씨……? 이거……."
+
+    hide stand_Ninon_surprise
+    show stand_Monica ## 모니카 화난 표정
+
+    ch_monica "대관절 무슨……"
+
+    ## 모니카 놀란 표정
+
+    ch_monica "……."
+
+    ## 모니카 화난 표정
+
+    ch_monica "……귀공."
+
+    ch_monica "아무래도……"
+
+    ch_monica "……온천에 가야만 하는 이유가 생긴 것 같다."
+
+    ## 화면 중앙에 피로 휘갈겨 쓴 편지 이미지 show blood_letter
+    ## 마을 bgm 멈춤
+    ## 충격적인 효과음
+
+    ch_nar "{color=#FF2929}「도와주세요」{/color}"
+
+    ## 대화창 사라짐
+
+    ## 피로 휘갈겨 쓴 편지 이미지, 길드하우스 cg F.O
+    
+    hide stand_Monica ##(모니카 화난 표정)
+    hide bg_guildhouse
+
+    jump black_haikei
+
+## S# 4.검은 배경 라벨 ################################
+label black_haikei:
+
+    scene bg_black
+
+    ch_peco "안뇽~☆ [name]! 서프라이즈예요~! 짜잔~~!!"
+
+    ch_peco "……어라? 아무도 없는 건가요? 저~~기요~~~!! [name]~~!! 누구 없나요오~~?"
+
+    ch_kyaru "……뭐야. 코로스케도 없고, 배고파할 것 같아서 급하게 왔더니만…… 어딜 간 거야?"
+
+    ch_kyaru "나가서 찾아 봐야 하나…… 귀찮게 하긴."
+
+    ch_peco "어머? 맨날 돼지니, 죽여버리니 하면서도 은근히 챙겨주려고 하네요~ 이게 바로 츤데레……라고 하는 그런 건가요? 귀여워라~☆ 착하지, 착하지……."
+
+    ch_kyaru "여…… 역겨운 소리 하지 마! 머리도 쓰다듬지 마! 죽여버린다!!"
+
+    ch_kyaru "……딱히 챙겨주려는 게 아니라…… 그, 그녀석한테 무슨 일이라도 생기면 코로스케도 슬퍼할 거고!"
+
+    ch_peco "네에~ 무슨 마음인지 다 이해한답니다~"
+
+    ch_peco "……그나저나 조금…… 쓸쓸하네요."
+
+    ch_peco "따라오면 위험할 것 같아서 일부러 모질게 말한 건데…… 상처 받았으려나요……."
+
+    ch_peco "미식전은 모두와 함께 맛있는 음식을 먹으며 웃고 떠드는 길드인데…… 어디로 가버린 걸까요, 그 사람……."
+
+    ch_kyaru "뭔가 말했어, 바보린느?"
+
+    ch_peco "아아~ 아무것도 아니에요~"
+
+    ch_peco "……정말 아무것도, 아니에요……."
+
+    ch_kyaru "……걱정 끼치긴, 바보가……."
+
+    jump onsen
+
+## S# 5. 노천탕, 길드하우스 #################
+label onsen:
+
+    ## 노천탕 cg ## 동양풍 bgm
+
+    player "이히~ 온천 최고~ 히히히~"
+
+    player "흐허허~~ 바가지로 팽이놀이 해야지~ 헷헤헤~"
+
+    ch_nar "……일단 짚고 넘어가야 할 게 있는데,"
+
+    ch_nar "나는 바보가 아니다."
+
+    ch_nar "바보 같이 행동하고 있지만 바보가 아니다."
+
+    ch_nar "그렇다…… 이건 그저……"
+
+    ch_nar "「연기」일 뿐."
+
+    player "히히. 돌바닥 맛있다."
+
+    ch_nar "이런 어울리지도 않는 바보 연기를 하게 된 이유를 설명하려면 하루 전날로 거슬러 올라가야 한다."
+
+    ch_nar "그래…… 모든 일의 발단은 바로……"
+
+    ch_nar "그 「편지」였어……!"
+
+    player "으에— 콧물 나온다으…… 후루룹……."
+
+    player "짭짤하당. 히히."
+
+    ## 노천탕 cg 내리기
+    ## 동양풍 bgm 서서히 작아지다 끄기
+
+    ## 까만 배경
+    scene bg_black ## 까만 배경에 대화창만 팝업
+
+    ch_nar "하루 전……"
+
+    ## 심각한 브금 서서히 커지면서 들어오기
+
+    hide bg_black
+    scene bg_guildhouse
+
+    player "흐억……!!"
+
+    player "뭐, 뭐야 이거?! 혈서?!"
+
+    ## 피로 휘갈겨 쓴 편지 이미지 show blood_letter with dissolve
+
+    ch_nar "형형색색의 꽃무늬로 화려하게 장식된 동양풍의 겉봉 속, 편지지의 새하얀 빛깔과 대비되는 검붉은 선혈이 마구잡이로 흩뿌려져 있다."
+
+    ch_nar "벌건 가닥의 틈으로 무질서하게 엉겨 붙어 있는 덩어리들은 본연의 형태를 잃지 않으려 애쓰며 자신의 존재를 관철한다."
+
+    ch_nar "살려 달라고 외치는 듯한 문자의 나열은 꺼림칙한 정도를 넘어 기괴한 분위기까지 자아낸다……."
+
+    player "……”도와주세요” 라니…… 온천 초대장이 아니었어? 누가 장난친 건가?"
+
+    show stand_Ninon_down with dissolve
+
+    ch_ninon "아니…… 장난은 아닌 것 같소 입니다. 뒷면을 보십시오 쇼군."
+    
+    hide stand_Ninon_down
+
+    ch_nar "완성되지 못한 문장들이 짤막하게 휘갈겨 쓰여 있다."
+
+    ch_nar "알아보기 힘든 글씨체……. 편지가 쓰였을 당시의 상황이 매우 긴박했다는 것을 암시하는 듯하다."
+
+    ## show blood_letter with dissolve
+
+    ch_nar "{color=#FF2929}마 물이 숨 어 드ㄹ었 다{/color}"
+
+    ch_nar "{color=#FF2929}우 리 중 ㄴㅜ 군가{/color}"
+
+    ch_nar "{color=#FF2929}사람 , 이 사라 진{/color}"
+
+    ch_nar "{color=#FF2929}하 ㄹㅜ에 하 나씩{/color}"
+
+    ch_nar "{color=#FF2929}그거ㅅ에 게 들 키면{/color}"
+
+    ch_nar "{color=#FF2929}죽 을ㅁ{/color}"
+
+    ch_nar "{color=#FF2929}입구에서 구라노스케를 찾아주세요.{/color}"
+
+    player "잘 나가다가 이 삐끼 같은 마무리는 뭐야."
+
+    ## hide blood_letter with dissolve
+
+    show stand_Kuka with dissolve ## 쿠우카 놀란 표정
+
+    ch_kuka "저…… 정말 피로 쓴 글씨인가요……?! 히이이……."
 
     return
 ## 미니 게임 CG 라벨 ########################
