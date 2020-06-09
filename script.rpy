@@ -1,4 +1,4 @@
-﻿## 초기설정 #############################
+﻿ ## 초기설정 #############################
 init python:
     config.rollback_enabled = True
 
@@ -3339,7 +3339,90 @@ label onsen:
 
     ch_ninon "니논은 기쁩뉘다만……, 쇼군은 정말 괜찮으신가요 입니다……?"
 
+    hide stand_Ninon_panic
+
+    ch_ayumi "마, 맞아요……! 선배가 위험해지는 건 싫어……!"
+
+    ch_ayumi "……굳이 따라오지 않으셔도 저는 24시간 내내 언제나 선배의 모습을 감상할 수 있는데…… 아, 그래도 온천이라면 유카타 차림의 선배를…… 아니, 아니지, 유카타가 문제가 아니네요……. {cps=*0.8}탕속에들어가신다면수건한장만걸치고있는선배가,거기다운이좋으면수건마저풀어헤친평소에는볼수없었던고혹적인선배의또다른은밀한모습을{/cps}"
         
+    show stand_Kuka with dissolve ## 질색하는 표정
+
+    ch_kuka "아유미 씨…… 아무리 그래도 그건 범죄라고 생각해요……"
+
+    ch_nar "진짜 세계관 최강자들의 싸움이다……."
+
+    hide stand_Kuka
+
+    player "뭐…… 위험하다 해 봤자 온천일 뿐이잖아? 편지 자체가 장난일 가능성도 있고……"
+
+    player "무엇보다 정말 위험한 곳이라면, 너희들만 가게 둘 순 없어. 함께 가자."
+
+    ch_nar "방금 쫌 남자다웠다. 오졌다."
+
+    show stand_Monica with dissolve ## 웃는 표정
+
+    ch_monica "귀공의 의사가 그러하다면…… 굳이 반대할 이유는 없지."
+
+    ch_monica "그리고, 여차할 땐 우리가 나서면 문제 없을 거다. 모두들, 이것 또한 특훈의 일환이라고 생각하고 진지하게 임하도록……!"
+
+    hide stand_Monica
+    show stand_Ninon at right ## 니논 웃는 표정
+
+    ch_ninon "OUI!! 동국의 온천 문화가 몹쉬 기대된다 입니다!!!"
+
+    ## 니논 어둡게
+    show stand_Kuka at left ## 쿠우카 망상하는 표정
+
+    ch_kuka "겨, 결국 가는 건가요…… 가 버리는 건가요오……!!"
+
+    ## 쿠우카 어둡게
+    show stand_Yuki with dissolve ## 유키 자뻑하는 표정
+
+    ch_yuki "어떤 옷을 입어도 아름다운 내가 유카타를 입은 모습…… 수건 한 장으로는 감히 숨길 수 없는 미의 결정체. 그 고귀한 모습이 비쳐 흐르는, 한 폭의 그림 같은 노천탕…… 하아…… 너무 기대돼……."
+
+    ## 유키 어둡게
+
+    ch_ayumi "{cps=*0.8}선배가들어갈때아무도눈치채지못하게따라들어가서옷을갈아입는장면을두눈에새길수있고온천에들어가기위해수건을두르는순간도놓치지않는다면귀중한광경을두번이나볼수있는데다숙소로돌아오기위해탈의실에다시들어가는것까지카운트하면평소에절대보지못했던선배의모습을적어도네번이상{/cps}"
+
+    player "이것들한테 진지한 걸 기대한 내가 잘못했다."
+
+    hide stand_Kuka
+    hide stand_Yuki
+    show stand_Ninon at movetocenter
+
+    ch_ninon "아, 그리고 모니카 씨—"
+
+    ch_ninon "니논의 『시크릿 · 닌닌 정보망』에 따르면, 온천 내부의 매점에서 다양한 별미를 판매한다고 합니다."
+
+    hide stand_Ninon
+    show stand_Ninon_wink with dissolve ## 니논 윙크하는 표정
+
+    ch_ninon "무엇보다 오에도 온천에서만 맛볼 수 있는 한정판 간식이 있다고 하네요 입니다~!"
+
+    ## 니논 어둡게
+    show stand_Monica at veryleft ## 모니카 놀란 표정
+
+    ch_monica "뭣, 뭐라고?! 간식이라면 과자도 있다는 말인가?!"
+
+    player "모니카 너마저……"
+
+    player "음…… 그래도 너무 축 처지는 분위기보다는 나은가……"
+
+    player "그래, 편하게 놀러 가는 거라고 생각하자."
+
+    player "별일이야 있겠어?"
+
+    hide stand_Ninon_wink
+    hide stand_Monica
+    hide bg_guildhouse
+
+    ## 마을 bgm 점점 작아짐
+
+    jump onsen_inside
+## S# 6. 온천 건물 내부 #####################
+label onsen_inside:
+    scene bg_black
+
 
 
     return
