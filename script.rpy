@@ -44,6 +44,10 @@ init:
         im.FactorScale("Character/ninon/ninon_yukata_surp.png", 0.18)
     image stand_Ninon_yukata_wink:
         im.FactorScale("Character/ninon/ninon_yukata_wink.png", 0.18)
+
+    image stand_gura:
+        im.FactorScale("Character/gura/gura.png", 1.0)
+
     transform movetoright:
         ease 0.5 xalign 1.0
 
@@ -59,6 +63,12 @@ init:
         
     transform rotated:
         linear .5 rotate 360 yalign 0.3
+
+    transform fast_rotating:
+        linear 0.3 rotate 360 yalign 0.5
+
+    transform fast_rotating_2:
+        linear 0.3 rotate 720 yalign 0.5
 
     image bg_forest:
         im.FactorScale("bg/forest.jpg", 0.4)
@@ -78,6 +88,10 @@ init:
         im.FactorScale("bg/black.png", 2.0)
     image bg_surf:
         im.FactorScale("bg/surf.jpg", 1.75)
+
+    image bg_onsen:
+        im.FactorScale("bg/bg_onsen.jpg", 1.8)
+
     image logo_head = "logo/logo.png"
 
 ## 캐릭터 ###############################
@@ -101,6 +115,8 @@ init:
     define ch_peco = Character("페코린느", color = "#f2a20c")
 
     define ch_kyaru = Character("배신자", color = "#071469")
+
+    define ch_gura = Character("구라노스케")
 
 ## 나래이터류 ############################
 init:
@@ -2475,6 +2491,7 @@ label start:
     ch_monica "그…… 그리고 달콤한 과자도 조금…… 흠흠."
     hide stand_Monica
 ## 길드 하우스 cg 페이드
+    show bg_black onlayer background
     scene bg_guildhouse with fade
     show stand_Ninon
 
@@ -3004,7 +3021,7 @@ label black_haikei:
 
 ## S# 5. 노천탕, 길드하우스 #################
 label onsen:
-
+    scene bg_onsen with fade
     ## 노천탕 cg ## 동양풍 bgm
 
     player "이히~ 온천 최고~ 히히히~"
@@ -3034,6 +3051,7 @@ label onsen:
     player "짭짤하당. 히히."
 
     ## 노천탕 cg 내리기
+    hide bg_onsen
     ## 동양풍 bgm 서서히 작아지다 끄기
 
     ## 까만 배경
@@ -3384,7 +3402,7 @@ label onsen:
 
     ch_ayumi "{cps=*0.8}선배가들어갈때아무도눈치채지못하게따라들어가서옷을갈아입는장면을두눈에새길수있고온천에들어가기위해수건을두르는순간도놓치지않는다면귀중한광경을두번이나볼수있는데다숙소로돌아오기위해탈의실에다시들어가는것까지카운트하면평소에절대보지못했던선배의모습을적어도네번이상{/cps}"
 
-    player "이것들한테 진지한 걸 기대한 내가 잘못했다."
+    ch_nar "이것들한테 진지한 걸 기대한 내가 잘못했다."
 
     hide stand_Kuka
     hide stand_Yuki
@@ -3404,13 +3422,13 @@ label onsen:
 
     ch_monica "뭣, 뭐라고?! 간식이라면 과자도 있다는 말인가?!"
 
-    player "모니카 너마저……"
+    ch_nar "모니카 너마저……"
 
-    player "음…… 그래도 너무 축 처지는 분위기보다는 나은가……"
+    ch_nar "음…… 그래도 너무 축 처지는 분위기보다는 나은가……"
 
-    player "그래, 편하게 놀러 가는 거라고 생각하자."
+    ch_nar "그래, 편하게 놀러 가는 거라고 생각하자."
 
-    player "별일이야 있겠어?"
+    ch_nar "별일이야 있겠어?"
 
     hide stand_Ninon_wink
     hide stand_Monica
@@ -3421,9 +3439,62 @@ label onsen:
     jump onsen_inside
 ## S# 6. 온천 건물 내부 #####################
 label onsen_inside:
-    scene bg_black
+    show bg_black onlayer background
+    scene bg_onsen onlayer middle with fade ## 온천내부 cg 빠르게
+    show stand_gura onlayer forward with dissolve## 빠르게
 
+    $ renpy.pause(1.5, hard = True)
 
+    ## 충격적인 효과음
+
+    ## 빠르게 화면전체가 돌아가는 효과
+    show bg_onsen onlayer middle at fast_rotating_2
+
+    ## 장난스러운 bgm
+
+    hatena "오에도 온천에 어서옵쇼오————옷!!!!!!!!!!!!!!!"
+    hide stand_gura
+
+    player "으아아아악!!!!"
+
+    ## 빠르게 화면 한 바퀴
+    show bg_onsen onlayer middle at fast_rotating
+    show stand_gura onlayer forward with dissolve
+
+    hatena "입장은 몇 분임까아———앗!!!!!!!!!!!!!!!!"
+    hide stand_gura onlayer forward
+    
+    show stand_Monica onlayer forward ## 모니카 화난 표정
+
+    ch_monica "아아, 다섯 명으로 부탁하지."
+
+    ## 모니카 어둡게
+
+    ch_ayumi "엣? 여…… 여섯 명 아닌가요……?"
+
+    ## 모니카 놀란 표정
+
+    ch_monica "이런, 아유미의 존재를 깜빡 잊고 있었다……. 미안하군. 모습이 보이지 않아서 무심코……"
+
+    ## 모니카 어둡게
+
+    ch_ayumi "차…… 차라리 존재감이 없다고 해 주세요……! 모습이 안 보인다는 말은 좀 너무하잖아요……!!"
+
+    player "아니 과장이 아니라 진짜로 안 보이는데……"
+
+    hide stand_Monica onlayer forward
+
+    show stand_gura onlayer forward
+
+    player "그, 그보다 다들, 이 녀석 생김새를 보고도 아무렇지 않은 거야?! 이건 사람이라기보다"
+
+    show stand_Monica onlayer forward at veryleft ## 모니카 화난 표정
+
+    ch_monica "귀공…… 사람을 외모로 판단하는 건 나쁜 버릇이다."
+
+    hide stand_Monica onlayer forward
+
+    player "외모고 뭐고 사람의 형상이 아니잖……"
 
     return
 ## 미니 게임 CG 라벨 ########################
