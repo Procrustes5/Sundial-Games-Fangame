@@ -3484,9 +3484,9 @@ label onsen_inside:
 
     hide stand_Monica onlayer forward
 
-    show stand_gura onlayer forward
+    show stand_gura onlayer forward with dissolve
 
-    player "그, 그보다 다들, 이 녀석 생김새를 보고도 아무렇지 않은 거야?! 이건 사람이라기보다"
+    player "그, 그보다 다들, 이 녀석 생김새를 보고도 아무렇지 않은 거야?! 이건 사람이라기보다……"
 
     show stand_Monica onlayer forward at veryleft ## 모니카 화난 표정
 
@@ -3495,6 +3495,8 @@ label onsen_inside:
     hide stand_Monica onlayer forward
 
     player "외모고 뭐고 사람의 형상이 아니잖……"
+
+    
 
     return
 ## 미니 게임 CG 라벨 ########################
