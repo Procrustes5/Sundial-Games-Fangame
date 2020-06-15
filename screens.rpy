@@ -373,7 +373,7 @@ init python:
     g.unlock_image("end6")
 
     g.button("yuki1")
-    g.unlock_image("end7")
+    g.unlock_image("cg_yuki_01")
     
     g.button("yuki2")
     g.unlock_image("end8")

@@ -4,10 +4,22 @@ init python:
 
 ## 스탠딩 ###############################
 init:
+    ## 모니카
     image stand_Monica = "Character/monica/monica.png"
+    ## 쿠우카
     image stand_Kuka = "Character/kuka/kuka.png"
+    ## 유키
     image stand_Yuki:
         im.FactorScale("Character/yuki/yuki.png", 0.18)
+    image stand_Yuki_angry:
+        im.FactorScale("Character/yuki/yuki_angry.png", 0.18)
+    image stand_Yuki_ddung:
+        im.FactorScale("Character/yuki/yuki_ddung.png", 0.18)
+    image stand_Yuki_proud:
+        im.FactorScale("Character/yuki/yuki_proud.png", 0.18)
+    image stand_Yuki_shamed:
+        im.FactorScale("Character/yuki/yuki_shamed.png", 0.18)
+    ## 니논
     image stand_Ninon:
         im.FactorScale("Character/ninon/ninon.png", 0.18)
     image stand_Ninon_down:
@@ -44,10 +56,10 @@ init:
         im.FactorScale("Character/ninon/ninon_yukata_surp.png", 0.18)
     image stand_Ninon_yukata_wink:
         im.FactorScale("Character/ninon/ninon_yukata_wink.png", 0.18)
-
+    ## 구라노스케
     image stand_gura:
         im.FactorScale("Character/gura/gura.png", 1.0)
-
+## 트랜스폼
     transform movetoright:
         ease 0.5 xalign 1.0
 
@@ -69,7 +81,7 @@ init:
 
     transform fast_rotating_2:
         linear 0.3 rotate 720 yalign 0.5
-
+## 배경 cg
     image bg_forest:
         im.FactorScale("bg/forest.jpg", 0.4)
     
@@ -91,6 +103,12 @@ init:
 
     image bg_onsen:
         im.FactorScale("bg/bg_onsen.jpg", 1.8)
+
+    image bg_onsen_heya_01:
+        im.FactorScale("bg/bg_onsen_heya_01.jpg", 0.66)
+
+    image bg_onsen_heya_02:
+        im.FactorScale("bg/bg_onsen_heya_02.jpg", 1.0)
 
     image logo_head = "logo/logo.png"
 
@@ -196,9 +214,12 @@ init python:
     config.say_menu_text_filter = pppChanger
 
 ## 갤러리 #################################
-image end1 = "library/end1.jpg"
-image ninon_pingping:
-    im.FactorScale("library/ninon_pingping.png", 0.5)
+init:
+    image end1 = "library/end1.jpg"
+    image ninon_pingping:
+        im.FactorScale("library/ninon_pingping.png", 0.5)
+    image cg_yuki_01:
+        im.FactorScale("library/cg_yuki_01.png", 1.0)
 define persistent.unlock_1 = False  
 ## 시작 전 로고 화면 ######################
 label splashscreen:
@@ -2124,8 +2145,8 @@ label naming:
     $ finalConso = finalChecker(name)
 
     if length(name) == True:
-        hatena "어서와,[name]. 그게 당신의 이름이구나."
-        hatena "지금부터 당신이 보게 될 것은, 이른바 꿈 같은 거야. 이미 겪어보았거나, 언젠가 일어날지도 모르는, 한여름 밤의 꿈 같은 일. ‘몽상’이라 불러도 좋겠네."
+        hatena "어서 와, [name]. 그게 당신의 이름이구나."
+        hatena "지금부터 당신이 보게 될 것은, 이른바 꿈 같은 거야. 이미 겪어 보았거나, 언젠가 일어날지도 모르는, 한여름 밤의 꿈 같은 일. ‘몽상’이라 불러도 좋겠네."
 
         menu:
             "당신은 누구죠?":
@@ -2133,11 +2154,11 @@ label naming:
                 ##하스스톤 비밀거는 효과음
                 hatena "……호기심도 많네. 내 정체 같은 건 중요하지 않아."
                 hatena "당신이 알아야 할 건 단지…… 이제부터 여러 명의 ‘소녀’들을 만나게 된다는 것과,"
-                hatena "당신이 어떤 선택을 내리느냐에 따라 그녀들의 운명이 조금씩 바뀌게 된다는 것밖에 없어. 그럼 잘해봐. 행운을 빌게, 왕자님♪"
+                hatena "당신이 어떤 선택을 내리느냐에 따라 그녀들의 운명이 조금씩 바뀌게 된다는 것밖에 없어. 그럼 잘해 봐. 행운을 빌게, 왕자님♪"
             ##텍스트 사라지면서 볼륨 서서히 off
     else:
         hatena "어떻게 사람 이름이 [name]일수가 있지 ㅋㅋ"
-        hatena "진짜 이름을 10자 이내로 알려줘."
+        hatena "진짜 이름을 10자 이내로 알려 줘."
         call naming from _call_naming
 
     return
@@ -2175,11 +2196,11 @@ label start:
     monster "크워어어어어!!"
 
     show stand_Monica onlayer middle with dissolve
-    ch_monica "칫… 이 정도로는 어림도 없나. 모두들, 뒤로 물러나! 놈이 반격해온다!"
+    ch_monica "칫… 이 정도로는 어림도 없나. 모두들, 뒤로 물러나! 놈이 반격해 온다!"
     hide stand_Monica onlayer middle
     show stand_Kuka onlayer middle with dissolve
 
-    ch_kuka "이… 이렇게 커다란 마물이라면… 쿠… 쿠우카, 돌아오지 못할 강을 건너버릴지도…! 크흐흣….츄릅…."
+    ch_kuka "이… 이렇게 커다란 마물이라면… 쿠… 쿠우카, 돌아오지 못할 강을 건너 버릴지도…! 크흐흣….츄릅…."
     ##쿠우카 어둡게
     ch_ayumi "쿠…쿠우카 씨…! 혼자 너무 앞에 있으면 위험해요…!"
     hide stand_Kuka onlayer middle
@@ -2220,27 +2241,31 @@ label start:
     show bg_guildhouse with fade
     ch_nar "식칼에 베였다."
 
-    ch_nar "콧코로의 눈망울이 연상되는 와인 색의 피가 손끝에 맺힌다. 아프다."
+    ch_nar "콧코로의 눈망울이 연상되는 와인색의 피가 손끝에 맺힌다. 아프다."
+
+    ## 피 묻은 손수건 이미지 팝업
+
+    ch_nar "언젠가 콧코로에게 받았던 손수건으로 피를 닦았다."
 
     ch_nar "콧코로…… 언제 와? 나 배고파. 무서워."
 
-    ch_nar "콧코로는 돈 많이 벌어오겠다며 집을 나간 뒤로 며칠 째 연락이 안 된다."
+    ch_nar "콧코로는 돈 많이 벌어오겠다며 집을 나간 뒤로 며칠째 연락이 안 된다."
 
     ch_nar "페코린느와 배신자는 던전으로 식재료 탐방을 간다길래 따라가고 싶다고 했더니,"
 
-    ch_nar "“아하하, 약해빠진 주제에 또 누구 발목을 잡으려는 건가요? 장난 아니네요! 얌전히 길드하우스나 지키고 있으세요☆”"
+    ch_nar "“아하하, 약해 빠진 주제에 또 누구 발목을 잡으려는 건가요? 장난 아니네요! 얌전히 길드하우스나 지키고 있으세요☆”"
 
-    ch_nar "“하아? 벌레 한 마리도 제대로 못 잡는 멍청한 돼지가 어딜 따라오겠다고? 죽여버린다?”"
+    ch_nar "“하아? 벌레 한 마리도 제대로 못 잡는 멍청한 돼지가 어딜 따라오겠다고? 죽여 버린다?”"
 
-    ch_nar "라며 나만 남겨두고 가버렸다."
+    ch_nar "라며 나만 남겨 두고 가 버렸다."
 
     ch_nar "수영복만 벗으면 아무것도 아닌 것들이……."
 
-    ch_nar "항상 콧코로가 요리를 해줬는데 이젠 밥해줄 사람이 아무도 없다. 이대로면 정말 굶어죽을지도 모른다."
+    ch_nar "항상 콧코로가 요리를 해 줬는데 이젠 밥 해 줄 사람이 아무도 없다. 이대로면 정말 굶어 죽을지도 모른다."
 
-    ch_nar "그래서 직접 요리를 해보려고 식칼을 꺼냈는데 쥐는 법을 몰라서 바로 손가락을 베였다."
+    ch_nar "그래서 직접 요리를 해 보려고 식칼을 꺼냈는데 쥐는 법을 몰라서 바로 손가락을 베였다."
 
-    ch_nar "콧코로…… 생전 손에 물 한 번 묻혀본 적 없는 나에게 이런 수모를 겪게 하다니…… 돌아오면 잘못했다고 울며불며 매달릴 때까지 단식투쟁을 할 것이다."
+    ch_nar "콧코로…… 생전 손에 물 한 번 묻혀 본 적 없는 나에게 이런 수모를 겪게 하다니…… 돌아오면 잘못했다고 울며불며 매달릴 때까지 단식투쟁을 할 것이다."
 
     ## 대화창 사라짐
     ## 문 두드리는 소리
@@ -2292,7 +2317,7 @@ label start:
     
     ## 모니카 화난 표정 페이드
     show stand_Monica with dissolve
-    ch_monica "이대로는 안돼!"
+    ch_monica "이대로는 안 돼!"
     show stand_Monica at movetoleft
     ## 모니카가 왼쪽으로 밀리면서 니논 오른쪽에 팝업
     show stand_Ninon at right with dissolve ## 웃는 표정
@@ -2312,7 +2337,7 @@ label start:
     extend " ……아니, 아니! 그게 중요한 게 아니다!"
 
     ch_monica "우리는 ‘바이스플뤼겔 랜드솔지부’다! 마물을 소탕하고, 곤란에 빠진 사람들을 도와주는 유능한 모험가 길드!"
-    ch_monica "……였어야 했는데, 마지막으로 마물을 토벌했던 게 언제인지 이제는 기억도 안 날 지경이다. 채집 의뢰만 산더미처럼 쌓여있어! 이게 뭐냐! 우리는 전투 길드란 말이다~!!"
+    ch_monica "……였어야 했는데, 마지막으로 마물을 토벌했던 게 언제인지 이제는 기억도 안 날 지경이다. 채집 의뢰만 산더미처럼 쌓여 있어! 이게 뭐냐! 우리는 전투 길드란 말이다~!!"
 
     hide stand_Monica
     show stand_Kuka with dissolve
@@ -2344,7 +2369,7 @@ label start:
     ## 모니카 웃는 표정
     ch_monica "분명 우리는 숲이나 평원에 돌아다니는 어지간한 마물 정도는 거뜬히 해치울 정도로 강해. 그럼에도 마물 소탕에 있어서는 별다른 성과를 보이지 못하고 있다."
 
-    ch_monica "모든 일에는 타당한 이유가 존재하기 마련. 그렇다면 우리들에게 부족한 건 대체 뭘까? 아유미! 대답해봐라!"
+    ch_monica "모든 일에는 타당한 이유가 존재하기 마련. 그렇다면 우리들에게 부족한 건 대체 뭘까? 아유미! 대답해 봐라!"
     ## 호흡 한 번 끊기
     ## 모니카 어둡게
 
@@ -2381,9 +2406,9 @@ label start:
     ch_monica "하지만! 운에 기대지 않고 마물을 쓰러뜨릴 수 있는, 확실한 실력을 쌓는 방법을 우리는 알고 있다! 어떻게?"
     hide stand_Monica
     ## 유키 질색하는 표정
-    show stand_Yuki with dissolve
+    show stand_Yuki_angry with dissolve
     ch_yuki "잠깐, 설마……."
-    hide stand_Yuki
+    hide stand_Yuki_angry
     ## 강조선
     show stand_Monica with dissolve## 자신만만
     show highlight onlayer forward with hpunch
@@ -2439,16 +2464,16 @@ label start:
     ## 시무룩한 표정으로 변경
     extend " ……나는 그저……."
 
-    ch_monica "……무작정 부딪혀보면 어떻게든 될 거라고 생각했건만……. 귀공은 내 방식이 잘못됐다고 생각하나?"
+    ch_monica "……무작정 부딪혀 보면 어떻게든 될 거라고 생각했건만……. 귀공은 내 방식이 잘못됐다고 생각하나?"
 
     menu:
-        "결과가 말해주고 있잖아":
+        "결과가 말해 주고 있잖아":
             ## 볼빵빵
             ch_monica "……마, 맞는 말이다만……, 그렇게 말하는 귀공에게는 더 좋은 해결책이 있는 거겠지?"
             ch_monica "자세한 이야기는 우리 길드원들 앞에서 하는 게 어떤가? 지금 바로 출발하도록 하지."
         "틀린 방법은 아니었다고 생각해":
             ## 시무룩한 표정
-            ch_monica "빈말이라도 고맙군…… 하지만 우리는 실제로 마물에게 이렇다 할 타격도 주지 못하고 당해버렸어."
+            ch_monica "빈말이라도 고맙군…… 하지만 우리는 실제로 마물에게 이렇다 할 타격도 주지 못하고 당해 버렸어."
             ch_monica "이대로면 부하들이 입는 피해만 늘어갈 터……. 뭔가 다른 방법이 필요해." 
             ch_monica "귀공, 도움을 줄 수 있겠나? 일단 우리 길드하우스로 자리를 옮기도록 하지."
     hide stand_Monica with fade
@@ -2498,7 +2523,7 @@ label start:
     ch_ninon "쇼군! 이것은 마음을 안정시키는 동국의 3대 명차, 우지차라고 하는 것입니다!"
 
     ## 
-    extend " 어서 들이켜보세요 입니다!"
+    extend " 어서 들이켜 보세요 입니다!"
 
     hide stand_Ninon
 
@@ -2510,7 +2535,7 @@ label start:
     ## 쿠우카 망상하는 표정
     ch_kuka "설마…… 어둡고 구석진 골목에 마구잡이로 쿠우카를 밀어붙였던 그날…… 쿠우카가 아직까지도 그날의 쾌락을 잊지 못한 채 추잡스러운 행위를 계속하고 있는지 직접 확인하려고……?!"
 
-    ch_kuka " 쿠, 쿠우카를 나락으로 빠뜨리기 위해 어디까지 계획을 세워놓은 건가요?! 이…… 인륜배반자! 관음증 변태! 쿠, 쿠훗, 크흐흐……."
+    ch_kuka " 쿠, 쿠우카를 나락으로 빠뜨리기 위해 어디까지 계획을 세워 놓은 건가요?! 이…… 인륜배반자! 관음증 변태! 쿠, 쿠훗, 크흐흐……."
 
     hide stand_Kuka
     show stand_Monica with dissolve
@@ -2530,7 +2555,7 @@ label start:
 
     ch_ninon "쇼군! 니논은 최선을 다했다 입니다! 하지만 마물이 너무너무 POWERFUL 했습니다……."
 
-    ch_ninon "「인법 · 쇄우 병쉰 회오뤼감좌」를 정면으로 받아내고 살아남은 자는 그녀석이 처음이었다 입니다!"
+    ch_ninon "「인법 · 쇄우 병쉰 회오뤼감좌」를 정면으로 받아 내고 살아남은 자는 그 녀석이 처음이었다 입니다!"
 
     ## 니논 어둡게
 
@@ -2546,7 +2571,7 @@ label start:
 
     ch_monica "……걱정할 것 없다, 니논! [name]의 도움이 있다면 그보다 더 강한 놈들도 충분히 상대할 수 있게 될 거다."
 
-    ch_monica "그러면, 우리의 문제가 어떤 것인지 말해줄 수 있겠나?"
+    ch_monica "그러면, 우리의 문제가 어떤 것인지 말해 줄 수 있겠나?"
 
     hide stand_Monica
     show stand_Yuki with dissolve ##자신만만한 표정
@@ -2560,7 +2585,7 @@ label start:
 
     ## 모니카 자신만만한 표정
 
-    ch_monica "‘바이스플뤼겔 랜드솔지부’가 나아갈 길을 제시해주게! 귀공은 우리의 문제가 무엇이라고 생각하나?"
+    ch_monica "‘바이스플뤼겔 랜드솔지부’가 나아갈 길을 제시해 주게! 귀공은 우리의 문제가 무엇이라고 생각하나?"
 
 ## 캐릭터 선택 분기 #########################
     menu:
@@ -2618,7 +2643,7 @@ label start:
 
     ## 모니카 자신만만한 표정
 
-    ch_monica "우리의 새로운 해결사가 답을 알려줄 거다!"
+    ch_monica "우리의 새로운 해결사가 답을 알려 줄 거다!"
 
     ## 둘 다 어둡게
 
@@ -2696,7 +2721,7 @@ label start:
     ch_nar "니논이 쌉소리를 하는 동안 뭐라도 생각해 냈어야 했는데…… 어떡하지……?"
 
     ## 유키 뚱한 표정
-    show stand_Yuki with dissolve
+    show stand_Yuki_ddung with dissolve
 
     ch_yuki "저기 저기 [name]."
 
@@ -2705,7 +2730,7 @@ label start:
     ch_yuki "좀 전에 니논이 ‘특훈’이니 뭐니 했던 거 말야, 그런 바보 같은 걸 진짜로 하자고 할 건 아니지?"
 
     ## 니논 억울한 표정 왼쪽/ 유키 cg 어두워짐
-    show stand_Yuki at movetoright
+    show stand_Yuki_ddung at movetoright
     show stand_Ninon_innocence at left
 
     ch_ninon "이익……! 먼저 바보라 하는 사람이 바보 입니다!"
@@ -2718,7 +2743,7 @@ label start:
     ch_nar "그런데 잠깐, 방금……."
 
     hide stand_Ninon_innocence
-    hide stand_Yuki
+    hide stand_Yuki_ddung
 
     player "……땀 흘리는 일이라……."
     
@@ -2763,7 +2788,7 @@ label start:
 
     ## 모니카 어두워지고 유키 밝아짐
 
-    ch_yuki "음~ 예쁜 얼굴은 타고나는 거라 해도, 피부는 꾸준히 잘 관리해줘야 한다구. 이참에 모니카 씨도 신경 좀 써보는 건 어때? 충분히 귀여운 얼굴인데, 아깝잖아~ 뭐, 나만큼은 아니지만."
+    ch_yuki "음~ 예쁜 얼굴은 타고나는 거라 해도, 피부는 꾸준히 잘 관리해 줘야 한다구. 이참에 모니카 씨도 신경 좀 써 보는 건 어때? 충분히 귀여운 얼굴인데, 아깝잖아~ 뭐, 나만큼은 아니지만."
 
     ## 유키 어두워지고 모니카 부끄러워하는 표정 밝아짐
 
@@ -2895,6 +2920,8 @@ label start:
 
     ch_monica "그건 그렇다 치고, 귀공."
 
+    $ renpy.pause(0.5, hard = True)
+
     ch_monica "먼저 온천이라는 장소를 언급한 만큼 따로 생각해 둔 곳이 있는 거겠지? 우리는 전적으로 귀공의 계획에 따르겠네."
 
     hide stand_Monica
@@ -2932,15 +2959,17 @@ label start:
     ch_ninon "………………………………."
 
     hide stand_Ninon_surprise
-    show stand_Yuki ## 유키 화난 표정
+    show stand_Yuki_angry ## 유키 화난 표정
 
     ch_yuki "~~~아, 정말! 답답하게 뭐하는 거야? 안 읽어 줄 거면 차라리……"
 
     ## 유키 부끄러워하는 표정
+    hide stand_Yuki_angry
+    show stand_Yuki_shamed with dissolve
 
     extend "앗…… 화내는 얼굴도 어쩜 이렇게 새침하고 귀여울 수가…… 세상에……. 거울에서 눈을 뗄 수가…"
 
-    hide stand_Yuki
+    hide stand_Yuki_shamed
     show stand_Monica ## 모니카 화난 표정
 
     ch_monica "둘 다 뭘 하고 있는 건가, 대체?! 니논, 편지를 이리로 넘겨라!"
@@ -3120,11 +3149,11 @@ label onsen:
     ch_monica "모종의 이유로 피를 흘리면서까지 편지를 쓸 수밖에 없었던 상황이었을지도……."
 
     hide stand_Monica
-    show stand_Yuki with dissolve ## 유키 뚱한 표정
+    show stand_Yuki_ddung with dissolve ## 유키 뚱한 표정
 
     ch_yuki "잠깐, 너무 진지하게 받아들이는 거 아니야? 저 빨간 자국이 진짜 피가 맞다 쳐도, 이상한 점이 한두 개가 아니잖아."
 
-    hide stand_Yuki
+    hide stand_Yuki_ddung
     show stand_Ninon_surprise with dissolve ## 니논 놀란 표정
 
     ## 니논 어둡게
@@ -3297,16 +3326,22 @@ label onsen:
             ch_yuki "응? 나 말이야?"
 
             ## 유키 자뻑하는 표정
+            hide stand_Yuki
+            show stand_Yuki_proud with dissolve
 
             ch_yuki "……흐흥♪"
 
             ## 유키 질색하는 표정
+            hide stand_Yuki_proud
+            show stand_Yuki_angry with dissolve
 
             ch_yuki "너 같은 건 안 따라왔으면 좋겠는데?"
 
             player "어?"
 
             ## 유키 자뻑하는 표정
+            hide stand_Yuki_angry
+            show stand_Yuki_proud with dissolve
 
             ch_yuki "……라고 하면, 정말로 안 따라올 거야?"
 
@@ -3317,12 +3352,16 @@ label onsen:
             ch_yuki "표정으로 다 드러난다구. 귀엽네~"
 
             ## 유키 웃는 표정
+            hide stand_Yuki_proud
+            show stand_Yuki with dissolve
 
             ch_yuki "네가 함께 가는 거라면, 난 찬성이야."
 
             ch_yuki "온천이니까…… 평소보다 조금 더 대담한 모습을 보여 줄 수 있겠네?"
 
             ## 유키 자뻑하는 표정
+            hide stand_Yuki
+            show stand_Yuki_proud with dissolve
 
             ch_yuki "꺄~ 부끄러워~"
 
@@ -3332,7 +3371,7 @@ label onsen:
 
             player "같이 가자, 온천."
 
-            hide stand_Yuki
+            hide stand_Yuki_proud
 
             pass
 
@@ -3496,7 +3535,19 @@ label onsen_inside:
 
     player "외모고 뭐고 사람의 형상이 아니잖……"
 
-    
+    ## 임시 선택지
+    menu:
+        "게임 이어서 계속하기":
+            pass
+        "유키 cg 확인하기":
+            hide stand_gura onlayer forward
+            hide bg_onsen onlayer middle
+            hide bg_black onlayer background
+            jump cg_yukifirst
+
+    show stand_Yuki_ddung at right with dissolve ## 유키 뚱한 표정 오른쪽
+
+    ch_yuki "맞아~ 얼른 사과해. 그 누구보다 아름다운 나조차도 남의 외모를 함부로 깎아내리진 않는다구."
 
     return
 ## 미니 게임 CG 라벨 ########################
@@ -3812,10 +3863,83 @@ label cg_kukasecond:
     centered "오비가 풀려 유카타가 벗겨지려 하자 자신을 껴안아서 가려주는 주인공을 부끄러운 표정으로 바라보는 쿠우카"
 
     return
-
+## S# 11. 유키 1번 cg
 label cg_yukifirst:
 
-    centered "전라 상태로 수건을 몸에 두르고 고개를 살짝 돌려 주인공을 힐끔 쳐다보는 유키의 뒷모습"
+    ## 유키 1번 cg 배경
+    scene cg_yuki_01 with fade
+
+    ## 동양풍 bgm
+
+    player "후우……"
+
+    player "별로 한 것도 없는데 왜 이리 피곤하지……?"
+
+    ## 유키 1번 cg 표정 1로 변경
+
+    ch_yuki "흥~ 흐흥……♬"
+
+    ch_nar "이 녀석은 뭐가 그렇게 신나는 걸까……"
+
+    ch_nar "……."
+
+    ch_nar "그나저나 보면 볼수록 놀랍다."
+
+    ch_nar "이 녀석이 ‘남자’라는 게……"
+
+    ch_nar "길고 진한 속눈썹."
+
+    ch_nar "잡티 하나 없이 뽀얀 피부."
+
+    ch_nar "호리하고 가냘픈 몸매……"
+
+    ch_nar "어디를 어떻게 봐도 여자애다."
+
+    ch_nar "사실 남자라는 건 거짓말 아닐까……?"
+
+    ch_nar "뭐…… 곧 확인해 볼 수 있겠지만……"
+
+    ## 유키 1번 cg 표정 2
+
+    ch_yuki "응?"
+
+    ch_nar "아…… 눈 마주쳤다."
+
+    ch_nar "너무 빤히 보고 있었나……." 
+
+    ## 유키 1번 cg 표정 3
+
+    ch_yuki "헤에~ [name], 아름다운 내 몸에 관심 있어?"   
+
+    ch_yuki "좀 더 가까이서 봐도 괜찮아~ 백옥 같은 내 살결을 직접 볼 수 있는 기회는 흔치 않으니까."
+    
+    player "아…… 응……."
+
+    ch_yuki "만져 보고 싶어?"
+
+    player "그런 말은 안 했……"
+
+    ch_yuki "그건 곤란한걸…… 완벽한 내 피부에 흠이라도 생긴다면 그건 곧 전 지구적 손실이라서."
+    
+    player "그런 말 안 했다고!!!"
+
+    ch_yuki "아니면……"
+
+    ## 충격적인 효과음
+
+    ## 유키 1번 cg 완
+
+    ch_yuki "내 {color=#FF2929}아름다움{/color}이 잔뜩 배어 있는 {color=#FF2929}팬티{/color}라도 가질래?"
+
+    ch_yuki "너에게만 주는 특권이야♪"
+
+    player "필요 없어!!!!"
+
+    ch_yuki "부끄러워하긴~ 나중에 후회해도 모른다?"
+
+    ch_nar "저런 정신 나간 말을 아무렇지 않게 할 수 있는 것도 재능이 아닐까……."
+
+    hide cg_yuki_01
 
     return
 
