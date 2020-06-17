@@ -7,7 +7,30 @@ init:
     ## 모니카
     image stand_Monica = "Character/monica/monica.png"
     ## 쿠우카
-    image stand_Kuka = "Character/kuka/kuka.png"
+    image stand_Kuka:
+        im.FactorScale("Character/kuka/kuka.png", 0.18)
+    image stand_Kuka_down:
+        im.FactorScale("Character/kuka/kuka_down.png", 0.18)
+    image stand_Kuka_hiku:
+        im.FactorScale("Character/kuka/kuka_hiku.png", 0.18)
+    image stand_Kuka_mousou:
+        im.FactorScale("Character/kuka/kuka_mousou.png", 0.18)
+    image stand_Kuka_shamed:
+        im.FactorScale("Character/kuka/kuka_shamed.png", 0.18)
+    image stand_Kuka_surprised:
+        im.FactorScale("Character/kuka/kuka_surprised.png", 0.18)
+    image stand_Kuka_yukata:
+        im.FactorScale("Character/kuka/kuka_yukata.png", 0.18)
+    image stand_Kuka_yukata_down:
+        im.FactorScale("Character/kuka/kuka_yukata_down.png", 0.18)
+    image stand_Kuka_yukata_hiku:
+        im.FactorScale("Character/kuka/kuka_yukata_hiku.png", 0.18)
+    image stand_Kuka_yukata_mousou:
+        im.FactorScale("Character/kuka/kuka_yukata_mousou.png", 0.18)
+    image stand_Kuka_yukata_shamed:
+        im.FactorScale("Character/kuka/kuka_yukata_shamed.png", 0.18)
+    image stand_Kuka_yukata_surprised:
+        im.FactorScale("Character/kuka/kuka_yukata_surprised.png", 0.18)
     ## 유키
     image stand_Yuki:
         im.FactorScale("Character/yuki/yuki.png", 0.18)
@@ -19,6 +42,17 @@ init:
         im.FactorScale("Character/yuki/yuki_proud.png", 0.18)
     image stand_Yuki_shamed:
         im.FactorScale("Character/yuki/yuki_shamed.png", 0.18)
+    image stand_Yuki_yukata:
+        im.FactorScale("Character/yuki/yuki_yukata.png", 0.18)
+    image stand_Yuki_yukata_angry:
+        im.FactorScale("Character/yuki/yuki_yukata_angry.png", 0.18)
+    image stand_Yuki_yukata_ddung:
+        im.FactorScale("Character/yuki/yuki_yukata_ddung.png", 0.18)
+    image stand_Yuki_yukata_proud:
+        im.FactorScale("Character/yuki/yuki_yukata_proud.png", 0.18)
+    image stand_Yuki_yukata_shamed:
+        im.FactorScale("Character/yuki/yuki_yukata_shamed.png", 0.18)
+    
     ## 니논
     image stand_Ninon:
         im.FactorScale("Character/ninon/ninon.png", 0.18)
@@ -114,7 +148,7 @@ init:
         im.FactorScale("bg/bg_onsen_heya_02.jpg", 1.0)
 
     image bg_tyugaku:
-        im.FactorScale("bg/bg_tyugaku.png", 1.3)
+        im.FactorScale("bg/bg_tyugaku.png", 0.67)
 
     image bg_tyugaku_running:
         im.FactorScale("bg/bg_tyugaku_running.png", 1.3)
@@ -4006,6 +4040,7 @@ label ninonHappy:
 
     player "……."
 
+    hide bg_tyugaku
     show bg_tyugaku_running
 
     ## 달려가는 효과음
@@ -4020,11 +4055,257 @@ label ninonHappy:
 
     ch_nar "현실이 아닐지도 모른다는 공포."
 
+    ch_nar "하루 정도는 늦을 수도 있다."
 
+    ch_nar "청소 당번이 되었거나, 진로 상담을 하느라 늦어진 것일 수도 있다."
 
+    ch_nar "그러나 그런 것을 생각할 여유가 내게는 없었다."
 
+    ch_nar "그저 달리는 것에만 집중했다."
 
+    hide bg_tyugaku_running
+    show bg_tyugaku_stop
 
+    ## 달려가는 효과음 멈춤
+
+    ch_nar "숨이 턱까지 차올랐다."
+
+    ch_nar "벽에 팔을 걸친 채 있는 힘껏 기침을 해 댔다."
+
+    ch_nar "구역질이 나왔다."
+
+    ch_nar "그녀의 모습을 두 눈에 새기기 전까지는 멈출 수 없었다."
+
+    ch_nar "심장이 터질 것 같은 고통조차도,"
+
+    ch_nar "그녀를 다시 볼 수 없을지 모른다는 공포로부터 나를 벗어나게 할 수는 없었다."
+
+    ch_nar "마지막 잡념을 토해내고는 오린도 고교를 향해 고개를 쳐들었다."
+
+    show cg_ninon_happy_01 with dissolve
+    hide bg_tyugaku_stop
+
+    $ renpy.pause(1, hard = True)
+
+    ch_nar "……그녀의 모습이 보였다."
+
+    ch_nar "순간 구원을 받는 듯한 감각이 느껴졌다."
+
+    ch_nar "그러나 이내, 더 큰 공포가 나를 덮쳐 왔다."
+
+    show cg_ninon_happy_02 with dissolve
+    hide cg_ninon_happy_01
+
+    ch_nar "늘상 헤프게 웃음을 흘리던 그녀의 얼굴이…… 생소한 미소를 머금은 채 나를 응시한다."
+
+    ch_nar "오늘따라 그녀가 낯설게 느껴진다."
+
+    ch_nar "저런 표정도 지을 수 있었구나."
+
+    ch_ninon "쇼군."
+
+    ch_nar "장난스러운 어감이지만, 그녀에게는 동경—"
+
+    ch_nar "—혹은 그 이상의 감정이 담겨 있을지 모르는 호칭."
+
+    ch_nar "장난스럽고, 우스꽝스럽게 들려야 할 그 호칭이,"
+
+    ch_nar "불길할 정도의 고요함을 안고 나지막이 들려온다."
+
+    ch_nar "마치 누군가 목을 죄고 있기라도 한 듯, 그녀는 힘겹게 입을 연다."
+
+    ch_ninon "역시 쇼군에게는…… 못 당하겠네요 입니다."
+
+    ch_nar "무슨 말이야? 왜 그런 말을 하는 거야?"
+
+    ch_nar "의미를 모르겠어."
+
+    ch_ninon "쇼군을 만나면, 차마 발이 떨어질 것 같지 아니하여…… 그래서……"
+
+    ch_ninon "……프랑스, 돌아가야만……"
+
+    ch_nar "그녀는 무언가 말하려는 듯 입술을 달싹대지만, 나의 귀에는 닿지 않는다."
+
+    $ renpy.pause(1, hard = True)
+
+    ch_ninon "……쇼군과의 여정도…… 오늘로 마지막 입니다."
+
+    $ renpy.pause(1, hard = True)
+
+    ch_nar "어떤 표정을 지어야 할지 모르겠다."
+
+    ch_nar "어떻게 반응해야 할지 모르겠다."
+
+    ch_nar "대답하고 싶지 않다."
+
+    ch_nar "이대로 못 들은 척하면 없던 일이 되지 않을까."
+
+    ch_ninon "……그런 표정, 쇼군답지 못합니다. 장차 천하를 호령할 군주라면 고작 이 정도 일로……"
+
+    ch_nar "듣기 싫어."
+
+    ch_ninon "……그렇소 입니다. 고작 이 정도 일일 뿐입니다."
+
+    ch_nar "듣기 싫다고."
+
+    show cg_ninon_happy_01 with dissolve
+    hide cg_ninon_happy_02
+
+    ch_ninon "……쇼군."
+
+    ch_nar "그녀의 상냥한 손길이, 고개를 푹 숙인 채 두 귀를 막고 있던 나의 손을 감싼다."
+
+    ch_ninon "쇼군과 함께 했던 나날들은 정말 즐거웠어요 입니다. 니논에게는 평생 잊지 못할 소중한 추억으로 남을 것입니다."
+
+    $ renpy.pause(1, hard = True)
+
+    ch_ninon "하지만 쇼군은…… 쇼군은 그래선 아니되오 입니다."
+
+    ch_ninon "쇼군에게 니논은 불충한 신하들 중 하나에 불과할 뿐. 주군을 떠나는 신하에게 허락될 자비는 없다 입니다."
+
+    ch_nar "……거짓말 하지 마."
+
+    ch_nar "너는……"
+
+    ch_nar "너는 그걸로 된 거야?"
+
+    ch_ninon "……니논은 그걸로 만족하는가…… 입니까?"
+
+    ch_nar "그녀는 숨을 크게 들이쉬고, 별안간 호흡을 멈춘다."
+
+    ch_nar "무언가 터져 나오려는 걸 억지로 막아내는 것처럼 보인다."
+
+    show cg_ninon_happy_03 with dissolve
+    hide cg_ninon_happy_01
+
+    ch_ninon "쇼군은……"
+
+    ch_ninon "쇼군은…… 정말로 잔인한 남자에요 입니다."
+
+    ch_ninon "당연히 그럴 리가……"
+
+    ch_ninon "괜찮을 리가 없다는 걸 알고 있으면서……"
+
+    show cg_ninon_happy_05 with dissolve
+    hide cg_ninon_happy_03
+
+    ch_nar "그녀는 차마 말을 잇지 못한 채 고개를 떨군다."
+
+    ch_nar "아무 말 없이 그녀를 바라보던 나는,"
+
+    ch_nar "두 팔을 벌리고 그녀를 품에 껴안는다."
+
+    ch_ninon "이렇게 될 것 같아서, 니논도 스스로를 주체하지 못하게 될 것 같아서,"
+
+    ch_ninon "쇼군을…… 만나지 않으려 했는데……"
+
+    $ renpy.pause(1, hard = True)
+
+    ch_ninon "……불경하다는 건 알고 있다 입니다. 그치만……"
+
+    ch_ninon "그치만…… 이건…… 쇼군이 잘못한 거예요 입니다."
+
+    ch_nar "조용히 품에 안겨 있던 그녀가 무언가를 나직이 속삭인다."
+
+    show cg_ninon_happy_04 with dissolve
+    hide cg_ninon_happy_05
+
+    ch_ninon "{i}……Je t'aime, à la folie.{/i}"
+
+    $ renpy.pause(1, hard = True)
+
+    show bg_black
+    hide cg_ninon_happy_04
+
+    ch_nar "말을 마친 그녀는 잠시 숨을 고른 뒤, 나의 손을 뿌리치고 뛰어간다."
+
+    ch_nar "그녀를 붙잡을 수도,"
+
+    ch_nar "붙잡을 자격도 없는 나는,"
+
+    ch_nar "멀어져 가는 그녀의 모습을 하릴없이 바라보며, 채 식지 않은 그녀의 온기를 애써 기억하려 한다."
+
+    $ renpy.pause(1, hard = True)
+
+    ch_nar "……조용하다."
+
+    ch_nar "“슈바바바밧.”"
+
+    ch_nar "그녀가 전력으로 달려갈 때면 들려오던, 기묘한 음성……"
+
+    ch_nar "영원할 것이라 믿었던 소음의 부재가, 괜시리 콧등을 시큰하게 한다."
+
+    ch_nar "……."
+
+    ch_nar "……안녕, 니논."
+
+    ## 빨려들어가는 효과
+    
+    ## bgm 서서히 off
+## 아메스 ####################################
+    ## 아메스 테마 bgm 서서히 커지다가 고정
+    play music "audio/main/ames.mp3" fadein 3.0
+    ## 아메스 cg DIS
+    hatena "……와우."
+
+    hatena "엄청난…… 걸 봐버렸네."
+
+    hatena "……대충 예상했겠지만, 방금 당신이 본 건 말이지,"
+
+    hatena "열심히 한 당신에게 주는 상……이었어야 하는데, 원래는."
+
+    hatena "뭐…… 그렇게 기운 빠질 것 없어. 어차피, 금방 잊어버릴 꿈 같은 거니까……"
+
+    hatena "정말로 꿈이 맞냐고? 글쎄, 어떨까나……."
+
+    $ renpy.pause(1, hard = True)
+
+    hatena "……있지, 그런 말 들어본 적 있어?"
+
+    hatena "지나치게 명랑하고 잘 웃는 아이들은……"
+
+    hatena "자신의 아픔을 숨기기 위해 억지로 밝은 척한다는 거."
+
+    hatena "니논은 말이지, 언제나 당신을 진심으로 따르고 있었어."
+    
+    hatena "하지만…… 당신에게 진심을 보인 적은 단 한 번도 없었어."
+
+    hatena "무슨 차이인지 모르겠다고? 후후, 당신도 아직 한참 멀었네."
+
+    hatena "니논이 마지막으로 했던 말…… 무슨 의미인지 알고 있어?"
+
+    hatena "아니, 알든 모르든 상관없어. 중요한 건……"
+
+    hatena "그 아이가 ‘처음으로’ 당신에게 진심을 말했다는 거야."
+
+    hatena "뭐…… 알아서 잘 할 테지만,"
+
+    hatena "그녀에게 잘해 줘."
+
+    hatena "언제 당신이 그녀를 떠나갈지,"
+
+    hatena "……그녀가 당신을 떠나갈지, 아무도 모르는 법이니까."
+    
+    hatena "남의 연애사에 참견하는 건 그다지 바람직한 일은 아니지만, 어쩔 수 없어. 이건 여자아이의 본능 같은 거라구, 후후…….♪"
+
+    hatena "도움이 되었길 바랄게. 어떤 의미로든."
+
+    hatena "……어이쿠, 시간을 너무 많이 잡아먹었네."
+
+    hatena "뭐, 오늘은 여기까지 해둘까."
+
+    hatena "그럼 또 봐."
+
+    ## 빨려들어가는 효과
+
+    ## bgm 볼륨 서서히 off
+    stop music fadeout 3.0
+## 랜드솔 마을 #####################
+
+    ## 마을 bgm 서서히 커짐
+
+    show bg_town with fade
+    hide bg_black
 
     show bg_end with fade
 

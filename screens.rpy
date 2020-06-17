@@ -355,7 +355,7 @@ init python:
     # 이제 CG갤러리에서 쓸 CG버튼의 설정을 차례로 만들어줍시다.
     # 맨 처음에는 무조건 g.button('버튼이름') 을 적어줍시다.
     g.button('ninon1')
-    g.unlock_image("end1")
+    g.unlock_image("cg_ninon_happy_04")
  
     g.button('ninon2')
     g.unlock_image("ninon_pingping")
