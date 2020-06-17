@@ -84,6 +84,9 @@ init:
 ## 배경 cg
     image bg_forest:
         im.FactorScale("bg/forest.jpg", 0.4)
+
+    image bg_town:
+        im.FactorScale("bg/bg_town.png", 0.68)
     
     image bg_room:
         im.FactorScale("bg/room.jpg", 2.55)
@@ -109,6 +112,15 @@ init:
 
     image bg_onsen_heya_02:
         im.FactorScale("bg/bg_onsen_heya_02.jpg", 1.0)
+
+    image bg_tyugaku:
+        im.FactorScale("bg/bg_tyugaku.png", 1.3)
+
+    image bg_tyugaku_running:
+        im.FactorScale("bg/bg_tyugaku_running.png", 1.3)
+
+    image bg_tyugaku_stop:
+        im.FactorScale("bg/bg_tyugaku_stop.png", 1.3)
 
     image logo_head = "logo/logo.png"
 
@@ -220,6 +232,13 @@ init:
         im.FactorScale("library/ninon_pingping.png", 0.5)
     image cg_yuki_01:
         im.FactorScale("library/cg_yuki_01.png", 1.0)
+
+    image cg_ninon_happy_01 = "library/cg_ninon_happy_01.png"
+    image cg_ninon_happy_02 = "library/cg_ninon_happy_02.png"
+    image cg_ninon_happy_03 = "library/cg_ninon_happy_03.png"
+    image cg_ninon_happy_04 = "library/cg_ninon_happy_04.png"
+    image cg_ninon_happy_05 = "library/cg_ninon_happy_05.png"
+
 define persistent.unlock_1 = False  
 ## 시작 전 로고 화면 ######################
 label splashscreen:
@@ -2482,6 +2501,7 @@ label start:
     hide bg_guildhouse with fade
     ## 잠깐 텀
 ## 랜드솔 마을 cg 페이드
+    scene bg_town
     show stand_Ninon with dissolve ##웃는표정
 
     ch_ninon "오오~ 쇼군~! 친히 행차하셨나이까 입니다? 기별도 없이 니논을 만나러 오셨다기에 버선발로 뛰쳐나왔사와요 입니다! 기쁨에 못 이겨 할복 해버릴 것 같습니다~!"
@@ -2515,21 +2535,22 @@ label start:
 
     ch_monica "그…… 그리고 달콤한 과자도 조금…… 흠흠."
     hide stand_Monica
+    hide bg_town
 ## 길드 하우스 cg 페이드
     show bg_black onlayer background
-    scene bg_guildhouse with fade
-    show stand_Ninon
+    scene bg_guildhouse onlayer middle with fade
+    show stand_Ninon onlayer forward
 
     ch_ninon "쇼군! 이것은 마음을 안정시키는 동국의 3대 명차, 우지차라고 하는 것입니다!"
 
     ## 
     extend " 어서 들이켜 보세요 입니다!"
 
-    hide stand_Ninon
+    hide stand_Ninon onlayer forward
 
     player "우지챠……."
 
-    show stand_Kuka with dissolve ##기본 표정
+    show stand_Kuka onlayer forward with dissolve ##기본 표정
 
     ch_kuka "그, 그러니까 도S씨는…… 정확히 무슨 일 때문에 오신 거죠?"
     ## 쿠우카 망상하는 표정
@@ -2537,8 +2558,8 @@ label start:
 
     ch_kuka " 쿠, 쿠우카를 나락으로 빠뜨리기 위해 어디까지 계획을 세워 놓은 건가요?! 이…… 인륜배반자! 관음증 변태! 쿠, 쿠훗, 크흐흐……."
 
-    hide stand_Kuka
-    show stand_Monica with dissolve
+    hide stand_Kuka onlayer forward
+    show stand_Monica onlayer forward with dissolve
 
     ch_monica "음! [name]를 이 자리에 호출한 건 다름이 아니라, 바이스플뤼겔의 향후 방향성과 마물 소탕 건에 대해 조언을 구하기 위해서다. 모두 한자리에 모였으니 드디어 이야기를 시작할 수 있겠군."
 
@@ -2549,9 +2570,9 @@ label start:
     player "그런 거 없는데……."
 
     ch_ayumi "무계획이 계획인 거네요……! 역시!"
-    hide stand_Monica
+    hide stand_Monica onlayer forward
 
-    show stand_Ninon_down with dissolve ## 시무룩한 표정
+    show stand_Ninon_down onlayer forward with dissolve ## 시무룩한 표정
 
     ch_ninon "쇼군! 니논은 최선을 다했다 입니다! 하지만 마물이 너무너무 POWERFUL 했습니다……."
 
@@ -2559,13 +2580,13 @@ label start:
 
     ## 니논 어둡게
 
-    show stand_Monica at veryright with dissolve ## 시무룩한 표정
+    show stand_Monica onlayer forward at veryright with dissolve ## 시무룩한 표정
 
     ch_monica "‘그거, 뭔가 다른 이름이었던 것 같은데……’"
 
-    hide stand_Ninon_down
+    hide stand_Ninon_down onlayer forward
 
-    show stand_Monica at movetocenter
+    show stand_Monica onlayer forward at movetocenter
 
     ## 모니카 자신만만한 표정
 
@@ -2573,13 +2594,13 @@ label start:
 
     ch_monica "그러면, 우리의 문제가 어떤 것인지 말해 줄 수 있겠나?"
 
-    hide stand_Monica
-    show stand_Yuki with dissolve ##자신만만한 표정
+    hide stand_Monica onlayer forward
+    show stand_Yuki onlayer forward with dissolve ##자신만만한 표정
 
     ch_yuki "이렇게나 귀여운 내가 있는데, 무슨 문제가 있다는 거야~? 복잡한 생각 하지 말고 예쁜 내 얼굴이나 감상하라구♪"
 
-    hide stand_Yuki
-    show stand_Monica with dissolve ## 화난 표정
+    hide stand_Yuki onlayer forward
+    show stand_Monica onlayer forward with dissolve ## 화난 표정
 
     ch_monica "그렇게 건성으로 넘길 문제가 아니다! 귀공, 다시 한 번 정식으로 요청하도록 하지."
 
@@ -2601,7 +2622,7 @@ label start:
         "자기 자신만을 중시하며 동료를 배려하지 않는 것":
             $point_point = yuki
 
-    show stand_Monica with dissolve ## 기본 표정
+    show stand_Monica onlayer forward with dissolve ## 기본 표정
 
     ch_monica "음, 과연……. 귀공을 여기까지 데려온 보람이 있군. 훌륭한 통찰력이다."
 
@@ -2609,18 +2630,18 @@ label start:
 
     ## 잠깐 텀
     ## 니논 자신만만한 표정
-    show stand_Ninon at veryleft:
+    show stand_Ninon onlayer forward at veryleft:
         linear 0.5 xalign 0.5 
 
 
     ch_ninon "특훈만이 살 길이다!!!!!!!! 입니다!!!"
 
-    show stand_Monica at movetoright ##볼빵빵, 얼굴이 절반정도만 보이도록
+    show stand_Monica onlayer forward at movetoright ##볼빵빵, 얼굴이 절반정도만 보이도록
     
     ch_ninon "닌자가 강해지는 길은 오직 수련, 또 수련하는 것 뿐!! 천하통일을 위해서라면 그 어떤 지옥훈련이라도 견뎌낼 각오가 되어있소 입니다!!"
 
-    show stand_Monica at movetocenter
-    show stand_Ninon at movetoleft
+    show stand_Monica onlayer forward at movetocenter
+    show stand_Ninon onlayer forward at movetoleft
 
     ## 니논 기본표정, 어둡게/모니카 밝게
     ch_monica "흠, 흠!"
@@ -2634,8 +2655,8 @@ label start:
     ch_monica "하지만 니논, 훈련의 강도가 높은 것만이 능사는 아니야. 그건 우리가 누구보다도 뼈저리게 경험하지 않았나."
 
     ## 모니카 어둡게/니논 시무룩한 표정, 밝게
-    hide stand_Ninon
-    show stand_Ninon_down at veryleft
+    hide stand_Ninon onlayer forward
+    show stand_Ninon_down onlayer forward at veryleft
     ch_ninon "과연…… 입니다. 그럼 니논은 무엇을 할 수 있다 입니까? 할복 입니까?"
 
     ## 니논 어둡게/ 모니카 밝게, 기본 표정
@@ -2649,23 +2670,25 @@ label start:
 
     ch_nar "갑자기 나한테 떠넘긴다고? 미쳤나?"
     ## 모니카 cg어둡게/니논 밝게, 니논 놀란 표정
-    hide stand_Ninon_down
-    show stand_Ninon_panic at veryleft
+    hide stand_Ninon_down onlayer forward
+    show stand_Ninon_panic onlayer forward at veryleft
 
     ch_ninon "우오옷~ 믿고 있었다고 쥐엔장~~!! 입니다!"
 
     player "아니…… 갑자기 그렇게 말해봤자……"
 
-    hide stand_Monica
-    hide stand_Ninon_panic
-    show stand_Ninon_wink at veryleft:
+    hide stand_Monica onlayer forward
+    hide stand_Ninon_panic onlayer forward
+    show stand_Ninon_wink onlayer forward at veryleft:
         linear 0.5 xalign 0.5
     ch_ninon "DAIJOBU 입니다~! 왜냐하면 쇼군은~"
-    hide stand_Ninon_wink
-    show stand_Ninon_daiji onlayer middle
+    hide stand_Ninon_wink onlayer forward
+    hide bg_black onlayer background
+    hide bg_guildhouse onlayer middle
+    show stand_Ninon_daiji onlayer forward
     $ camera_move(0, 0, 400, 0, 6)
 
-    scene bg_surf onlayer background with dissolve
+    scene bg_surf onlayer middle with dissolve
     ## 배경음 일본풍 bgm
     ch_ninon "……쇼군은…… 언제나 정도만을 걸어온 남자."
 
@@ -2681,12 +2704,12 @@ label start:
     $ camera_move(0, 0, 0, 0, 0.2)
 
 
-    hide bg_surf onlayer background
+    hide bg_surf onlayer middle
     ## 길드하우스로 다시 변경
     scene bg_guildhouse
     ## 마을 bgm으로 다시 변경
     ## 니논 윙크하는 표정
-    hide stand_Ninon_daiji onlayer middle
+    hide stand_Ninon_daiji onlayer forward
     show stand_Ninon_wink
 
     ch_ninon "……에~ 그러니까~ 부담 가질 필요 없다 입니다~!"
@@ -3231,7 +3254,7 @@ label onsen:
 
             player "같이 갈까, 온천."
 
-            hide stand ninon_innocence
+            hide stand_ninon_innocence
 
             pass
 
@@ -3544,6 +3567,11 @@ label onsen_inside:
             hide bg_onsen onlayer middle
             hide bg_black onlayer background
             jump cg_yukifirst
+        "니논 엔딩 확인하기":
+            hide stand_gura onlayer forward
+            hide bg_onsen onlayer middle
+            hide bg_black onlayer background
+            jump ninonHappy
 
     show stand_Yuki_ddung at right with dissolve ## 유키 뚱한 표정 오른쪽
 
@@ -3950,11 +3978,53 @@ label cg_yukisecond:
     return
                 
 ## 엔딩 ##################
+## 니논 해피 엔딩 #########
 label ninonHappy:
 
-    show end1
+    ## 아련한 bgm
 
-    ch_ninon "니논 해피엔딩"
+    ## 통학로 cg
+    scene bg_tyugaku
+
+    ch_nar "평소와 다를 것 없는 하루,"
+
+    ch_nar "—였다고 생각했다."
+
+    ch_nar "츠바키가오카의 하굣길은 인적이 드문 편이다."
+
+    ch_nar "하염없이 누군가를 기다리는 금발의 미소녀가 눈에 띄지 않는 것이 이상할 정도로 말이다."
+
+    ch_nar "귀가부인 나보다도 한 발 먼저 학교를 빠져나온 뒤, 거리가 꽤 되는 오린도 고교에서부터 쉬지 않고 달려와 매일 같은 자리에서 나를 기다리던 소녀."
+
+    ch_nar "도시전설과도 같은 비일상적 일상."
+
+    ch_nar "그 빈번함에 취해 소중한 것에 감사하는 법을 잊어서일까."
+
+    ch_nar "언제나 모퉁이에 쪼그려 앉아 “인법 · 다랑어의 술!” 따위를 외치며 길고양이들을 규합하던 그녀의 모습은 온데간데없었다."
+
+    ch_nar "구심점을 잃은 패거리만이 목적을 잃은 채 거리를 서성일 뿐이었다."
+
+    player "……."
+
+    show bg_tyugaku_running
+
+    ## 달려가는 효과음
+
+    ch_nar "정신을 차려 보니 나는 달리고 있었다."
+
+    ch_nar "무서웠다."
+
+    ch_nar "그녀의 황금빛 머리칼이,"
+
+    ch_nar "투명한 에메랄드빛 눈동자가,"
+
+    ch_nar "현실이 아닐지도 모른다는 공포."
+
+
+
+
+
+
 
     show bg_end with fade
 
