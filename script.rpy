@@ -5,7 +5,34 @@ init python:
 ## 스탠딩 ###############################
 init:
     ## 모니카
-    image stand_Monica = "Character/monica/monica.png"
+    image stand_Monica:
+        im.FactorScale("Character/monica/monica.png", 0.22)
+    image stand_Monica_crying:
+        im.FactorScale("Character/monica/monica_crying.png", 0.22)
+    image stand_Monica_ddung:
+        im.FactorScale("Character/monica/monica_ddung.png", 0.22)
+    image stand_Monica_dere:
+        im.FactorScale("Character/monica/monica_dere.png", 0.22)
+    image stand_Monica_down:
+        im.FactorScale("Character/monica/monica_down.png", 0.22)
+    image stand_Monica_munen:
+        im.FactorScale("Character/monica/monica_munen.png", 0.22)
+    image stand_Monica_surprised:
+        im.FactorScale("Character/monica/monica_surprised.png", 0.22)
+    image stand_Monica_yukata:
+        im.FactorScale("Character/monica/monica_yukata.png", 0.22)
+    image stand_Monica_yukata_crying:
+        im.FactorScale("Character/monica/monica_yukata_crying.png", 0.22)
+    image stand_Monica_yukata_ddung:
+        im.FactorScale("Character/monica/monica_yukata_ddung.png", 0.22)
+    image stand_Monica_yukata_dere:
+        im.FactorScale("Character/monica/monica_yukata_dere.png", 0.22)
+    image stand_Monica_yukata_down:
+        im.FactorScale("Character/monica/monica_yukata_down.png", 0.22)
+    image stand_Monica_yukata_munen:
+        im.FactorScale("Character/monica/monica_yukata_munen.png", 0.22)
+    image stand_Monica_yukata_surprised:
+        im.FactorScale("Character/monica/monica_yukata_surprised.png", 0.22)
     ## 쿠우카
     image stand_Kuka:
         im.FactorScale("Character/kuka/kuka.png", 0.18)
@@ -93,6 +120,13 @@ init:
     ## 구라노스케
     image stand_gura:
         im.FactorScale("Character/gura/gura.png", 1.0)
+    image cg_gura_baby:
+        im.FactorScale("library/cg_gura_baby.png", 1.0)
+    image cg_gura_child:
+        im.FactorScale("library/cg_gura_child.png", 1.0)
+    ## 마물
+    image stand_monster:
+        im.FactorScale("Character/monster/monster.png", 0.2)
 ## 트랜스폼
     transform movetoright:
         ease 0.5 xalign 1.0
@@ -115,6 +149,8 @@ init:
 
     transform fast_rotating_2:
         linear 0.3 rotate 720 yalign 0.5
+    transform xycenter:
+        xalign 0.5 yalign 0.5
 ## 배경 cg
     image bg_forest:
         im.FactorScale("bg/forest.jpg", 0.4)
@@ -140,6 +176,9 @@ init:
 
     image bg_onsen:
         im.FactorScale("bg/bg_onsen.jpg", 1.8)
+
+    image bg_routen:
+        im.FactorScale("bg/bg_routen.jpg", 1.3)
 
     image bg_onsen_heya_01:
         im.FactorScale("bg/bg_onsen_heya_01.jpg", 0.66)
@@ -196,6 +235,7 @@ init:
     define underleft = Position(xalign = 0.0, yalign = 1.0)
     define veryleft = Position(xalign = 0.0)
     define veryright = Position(xalign = 1.0)
+    define center_center = Position(xalign = 0.5, yalign = 0.5)
 ## 호감도 ################################
 init:
     define love_point = 0
@@ -2123,13 +2163,13 @@ screen pong():
         text _("[name]"):
             xpos 240
             xanchor 0.5
-            ypos 25
+            ypos 22
             size 40
 
         text _("니논"):
             xpos (1280 - 240)
             xanchor 0.5
-            ypos 25
+            ypos 22
             size 40
 
         if pong.stuck:
@@ -2224,17 +2264,26 @@ label start:
         call naming from _call_naming_1
     else:
         pass        
-## 진행 ###
+## S# 1. 초원 ###
     scene bg_forest onlayer background with fade # 배경화면
 
     play music "audio/main/nature.mp3"
 
     hatena "빈틈! 받아라앗...!!"
 
-    show bg_forest onlayer background with hpunch
+    ## 마물 cg DIS
+    show stand_monster onlayer middle with dissolve
 
+    ## 총소리
+
+    ## 피격효과, 화면 흔들림 효과
+    show bg_forest onlayer background with hpunch
+    
     monster "커르륵...!"
 
+    hide stand_monster onlayer middle
+
+    ## 모니카 웃는 표정
     show stand_Monica onlayer middle with dissolve
 
     ch_monica "됐다! 움직임이 봉쇄됐어! 지금이다, 니논! 한 방 먹여!!"
@@ -2244,9 +2293,18 @@ label start:
     ch_ninon "ROGER! 이거나 먹어라, 입니다! 「인법 · 쇙강 줜병 회오뤼」~!!"
     hide stand_Ninon onlayer middle
 
+    ## 마물 cg
+    ## 불길이 치솟는 효과 ## E - 불길 치솟음 ## 화면 흔들림 효과(지글지글거리는 느낌 정도로 작게)
+    show stand_monster onlayer middle with dissolve
     monster "쿠아아악!! 크르륵..."
 
+    ## 울부짖는 효과, 화면 흔들림 효과
+    ## 괴물 울음소리
+
     monster "크워어어어어!!"
+
+    hide stand_monster onlayer middle
+
 
     show stand_Monica onlayer middle with dissolve
     ch_monica "칫… 이 정도로는 어림도 없나. 모두들, 뒤로 물러나! 놈이 반격해 온다!"
@@ -2977,8 +3035,6 @@ label start:
 
     ch_monica "그건 그렇다 치고, 귀공."
 
-    $ renpy.pause(0.5, hard = True)
-
     ch_monica "먼저 온천이라는 장소를 언급한 만큼 따로 생각해 둔 곳이 있는 거겠지? 우리는 전적으로 귀공의 계획에 따르겠네."
 
     hide stand_Monica
@@ -3607,9 +3663,417 @@ label onsen_inside:
             hide bg_black onlayer background
             jump ninonHappy
 
-    show stand_Yuki_ddung at right with dissolve ## 유키 뚱한 표정 오른쪽
+    show stand_Yuki_ddung onlayer forward at right with dissolve ## 유키 뚱한 표정 오른쪽
 
     ch_yuki "맞아~ 얼른 사과해. 그 누구보다 아름다운 나조차도 남의 외모를 함부로 깎아내리진 않는다구."
+    hide stand_Yuki_ddung onlayer forward
+    hide stand_gura onlayer forward
+    hide bg_onsen onlayer middle
+    ## 길드하우스 cg + 유키 회색으로
+
+    show bg_guildhouse onlayer middle with fade
+    show stand_Yuki_angry onlayer forward with dissolve ## 회색
+
+    ch_yuki "“……엄청나게 못생긴 마물……”"
+
+    show stand_Yuki_ddung onlayer forward ## 회색
+    hide stand_Yuki_angry onlayer forward 
+
+    ch_yuki "“세상에…… 대체 뭘 먹고 자라면 저렇게 못생겨지는 거지……?! 윽…… 역겨워……”"
+
+    ch_yuki "“아아— 못생긴 녀석들은 얼굴만 봐도 토할 것 같단 말이지— 얼른 죽어 주지 않으려나—”"
+
+    hide stand_Yuki_ddung onlayer forward
+    show bg_onsen
+    hide bg_black onlayer background
+    hide bg_guildhouse onlayer middle with fade
+    
+
+    show stand_gura with dissolve
+
+    hatena "……홋홋홋. 괜찮습니다. 이런 건 이미 익숙하거든요……."
+
+    hide stand_gura
+    show bg_black with fade
+    hide bg_onsen
+    ## 아련한 bgm
+
+    ## 구라노스케 cg 합성
+    show cg_gura_baby at center_center with dissolve
+
+    hatena "저는…… 태어날 때부터 이런 흉측한 모습이었답니다."
+
+    player "뭔데?! 이놈은 뭔데 회상씬까지 있는 건데?!"
+
+    hide cg_gura_baby
+    ## 구라노스케 cg 합성: 울고 있는 학동 위치에 합성
+    show cg_gura_child at xycenter with dissolve
+
+    player "우와, 아까부터 합성 성의 없어……"
+
+    hatena "당연히 이런 저를 받아 주는 사람이 있을 리 없었고……"
+
+    hatena "단지 이렇게 생겼다는 이유 하나만으로 괴물이라 놀림 받으며, 심한 괴롭힘을 당하는 나날들이 계속되었지요……."
+
+    hide cg_gura_child
+    show bg_onsen with fade
+    hide bg_black
+
+    show stand_gura with dissolve
+
+    hatena "여기, 오에도 온천이 저의 진가를 알아봐 주기 전까지는 말입니다……!!"
+
+    hatena "모두가 손가락질만 하던 그때, 오에도 온천은 저에게 손을 내밀어 주었죠……"
+
+    hatena "이렇게 웃기게 생긴 놈은 난생 처음 본다며 온천의 마스코트로서 일해 볼 생각이 없냐는 제안을 했습니다."
+
+    player "그게 더 심한 말인 것 같은데……"
+
+    hatena "과거의 아픔은 과거에 묻어 두고, 저는 제가 할 수 있는 일을 해야만 했습니다……!"
+
+    hatena "잘못을 저지른 건 제가 아니라 저를 괴롭혔던 그들인데, 왜 고통받는 건 저여야 하는지 이해할 수 없었죠…… 그래서 더욱 악착같이 노력했습니다."
+
+    hatena "그리고 이제는 아무도 저를 무시하지 못하게 되었어요…… 제가 없는 오에도 온천은 더 이상 오에도 온천이 아니게 되었고, 모두가 저를 믿고 따르는 위치까지 오르게 되었습니다……! 홋홋홋!"
+    
+    hide stand_gura
+    ## 니논 억울한 표정
+    show stand_Ninon_innocence with dissolve
+
+    ch_ninon "히끅히끅 입니다…… 너무나도 쮜쮜가 아픈 이야기가 아닐 수 없습니다……!"
+
+    hide stand_Ninon_innocence
+
+    player "근데 그게 동물원 원숭이랑 다를 게 뭐……"
+
+    ## 아련한 bgm off
+
+    ## 장난스러운 bgm
+
+    show stand_gura with dissolve
+
+    hatena "잡설은 이쯤 하고——"
+
+    show bg_onsen at fast_rotating
+
+    ch_gura "제 이름은 구라노스케!!!! 쇼군 여러분!!!!! 모시게 되어 영광임다아———앗!!!!!!"
+
+    hide stand_gura
+
+    ## 모니카 놀란 표정
+    show stand_Monica_surprised with dissolve
+
+    ch_monica "뭐…… 이 자가 편지에 적혀 있던 바로 그……!"
+
+    hide stand_Monica_surprised
+    show stand_gura with dissolve
+
+    ch_gura "그렇습니다!!!! 당신들에게 편지를 보낸 건 바로 저였슴다아———앗!!!!"
+
+    hide stand_gura
+    ## 쿠우카 놀란 표정
+    show stand_Kuka_surprised with dissolve
+
+    ch_kuka "그…… 그렇다면 제대로 설명을 해 주세요……!"
+
+    ch_kuka "그 피 묻은 편지는 뭐였고, 정말로 이 온천에 마물이 숨어 있는 건지도……!"
+
+    hide stand_Kuka_surprised
+    show stand_gura with dissolve
+
+    ch_gura "홋홋홋! 알겠습니다…… 차근차근 하나씩 설명해 드리도록 하죠."
+
+    ch_gura "그보다, 여기는 너무 눈에 띄는 것 같군요. 조용한 곳으로 자리를 옮깁시다."
+
+    hide stand_gura
+    hide bg_onsen with fade
+
+    jump routen
+## S# 7. 노천탕 ############################
+label routen:
+    ## 심각한 bgm으로 변경
+    ## 노천탕 cg DIS
+    show bg_routen
+
+    show stand_gura with dissolve
+
+    ch_gura "이곳은 오에도 온천이 처음 생겼을 때부터 있었던 유서 깊은 노천탕입니다…… 모종의 이유로 지금은 사용하지 않고 있지만요."
+
+    ch_gura "그럼 우선…… 여러분은 ‘아쿠다이칸’을 기억하십니까?"
+
+    hide stand_gura
+
+    ## 모니카 웃는 표정
+    show stand_Monica with dissolve
+
+    ch_monica "우리의 손으로 직접 쓰러뜨린 놈이다, 기억하지 못할 리가 없지."
+
+    hide stand_Monica
+    show stand_gura with dissolve
+
+    ch_gura "맞습니다. 쇼군과 여러분의 활약으로 평화를 되찾기 전까지 이곳 오에도를 공포로 몰아넣었던 악당이죠."
+
+    hide stand_gura
+    ## 유키 질색하는 표정
+    show stand_Yuki_angry with dissolve
+
+    ch_yuki "지독한 녀석이었지~ 마물 주제에 왕궁 세력과 결탁할 생각을 다 하고 말야."
+
+    show stand_Yuki_ddung
+    hide stand_Yuki_angry
+
+    ch_yuki "그런데 그건 갑자기 왜? 죽었던 녀석이 부활이라도 한 거야?"
+
+    hide stand_Yuki_ddung
+
+    show stand_gura with dissolve
+
+    ch_gura "아뇨…… 아쿠다이칸은 확실히 사라졌습니다. 하지만……"
+
+    ch_gura "……녀석이 온 마을을 헤집으며 날뛸 때, 또 다른 마물이 어딘가에 몸을 숨기고 있었고……"
+
+    ch_gura "지금, 이곳의 사람들이 쥐도 새도 모르게 사라지는 현상이 그 마물의 소행이라고 하면…… 믿으시겠습니까?"
+
+    ## 구라노스케 어둡게
+
+    ch_ayumi "힉……."
+
+    hide stand_gura
+
+    ## 니논 놀란 표정
+    show stand_Ninon_surprise with dissolve
+
+    ch_ninon "NON……!"
+
+    hide stand_Ninon_surprise
+    show stand_Monica_surprised with dissolve
+
+    ch_monica "그 말은……"
+
+    ## 모니카 화난 표정
+    show stand_Monica_ddung
+    hide stand_Monica_surprised
+
+    ch_monica "아쿠다이칸은 눈속임……이었다는 건가?"
+
+    hide stand_Monica_ddung
+    show stand_gura with dissolve
+
+    ch_gura "안타깝지만 거기까진 저도 모르겠습니다."
+
+    ch_gura "아쿠다이칸의 난동이 시선을 돌리기 위한 놈의 계획이었을지…… 애초부터 서로 관련이 없었던 것일지…… 현재로서는 알 방법이 없습니다."
+
+    ch_gura "다만 확실한 것은…… 끝난 줄만 알았던 오에도의 공포가, 아직까지도 살아남아 저희를 옥죄고 있다는 점입니다."
+
+    hide stand_gura
+    ## 니논 놀란 표정
+    show stand_Ninon_surprise with dissolve
+
+    ch_ninon "그…… 그럼 편쥐는 도당채 어떻게 된 것이오 입니다?"
+
+    hide stand_Ninon_surprise
+    show stand_gura with dissolve
+
+    ch_gura "아, 편지…… 말입니까."
+
+    ch_gura "홋홋홋. 그다지 유쾌한 이야기는 아닐 테지만…… 설명해 드리겠습니다."
+
+    ch_gura "여러분에게 그 편지를 보낸 것은 제가 맞습니다만……. 편지를 쓴 것은 제가 아닙니다."
+
+    hide stand_gura
+
+    ## 유키 뚱한 표정
+    show stand_Yuki_ddung with dissolve
+
+    ch_yuki "그럼……?"
+
+    hide stand_Yuki_ddung
+    show stand_gura with dissolve
+
+    ch_gura "……언제부터 였을까요. 이 온천에 이상한 기운이 감돌기 시작했습니다."
+
+    ch_gura "온천의 활기찬 분위기와, 기분 좋은 따뜻함은 이전과 다를 바가 없었죠."
+
+    ch_gura "다만 한 가지……"
+
+    ch_gura "온천의 직원들이 하나둘씩…… 사라져 갔습니다."
+
+    ch_gura "기이한 점은, 직원들 간의 유대가 강해 서로가 서로에 대한 것을 낱낱이 알고 있었음에도 불구하고……"
+
+    ch_gura "누군가 사라지고 난 뒤면, 마치 그 사람이 처음부터 존재하지 않았던 것처럼 행동했습니다. 저를 제외한 모두가요."
+
+    ch_gura "처음에는 제가 꿈을 꾸고 있는 건지, 과로 때문에 정신병에 걸리기라도 한 건지 의심했습니다……."
+
+    ## 피로 휘갈겨 쓴 편지 이미지
+
+    ch_gura "……그 편지를 ‘발견’하기 전까지는 말이죠."
+
+    hide stand_gura
+    ## 모니카 화난 표정
+    show stand_Monica_ddung with dissolve
+
+    ch_monica "아유미의 추측이 맞았던 건가…… 예리하군."
+
+    ## 모니카 cg 어둡게
+
+    ch_ayumi "아…… 헤헤……."
+
+    hide stand_Monica_ddung
+    show stand_gura with dissolve
+
+    ch_gura "놈이 무슨 술수를 쓴 것인지는 모릅니다…… 하지만, 이런 짓을 할 수 있는 건 마물밖에 없을 테죠."
+
+    ch_gura "마물이라는 확신이 들었지만…… 저는 놈의 정체도, 능력도 알 수 없었어요."
+
+    ch_gura "우리 중 한 사람으로 변장하여 연기를 하고 있을지, 온천의 어딘가에 숨어있을지…… 아무것도 알 수 없었습니다."
+
+    ch_gura "그래서 몰래 도움을 요청해야 했습니다. 누구에게도 들키지 않을 방식으로 말이죠."
+
+    hide stand_gura
+    ## 쿠우카 놀란 표정
+    show stand_Kuka_surprised with dissolve
+
+    ch_kuka "그……그래서 온천의 초대장인 것처럼 위장한 편지를 보낸 거였군요……!"
+
+    hide stand_Kuka_surprised
+    show stand_gura with dissolve
+
+    ch_gura "맞습니다. 많이 놀라셨을 테죠…… 하지만 이 방법밖에 없었습니다. 여러분은 아쿠다이칸을 무찌르신 분들이기도 하고요……."
+
+    hide stand_gura
+    ## 모니카 화난 표정
+    show stand_Monica_ddung with dissolve
+
+    ch_monica "뭐, 상황이 그러했다면 어쩔 수 없지. 어찌 되었든 우리를 이곳으로 불러내는 것에도 성공했으니……"
+
+    ch_monica "……그런데, 우리는 뭘 하면 되지? 정보가 없는 건 이쪽도 마찬가지인데……"
+
+    hide stand_Monica_ddung
+    show stand_gura with dissolve
+
+    ch_gura "아, 그것에 대해서 말인데요. 여러분은……"
+
+    ## 장난스러운 bgm
+    ## 빠르게 화면 한 바퀴 돌아가는 효과
+    show bg_routen at fast_rotating
+
+    ch_gura "편안히 온천을 즐기시면 됨다아———앗!!!!"
+
+    hide stand_gura
+
+    ## 유키 질색하는 표정
+    show stand_Yuki_ddung with dissolve
+
+    ch_yuki "…………하?"
+
+    hide stand_Yuki_ddung
+    ## 니논 화난 표정
+    show stand_Ninon_angry with dissolve
+
+    ch_ninon "지…… 지금 우리랑 장놘치자는 거냐! 입니다!"
+
+    hide stand_Ninon_angry
+    show stand_gura with dissolve
+
+    ch_gura "반은 장난이고, 반은 진심입니다."
+
+    ch_gura "분위기가 너무 딱딱해진 것 같아서요. 홋홋홋."
+
+    hide stand_gura
+    ## 모니카 화난 표정
+    show stand_Monica_ddung with dissolve
+
+    ch_monica "……계속해 보게."
+
+    hide stand_Monica_ddung
+    show stand_gura with dissolve
+
+    ch_gura "말씀드렸다시피, 저는 마물에 대해 아는 것이 아무것도 없습니다. 하지만 단신으로 마물의 흔적을 찾는 것은 너무 위험했어요."
+
+    ch_gura "지금까지 제가 무사하다는 건, 아직은 놈이 저의 거동에서 아무런 낌새도 느끼지 못했다는 뜻이겠지요."
+
+    ch_gura "이런 상황에서 섣불리 평소에 하지 않던 행동을 하거나 하면…… 저까지 제거당할지도 모릅니다."
+
+    ch_gura "그래서 여러분의 도움이 절실한 겁니다. 아무것도 모르는 손님인 척 온천을 즐기며, 틈틈이 곳곳에서 단서를 찾아내시면 됩니다! 홋홋홋!"
+
+    hide stand_gura
+    ## 니논 시무룩한 표정
+    show stand_Ninon_down with dissolve
+
+    ch_ninon "……그런데, 입니다?"
+
+    ch_ninon "그 계회꾸에는 취명적인 헛점이 있는 것 같소 입니다……."
+
+    player "헛점? 무슨……?"
+
+    ch_ninon "이미 오에도 마을의 모두는 쇼군의 활약을 직줩 목도하고, 쇼군의 업줙을 기리기 위해 동상까지 세웠다 입니다."
+
+    ch_ninon "이런 상황에서 니논들이 아무고토 모르는 춱해봤자…… 금방 들통날 것입니다! 쇼군을 알아보지 못할 리가 없다 입니다!!"
+
+    hide stand_Ninon_down
+    show stand_gura with dissolve
+
+    ch_gura "날카로우시군요."
+
+    ## 심각한 bgm으로 변경
+
+    ch_gura "하지만 그건.…… 조금 슬픈 일입니다만, 걱정하지 않으셔도 될 겁니다."
+
+    hide stand_gura
+    ## 쿠우카 시무룩한 표정
+    show stand_Kuka_down with dissolve
+
+    ch_kuka "슬픈 일……? 무슨 말인가요……?"
+
+    hide stand_Kuka_down
+
+    show stand_gura with dissolve
+
+    ch_gura "그나마 여러분들처럼 외부에서 온 관광객들이 온천을 방문하는 경우는 간혹 있지만, 오에도 주민들의 발길은 언제부터인가 뚝 끊겼습니다. 이것도 마물의 영향인지는 모르겠습니다만……"
+
+    ch_gura "그리고, 직원들 중 아쿠다이칸 토벌 작전을 지켜보았던 토박이들은……"
+
+    ch_gura "……전부 사라졌습니다. 부족한 일손은 오에도 마을에 새로 이사 온 이들과 외부인으로 충당되었죠……."
+
+    ## 구라노스케 어둡게
+
+    ch_ayumi "그런……."
+
+    ## 구라노스케 밝게
+
+    ch_gura "하지만 오히려 이것을 무기로 사용할 수 있을지도 모르죠. 만약 쇼군이나 여러분의 정체를 알아보는 이가 있다면…… 그를 의심해 봐도 좋을 겁니다. 불행 중 다행이죠?"
+
+    hide stand_gura
+    ## 니논 시무룩한 표정
+    show stand_Ninon_down with dissolve
+
+    ch_ninon "쇼군의 동상은 어취합니카? 그걸 보고 쇼군의 얼굴을 알아보면……."
+
+    ## 유키 질색하는 표정 화면 오른쪽에
+    show stand_Yuki_angry at right with dissolve
+
+    ch_yuki "아니 그거, 솔직히 안 닮았거든."
+
+    hide stand_Yuki_angry
+    hide stand_Ninon_down
+
+    show stand_gura with dissolve
+
+    ch_gura "홋홋홋…… 실물이 훨씬 멋지십니다."
+
+    ch_nar "하긴…… 동상 따위가 내 잘생김을 전부 담을 수 있을 리가 없지……."
+
+    ch_gura "그렇지만 아무래도 확실히 해 두는 게 좋겠죠."
+
+    ch_gura "니논 님의 말씀대로, 여러분이 쇼군과 그 일행분들이라는 사실이 들통날 가능성을 완전히 배제할 순 없습니다."
+
+    ch_gura "마물이 아닌 인간이 여러분의 정체를 눈치챈다면, 그건 아마 오에도 마을에 퍼져 있는 ‘쇼군 영웅담’ 때문일 겁니다."
+
+    ## 모니카 놀란 표정 화면 왼쪽에
+    show stand_Monica_surprised at left with dissolve
+
+    ch_monica "그, 그 일화가 아직까지 거론되고 있다고……?! 아니, 동상까지 세워졌으니 어쩌면 당연한 것일지도……"
+
+
 
     return
 ## 미니 게임 CG 라벨 ########################
@@ -4242,7 +4706,7 @@ label ninonHappy:
     ## 빨려들어가는 효과
     
     ## bgm 서서히 off
-## 아메스 ####################################
+    ## 아메스 ####################################
     ## 아메스 테마 bgm 서서히 커지다가 고정
     play music "audio/main/ames.mp3" fadein 3.0
     ## 아메스 cg DIS
@@ -4300,7 +4764,7 @@ label ninonHappy:
 
     ## bgm 볼륨 서서히 off
     stop music fadeout 3.0
-## 랜드솔 마을 #####################
+    ## 랜드솔 마을 #####################
 
     ## 마을 bgm 서서히 커짐
 
