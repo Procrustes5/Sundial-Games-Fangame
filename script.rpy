@@ -3058,7 +3058,7 @@ label start:
     hide stand_Ninon_down
     show stand_Ninon ## 니논 웃는 표정
 
-    extend "앗, 발견 입니다."
+    extend " 앗, 발견 입니다."
 
     ch_ninon "오에도 사상 최고 이빠이로 큰 대형 온천의 초대장도 잔뜩 왔다 입니다~!"
 
@@ -3344,7 +3344,7 @@ label onsen:
 
             player "같이 갈까, 온천."
 
-            hide stand_ninon_innocence
+            hide stand_Ninon_innocence
 
             pass
 
@@ -4073,6 +4073,176 @@ label routen:
 
     ch_monica "그, 그 일화가 아직까지 거론되고 있다고……?! 아니, 동상까지 세워졌으니 어쩌면 당연한 것일지도……"
 
+    ## 모니카 어둡게, 쿠우카 망상하는 표정 화면 오른쪽에
+    show stand_Kuka_mousou at right with dissolve
+
+    ch_kuka "히에엑……!! 쿠, 쿠우카는 자신도 모르는 사이에 이야깃거리가 되어 얼굴 한 번 본 적 없는 사람들에게 메차쿠차 소비되고 있었던 거네요……!! 죽을 때까지 대중의 시선으로부터 자유롭지 못한 채 끝없이 능욕당하는 운명!!! 지금까지 겪어 온 수모와는 비교할 수 없을 정도로 자극이 강할지도……!!!! 크흣, 크헤헷……."
+
+    hide stand_Kuka_mousou
+    hide stand_Monica_surprised
+
+    show stand_gura with dissolve
+
+    ch_gura "음…… 그러니까 제가 드리고 싶은 말씀은…… 여러분이 영웅담의 주연들이라는 생각이 전혀 들지 않게끔 연기를 하시는 건 어떨까 합니다."
+
+    player "연기를 하라고……?"
+
+    ch_gura "쇼군 님을 예로 들자면……"
+
+    ch_gura "당찬 모습으로 영웅호걸들을 거느리던 바로 그 쇼군이라는 생각이 전혀 들지 않을 정도로, 어딘가 모자란 사람인 것처럼 연기를 하시는 거죠."
+
+    hide stand_gura
+    ## 니논 시무룩한 표정
+    show stand_Ninon_down with dissolve
+    ch_ninon "……확실히…… 쇼군이 바보똥개처럼 행동한다면, 누구도 쇼군을 알아보는 일은 없을 것이다 입니다."
+
+    ## 니논 화난 표정
+    show stand_Ninon_angry
+    hide stand_Ninon_down
+
+    ch_ninon "그…… 그렇쥐만, 감히 쇼군께 바보똥멍청이 연기를 하라는 건 너무 무례하오 입니다……!"
+
+    hide stand_Ninon_angry
+
+    show stand_gura with dissolve
+
+    ch_gura "그, 그렇게까지 말하지는 않았지만……."
+
+    ch_gura "영웅담 속의 쇼군이 연상되는 모습을 보이는 것만 피하신다면, 크게 문제가 없을 듯합니다."
+
+    hide stand_gura
+    ## 니논 시무룩한 표정
+    show stand_Ninon_down with dissolve
+
+    ch_ninon "Umm…… 일뤼가 있는 말이긴 합니다만, 쇼군은 바보멍청이해삼똥개말미잘 연기를 하시는 것이 정말 괜찮으신가요 입니다……?"
+
+    hide stand_Ninon_down
+
+    ch_nar "왜 수식어가 점점 늘어나……! 뭘 바라는 거야!"
+
+    show stand_gura with dissolve
+
+    ch_gura "아, 근데 나머지 분들은 평소대로 행동하셔도 상관없을 것 같네요."
+
+    hide stand_gura
+    
+    ch_nar "나만 해야 되는 거냐고!!"
+
+    show stand_gura with dissolve
+
+    ch_gura "모니카 님의 하늘을 가르는 일섬, 쿠우카 님이 입으신 천녀의 날개옷, 아쿠다이칸을 끝장낸 니논 님의 수리검, 하늘도 질투하는 유키 님의 미모……"
+
+    ch_gura "전투가 벌어지거나 하지 않는 이상, 구전되는 특징만으로 여러분을 알아보는 것은 어렵지 않을까 싶습니다."
+
+    ch_gura "그나마 자세히 묘사된 유키 님의 외모도 ‘미의 화신’, ‘백옥보다 하얗고, 매화보다 아름답다’ 정도로 전해질 뿐이지, 이야기만 듣고서 유키 님이라는 걸 확신하지는 못할 것 같네요."
+
+    hide stand_gura
+
+    ## 유키 자뻑하는 표정
+    show stand_Yuki_proud with dissolve
+
+    ch_yuki "뭐, 나보다 아름다운 사람은 이 세상에 없으니, 내 미모를 실제로 보게 된다면 내가 유키 님이라는 걸 알아챌지도 모르겠네♪"
+
+    ch_yuki "그치만, 일부러 못생겨지는 건 불가능하니까…… 나도 참, 너무 예뻐도 곤란한걸……♪"
+
+    ## 유키 어둡게
+
+    ch_ayumi "그보다 제 얘기는 왜 또 빠져 있는 건가요!!!!!"
+
+    hide stand_Yuki_proud
+
+    player "그…… 내키지는 않지만, 나 때문에 계획을 망칠 순 없으니까……"
+
+    player "까짓것 해 보지 뭐. 이제부터 바보처럼 행동하면 되는 거지?"
+
+    ## 니논 억울한 표정
+    show stand_Ninon_innocence with dissolve
+
+    ch_ninon "쇼…… 쇼군이 희생하신다니……!!"
+
+    ## 심각한 bgm 멈춤
+
+    player "테에엥 마망……."
+
+    ## 모니카 시무룩한 표정
+    show stand_Monica_down with dissolve
+
+    ch_monica "??"
+
+    hide stand_Monica_down
+
+    player "응애 나 애기프붕."
+
+    ## 유키 질색하는 표정
+    show stand_Yuki_angry with dissolve
+
+    ch_yuki "……."
+
+    hide stand_Yuki_angry
+
+    player "응애 맘마조."
+
+    ## 쿠우카 질색하는 표정
+    show stand_Kuka_hiku with dissolve
+
+    ch_kuka "…………"
+
+    player "바…… 바보처럼 연기하라며……? 반응들이 왜 이래?"
+
+    ## 장난스러운 bgm 점점 커짐
+
+    ## 쿠우카 놀란 표정
+    show stand_Kuka_surprised
+    hide stand_Kuka_hiku
+
+    ch_kuka "………핫?! 아, 그, 그랬죠……. 너무 실감나게 연기하셔서…… 쿠우카, 순간 진심으로 도S 씨를 경멸할 뻔했어요……"
+
+    hide stand_Kuka_surprised
+    ## 모니카 놀란 표정
+    show stand_Monica_surprised with dissolve
+
+    ch_monica "귀, 귀공은 과연 굉장하군…… 나도 모르게 검을 뽑을 뻔했어……"
+
+    hide stand_Monica_surprised
+    ## 니논 억울한 표정
+    show stand_Ninon_innocence with dissolve
+
+    ch_ninon "이 줭도로 열과 성의를 다 하실 줄이야 입니다…… 니논, 몹쉬 감동했소 입니다……!"
+
+    hide stand_Ninon_innocence
+    show stand_gura with dissolve
+
+    ch_gura "후…… 훌륭합니다……! 그 누구도 쇼군이라고는 절대 생각지 못할 엄청난 연기……!!"
+
+    hide stand_gura
+
+    ch_nar "음…… 콧코로 앞에선 평소에도 이렇게 한다는 사실은 숨기는 게 좋겠지……."
+
+    player "그러면…… 이제 온천으로 들어갈 수 있는 건가?"
+
+    show stand_gura with dissolve
+
+    ch_gura "아, 네! 웬만한 건 모두 설명 드린 것 같으니…… 바로 안내해 드리겠습니다!"
+
+    ch_gura "그럼, 이쪽으로……"
+
+    hide stand_gura
+
+    ## 장난스러운 bgm 서서히 작아짐
+
+    hide bg_routen
+
+
+    jump scene_eight
+## S# 8. 온천 건물 내부 #####################
+label scene_eight:
+    ## 동양풍 bgm
+    #3 온천 건물 내부 cg 
+    scene bg_onsen_heya_01
+
+    show stand_gura with fade
+
+    ch_gura "이제부터 보여 드릴 것은, 저희 온천의 야심 찬……"
 
 
     return
@@ -4310,7 +4480,6 @@ label yuki:
         "0":
             $love_point = love_point
         "-1":
-        
             $love_point = love_point - 1
 
     menu:
@@ -4500,7 +4669,7 @@ label ninonHappy:
 
     ch_nar "언제나 모퉁이에 쪼그려 앉아 “인법 · 다랑어의 술!” 따위를 외치며 길고양이들을 규합하던 그녀의 모습은 온데간데없었다."
 
-    ch_nar "구심점을 잃은 패거리만이 목적을 잃은 채 거리를 서성일 뿐이었다."
+    ch_nar "구심점을 상실한 패거리만이 갈 곳을 잃은 채 거리를 서성일 뿐이었다."
 
     player "……."
 
@@ -4515,7 +4684,7 @@ label ninonHappy:
 
     ch_nar "그녀의 황금빛 머리칼이,"
 
-    ch_nar "투명한 에메랄드빛 눈동자가,"
+    ch_nar "에메랄드처럼 반짝이는 눈동자가,"
 
     ch_nar "현실이 아닐지도 모른다는 공포."
 
