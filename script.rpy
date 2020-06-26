@@ -181,10 +181,10 @@ init:
         im.FactorScale("bg/bg_routen.jpg", 1.3)
 
     image bg_onsen_heya_01:
-        im.FactorScale("bg/bg_onsen_heya_01.jpg", 0.66)
+        im.FactorScale("bg/bg_onsen_heya_01.png", 0.67)
 
     image bg_onsen_heya_02:
-        im.FactorScale("bg/bg_onsen_heya_02.jpg", 1.0)
+        im.FactorScale("bg/bg_onsen_heya_02.png", 1.0)
 
     image bg_tyugaku:
         im.FactorScale("bg/bg_tyugaku.png", 0.67)
@@ -4160,6 +4160,8 @@ label routen:
 
     ch_ninon "쇼…… 쇼군이 희생하신다니……!!"
 
+    hide stand_Ninon_innocence
+
     ## 심각한 bgm 멈춤
 
     player "테에엥 마망……."
@@ -4238,12 +4240,77 @@ label routen:
 label scene_eight:
     ## 동양풍 bgm
     #3 온천 건물 내부 cg 
-    scene bg_onsen_heya_01
+    scene bg_onsen_heya_01 onlayer middle
+    show bg_black onlayer background
 
-    show stand_gura with fade
+    show stand_gura onlayer forward with fade
 
     ch_gura "이제부터 보여 드릴 것은, 저희 온천의 야심 찬……"
 
+    show bg_onsen_heya_01 onlayer middle at fast_rotating
+
+    ch_gura "『유카타』 임다아————앗!!!!!"
+
+    ch_gura "마음에 드는 걸로 하나씩 골라 줍쇼오————옷!!!!!"
+
+    show bg_onsen_heya_01 onlayer middle at fast_rotating
+
+    hide stand_gura onlayer forward
+    ## 니논 놀란 표정
+    show stand_Ninon_surprise onlayer forward with dissolve
+
+    ch_ninon "우오오오옷——!!!!! 동국의 의복 문화 스게에———엣!!!!!!!!"
+
+    hide stand_Ninon_surprise onlayer forward
+
+    ch_ayumi "니…… 니논 씨의 상태가 이상해요……?"
+
+    ## 니논 비장한 표정
+    show stand_Ninon_daiji onlayer forward with dissolve
+
+    ch_ninon "아무것도 이상할 것 없다 입니다! 이것은 매우 자연스러운 동국의 예법 입니다!"
+
+    ch_ninon "『인법 · 동국의 이런 점이 대단하다』 !!"
+
+    ch_ninon "별것도 아닌 걸 보면서 과도한 GESTURE 와 함께 호들갑을 떠는 인술 입니다! 여러분도 따라해 보세요 입니다!!"
+
+    hide stand_Ninon_daiji onlayer forward
+
+    ## 쿠우카 대사로 넘어갈 때 까지 구라노스케 서서히 축소
+    hide bg_onsen_heya_01 onlayer middle with fade
+    $ camera_move(0, 0, 600, 0, 0)
+    show stand_gura onlayer forward with dissolve 
+    $ camera_move(0, 0, 300, 0, 3)
+
+    ch_gura "……별것도……"
+
+    $ camera_move(0, 0, 0, 0, 3)
+
+    ch_gura "………아닌 거………"
+
+    show bg_onsen_heya_01
+    hide stand_gura onlayer forward
+    hide bg_black onlayer background
+
+    ## 쿠우카 놀란 표정
+    show stand_Kuka_surprised with vpunch
+
+    ch_kuka "예, 예뻐요!! 정말 예뻐요!!! 쿠, 쿠우카는 이걸로 할게요……."
+
+    hide stand_Kuka_surprised
+    ## 니논 웃는 표정
+    show stand_Ninon with dissolve
+
+    ch_ninon "니논은 이것으로 하겠소 입니다~! 동국의 정열적인 SOUL이 느껴진다 입니다!"
+
+    
+
+
+
+
+
+
+    
 
     return
 ## 미니 게임 CG 라벨 ########################
