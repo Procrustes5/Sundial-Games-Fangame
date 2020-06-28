@@ -35,29 +35,29 @@ init:
         im.FactorScale("Character/monica/monica_yukata_surprised.png", 0.22)
     ## 쿠우카
     image stand_Kuka:
-        im.FactorScale("Character/kuka/kuka.png", 0.18)
+        im.FactorScale("Character/kuka/kuka.png", 0.20)
     image stand_Kuka_down:
-        im.FactorScale("Character/kuka/kuka_down.png", 0.18)
+        im.FactorScale("Character/kuka/kuka_down.png", 0.20)
     image stand_Kuka_hiku:
-        im.FactorScale("Character/kuka/kuka_hiku.png", 0.18)
+        im.FactorScale("Character/kuka/kuka_hiku.png", 0.20)
     image stand_Kuka_mousou:
-        im.FactorScale("Character/kuka/kuka_mousou.png", 0.18)
+        im.FactorScale("Character/kuka/kuka_mousou.png", 0.20)
     image stand_Kuka_shamed:
-        im.FactorScale("Character/kuka/kuka_shamed.png", 0.18)
+        im.FactorScale("Character/kuka/kuka_shamed.png", 0.20)
     image stand_Kuka_surprised:
-        im.FactorScale("Character/kuka/kuka_surprised.png", 0.18)
+        im.FactorScale("Character/kuka/kuka_surprised.png", 0.20)
     image stand_Kuka_yukata:
-        im.FactorScale("Character/kuka/kuka_yukata.png", 0.18)
+        im.FactorScale("Character/kuka/kuka_yukata.png", 0.20)
     image stand_Kuka_yukata_down:
-        im.FactorScale("Character/kuka/kuka_yukata_down.png", 0.18)
+        im.FactorScale("Character/kuka/kuka_yukata_down.png", 0.20)
     image stand_Kuka_yukata_hiku:
-        im.FactorScale("Character/kuka/kuka_yukata_hiku.png", 0.18)
+        im.FactorScale("Character/kuka/kuka_yukata_hiku.png", 0.20)
     image stand_Kuka_yukata_mousou:
-        im.FactorScale("Character/kuka/kuka_yukata_mousou.png", 0.18)
+        im.FactorScale("Character/kuka/kuka_yukata_mousou.png", 0.20)
     image stand_Kuka_yukata_shamed:
-        im.FactorScale("Character/kuka/kuka_yukata_shamed.png", 0.18)
+        im.FactorScale("Character/kuka/kuka_yukata_shamed.png", 0.20)
     image stand_Kuka_yukata_surprised:
-        im.FactorScale("Character/kuka/kuka_yukata_surprised.png", 0.18)
+        im.FactorScale("Character/kuka/kuka_yukata_surprised.png", 0.20)
     ## 유키
     image stand_Yuki:
         im.FactorScale("Character/yuki/yuki.png", 0.18)
@@ -174,6 +174,9 @@ init:
     image bg_surf:
         im.FactorScale("bg/surf.jpg", 1.75)
 
+    image bg_universe:
+        im.FactorScale("bg/bg_universe.png", 1.2)
+
     image bg_onsen:
         im.FactorScale("bg/bg_onsen.jpg", 1.8)
 
@@ -185,6 +188,12 @@ init:
 
     image bg_onsen_heya_02:
         im.FactorScale("bg/bg_onsen_heya_02.png", 1.0)
+
+    image bg_entrance:
+        im.FactorScale("bg/bg_entrance.png", 1.0)
+
+    image bg_entrance_02:
+        im.FactorScale("bg/bg_entrance_02.png", 1.0)
 
     image bg_tyugaku:
         im.FactorScale("bg/bg_tyugaku.png", 0.67)
@@ -2464,9 +2473,9 @@ label start:
 
     hide stand_Yuki
     show stand_Monica at center with dissolve:
-        ease 0.5 yalign 1.0
-        ease 0.1 yalign 0.0
-        repeat 2 ##팔짝 뛰는 모션
+        easeout 0.1 yalign 1.0
+        ease 0.3 yalign 0.0
+        easeout 0.1 yalign 1.0  ##팔짝 뛰는 모션
     ch_monica "그래서 더 문제라는 거다!! 그 강력한 마물을 쓰러뜨릴 정도의 역량을 가지고 있으면서, 이전에 비해 바뀐 게 아무것도 없잖아!"
 
     ch_monica "다들 약속이라도 한 것마냥 비전투 의뢰만 잔뜩 수주해오고! 그대들은 모험가 길드를 대체 뭐라고 생각하는 건가?!"
@@ -2761,7 +2770,7 @@ label start:
     ## 둘 다 어둡게
 
     ch_nar "갑자기 나한테 떠넘긴다고? 미쳤나?"
-    ## 모니카 cg어둡게/니논 밝게, 니논 놀란 표정
+    ## 모���카 cg어둡게/니논 밝게, 니논 놀란 표정
     hide stand_Ninon_down onlayer forward
     show stand_Ninon_panic onlayer forward at veryleft
 
@@ -3270,10 +3279,10 @@ label onsen:
     show stand_Ninon_surprise with dissolve ## 니논 놀란 표정
 
     ## 니논 어둡게
+    hide stand_Ninon_surprise
 
     ch_ayumi "마지막 힘을 짜내어 써 놓은 편지를…… 다른 누군가가 발견해서 여기로 몰래 보내 준 것 아닐까요……? 우으…… 제가 말하면서도 무서워요……."
 
-    hide stand_Ninon_surprise
     show stand_Monica with dissolve ## 모니카 화난 표정
 
     ch_monica "뭐…… 자세한 내막은 직접 가서 알아내면 될 뿐이다. 편지의 마지막에 언급된 ‘구라노스케’라는 인물에 대해서도 석연치 않은 부분이 많고……"
@@ -3754,6 +3763,8 @@ label onsen_inside:
     hatena "잡설은 이쯤 하고——"
 
     show bg_onsen at fast_rotating
+
+    hatena "정식으로 자기소개를 하겠슴다아———앗!!!!!!"
 
     ch_gura "제 이름은 구라노스케!!!! 쇼군 여러분!!!!! 모시게 되어 영광임다아———앗!!!!!!"
 
@@ -4303,19 +4314,244 @@ label scene_eight:
 
     ch_ninon "니논은 이것으로 하겠소 입니다~! 동국의 정열적인 SOUL이 느껴진다 입니다!"
 
+    hide stand_Ninon
+    ## 유키 자뻑하는 표정
+    show stand_Yuki_proud with dissolve
+
+    ch_yuki "내 아름다움을 온전히 담을 수 있는 옷은 없는 것 같지만, 그나마 이게 가장 나의 미모에 잘 어울릴 것 같네♪"
+
+    hide stand_Yuki_proud
+
+    ch_ayumi "예쁘다…… 이걸 입으면 선배가 나를 귀엽게 봐 줄지도……! 저는 이걸로 할게요!"
+
+    ## 모니카 시무룩한 표정
+    show stand_Monica_down with dissolve
+
+    ch_monica "‘뭘 입어도 어차피 안 보일 텐데……?’"
+
+    ch_monica "으음…… 그나저나 여성용 유카타는 하나같이 화려하군. 이런 건 조금 부담스러운데…… 좀 더 수수한 디자인은 없는 건가?"
+
+    hide stand_Monica_down
+    show stand_gura with dissolve
+
+    ch_gura "아, 모니카 님은 거기 말고 옆 칸의 어린이용으로 고르시면 됩니다."
+
+    hide stand_gura
+    ## 모니카 부끄러워하는 표정
+    show stand_Monica_dere at center with dissolve:
+        easeout 0.1 yalign 1.0
+        ease 0.3 yalign 0.0
+        easeout 0.1 yalign 1.0 ## 팔짝 뛰는 모션
+        
+    ch_monica "그러니까 어린애가 아니란 말이다———!!!!!!!!"
+
+    ch_nar "화내면서 어린이용을 고르고 있네……"
+
+    hide stand_Monica_dere
+
+    player "나도 골랐는데…… 바로 갈아입으면 돼?"
+
+    show stand_gura with dissolve
+
+    ch_gura "아, 아닙니다! 먼저 몸을 청결히 한 뒤 유카타로 갈아입는 것이 온천의 기본 원칙입니다!"
+
+    ch_gura "모두 유카타를 고르신 것 같군요……. 그럼 탕으로 안내해 드리겠습니다!"
+
+    hide stand_gura
+    hide bg_onsen_heya_01
     
 
+    jump sceneNum9
+## S# 9. 온천 건물 내부 (2) #################
+label sceneNum9:
+    scene bg_black
+    show bg_entrance with fade
 
+    show stand_gura with dissolve
 
+    ch_gura "푸른 휘장이 걸린 입구는 남탕, 붉은 휘장은 여탕입니다. 몸을 청결히 씻으신 뒤 탕에 들어가시면 됩니다!"
 
+    ch_gura "유카타는 온천욕이 끝난 후에 갈아입고 나와 주세요!"
 
+    hide stand_gura
+    ## 쿠우카 시무룩한 표정
+    show stand_Kuka_down with dissolve
 
+    ch_kuka "어, 저기…… 이곳엔 혼욕탕은 없나요?"
+
+    hide stand_Kuka_down
+    show stand_gura with dissolve
+
+    ch_gura "혼욕……?"
+
+    ch_gura "아……"
     
+    ch_gura "그렇군요…… 혼욕탕이 아니라면 쇼군 님과 함께 행동하지 못할 테니……"
 
+    hide stand_gura
+    ## 쿠우카 놀란 표정
+    show stand_Kuka_surprised with dissolve
+
+    ch_kuka "……에? 네……엣! 도, 도S 씨와 떨어지게 되면, 위…… 위험해 질 수도 있으니까요! 네!"
+
+    ## 왼쪽에 모니카 시무룩한 표정
+    show stand_Monica_down at left with dissolve
+
+    ch_monica "‘……그렇다기보다 사리사욕을 채우려는 목적이 크겠지만…….’"
+
+    hide stand_Monica_down
+    hide stand_Kuka_surprised
+
+    show stand_gura with dissolve
+
+    ch_gura "음…… ‘그 일’은 항상 밤중에 일어났으니, 당장은 따로 행동하셔도 위험하지 않을 겁니다."
+
+    ch_gura "그리고…… 결론부터 말씀드리자면 현재 혼욕탕은 출입할 수 없습니다."
+
+    hide stand_gura
+    ## 니논 시무룩한 표정
+    show stand_Ninon_down with dissolve
+
+    ch_ninon "NON……"
+
+    hide stand_Ninon_down
+
+    show stand_gura with dissolve
+
+    ch_gura "원래라면 개방되어 있었겠지만…… 불미스러운 사고가 많이 일어나서요. 좀전에 이야기를 나누었던 곳도 혼욕탕이었습니다."
+
+    hide stand_gura
+
+    ch_ayumi "히잉……"
+
+    ## 모니카 뚱한 표정
+    show stand_Monica_ddung with dissolve
+    
+    ch_monica "그대들…… 그런 표정 짓지 마라! 우리가 혼욕 때문에 온 것은 아니지 않나!"
+
+    hide stand_Monica_ddung
+
+    ch_nar "까비……"
+
+    ## 유키 자뻑하는 표정
+    show stand_Yuki_proud with dissolve
+
+    ch_yuki "뭐, 그렇다면 어쩔 수 없네~ 우리는 먼저 들어가 볼게~"
+
+    ch_yuki "[name]~ 어서 들어가자. 손 잡고 갈래? 팔짱도 낄까?"
+
+    ## 니논 억울한 표정 오른쪽
+
+    show stand_Ninon_innocence at right with dissolve
+
+    ch_ninon "으그그극…… 니논은 이 일을 기억할 것입니다……"
+
+    hide stand_Ninon_innocence
+    hide stand_Yuki_proud
+
+    show stand_gura with dissolve
+
+    ch_gura "엇, 그쪽은 남탕인데요……"
+
+    hide stand_gura
+    ## 유키 기본 표정
+    show stand_Yuki with dissolve
+
+    ch_yuki "응? 나는 남자니까, 남탕에 들어가는 게 당연하지."
+
+    hide stand_Yuki
+
+    show stand_gura with dissolve
+
+    ch_gura "……아, 그렇군요! 죄송합니다, 유키 님은 남……"
+    
+    hide stand_gura
+
+    hide bg_entrance
+    $ camera_move(0, 0, 600, 0, 0)
+    show bg_universe onlayer middle
+    ## 동양풍 bgm 멈춤
+    show stand_gura onlayer forward
+    
+    $ camera_move(0, 0, 300, 0, 6)
+
+    ch_gura "남…………"
+
+    $ camera_move(0, 0, 0, 0, 6)
+
+    ch_gura "…………………"
+
+    hide bg_universe onlayer middle
+    hide stand_gura onlayer forward
+
+    show bg_entrance_02
+    ## 동양풍 bgm 점점 커짐
+
+    ## 유키 뚱한 표정
+    show stand_Yuki_ddung with dissolve
+
+    ch_yuki "뭐야~ 더 할 말 없으면 들어간다?"
+
+    hide stand_Yuki_ddung
+    show stand_gura with dissolve
+
+    ch_gura "……네? 아, 네……"
+
+    ch_gura "부, 부디 온천을 즐겨 주십시오……"
+
+    ch_nar "모르고 있었구나……"
+
+    hide stand_gura
+
+    ## 모니카 웃는 표정
+    show stand_Monica with dissolve
+
+    ch_monica "모두들, 이만 들어가자."
+
+    show stand_Monica_munen
+    hide stand_Monica
+
+    ch_monica "유키와 귀공도, 으음…… 무, 무사히 돌아오도록……!"
+
+    hide stand_Monica_munen
+
+    ch_nar "‘무사히’ 라는 건 무슨 의미야……!"
+
+    ## 유키 자뻑하는 표정
+    show stand_Yuki_proud with dissolve
+
+    ch_yuki "……♪"
+
+    hide stand_Yuki_proud
+    hide bg_entrance_02
+
+    ## 동양풍 bgm 점점 작게
+
+
+    jump sceneNum10
+## S# 10. 검은 배경 ########################
+label sceneNum10:
+
+    ## 심각한 bgm
+    hatena "……"
+
+    hatena "손……님."
+
+    hatena "남자…… 시……작? ……여자."
+
+    hatena "아직…… 살……아있다."
+
+    hatena "먹……고, 싶어? 주문……하신. 저, 기……요?"
+
+    hatena "먹는…… 먹……"
+
+    hatena "먹는다."
+
+    ## 심각한 bgm 점점 작게
     return
 ## 미니 게임 CG 라벨 ########################
 label ninon_win:
-
+    
     return
 ## 니논 루트 ################################
 label ninon:
