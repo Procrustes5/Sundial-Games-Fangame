@@ -253,7 +253,6 @@ screen quick_menu():
             textbutton _("되감기") action Rollback()
             textbutton _("대사록") action ShowMenu('history')
             textbutton _("넘기기") action Skip() alternate Skip(fast=True, confirm=True)
-            textbutton _("자동진행") action Preference("auto-forward", "toggle")
             textbutton _("저장하기") action ShowMenu('save')
             textbutton _("Q.저장하기") action QuickSave()
             textbutton _("Q.불러오기") action QuickLoad()
@@ -317,8 +316,6 @@ screen navigation():
         elif not main_menu:
 
             textbutton _("메인 메뉴") action MainMenu()
-
-        textbutton _("제작진") action ShowMenu("about")
 
         textbutton _("갤러리") action ShowMenu("gallery")
 
@@ -441,32 +438,57 @@ style navigation_button_text:
 ## 렌파이가 시작할 때 메인메뉴를 출력합니다.
 ##
 ## https://www.renpy.org/doc/html/screen_special.html#main-menu
+# Main Menu
+#
+# 렌파이를 실행할 때 처음으로 나타나는 메인 메뉴를 표시하는 데 사용되는 스크린
+ 
+init:
+    image title_screen:
+        "title/title_screen.png"
 
-screen main_menu():
-
-    ## This ensures that any other menu screen is replaced.
+    transform fadein: # 메인 메뉴 버튼에 적용할 트랜스폼
+        on show: #처음 등장할 때만
+            alpha 0
+            linear 1 alpha 1 # 서서히 나타나도록 하는 효과를 적용
+         
+        on replaced: # game menu 스크린과 교체될 때는
+            alpha 1 # 그냥 투명도값 100%
+             
+screen main_menu:
+ 
+    # This ensures that any other menu screen is replaced.
     tag menu
-
-    style_prefix "main_menu"
-
-    add gui.main_menu_background
-
-    ## This empty frame darkens the main menu.
+ 
+    # The background of the main menu.
+    #window:
+        #style "mm_root"
+ 
+    #위 init 블록에서 지정했던 메인 메뉴 배경화면
+    add 'title_screen' 
+     
+    # 메인 메뉴 버튼
     frame:
-        pass
+        # 메인메뉴 버튼에 적용되는 스타일에 mm이라는 접두어를 붙임
+        style_group 'mm'
+ 
+        # style_group 적용하려고 만든거라 배경 화면은 투명하게
+        background '#fff0'
+ 
+        # 이 프레임 안에 들어있는 모든 버튼에
+        # 아까 지정했던 페이드인 효과 지정
+        at fadein
+ 
+             
+        imagebutton idle 'title/title_button_big.png' hover 'title/title_button_big.png' action Start() xpos 80 ypos 300
+        imagebutton idle 'title/title_button_big.png' hover 'title/title_button_big.png' action ShowMenu("load") xpos 80 ypos 380
+        imagebutton idle 'title/title_button_big.png' hover 'title/title_button_big.png' action ShowMenu("gallery") xpos 80 ypos 460
+        imagebutton idle 'title/title_button_big.png' hover 'title/title_button_big.png' action ShowMenu("about") xpos 80 ypos 540
 
-    ## use 명령어로 스크린 내에 다른 스크린을 불러옵니다. 메인 메뉴 스크린의 내
-    ## 용물은 navigation 스크린에 있습니다.
-    use navigation
-
-    if gui.show_name:
-
-        vbox:
-            text "[config.name!t]":
-                style "main_menu_title"
-
-            text "[config.version]":
-                style "main_menu_version"
+         
+        # 설정 버튼.
+        imagebutton idle 'title/title_button_small.png' hover 'title/title_button_small.png' action ShowMenu("preferences") xpos 1027 ypos 624
+        # 종료 버튼
+        imagebutton idle 'title/title_button_small.png' hover 'title/title_button_small.png' action Quit(confirm=False) xpos 1135 ypos 624
 
 
 style main_menu_frame is empty
