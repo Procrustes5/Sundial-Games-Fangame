@@ -128,6 +128,10 @@ init:
     ## 마물
     image stand_monster:
         im.FactorScale("Character/monster/monster.png", 0.2)
+    ## 프붕
+    image cg_babybung:
+        im.FactorScale("library/babybung.png", 1.0)
+        xalign 0.5 yalign 0.3
 ## 트랜스폼
     transform movetoright:
         ease 0.5 xalign 1.0
@@ -153,8 +157,11 @@ init:
     transform xycenter:
         xalign 0.5 yalign 0.5
 ## 배경 cg
-    image bg_forest:
-        im.FactorScale("bg/forest.jpg", 0.4)
+    image bg_whatsyourname:
+        im.FactorScale("bg/whatsYourName.png", 1.0)
+
+    image bg_field:
+        im.FactorScale("bg/field.png", 1.0)
 
     image bg_town:
         im.FactorScale("bg/bg_town.png", 0.68)
@@ -2244,14 +2251,15 @@ init python:
 ## 게임 시작 ##############################
 ## 이름 짓기 #############################
 label naming:
+    scene bg_black
     # 아메스 테마 서서히 커지다가 고정
     play music "audio/main/ames.mp3" fadein 3.0
-    ch_nar " 당신의 이름, 가르쳐줄래?"
-
+    show bg_whatsyourname with squares
+    $ renpy.pause(1.0)
     $ player_name = renpy.input("내 이름...")
     $ name = player_name
     $ finalConso = finalChecker(name)
-
+    hide bg_whatsyourname
     if length(name) == True:
         hatena "어서 와, [name]. 그게 당신의 이름이구나."
         hatena "지금부터 당신이 보게 될 것은, 이른바 꿈 같은 거야. 이미 겪어 보았거나, 언젠가 일어날지도 모르는, 한여름 밤의 꿈 같은 일. ‘몽상’이라 불러도 좋겠네."
@@ -2264,6 +2272,7 @@ label naming:
                 hatena "당신이 알아야 할 건 단지…… 이제부터 여러 명의 ‘소녀’들을 만나게 된다는 것과,"
                 hatena "당신이 어떤 선택을 내리느냐에 따라 그녀들의 운명이 조금씩 바뀌게 된다는 것밖에 없어. 그럼 잘해 봐. 행운을 빌게, 왕자님♪"
             ##텍스트 사라지면서 볼륨 서서히 off
+            
     else:
         hatena "어떻게 사람 이름이 [name]일수가 있지 ㅋㅋ"
         hatena "진짜 이름을 10자 이내로 알려 줘."
@@ -2280,7 +2289,8 @@ label start:
     else:
         pass        
 ## S# 1. 초원 ###
-    scene bg_forest onlayer background with fade # 배경화면
+    show bg_black
+    scene bg_field onlayer background with fade # 배경화면
 
     play music "audio/main/nature.mp3"
 
@@ -2292,7 +2302,7 @@ label start:
     ## 총소리
 
     ## 피격효과, 화면 흔들림 효과
-    show bg_forest onlayer background with hpunch
+    show bg_field onlayer background with hpunch
     
     monster "커르륵...!"
 
@@ -2314,6 +2324,7 @@ label start:
     monster "쿠아아악!! 크르륵..."
 
     ## 울부짖는 효과, 화면 흔들림 효과
+    show stand_monster onlayer middle with hpunch
     ## 괴물 울음소리
 
     monster "크워어어어어!!"
@@ -2361,7 +2372,7 @@ label start:
     #일순간 까맣게 된 화면을 가로로 베는 효과
     #칼로 베는 소리
     hide stand_Monica onlayer middle with dissolve
-    hide bg_forest onlayer background with fade
+    hide bg_field onlayer background with fade
 ## 길드 하우스 cg
     scene bg_black
     show bg_guildhouse with fade
@@ -4181,8 +4192,11 @@ label routen:
 
     ## 심각한 bgm 멈춤
 
+    show cg_babybung with dissolve
+
     player "테에엥 마망……."
 
+    hide cg_babybung
     ## 모니카 시무룩한 표정
     show stand_Monica_down with dissolve
 
@@ -4190,8 +4204,11 @@ label routen:
 
     hide stand_Monica_down
 
+    show cg_babybung with dissolve
+
     player "응애 나 애기프붕."
 
+    hide cg_babybung
     ## 유키 질색하는 표정
     show stand_Yuki_angry with dissolve
 
@@ -4199,8 +4216,10 @@ label routen:
 
     hide stand_Yuki_angry
 
+    show cg_babybung with dissolve
     player "응애 맘마조."
 
+    hide cg_babybung
     ## 쿠우카 질색하는 표정
     show stand_Kuka_hiku with dissolve
 
@@ -4270,11 +4289,12 @@ label scene_eight:
 
     ch_gura "마음에 드는 걸로 하나씩 골라 줍쇼오————옷!!!!!"
 
-    show bg_onsen_heya_01 onlayer middle at fast_rotating
-
     hide stand_gura onlayer forward
     ## 니논 놀란 표정
     show stand_Ninon_surprise onlayer forward with dissolve
+    hide bg_onsen_heya_01 onlayer middle
+    show bg_onsen_heya_01 onlayer middle at fast_rotating:
+        xalign 0.5 yalign 0.5
 
     ch_ninon "우오오오옷——!!!!! 동국의 의복 문화 스게에———엣!!!!!!!!"
 
