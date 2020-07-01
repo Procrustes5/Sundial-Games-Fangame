@@ -124,6 +124,7 @@ init:
         im.FactorScale("library/cg_gura_baby.png", 1.0)
     image cg_gura_child:
         im.FactorScale("library/cg_gura_child.png", 1.0)
+    image movie = Movie(size=(1280,720))
     ## 마물
     image stand_monster:
         im.FactorScale("Character/monster/monster.png", 0.2)
@@ -205,7 +206,12 @@ init:
         im.FactorScale("bg/bg_tyugaku_stop.png", 1.3)
 
     image logo_head = "logo/logo.png"
-
+## 오브젝트 #############################
+init:
+    image ob_ujitya:
+        im.FactorScale("object/ob_ujitya.png", 1.0)
+    image ob_wagasi:
+        im.FactorScale("object/ob_wagasi.png", 1.0)    
 ## 캐릭터 ###############################
 init:
     define ch_ninon = Character('니논', color="#f5f562")
@@ -3276,10 +3282,6 @@ label onsen:
     ch_yuki "잠깐, 너무 진지하게 받아들이는 거 아니야? 저 빨간 자국이 진짜 피가 맞다 쳐도, 이상한 점이 한두 개가 아니잖아."
 
     hide stand_Yuki_ddung
-    show stand_Ninon_surprise with dissolve ## 니논 놀란 표정
-
-    ## 니논 어둡게
-    hide stand_Ninon_surprise
 
     ch_ayumi "마지막 힘을 짜내어 써 놓은 편지를…… 다른 누군가가 발견해서 여기로 몰래 보내 준 것 아닐까요……? 우으…… 제가 말하면서도 무서워요……."
 
@@ -3716,17 +3718,21 @@ label onsen_inside:
 
     hide cg_gura_baby
     ## 구라노스케 cg 합성: 울고 있는 학동 위치에 합성
-    show cg_gura_child at xycenter with dissolve
+    show cg_gura_child with dissolve
 
     player "우와, 아까부터 합성 성의 없어……"
+
+    show movie
+    play movie "library/cg_gura_child.mpg"
 
     hatena "당연히 이런 저를 받아 주는 사람이 있을 리 없었고……"
 
     hatena "단지 이렇게 생겼다는 이유 하나만으로 괴물이라 놀림 받으며, 심한 괴롭힘을 당하는 나날들이 계속되었지요……."
 
+    stop movie
+    hide movie
     hide cg_gura_child
     show bg_onsen with fade
-    hide bg_black
 
     show stand_gura with dissolve
 
@@ -3797,7 +3803,7 @@ label onsen_inside:
 
     hide stand_gura
     hide bg_onsen with fade
-
+    hide bg_black
     jump routen
 ## S# 7. 노천탕 ############################
 label routen:
