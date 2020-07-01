@@ -370,7 +370,7 @@ init python:
     g.unlock_image("end6")
 
     g.button("yuki1")
-    g.unlock_image("cg_yuki_01")
+    g.unlock_image("cg_yuki_03_plus")
     
     g.button("yuki2")
     g.unlock_image("end8")
@@ -453,7 +453,16 @@ init:
          
         on replaced: # game menu 스크린과 교체될 때는
             alpha 1 # 그냥 투명도값 100%
-             
+
+    # 메인 메뉴에서 쓸 배경.
+    # x위치 -33 에서 0으로 반복해서 움직일 뿐이지만
+    # 그냥 보기에는 무한히 오른쪽으로 움직이는 것처럼 보임
+    image bg mainmenu:
+        im.FactorScale("title/logo.png", 0.25)
+        ease 2.0 xpos 0 ypos -10
+        easeout 1.0 xpos 0 ypos 0
+        repeat
+
 screen main_menu:
  
     # This ensures that any other menu screen is replaced.
@@ -473,11 +482,11 @@ screen main_menu:
  
         # style_group 적용하려고 만든거라 배경 화면은 투명하게
         background '#fff0'
- 
         # 이 프레임 안에 들어있는 모든 버튼에
         # 아까 지정했던 페이드인 효과 지정
         at fadein
- 
+
+        imagebutton idle 'bg mainmenu' hover 'bg mainmenu' action NullAction() xpos 100 ypos 50
              
         imagebutton idle 'title/title_button_big.png' hover 'title/title_button_big.png' action Start() xpos 80 ypos 300
         imagebutton idle 'title/title_button_big.png' hover 'title/title_button_big.png' action ShowMenu("load") xpos 80 ypos 380
@@ -675,7 +684,7 @@ screen about():
 
             text _("{a=https://www.renpy.org/}Ren'Py{/a} [renpy.version_only] 으로 만들어진 게임입니다.\n\n[renpy.license!t]")
 
-
+            text "{a=https://namu.wiki/w/%EC%9D%B4%EC%84%9C%EA%B7%9C}히키니트{/a}"
 ## options.rpy에서 규정된 내용이 about 스크린에 추가됩니다.
 define gui.about = ""
 

@@ -196,6 +196,9 @@ init:
 
     image bg_onsen_heya_02:
         im.FactorScale("bg/bg_onsen_heya_02.png", 1.0)
+    
+    image bg_daiyokujyo:
+        im.FactorScale("bg/daiyoku.png", 1.0)
 
     image bg_entrance:
         im.FactorScale("bg/bg_entrance.png", 1.0)
@@ -326,8 +329,16 @@ init:
     image end1 = "library/end1.jpg"
     image ninon_pingping:
         im.FactorScale("library/ninon_pingping.png", 0.5)
+    image bg_cg_yuki_01:
+        im.FactorScale("library/bg_cg_yuki_01.png", 1.0)
     image cg_yuki_01:
-        im.FactorScale("library/cg_yuki_01.png", 1.0)
+        im.FactorScale("library/yuki_01.png", 1.0)
+    image cg_yuki_02:
+        im.FactorScale("library/yuki_02.png", 1.0)
+    image cg_yuki_03:
+        im.FactorScale("library/yuki_03.png", 1.0)
+    image cg_yuki_03_plus:
+        im.FactorScale("library/yuki_03_plus.png", 1.0)
 
     image cg_ninon_happy_01 = "library/cg_ninon_happy_01.png"
     image cg_ninon_happy_02 = "library/cg_ninon_happy_02.png"
@@ -2252,14 +2263,14 @@ init python:
 ## 이름 짓기 #############################
 label naming:
     scene bg_black
+    show bg_whatsyourname onlayer forward with squares
     # 아메스 테마 서서히 커지다가 고정
     play music "audio/main/ames.mp3" fadein 3.0
-    show bg_whatsyourname with squares
     $ renpy.pause(1.0)
     $ player_name = renpy.input("내 이름...")
     $ name = player_name
     $ finalConso = finalChecker(name)
-    hide bg_whatsyourname
+    hide bg_whatsyourname onlayer forward
     if length(name) == True:
         hatena "어서 와, [name]. 그게 당신의 이름이구나."
         hatena "지금부터 당신이 보게 될 것은, 이른바 꿈 같은 거야. 이미 겪어 보았거나, 언젠가 일어날지도 모르는, 한여름 밤의 꿈 같은 일. ‘몽상’이라 불러도 좋겠네."
@@ -2287,6 +2298,7 @@ label start:
     if (player_name == "가상의 이름 simulated name"):
         call naming from _call_naming_1
     else:
+        hide bg_whatsyourname
         pass        
 ## S# 1. 초원 ###
     show bg_black
@@ -4575,6 +4587,10 @@ label sceneNum10:
 
     ## 심각한 bgm 점점 작게
     return
+## S# 12. 대욕탕 (공통 루트) ################
+label sceneNum12Common:
+    ## 대욕탕 cg
+    return
 ## 미니 게임 CG 라벨 ########################
 label ninon_win:
     
@@ -4889,9 +4905,9 @@ label cg_kukasecond:
     return
 ## S# 11. 유키 1번 cg
 label cg_yukifirst:
-
+    show bg_black
     ## 유키 1번 cg 배경
-    scene cg_yuki_01 with fade
+    scene bg_cg_yuki_01 with fade
 
     ## 동양풍 bgm
 
@@ -4899,17 +4915,46 @@ label cg_yukifirst:
 
     player "별로 한 것도 없는데 왜 이리 피곤하지……?"
 
+    ch_nar "……탈의실에 다른 손님이 아무도 없다."
+
+    ch_nar "손님 네댓 명으로는 이 정도로 규모 있는 온천을 운영하기 힘들 텐데……"
+
+    ch_nar "이것도 그 마물의 영향인가."
+
+    ch_nar "이래저래 고생이 많아 보이네. 난 마망이 알아서 먹여 살려 주는데. ㅋㅋ루삥빵뽕"
+
+    ch_nar "참, 콧코로 도망갔지."
+
+    ch_nar "빼애앵……"
+
     ## 유키 1번 cg 표정 1로 변경
+    show cg_yuki_01 with dissolve
+    hide bg_cg_yuki_01
 
     ch_yuki "흥~ 흐흥……♬"
 
     ch_nar "이 녀석은 뭐가 그렇게 신나는 걸까……"
 
-    ch_nar "……."
+    ch_nar "……그보다 벌써 탈의가 끝났어?!"
 
-    ch_nar "그나저나 보면 볼수록 놀랍다."
+    ch_nar "입는 것도 벗는 것도 엄청나게 어려워 보이는 옷이었는데?"
 
-    ch_nar "이 녀석이 ‘남자’라는 게……"
+    ch_nar "여자들은 원래 옷 갈아입는 속도가 이렇게 빠른 건가?!"
+
+    ## 호흡 끊기
+    $renpy.pause(1.0)
+
+    ch_nar "……잠깐, 무슨 쌉소리야."
+
+    ch_nar "이 자식 남자라고."
+
+    ch_nar "……"
+
+    ch_nar "보면 볼수록 놀랍다."
+
+    ch_nar "방심하면 뇌가 멋대로 여자라고 착각해 버리지만,"
+
+    ch_nar "이 녀석은 명실상부한 ‘남자’라는 사실이……"
 
     ch_nar "길고 진한 속눈썹."
 
@@ -4924,14 +4969,21 @@ label cg_yukifirst:
     ch_nar "뭐…… 곧 확인해 볼 수 있겠지만……"
 
     ## 유키 1번 cg 표정 2
+    show cg_yuki_02 with dissolve
+    hide cg_yuki_01
 
     ch_yuki "응?"
+
+    ## 호흡 끊기
+    $renpy.pause(1.0)
 
     ch_nar "아…… 눈 마주쳤다."
 
     ch_nar "너무 빤히 보고 있었나……." 
 
     ## 유키 1번 cg 표정 3
+    show cg_yuki_03 with dissolve
+    hide cg_yuki_02
 
     ch_yuki "헤에~ [name], 아름다운 내 몸에 관심 있어?"   
 
@@ -4951,21 +5003,30 @@ label cg_yukifirst:
 
     ## 충격적인 효과음
 
-    ## 유키 1번 cg 완
+    ## 유키 1번 표정 3 cg 완
+    show cg_yuki_03_plus with dissolve
+    hide cg_yuki_03
 
-    ch_yuki "내 {color=#FF2929}아름다움{/color}이 잔뜩 배어 있는 {color=#FF2929}팬티{/color}라도 가질래?"
+    ch_yuki "내 {color=#FF2929}아름다움{/color}이 잔뜩 배어 있는 {color=#FF2929}팬티{/color}라도 가질래? 너에게만 주는 특권이야♪"
 
-    ch_yuki "너에게만 주는 특권이야♪"
+    ## 호흡 끊기
+    $renpy.pause(1.0)
 
     player "필요 없어!!!!"
 
+    player "그보다 남자 팬티가 왜 저 따위로 생긴 건데?!"
+
     ch_yuki "부끄러워하긴~ 나중에 후회해도 모른다?"
+
+    ch_yuki "천재일우의 기회를 놓치다니, 너도 참 둔감하네~"
 
     ch_nar "저런 정신 나간 말을 아무렇지 않게 할 수 있는 것도 재능이 아닐까……."
 
-    hide cg_yuki_01
+    ch_nar "덕분에 더 피곤해졌다. 자고 싶어……."
 
-    return
+    hide cg_yuki_03_plus
+
+    jump sceneNum12Common
 
 label cg_yukisecond:
 
