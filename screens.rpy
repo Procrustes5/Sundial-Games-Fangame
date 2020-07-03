@@ -236,7 +236,9 @@ style choice_button_text is default:
 ## Quick Menu 스크린 ##############################################################
 ##
 ## 퀵메뉴는 게임 외 메뉴 접근성을 높여주기 위해 게임 내에 표시됩니다.
-
+init:
+    image setting_icon:
+        im.FactorScale('menu/setting_icon.png', 0.15)
 screen quick_menu():
 
     ## Ensure this appears on top of other screens.
@@ -246,17 +248,8 @@ screen quick_menu():
 
         hbox:
             style_prefix "quick"
-
-            xalign 0.5
-            yalign 1.0
-
-            textbutton _("되감기") action Rollback()
-            textbutton _("대사록") action ShowMenu('history')
-            textbutton _("넘기기") action Skip() alternate Skip(fast=True, confirm=True)
-            textbutton _("저장하기") action ShowMenu('save')
-            textbutton _("Q.저장하기") action QuickSave()
-            textbutton _("Q.불러오기") action QuickLoad()
-            textbutton _("설정") action ShowMenu('preferences')
+            
+            imagebutton idle 'setting_icon' hover 'setting_icon' action ShowMenu("preferences") xpos 1200 ypos 0
 
 
 ## 플레이어가 UI(스크린)을 일부러 숨기지 않는 한 퀵메뉴가 게임 내에 오버레이로
@@ -375,6 +368,30 @@ init python:
     g.button("yuki2")
     g.unlock_image("end8")
 
+    g.button("1")
+    g.unlock_image("end8")
+
+    g.button("2")
+    g.unlock_image("end8")
+
+    g.button("3")
+    g.unlock_image("end8")
+
+    g.button("4")
+    g.unlock_image("end8")
+
+    g.button("5")
+    g.unlock_image("end8")
+
+    g.button("6")
+    g.unlock_image("end8")
+
+    g.button("7")
+    g.unlock_image("end8")
+
+    g.button("8")
+    g.unlock_image("end8")
+
     g.transition = dissolve
     
  
@@ -389,38 +406,116 @@ init:
         add "images/bg/bg_white.png"
  
         # 버튼 격자판. CG 버튼 정렬용입니다.
-        grid 4 2:
- 
-            xfill True
-            yfill True
- 
-            # 이제 위에서 만들었던 g.button 들을 추가할 차례입니다.
-            # 위에서처럼 g.button으로 설정한 버튼이 없다면 CG버튼은 만들 수 없습니다.
- 
-            # 스크린문에서는 add와 함께 g.make_button 을 이용해 CG버튼을 만듭니다.
-            # add g.make_button("위에 g.button()에서 적었던 버튼 이름", "버튼 그릴 때 사용할 그림 파일 이름")
-            # 을 적으면 됩니다.
-            add g.make_button("ninon1", "images/library/red.png", hover_border = 'images/library/slot_hover_red.png', xalign = 0.75, yalign = 0.9, background = None)
-            add g.make_button("ninon2", "images/library/orange.png", hover_border = 'images/library/slot_hover_orange.png', xalign = 0.75, yalign = 0.9, background = None)
-            add g.make_button("monica1", "images/library/yellow.png", hover_border = 'images/library/slot_hover_yellow.png', xalign = 0.25, yalign = 0.9, background = None)
-            add g.make_button("monica2", "images/library/yellowgreen.png", hover_border = 'images/library/slot_hover_yellowgreen.png', xalign = 0.25, yalign = 0.9, background = None)
-            add g.make_button("kuka1", "images/library/green.png", hover_border = 'images/library/slot_hover_green.png', xalign = 0.75, yalign = 0.1, background = None)
-            add g.make_button("kuka2", "images/library/blue.png", hover_border = 'images/library/slot_hover_blue.png', xalign = 0.75, yalign = 0.1, background = None) 
-            add g.make_button("yuki1", "images/library/deepblue.png", hover_border = 'images/library/slot_hover_deepblue.png', xalign = 0.25, yalign = 0.1, background = None)
-            add g.make_button("yuki2", "images/library/purple.png", hover_border = 'images/library/slot_hover_purple.png', xalign = 0.25, yalign = 0.1, background = None)
- 
-            # 위에서 g.hover_border를 지정했는데
-            # hover_border 는 g.make_button 에서도 정할 수 있습니다.
-            # 전체에 적용할 때는 g.hover_border 에서, 개별로 적용할 때는 g.make_button에서 지정하면 됩니다.
-            # add g.make_button("dawn mary", "gal-dawn_mary.png", hover_border = 'gal-border.png',  xalign=0.5, yalign=0.5)
-  
-            # CG수가 적으면 일일히 add g.make_button ... 적어도 되겠지만
-            # g.make_button에 입력할 내용을 리스트에 넣어놓고 for문으로 만드는 것이 훨씬 편하겠지요.
- 
-        # 클릭하면 메인 메뉴로 돌아가는 버튼입니다.
-        # CG 버튼 양이 많아서 여러 스크린을 만들었다면 다음 CG버튼을 보여주는 버튼을 만들어야겠죠.
-        textbutton '돌아가기' action Return() xalign .5 yalign .9
+        frame:
+            grid 4 2:
+                style_prefix 'page_1'
+                
+                xfill True
+                yfill True
+    
+                # 이제 위에서 만들었던 g.button 들을 추가할 차례입니다.
+                # 위에서처럼 g.button으로 설정한 버튼이 없다면 CG버튼은 만들 수 없습니다.
+    
+                # 스크린문에서는 add와 함께 g.make_button 을 이용해 CG버튼을 만듭니다.
+                # add g.make_button("위에 g.button()에서 적었던 버튼 이름", "버튼 그릴 때 사용할 그림 파일 이름")
+                # 을 적으면 됩니다.
+                add g.make_button("ninon1", "images/library/red.png", hover_border = 'images/library/slot_hover_red.png', xalign = 0.75, yalign = 0.9, background = None)
+                add g.make_button("ninon2", "images/library/orange.png", hover_border = 'images/library/slot_hover_orange.png', xalign = 0.75, yalign = 0.9, background = None)
+                add g.make_button("monica1", "images/library/yellow.png", hover_border = 'images/library/slot_hover_yellow.png', xalign = 0.25, yalign = 0.9, background = None)
+                add g.make_button("monica2", "images/library/yellowgreen.png", hover_border = 'images/library/slot_hover_yellowgreen.png', xalign = 0.25, yalign = 0.9, background = None)
+                add g.make_button("kuka1", "images/library/green.png", hover_border = 'images/library/slot_hover_green.png', xalign = 0.75, yalign = 0.1, background = None)
+                add g.make_button("kuka2", "images/library/blue.png", hover_border = 'images/library/slot_hover_blue.png', xalign = 0.75, yalign = 0.1, background = None) 
+                add g.make_button("yuki1", "images/library/deepblue.png", hover_border = 'images/library/slot_hover_deepblue.png', xalign = 0.25, yalign = 0.1, background = None)
+                add g.make_button("yuki2", "images/library/purple.png", hover_border = 'images/library/slot_hover_purple.png', xalign = 0.25, yalign = 0.1, background = None)
+                
+            
+            hbox:
+                    style_prefix "page"
+                    
+                    xalign 0.5
+                    yalign 1.0
 
+                    spacing gui.page_spacing
+
+                    textbutton _("<") action NullAction()
+
+
+                    ## 범위(1, 10)는 1부터 9까지 숫자를 제공합니다.
+                    
+                    textbutton _("1") action NullAction()
+                    textbutton _("2") action Show("gallery_2")
+
+                    textbutton _(">") action Show("gallery_2")
+                # 위에서 g.hover_border를 지정했는데
+                # hover_border 는 g.make_button 에서도 정할 수 있습니다.
+                # 전체에 적용할 때는 g.hover_border 에서, 개별로 적용할 때는 g.make_button에서 지정하면 됩니다.
+                # add g.make_button("dawn mary", "gal-dawn_mary.png", hover_border = 'gal-border.png',  xalign=0.5, yalign=0.5)
+    
+                # CG수가 적으면 일일히 add g.make_button ... 적어도 되겠지만
+                # g.make_button에 입력할 내용을 리스트에 넣어놓고 for문으로 만드는 것이 훨씬 편하겠지요.
+    
+            # 클릭하면 메인 메뉴로 돌아가는 버튼입니다.
+            # CG 버튼 양이 많아서 여러 스크린을 만들었다면 다음 CG버튼을 보여주는 버튼을 만들어야겠죠.
+            textbutton '돌아가기' action Return() xalign .5 yalign .9
+
+init:
+    screen gallery_2:
+        tag menu
+ 
+        # 배경화면은 add로 넣습니다.
+        add "images/bg/bg_white.png"
+ 
+        # 버튼 격자판. CG 버튼 정렬용입니다.
+        frame:
+            
+            grid 4 2:
+                style_prefix 'page_2'
+                
+                xfill True
+                yfill True
+    
+                # 이제 위에서 만들었던 g.button 들을 추가할 차례입니다.
+                # 위에서처럼 g.button으로 설정한 버튼이 없다면 CG버튼은 만들 수 없습니다.
+    
+                # 스크린문에서는 add와 함께 g.make_button 을 이용해 CG버튼을 만듭니다.
+                # add g.make_button("위에 g.button()에서 적었던 버튼 이름", "버튼 그릴 때 사용할 그림 파일 이름")
+                # 을 적으면 됩니다.
+                
+                add g.make_button("1", "images/library/red.png", hover_border = 'images/library/slot_hover_red.png', xalign = 0.75, yalign = 0.9, background = None)
+                add g.make_button("2", "images/library/orange.png", hover_border = 'images/library/slot_hover_orange.png', xalign = 0.75, yalign = 0.9, background = None)
+                add g.make_button("3", "images/library/yellow.png", hover_border = 'images/library/slot_hover_yellow.png', xalign = 0.25, yalign = 0.9, background = None)
+                add g.make_button("4", "images/library/yellowgreen.png", hover_border = 'images/library/slot_hover_yellowgreen.png', xalign = 0.25, yalign = 0.9, background = None)
+                add g.make_button("5", "images/library/green.png", hover_border = 'images/library/slot_hover_green.png', xalign = 0.75, yalign = 0.1, background = None)
+                add g.make_button("6", "images/library/blue.png", hover_border = 'images/library/slot_hover_blue.png', xalign = 0.75, yalign = 0.1, background = None) 
+                add g.make_button("7", "images/library/deepblue.png", hover_border = 'images/library/slot_hover_deepblue.png', xalign = 0.25, yalign = 0.1, background = None)
+                add g.make_button("8", "images/library/purple.png", hover_border = 'images/library/slot_hover_purple.png', xalign = 0.25, yalign = 0.1, background = None)
+            hbox:
+                    style_prefix "page"
+                    
+                    xalign 0.5
+                    yalign 1.0
+
+                    spacing gui.page_spacing
+
+                    textbutton _("<") action Show("gallery")
+
+
+                    ## 범위(1, 10)는 1부터 9까지 숫자를 제공합니다.
+                    textbutton _("1") action Show("gallery")
+                    textbutton _("2") action NullAction()
+
+                    textbutton _(">") action NullAction()
+                # 위에서 g.hover_border를 지정했는데
+                # hover_border 는 g.make_button 에서도 정할 수 있습니다.
+                # 전체에 적용할 때는 g.hover_border 에서, 개별로 적용할 때는 g.make_button에서 지정하면 됩니다.
+                # add g.make_button("dawn mary", "gal-dawn_mary.png", hover_border = 'gal-border.png',  xalign=0.5, yalign=0.5)
+    
+                # CG수가 적으면 일일히 add g.make_button ... 적어도 되겠지만
+                # g.make_button에 입력할 내용을 리스트에 넣어놓고 for문으로 만드는 것이 훨씬 편하겠지요.
+    
+            # 클릭하면 메인 메뉴로 돌아가는 버튼입니다.
+            # CG 버튼 양이 많아서 여러 스크린을 만들었다면 다음 CG버튼을 보여주는 버튼을 만들어야겠죠.
+            textbutton '돌아가기' action Return() xalign .5 yalign .9
 ##########################
 style navigation_button is gui_button
 style navigation_button_text is gui_button_text
@@ -493,7 +588,7 @@ screen main_menu:
         imagebutton idle 'title/title_button_big.png' hover 'title/title_button_big.png' action ShowMenu("gallery") xpos 80 ypos 460
         imagebutton idle 'title/title_button_big.png' hover 'title/title_button_big.png' action ShowMenu("about") xpos 80 ypos 540
 
-         
+        
         # 설정 버튼.
         imagebutton idle 'title/title_button_small.png' hover 'title/title_button_small.png' action ShowMenu("preferences") xpos 1027 ypos 624
         # 종료 버튼
