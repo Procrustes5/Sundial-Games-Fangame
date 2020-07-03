@@ -232,6 +232,16 @@ style choice_button is default:
 style choice_button_text is default:
     properties gui.button_text_properties("choice_button")
 
+## 돌아가는 설정 버튼 #######################
+##
+##
+init:
+    image rotating_icon:
+        im.FactorScale("menu/setting_icon.png", 0.15)
+        xpos -15 ypos -15
+        rotate 0
+        linear 2.5 rotate -360
+        repeat
 
 ## Quick Menu 스크린 ##############################################################
 ##
@@ -243,13 +253,15 @@ screen quick_menu():
 
     ## Ensure this appears on top of other screens.
     zorder 100
-
     if quick_menu:
 
         hbox:
             style_prefix "quick"
             
-            imagebutton idle 'setting_icon' hover 'setting_icon' action ShowMenu("preferences") xpos 1200 ypos 0
+            imagebutton:
+                idle 'setting_icon' hover 'rotating_icon' action ShowMenu("preferences") xpos 1200 ypos 0
+                
+
 
 
 ## 플레이어가 UI(스크린)을 일부러 숨기지 않는 한 퀵메뉴가 게임 내에 오버레이로
