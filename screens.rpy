@@ -202,43 +202,79 @@ style input:
 ##
 ## https://www.renpy.org/doc/html/screen_special.html#choice
 
-screen choice(items):
-    style_prefix "choice"
-
-    vbox:
-        for i in items:
-            textbutton i.caption action i.action
-
-
-## True일 경우 narrator 캐릭터를 통해 지문을 표시합니다. False일 경우 지문이 비
-## 활성화 선택지로 표시됩니다.
+init:
+    image center:
+        im.FactorScale('choice/choice_0.png', 0.5)
+    $ feel = "-"
+    $ length_items = 0
+    screen icon:
+        if length_items == 1:
+            add (im.FactorScale('/choice/choice_%s.png' %feel, 0.5)) xalign .2 yalign 0.5
+        else:
+            add (im.FactorScale('/choice/choice_%s.png' %feel, 0.5)) xalign .5 yalign 0.5
+    screen choice(items):
+        imagebutton idle 'center' hover 'center' action NullAction() xalign 0.2 yalign 0.5
+        if len(items) == 1:
+            $ length_items = 1
+            vbox:
+                xalign 0.2 yalign 0.5
+                for caption, action, chosen in items[3:]:
+                    if action:
+                        button:
+                            action action
+                            style "menu_choice_button"
+                            text caption[:-8] size 30 hover_bold True hover_color '#FFD700' line_spacing 15 style "menu_choice"
+                            hovered Show('icon', feel="2")
+                            unhovered Hide('icon')
+                    
+            
+            vbox:
+                xalign 0.2 yalign 0.5
+                for caption, action, chosen in items[:3]:
+                    if action:
+    
+                        button:
+                            action action
+                            style "menu_choice_button"
+                            text caption[:-8] size 30 hover_bold True hover_color '#FFD700' line_spacing 15 style "menu_choice"
+                            hovered Show('icon', feel="2")
+                            unhovered Hide('icon')
+                            xminimum 100
+            
+        else:
+            vbox:
+                xalign 0.2 yalign 0.5
+                for caption, action, chosen in items[3:]:
+                    if action:
+                        button:
+                            action action
+                            style "menu_choice_button"
+                            text caption[:-8] size 30 hover_bold True hover_color '#FFD700' line_spacing 15 style "menu_choice"
+                            hovered Show('icon', feel=caption[-1])
+                            unhovered Hide('icon')
+                    
+            
+            vbox:
+                xalign 0.8 yalign 0.5
+                for caption, action, chosen in items[:3]:
+                    if action:
+    
+                        button:
+                            action action
+                            style "menu_choice_button"
+                            text caption[:-8] size 30 hover_bold True hover_color '#FFD700' line_spacing 15 style "menu_choice"
+                            hovered Show('icon', feel=caption[-1])
+                            unhovered Hide('icon')
+                            xminimum 100
 define config.narrator_menu = True
-
-
-style choice_vbox is vbox
-style choice_button is button
-style choice_button_text is button_text
-
-style choice_vbox:
-    xalign 0.5
-    ypos 270
-    yanchor 0.5
-
-    spacing gui.choice_spacing
-
-style choice_button is default:
-    properties gui.button_properties("choice_button")
-
-style choice_button_text is default:
-    properties gui.button_text_properties("choice_button")
 
 ## 돌아가는 설정 버튼 #######################
 ##
 ##
 init:
     image rotating_icon:
-        im.FactorScale("menu/setting_icon.png", 0.15)
-        xpos -15 ypos -15
+        im.FactorScale("menu/setting_icon.png", 0.12)
+        xpos -12 ypos -12
         rotate 0
         linear 2.5 rotate -360
         repeat
@@ -248,7 +284,7 @@ init:
 ## 퀵메뉴는 게임 외 메뉴 접근성을 높여주기 위해 게임 내에 표시됩니다.
 init:
     image setting_icon:
-        im.FactorScale('menu/setting_icon.png', 0.15)
+        im.FactorScale('menu/setting_icon.png', 0.12)
 screen quick_menu():
 
     ## Ensure this appears on top of other screens.
@@ -259,7 +295,7 @@ screen quick_menu():
             style_prefix "quick"
             
             imagebutton:
-                idle 'setting_icon' hover 'rotating_icon' action ShowMenu("preferences") xpos 1200 ypos 0
+                idle 'setting_icon' hover 'rotating_icon' action ShowMenu("preferences") xpos 1210 ypos 5
                 
 
 

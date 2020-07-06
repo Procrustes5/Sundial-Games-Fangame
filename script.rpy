@@ -222,6 +222,8 @@ init:
         im.FactorScale("object/ob_ujitya.png", 1.0)
     image ob_wagasi:
         im.FactorScale("object/ob_wagasi.png", 1.0)    
+    image snow = SnowBlossom(im.FactorScale("object/flower_1.png", 0.5), count=50, border=400, xspeed =(30, 60), yspeed=(30, 100), horizontal=True)
+    
 ## 캐릭터 ###############################
 init:
     define ch_ninon = Character('니논', color="#f5f562")
@@ -2271,18 +2273,26 @@ label naming:
     $ name = player_name
     $ finalConso = finalChecker(name)
     hide bg_whatsyourname onlayer forward
+    hide bg_black
     if length(name) == True:
+        show movie onlayer forward
+        play movie "library/ames.mpg" noloop
+        $renpy.pause(3.0)
         hatena "어서 와, [name]. 그게 당신의 이름이구나."
         hatena "지금부터 당신이 보게 될 것은, 이른바 꿈 같은 거야. 이미 겪어 보았거나, 언젠가 일어날지도 모르는, 한여름 밤의 꿈 같은 일. ‘몽상’이라 불러도 좋겠네."
 
         menu:
-            "당신은 누구죠?":
+            "당신은 누구죠?choice_1":
                 hatena "내가 누구냐고? 알 필요 없다."
                 ##하스스톤 비밀거는 효과음
                 hatena "……호기심도 많네. 내 정체 같은 건 중요하지 않아."
                 hatena "당신이 알아야 할 건 단지…… 이제부터 여러 명의 ‘소녀’들을 만나게 된다는 것과,"
                 hatena "당신이 어떤 선택을 내리느냐에 따라 그녀들의 운명이 조금씩 바뀌게 된다는 것밖에 없어. 그럼 잘해 봐. 행운을 빌게, 왕자님♪"
+                stop movie
+                hide movie onlayer forward
             ##텍스트 사라지면서 볼륨 서서히 off
+            
+            
             
     else:
         hatena "어떻게 사람 이름이 [name]일수가 있지 ㅋㅋ"
@@ -3746,7 +3756,7 @@ label onsen_inside:
     player "우와, 아까부터 합성 성의 없어……"
 
     show movie
-    play movie "library/cg_gura_child.mpg"
+    play movie "library/cg_gura_child.mpg" noloop
 
     hatena "당연히 이런 저를 받아 주는 사람이 있을 리 없었고……"
 
@@ -5106,6 +5116,7 @@ label ninonHappy:
     ch_nar "마지막 잡념을 토해내고는 오린도 고교를 향해 고개를 쳐들었다."
 
     show cg_ninon_happy_01 with dissolve
+    show snow onlayer forward
     hide bg_tyugaku_stop
 
     $ renpy.pause(1, hard = True)
