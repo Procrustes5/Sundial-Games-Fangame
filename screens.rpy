@@ -104,7 +104,9 @@ screen say(who, what):
             window:
                 id "namebox"
                 style "namebox"
-                text who id "who"
+                if who != "ch_nar":
+                    add "menu/name.png" xpos 420 ypos 0
+                text who id "who" outlines [ (absolute(2), "#E484AA", absolute(0), absolute(0)) ] xpos 615 ypos 22
 
         text what id "what"
 
@@ -206,64 +208,65 @@ init:
     image center:
         im.FactorScale('choice/choice_0.png', 0.5)
     $ feel = "-"
-    $ length_items = 0
+    $ length_items = "-"
     screen icon:
-        if length_items == 1:
-            add (im.FactorScale('/choice/choice_%s.png' %feel, 0.5)) xalign .2 yalign 0.5
+        if length_items == "1":
+            add (im.FactorScale('/choice/choice_%s.png' %feel, 0.5)) xalign 0.2 yalign 1.0
         else:
-            add (im.FactorScale('/choice/choice_%s.png' %feel, 0.5)) xalign .5 yalign 0.5
+            add (im.FactorScale('/choice/choice_%s.png' %feel, 0.5)) xalign 0.5 yalign 1.0
     screen choice(items):
-        imagebutton idle 'center' hover 'center' action NullAction() xalign 0.2 yalign 0.5
+        
         if len(items) == 1:
-            $ length_items = 1
+            imagebutton idle 'center' hover 'center' action NullAction() xalign 0.2 yalign 1.0
             vbox:
-                xalign 0.2 yalign 0.5
+                xalign 0.5 yalign 0.9
                 for caption, action, chosen in items[3:]:
                     if action:
                         button:
-                            action action
+                            action (action, Hide('icon'))
                             style "menu_choice_button"
-                            text caption[:-8] size 30 hover_bold True hover_color '#FFD700' line_spacing 15 style "menu_choice"
-                            hovered Show('icon', feel="2")
+                            text caption[:-8] size 30 color "#ffffff" outlines [ (absolute(1), "#000", absolute(0), absolute(0)) ] hover_bold True hover_color '#FFD700' line_spacing 15 style "menu_choice"
+                            hovered Show('icon', length_items = "1", feel="2")
                             unhovered Hide('icon')
                     
             
             vbox:
-                xalign 0.2 yalign 0.5
+                xalign 0.5 yalign 0.9
                 for caption, action, chosen in items[:3]:
                     if action:
     
                         button:
-                            action action
+                            action (action, Hide('icon'))
                             style "menu_choice_button"
-                            text caption[:-8] size 30 hover_bold True hover_color '#FFD700' line_spacing 15 style "menu_choice"
-                            hovered Show('icon', feel="2")
+                            text caption[:-8] size 30 color "#ffffff" outlines [ (absolute(1), "#000", absolute(0), absolute(0)) ] hover_bold True hover_color '#FFD700' line_spacing 15 style "menu_choice"
+                            hovered Show('icon', length_items = "1", feel="2")
                             unhovered Hide('icon')
                             xminimum 100
             
         else:
+            imagebutton idle 'center' hover 'center' action NullAction() xalign 0.5 yalign 1.0
             vbox:
-                xalign 0.2 yalign 0.5
+                xalign 0.3 yalign 0.9
                 for caption, action, chosen in items[3:]:
                     if action:
                         button:
-                            action action
+                            action (action, Hide('icon'))
                             style "menu_choice_button"
-                            text caption[:-8] size 30 hover_bold True hover_color '#FFD700' line_spacing 15 style "menu_choice"
-                            hovered Show('icon', feel=caption[-1])
+                            text caption[:-8] size 25 text_align 0.0 color "#ffffff" outlines [ (absolute(1), "#000", absolute(0), absolute(0)) ] hover_color '#FFD700' line_spacing 25 style "menu_choice"
+                            hovered Show('icon', length_items = "2", feel=caption[-1])
                             unhovered Hide('icon')
                     
             
             vbox:
-                xalign 0.8 yalign 0.5
+                xpos 720 yalign 0.9
                 for caption, action, chosen in items[:3]:
                     if action:
     
                         button:
-                            action action
+                            action (action, Hide('icon'))
                             style "menu_choice_button"
-                            text caption[:-8] size 30 hover_bold True hover_color '#FFD700' line_spacing 15 style "menu_choice"
-                            hovered Show('icon', feel=caption[-1])
+                            text caption[:-8] size 25 text_align 0.0 color "#ffffff" outlines [ (absolute(1), "#000", absolute(0), absolute(0)) ] hover_color '#FFD700' line_spacing 25 style "menu_choice"
+                            hovered Show('icon', length_items = "2", feel=caption[-1])
                             unhovered Hide('icon')
                             xminimum 100
 define config.narrator_menu = True
@@ -331,7 +334,7 @@ screen navigation():
     vbox:
         style_prefix "navigation"
 
-        xpos gui.navigation_xpos
+        xpos 90
         yalign 0.5
 
         spacing gui.navigation_spacing
@@ -370,11 +373,7 @@ screen navigation():
             ## The quit button is banned on iOS and unnecessary on Android and
             ## Web.
             textbutton _("종료하기") action Quit(confirm=not main_menu)
-## 시험용 ###
-init:
-    image monica = "Character/monica/monica.png"
-    image end1 = "images/library/end1.jpg"
-    image end3 = "images/library/end3.jpg"
+
 init python:
     
 
@@ -629,18 +628,18 @@ screen main_menu:
         # 아까 지정했던 페이드인 효과 지정
         at fadein
 
-        imagebutton idle 'bg mainmenu' hover 'bg mainmenu' action NullAction() xpos 100 ypos 50
+        imagebutton idle 'bg mainmenu' hover 'bg mainmenu' action NullAction() xpos 150 ypos 50
              
-        imagebutton idle 'title/title_button_big.png' hover 'title/title_button_big.png' action Start() xpos 80 ypos 300
-        imagebutton idle 'title/title_button_big.png' hover 'title/title_button_big.png' action ShowMenu("load") xpos 80 ypos 380
-        imagebutton idle 'title/title_button_big.png' hover 'title/title_button_big.png' action ShowMenu("gallery") xpos 80 ypos 460
-        imagebutton idle 'title/title_button_big.png' hover 'title/title_button_big.png' action ShowMenu("about") xpos 80 ypos 540
+        imagebutton idle 'title/start1.png' hover 'title/start2.png' action Start() xpos 80 ypos 320
+        imagebutton idle 'title/load1.png' hover 'title/load2.png' action ShowMenu("load") xpos 80 ypos 400
+        imagebutton idle 'title/gallery1.png' hover 'title/gallery2.png' action ShowMenu("gallery") xpos 80 ypos 480
+        imagebutton idle 'title/credit1.png' hover 'title/credit2.png' action ShowMenu("about") xpos 80 ypos 560
 
         
         # 설정 버튼.
-        imagebutton idle 'title/title_button_small.png' hover 'title/title_button_small.png' action ShowMenu("preferences") xpos 1027 ypos 624
+        imagebutton idle 'title/setting1.png' hover 'title/setting2.png' action ShowMenu("preferences") xpos 1027 ypos 624
         # 종료 버튼
-        imagebutton idle 'title/title_button_small.png' hover 'title/title_button_small.png' action Quit(confirm=False) xpos 1135 ypos 624
+        imagebutton idle 'title/exit1.png' hover 'title/exit2.png' action Quit(confirm=False) xpos 1135 ypos 624
 
 
 style main_menu_frame is empty

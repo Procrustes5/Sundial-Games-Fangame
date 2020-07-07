@@ -6,117 +6,171 @@ init python:
 init:
     ## 모니카
     image stand_Monica:
-        im.FactorScale("Character/monica/monica.png", 0.22)
+        im.FactorScale("Character/monica/monica.png", 0.35)
+        ypos 1050
     image stand_Monica_crying:
-        im.FactorScale("Character/monica/monica_crying.png", 0.22)
+        im.FactorScale("Character/monica/monica_crying.png", 0.35)
+        ypos 1050
     image stand_Monica_ddung:
-        im.FactorScale("Character/monica/monica_ddung.png", 0.22)
+        im.FactorScale("Character/monica/monica_ddung.png", 0.35)
+        ypos 1050
     image stand_Monica_dere:
-        im.FactorScale("Character/monica/monica_dere.png", 0.22)
+        im.FactorScale("Character/monica/monica_dere.png", 0.35)
+        ypos 1050
     image stand_Monica_down:
-        im.FactorScale("Character/monica/monica_down.png", 0.22)
+        im.FactorScale("Character/monica/monica_down.png", 0.35)
+        ypos 1050
     image stand_Monica_munen:
-        im.FactorScale("Character/monica/monica_munen.png", 0.22)
+        im.FactorScale("Character/monica/monica_munen.png", 0.35)
+        ypos 1050
     image stand_Monica_surprised:
-        im.FactorScale("Character/monica/monica_surprised.png", 0.22)
+        im.FactorScale("Character/monica/monica_surprised.png", 0.35)
+        ypos 1050
     image stand_Monica_yukata:
-        im.FactorScale("Character/monica/monica_yukata.png", 0.22)
+        im.FactorScale("Character/monica/monica_yukata.png", 0.35)
+        ypos 1050
     image stand_Monica_yukata_crying:
-        im.FactorScale("Character/monica/monica_yukata_crying.png", 0.22)
+        im.FactorScale("Character/monica/monica_yukata_crying.png", 0.35)
+        ypos 1050
     image stand_Monica_yukata_ddung:
-        im.FactorScale("Character/monica/monica_yukata_ddung.png", 0.22)
+        im.FactorScale("Character/monica/monica_yukata_ddung.png", 0.35)
+        ypos 1050
     image stand_Monica_yukata_dere:
-        im.FactorScale("Character/monica/monica_yukata_dere.png", 0.22)
+        im.FactorScale("Character/monica/monica_yukata_dere.png", 0.35)
+        ypos 1050
     image stand_Monica_yukata_down:
-        im.FactorScale("Character/monica/monica_yukata_down.png", 0.22)
+        im.FactorScale("Character/monica/monica_yukata_down.png", 0.35)
+        ypos 1050
     image stand_Monica_yukata_munen:
-        im.FactorScale("Character/monica/monica_yukata_munen.png", 0.22)
+        im.FactorScale("Character/monica/monica_yukata_munen.png", 0.35)
+        ypos 1050
     image stand_Monica_yukata_surprised:
-        im.FactorScale("Character/monica/monica_yukata_surprised.png", 0.22)
+        im.FactorScale("Character/monica/monica_yukata_surprised.png", 0.35)
+        ypos 1050
     ## 쿠우카
     image stand_Kuka:
-        im.FactorScale("Character/kuka/kuka.png", 0.20)
+        im.FactorScale("Character/kuka/kuka.png", 0.30)
+        ypos 1000
     image stand_Kuka_down:
-        im.FactorScale("Character/kuka/kuka_down.png", 0.20)
+        im.FactorScale("Character/kuka/kuka_down.png", 0.30)
+        ypos 1000
     image stand_Kuka_hiku:
-        im.FactorScale("Character/kuka/kuka_hiku.png", 0.20)
+        im.FactorScale("Character/kuka/kuka_hiku.png", 0.30)
+        ypos 1000
     image stand_Kuka_mousou:
-        im.FactorScale("Character/kuka/kuka_mousou.png", 0.20)
+        im.FactorScale("Character/kuka/kuka_mousou.png", 0.30)
+        ypos 1000
     image stand_Kuka_shamed:
-        im.FactorScale("Character/kuka/kuka_shamed.png", 0.20)
+        im.FactorScale("Character/kuka/kuka_shamed.png", 0.30)
+        ypos 1000
     image stand_Kuka_surprised:
-        im.FactorScale("Character/kuka/kuka_surprised.png", 0.20)
+        im.FactorScale("Character/kuka/kuka_surprised.png", 0.30)
+        ypos 1000
     image stand_Kuka_yukata:
-        im.FactorScale("Character/kuka/kuka_yukata.png", 0.20)
+        im.FactorScale("Character/kuka/kuka_yukata.png", 0.30)
+        ypos 1000
     image stand_Kuka_yukata_down:
-        im.FactorScale("Character/kuka/kuka_yukata_down.png", 0.20)
+        im.FactorScale("Character/kuka/kuka_yukata_down.png", 0.30)
+        ypos 1000
     image stand_Kuka_yukata_hiku:
-        im.FactorScale("Character/kuka/kuka_yukata_hiku.png", 0.20)
+        im.FactorScale("Character/kuka/kuka_yukata_hiku.png", 0.30)
+        ypos 1000
     image stand_Kuka_yukata_mousou:
-        im.FactorScale("Character/kuka/kuka_yukata_mousou.png", 0.20)
+        im.FactorScale("Character/kuka/kuka_yukata_mousou.png", 0.30)
+        ypos 1000
     image stand_Kuka_yukata_shamed:
-        im.FactorScale("Character/kuka/kuka_yukata_shamed.png", 0.20)
+        im.FactorScale("Character/kuka/kuka_yukata_shamed.png", 0.30)
+        ypos 1000
     image stand_Kuka_yukata_surprised:
-        im.FactorScale("Character/kuka/kuka_yukata_surprised.png", 0.20)
+        im.FactorScale("Character/kuka/kuka_yukata_surprised.png", 0.30)
+        ypos 1000
     ## 유키
     image stand_Yuki:
-        im.FactorScale("Character/yuki/yuki.png", 0.18)
+        im.FactorScale("Character/yuki/yuki.png", 0.30)
+        ypos 1000
     image stand_Yuki_angry:
-        im.FactorScale("Character/yuki/yuki_angry.png", 0.18)
+        im.FactorScale("Character/yuki/yuki_angry.png", 0.30)
+        ypos 1000
     image stand_Yuki_ddung:
-        im.FactorScale("Character/yuki/yuki_ddung.png", 0.18)
+        im.FactorScale("Character/yuki/yuki_ddung.png", 0.30)
+        ypos 1000
     image stand_Yuki_proud:
-        im.FactorScale("Character/yuki/yuki_proud.png", 0.18)
+        im.FactorScale("Character/yuki/yuki_proud.png", 0.30)
+        ypos 1000
     image stand_Yuki_shamed:
-        im.FactorScale("Character/yuki/yuki_shamed.png", 0.18)
+        im.FactorScale("Character/yuki/yuki_shamed.png", 0.30)
+        ypos 1000
     image stand_Yuki_yukata:
-        im.FactorScale("Character/yuki/yuki_yukata.png", 0.18)
+        im.FactorScale("Character/yuki/yuki_yukata.png", 0.30)
+        ypos 1000
     image stand_Yuki_yukata_angry:
-        im.FactorScale("Character/yuki/yuki_yukata_angry.png", 0.18)
+        im.FactorScale("Character/yuki/yuki_yukata_angry.png", 0.30)
+        ypos 1000
     image stand_Yuki_yukata_ddung:
-        im.FactorScale("Character/yuki/yuki_yukata_ddung.png", 0.18)
+        im.FactorScale("Character/yuki/yuki_yukata_ddung.png", 0.30)
+        ypos 1000
     image stand_Yuki_yukata_proud:
-        im.FactorScale("Character/yuki/yuki_yukata_proud.png", 0.18)
+        im.FactorScale("Character/yuki/yuki_yukata_proud.png", 0.30)
+        ypos 1000
     image stand_Yuki_yukata_shamed:
-        im.FactorScale("Character/yuki/yuki_yukata_shamed.png", 0.18)
+        im.FactorScale("Character/yuki/yuki_yukata_shamed.png", 0.30)
+        ypos 1000
     
     ## 니논
     image stand_Ninon:
-        im.FactorScale("Character/ninon/ninon.png", 0.18)
+        im.FactorScale("Character/ninon/ninon.png", 0.27)
+        ypos 990
     image stand_Ninon_down:
-        im.FactorScale("Character/ninon/ninon_down.png", 0.18)
+        im.FactorScale("Character/ninon/ninon_down.png", 0.27)
+        ypos 990
     image stand_Ninon_embarassed:
-        im.FactorScale("Character/ninon/ninon_embarrassed.png", 0.18)
+        im.FactorScale("Character/ninon/ninon_embarrassed.png", 0.27)
+        ypos 990
     image stand_Ninon_innocence:
-        im.FactorScale("Character/ninon/ninon_innocence.png", 0.18)
+        im.FactorScale("Character/ninon/ninon_innocence.png", 0.27)
+        ypos 990
     image stand_Ninon_surprise:
-        im.FactorScale("Character/ninon/ninon_surprise.png", 0.18)
+        im.FactorScale("Character/ninon/ninon_surprise.png", 0.27)
+        ypos 990
     image stand_Ninon_wink:
-        im.FactorScale("Character/ninon/ninon_wink.png", 0.18)
+        im.FactorScale("Character/ninon/ninon_wink.png", 0.27)
+        ypos 990
     image stand_Ninon_angry:
-        im.FactorScale("Character/ninon/ninon_angry.png", 0.18)
+        im.FactorScale("Character/ninon/ninon_angry.png", 0.27)
+        ypos 990
     image stand_Ninon_daiji:
-        im.FactorScale("Character/ninon/ninon_daiji.png", 0.18)
+        im.FactorScale("Character/ninon/ninon_daiji.png", 0.27)
+        ypos 990
     image stand_Ninon_panic:
-        im.FactorScale("Character/ninon/ninon_panic.png", 0.18)
+        im.FactorScale("Character/ninon/ninon_panic.png", 0.27)
+        ypos 990
     image stand_Ninon_yukata:
-        im.FactorScale("Character/ninon/ninon_yukata.png", 0.18)
+        im.FactorScale("Character/ninon/ninon_yukata.png", 0.27)
+        ypos 990
     image stand_Ninon_yukata_angry:
-        im.FactorScale("Character/ninon/ninon_yukata_angry.png", 0.18)
+        im.FactorScale("Character/ninon/ninon_yukata_angry.png", 0.27)
+        ypos 990
     image stand_Ninon_yukata_daiji:
-        im.FactorScale("Character/ninon/ninon_yukata_daiji.png", 0.18)
+        im.FactorScale("Character/ninon/ninon_yukata_daiji.png", 0.27)
+        ypos 990
     image stand_Ninon_yukata_down:
-        im.FactorScale("Character/ninon/ninon_yukata_down.png", 0.18)
+        im.FactorScale("Character/ninon/ninon_yukata_down.png", 0.27)
+        ypos 990
     image stand_Ninon_yukata_emb:
-        im.FactorScale("Character/ninon/ninon_yukata_emb.png", 0.18)
+        im.FactorScale("Character/ninon/ninon_yukata_emb.png", 0.27)
+        ypos 990
     image stand_Ninon_yukata_innocent:
-        im.FactorScale("Character/ninon/ninon_yukata_innocent.png", 0.18)
+        im.FactorScale("Character/ninon/ninon_yukata_innocent.png", 0.27)
+        ypos 990
     image stand_Ninon_yukata_panic:
-        im.FactorScale("Character/ninon/ninon_yukata_panic.png", 0.18)
+        im.FactorScale("Character/ninon/ninon_yukata_panic.png", 0.27)
+        ypos 990
     image stand_Ninon_yukata_surp:
-        im.FactorScale("Character/ninon/ninon_yukata_surp.png", 0.18)
+        im.FactorScale("Character/ninon/ninon_yukata_surp.png", 0.27)
+        ypos 990
     image stand_Ninon_yukata_wink:
-        im.FactorScale("Character/ninon/ninon_yukata_wink.png", 0.18)
+        im.FactorScale("Character/ninon/ninon_yukata_wink.png", 0.27)
+        ypos 990
     ## 구라노스케
     image stand_gura:
         im.FactorScale("Character/gura/gura.png", 1.0)
@@ -132,6 +186,9 @@ init:
     image cg_babybung:
         im.FactorScale("library/babybung.png", 1.0)
         xalign 0.5 yalign 0.3
+    ## 아메스
+    image cg_ames:
+        im.FactorScale("library/ames.png", 0.67) 
 ## 트랜스폼
     transform movetoright:
         ease 0.5 xalign 1.0
@@ -226,27 +283,27 @@ init:
     
 ## 캐릭터 ###############################
 init:
-    define ch_ninon = Character('니논', color="#f5f562")
+    define ch_ninon = Character('니논', color = "#ffffff")
 
-    define ch_monica = Character('모니카', color = "#c8ed0c")
+    define ch_monica = Character('모니카', color = "#ffffff")
 
-    define ch_kuka = Character('쿠우카', color = "#a812c9")
+    define ch_kuka = Character('쿠우카', color = "#ffffff")
 
-    define ch_yuki = Character('유키', color = "#f285dc")
+    define ch_yuki = Character('유키', color = "#ffffff")
 
-    define ch_ayumi = Character('아유미', color = "#0cf246")
+    define ch_ayumi = Character('아유미', color = "#ffffff")
 
     define player_name = "가상의 이름 simulated name"
 
-    define player = Character("name", dynamic = True)
+    define player = Character("name", dynamic = True, color = "#ffffff")
 
     define monster = Character("마물", color = "#ffffff")
 
-    define ch_peco = Character("페코린느", color = "#f2a20c")
+    define ch_peco = Character("페코린느", color = "#ffffff")
 
-    define ch_kyaru = Character("배신자", color = "#071469")
+    define ch_kyaru = Character("배신자", color = "#ffffff")
 
-    define ch_gura = Character("구라노스케")
+    define ch_gura = Character("구라노스케", color = "#ffffff")
 
 ## 나래이터류 ############################
 init:
@@ -2033,7 +2090,10 @@ init python:
                 self.computery = self.playery
 
                 # The speed of the computer.
-                self.computerspeed = 380.0
+                if win_point > 2:
+                    self.computerspeed = 1520.0
+                else:
+                    self.computerspeed = 380.0
 
                 # The position, delta-position, and the speed of the
                 # ball.
@@ -2041,7 +2101,10 @@ init python:
                 self.by = self.playery
                 self.bdx = .5
                 self.bdy = .5
-                self.bspeed = 350.0
+                if win_point > 2:
+                    self.bspeed = 1400.0
+                else:
+                    self.bspeed = 350.0
 
                 # The time of the past render-frame.
                 self.oldst = None
@@ -2243,11 +2306,11 @@ label pong_done:
     menu:
         ch_ninon "한 판 더 할래?"
 
-        "물론.":
+        "물론.choice_1":
 
             jump play_pong
 
-        "그만할래.":
+        "그만할래.choice_2":
 
             pass
             
@@ -2273,12 +2336,13 @@ label naming:
     $ name = player_name
     $ finalConso = finalChecker(name)
     hide bg_whatsyourname onlayer forward
-    hide bg_black
     if length(name) == True:
         show movie onlayer forward
         play movie "library/ames.mpg" noloop
         $renpy.pause(3.0)
         hatena "어서 와, [name]. 그게 당신의 이름이구나."
+        hide movie onlayer forward
+        show cg_ames onlayer forward with dissolve
         hatena "지금부터 당신이 보게 될 것은, 이른바 꿈 같은 거야. 이미 겪어 보았거나, 언젠가 일어날지도 모르는, 한여름 밤의 꿈 같은 일. ‘몽상’이라 불러도 좋겠네."
 
         menu:
@@ -2288,10 +2352,10 @@ label naming:
                 hatena "……호기심도 많네. 내 정체 같은 건 중요하지 않아."
                 hatena "당신이 알아야 할 건 단지…… 이제부터 여러 명의 ‘소녀’들을 만나게 된다는 것과,"
                 hatena "당신이 어떤 선택을 내리느냐에 따라 그녀들의 운명이 조금씩 바뀌게 된다는 것밖에 없어. 그럼 잘해 봐. 행운을 빌게, 왕자님♪"
-                stop movie
-                hide movie onlayer forward
+                hide cg_ames onlayer forward
             ##텍스트 사라지면서 볼륨 서서히 off
-            
+            "니논이랑 탁구하기choice_2":
+                jump ninon
             
             
     else:
@@ -2390,9 +2454,12 @@ label start:
 
     ch_monica "자전―"
 
-    ch_monica "―—일섬!!"
+    show bg_black onlayer forward
+
+    ch_monica "―일섬!!"
     #일순간 까맣게 된 화면을 가로로 베는 효과
     #칼로 베는 소리
+    hide bg_black onlayer forward
     hide stand_Monica onlayer middle with dissolve
     hide bg_field onlayer background with fade
 ## 길드 하우스 cg
@@ -2443,7 +2510,7 @@ label start:
     ch_monica "훌쩍…… 귀, 귀공…… 훌쩍, 날 좀…… 도와주게…… 으아앙, 우아아앙~"
 
     menu:
-        "뭐야...":
+        "뭐야...choice_1":
             ch_monica "그, 그게…… 훌쩍."
 
             player "소난다……"
@@ -2451,7 +2518,7 @@ label start:
             ## 모니카 시무룩한 표정
             ch_monica "?"
             pass
-        "왜 울고 있는거야?":
+        "왜 울고 있는거야?choice_2":
             ch_monica "그, 그게…… 훌쩍."
 
             player "소난다……"
@@ -2514,7 +2581,8 @@ label start:
     show stand_Monica at center with dissolve:
         easeout 0.1 yalign 1.0
         ease 0.3 yalign 0.0
-        easeout 0.1 yalign 1.0  ##팔짝 뛰는 모션
+        easeout 0.1 yalign 1.0 
+        ypos 990 ##팔짝 뛰는 모션
     ch_monica "그래서 더 문제라는 거다!! 그 강력한 마물을 쓰러뜨릴 정도의 역량을 가지고 있으면서, 이전에 비해 바뀐 게 아무것도 없잖아!"
 
     ch_monica "다들 약속이라도 한 것마냥 비전투 의뢰만 잔뜩 수주해오고! 그대들은 모험가 길드를 대체 뭐라고 생각하는 건가?!"
@@ -2626,11 +2694,11 @@ label start:
     ch_monica "……무작정 부딪혀 보면 어떻게든 될 거라고 생각했건만……. 귀공은 내 방식이 잘못됐다고 생각하나?"
 
     menu:
-        "결과가 말해 주고 있잖아":
+        "결과가 말해 주고 있잖아choice_1":
             ## 볼빵빵
             ch_monica "……마, 맞는 말이다만……, 그렇게 말하는 귀공에게는 더 좋은 해결책이 있는 거겠지?"
             ch_monica "자세한 이야기는 우리 길드원들 앞에서 하는 게 어떤가? 지금 바로 출발하도록 하지."
-        "틀린 방법은 아니었다고 생각해":
+        "틀린 방법은 아니었다고 생각해choice_2":
             ## 시무룩한 표정
             ch_monica "빈말이라도 고맙군…… 하지만 우리는 실제로 마물에게 이렇다 할 타격도 주지 못하고 당해 버렸어."
             ch_monica "이대로면 부하들이 입는 피해만 늘어갈 터……. 뭔가 다른 방법이 필요해." 
@@ -2750,16 +2818,16 @@ label start:
 
 ## 캐릭터 선택 분기 #########################
     menu:
-        "어설픈 실력과 저돌적인 행동으로 쉽게 위험에 빠지는 것":
+        "어설픈 실력과 저돌적인 행동으로 쉽게 위험에 빠지는 것choice_1":
             $love_point = ninon
 
-        "동료를 신뢰하지 않고 독단적으로 행동하는 것":
+        "동료를 신뢰하지 않고 독단적으로 행동하는 것choice_2":
             $point_point = monica
 
-        "순간의 욕망을 억제하지 못하고 충동적으로 행동하는 것":
+        "순간의 욕망을 억제하지 못하고 충동적으로 행동하는 것choice_3":
             $point_point = kuka
 
-        "자기 자신만을 중시하며 동료를 배려하지 않는 것":
+        "자기 자신만을 중시하며 동료를 배려하지 않는 것choice_4":
             $point_point = yuki
 
     show stand_Monica onlayer forward with dissolve ## 기본 표정
@@ -3350,7 +3418,7 @@ label onsen:
 
 ## 선택지 ##########################################
     menu:
-        "니논에게 의견을 묻는다.":
+        "니논에게 의견을 묻는다.choice_1":
             if love_point == ninon:
                 $point_ninon += 1
             elif love_point != ninon:
@@ -3392,7 +3460,7 @@ label onsen:
 
             pass
 
-        "모니카에게 의견을 묻는다.":
+        "       모니카에게 의견을 묻는다.choice_2":
             if love_point == monica:
                 $point_monica += 1
             elif love_point != monica:
@@ -3431,8 +3499,23 @@ label onsen:
             hide stand_Monica
 
             pass
-        
-        "쿠우카에게 의견을 묻는다.":
+        "다시 생각해 보니 이것들 의견은 별로 중요하지 않은 것 같다.choice_3":
+            if love_point == ninon:
+                $point_ninon -= 1
+            elif love_point == monica:
+                $point_monica -= 1
+            elif love_point == kuka:
+                $point_kuka -= 1
+            elif love_point == yuki:
+                $point_yuki -= 1
+            
+            player "아니…… 아무것도 아니야."
+
+            player "기왕 도와주기로 했는데, 갑자기 빠지는 것도 좀 이상하잖아? 같이 가자."
+
+            pass
+
+        "쿠우카에게 의견을 묻는다.choice_4":
             if love_point == kuka:
                 $point_kuka += 1
             elif love_point != kuka:
@@ -3470,7 +3553,7 @@ label onsen:
 
             pass
         
-        "유키에게 의견을 묻는다.":
+        "유키에게 의견을 묻는다.choice_5":
             if love_point == yuki:
                 $point_yuki += 1
             elif love_point != yuki:
@@ -3533,21 +3616,6 @@ label onsen:
             pass
 
 
-        "다시 생각해 보니 이것들 의견은 별로 중요하지 않은 것 같다.":
-            if love_point == ninon:
-                $point_ninon -= 1
-            elif love_point == monica:
-                $point_monica -= 1
-            elif love_point == kuka:
-                $point_kuka -= 1
-            elif love_point == yuki:
-                $point_yuki -= 1
-            
-            player "아니…… 아무것도 아니야."
-
-            player "기왕 도와주기로 했는데, 갑자기 빠지는 것도 좀 이상하잖아? 같이 가자."
-
-            pass
         
     show stand_Ninon_panic with dissolve ## 니논 놀란 표정
 
@@ -3694,14 +3762,14 @@ label onsen_inside:
 
     ## 임시 선택지
     menu:
-        "게임 이어서 계속하기":
+        "게임 이어서 계속하기choice_1":
             pass
-        "유키 cg 확인하기":
+        "유키 cg 확인하기choice_2":
             hide stand_gura onlayer forward
             hide bg_onsen onlayer middle
             hide bg_black onlayer background
             jump cg_yukifirst
-        "니논 엔딩 확인하기":
+        "니논 엔딩 확인하기choice_3":
             hide stand_gura onlayer forward
             hide bg_onsen onlayer middle
             hide bg_black onlayer background
@@ -4600,6 +4668,161 @@ label sceneNum10:
 ## S# 12. 대욕탕 (공통 루트) ################
 label sceneNum12Common:
     ## 대욕탕 cg
+    scene bg_onsen onlayer middle with fade
+    hide bg_black
+    show bg_black onlayer background
+
+    ch_nar "……와."
+
+    ch_nar "여기, 상상 이상으로 넓고 좋네……"
+
+    ch_nar "손님이 많이 없는 게 이해되지 않을 정도로."
+
+    player "……근데 너, 진짜로 안 들어올 거야?"
+
+    ch_yuki "그런 곳에 어떻게 몸을 담글 수 있어?!"
+
+    ch_yuki "땀 냄새 나는 남자들이 몇 명이나 왔다 갔는지도 모르잖아!"
+
+    player "……"
+
+    player "마음대로 해라……"
+
+    ch_nar "그럼 옷은 왜 갈아입은 거야……"
+
+    $ renpy.pause(1.0)
+
+    ch_nar "아…… 그나저나……"
+
+    ch_nar "온천 진짜 좋네……"
+
+    ch_nar "물 온도도 적당하고, 사람도 없어서 조용하니……"
+
+    ch_nar "……이대로면 잠들 수 있겠"
+
+    ## 화면 흔들리는 효과
+    show bg_onsen onlayer middle with hpunch
+
+    ## 니논 대사 글꼴 크기 크게 + 굵게
+    ch_ninon "{b}{size=30}우오오오옷!!!!!!!!!!{/size}{/b}"
+
+    ## 나레이션 대사 글꼴 크기 크게 + 굵게
+    ch_nar "{b}{size=30}야발!!!!!!!!!{/size}{/b}"
+
+    ch_ninon "쿠…… 쿠우카 씨……"
+
+    ch_ninon "이건…… 꽤 하잖아 입니다!!!!"
+
+    ch_kuka "하으?! 쿠, 쿠우카, 갑자기 그런 곳이 만져지면……!!! 헤으응!!"
+
+    ch_nar "……여탕이 바로 옆에 붙어 있는 구조인가?"
+
+    ch_nar "그렇다고 해도 방음이 전혀 안 될 줄은……"
+
+    ch_nar "근데 무슨 이야기를 하고 있는 거지?"
+
+    ch_kuka "니, 니논 씨야말로 엄청나네요……!"
+
+    ch_kuka "이것이 말로만 듣던, 서방의 우월한 유전자……!!"
+
+    ch_monica "……뿌우……"
+
+    ch_ninon "모니카 씨? 기묘한 소리를 내고 있다 입니다?"
+
+    ch_monica "그…… 그런 지방덩어리 같은 건…… 저, 전투에 방해만 될 뿐이다!"
+
+    ch_ninon "모니카 씨는 귀여우니까 아무래도 좋다 입니다~"
+
+    ## 화면 흔들리는 효과
+    show bg_onsen onlayer middle with hpunch
+
+    ch_monica "어린애 취급 하지 마아아아!!!!!!!!"
+
+    ch_nar "음…… 뭔가 들으면 안 되는 이야기 같은데……"
+
+    ch_nar "딱히 엿듣는 건 아니니까 괜찮겠지……"
+
+    ch_ninon "HEIN……! 실화 입니까……?! 쿠우카 씨……!!"
+
+    ch_kuka "햐히익~~!!"
+
+    ch_ninon "이…… 이런 것까지 가능한 건가요 입니다……!!"
+
+    ch_kuka "쿠…… 쿠우카의 신체를 장난감처럼!!! 헤으응으!!!!"
+
+    ch_nar "어우야……"
+
+    ch_ninon "그…… 그렇다면…… 이건 어떠냐 입니다……!! 「인법 ∙ 모쮜 선물쉐트」!!!"
+
+    ch_kuka "응고오오옥♥"
+
+    ch_nar "대체 무슨 인법인데?! 이름이 저 모양이라 감도 안 와……!"
+
+    ch_ninon "C’EST FOU!!! 이건…… 이런 건……!!"
+
+    ch_ninon "동국 트뤠디셔널 빨간 췍 『도키뭬키 잉챠잉챠 시리즈』에서나 보던 것인데……!!"
+
+    ch_nar "그…… 그건 또 뭐야……!"
+
+    ch_nar "나중에 빌려 달라고 해야겠다……!"
+
+    ch_yuki "[name]!!"
+
+    $renpy.pause(1.0)
+
+    player "예??!!!"
+
+    player "네?!?!?!"
+
+    ch_yuki "푸훗~ 반응이 왜 그래?"
+
+    ch_yuki "아하…… 긴장한 거구나~?"
+
+    ch_yuki "무리도 아니지~ 이토록 아름다운 나와 지금껏 단둘이 있었으니까……. 그것도,"
+
+    ## 대사 출력 느리게
+
+    ch_yuki "{cps=*0.5}알. 몸. 인. 채. 로.{/cps}"
+
+    ## 화면 흔들리는 효과
+    show bg_onsen onlayer middle with hpunch
+
+    player "으아아아!!! 말하면서 그런 거 보여 주지 마!!!!"
+
+    ch_yuki "후훗…… 아무 때나 볼 수 있는 모습이 아니라구?"
+
+    ch_yuki "다시 옷을 입기 전까지 두 눈에 잘 새겨 놓도록 해~"
+
+    ch_nar "…………"
+
+    ch_nar "소…… 속이 안 좋아졌어……."
+
+    ch_nar "빨리 나가야겠다……"
+
+    $renpy.pause(2.5)
+
+    ch_ayumi "…………"
+
+    ch_ayumi "지이이이………"
+
+    hide bg_onsen onlayer middle
+
+    jump sceneNum13Common
+## S# 13. 온천 내부 [여기부터 모든 스탠딩 cg는 유카타 복장으로](공통루트)#######
+label sceneNum13Common:
+    scene bg_onsen_heya_02 with fade
+    hide bg_black onlayer background
+
+    ## 니논 윙크하는 표정
+    show stand_Ninon_yukata_wink with dissolve
+
+    ch_ninon "쇼군, 쇼군~! 니논을 봐 주세요 입니다! 잘 어울린다 입니까?"
+
+    hide stand_Ninon_yukata_wink
+
+    ## 모니카 무심한 척 하는 표정
+    show stand
+
     return
 ## 미니 게임 CG 라벨 ########################
 label ninon_win:
@@ -4620,11 +4843,11 @@ label ninon:
     ch_ninon "탁구 한 판 하지 않을래?"
 
     menu:
-        "응":
+        "응choice_1":
             call play_pong from _call_play_pong
     
 
-        "아니":
+        "아니choice_2":
             pass
     
     if(win_point > 2):
@@ -5055,7 +5278,7 @@ label ninonHappy:
 
     ch_nar "평소와 다를 것 없는 하루,"
 
-    ch_nar "—였다고 생각했다."
+    ch_nar "- 였다고 생각했다."
 
     ch_nar "츠바키가오카의 하굣길은 인적이 드문 편이다."
 
@@ -5138,9 +5361,9 @@ label ninonHappy:
 
     ch_ninon "쇼군."
 
-    ch_nar "장난스러운 어감이지만, 그녀에게는 동경—"
+    ch_nar "장난스러운 어감이지만, 그녀에게는 동경 -"
 
-    ch_nar "—혹은 그 이상의 감정이 담겨 있을지 모르는 호칭."
+    ch_nar "- 혹은 그 이상의 감정이 담겨 있을지 모르는 호칭."
 
     ch_nar "장난스럽고, 우스꽝스럽게 들려야 할 그 호칭이,"
 
@@ -5214,7 +5437,7 @@ label ninonHappy:
 
     ch_ninon "쇼군은……"
 
-    ch_ninon "쇼군은…… 정말로 잔인한 남자에요 입니다."
+    ch_ninon "쇼군은…… 정말로 잔인한 남자예요 입니다."
 
     ch_ninon "당연히 그럴 리가……"
 
@@ -5244,7 +5467,7 @@ label ninonHappy:
     show cg_ninon_happy_04 with dissolve
     hide cg_ninon_happy_05
 
-    ch_ninon "{i}……Je t'aime, à la folie.{/i}"
+    ch_ninon "{i}……Je t'aime, a' la folie.{/i}"
 
     $ renpy.pause(1, hard = True)
 
@@ -5273,6 +5496,8 @@ label ninonHappy:
 
     ch_nar "……안녕, 니논."
 
+    hide snow onlayer forward
+
     ## 빨려들어가는 효과
     
     ## bgm 서서히 off
@@ -5280,6 +5505,7 @@ label ninonHappy:
     ## 아메스 테마 bgm 서서히 커지다가 고정
     play music "audio/main/ames.mp3" fadein 3.0
     ## 아메스 cg DIS
+    show cg_ames with dissolve
     hatena "……와우."
 
     hatena "엄청난…… 걸 봐버렸네."
