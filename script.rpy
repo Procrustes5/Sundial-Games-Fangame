@@ -218,7 +218,7 @@ init:
         im.FactorScale("bg/whatsYourName.png", 1.0)
 
     image bg_field:
-        im.FactorScale("bg/field.png", 1.0)
+        im.FactorScale("bg/field.png", 0.67)
 
     image bg_town:
         im.FactorScale("bg/bg_town.png", 0.68)
@@ -2579,10 +2579,11 @@ label start:
 
     hide stand_Yuki
     show stand_Monica at center with dissolve:
-        easeout 0.1 yalign 1.0
-        ease 0.3 yalign 0.0
-        easeout 0.1 yalign 1.0 
-        ypos 990 ##팔짝 뛰는 모션
+        easeout 0.3 ypos -50
+        ease 0.2 ypos 50
+        easeout 0.3 ypos -50
+        ease 0.2 ypos 50 
+        ##팔짝 뛰는 모션
     ch_monica "그래서 더 문제라는 거다!! 그 강력한 마물을 쓰러뜨릴 정도의 역량을 가지고 있으면서, 이전에 비해 바뀐 게 아무것도 없잖아!"
 
     ch_monica "다들 약속이라도 한 것마냥 비전투 의뢰만 잔뜩 수주해오고! 그대들은 모험가 길드를 대체 뭐라고 생각하는 건가?!"
@@ -2643,10 +2644,9 @@ label start:
     ch_monica "마물을 왕창 때려잡는 거다!!! 아주 커다랗고 무지막지한 놈들로!!"
     hide highlight onlayer forward
     hide stand_Monica
-    show stand_Kuka with dissolve: ## 망상
-        ease 0.5 yalign 1.0
-        ease 0.1 yalign 0.0
-        repeat 1
+    show stand_Kuka at center with dissolve: ## 망상
+        ease 0.2 ypos -50
+        ease 0.2 ypos 50
     ch_kuka "으히익♥"
     hide stand_Kuka
     show stand_Monica with dissolve ## 자신만만
@@ -2680,8 +2680,8 @@ label start:
 
     hide stand_Monica with dissolve
     ## 배경 페이드 아웃
-    hide bg_guildhouse with fade
-
+    hide bg_guildhouse
+    show bg_black
 ## 길드하우스 페이드 인
     scene bg_guildhouse with fade
     player "……그렇게 긍지가 박살난 거야?"
@@ -2703,13 +2703,13 @@ label start:
             ch_monica "빈말이라도 고맙군…… 하지만 우리는 실제로 마물에게 이렇다 할 타격도 주지 못하고 당해 버렸어."
             ch_monica "이대로면 부하들이 입는 피해만 늘어갈 터……. 뭔가 다른 방법이 필요해." 
             ch_monica "귀공, 도움을 줄 수 있겠나? 일단 우리 길드하우스로 자리를 옮기도록 하지."
-    hide stand_Monica with fade
-    window hide
+    hide stand_Monica
     ## cg 페이드 아웃
-    hide bg_guildhouse with fade
+    hide bg_guildhouse
+    show bg_black
     ## 잠깐 텀
 ## 랜드솔 마을 cg 페이드
-    scene bg_town
+    scene bg_town with fade
     show stand_Ninon with dissolve ##웃는표정
 
     ch_ninon "오오~ 쇼군~! 친히 행차하셨나이까 입니다? 기별도 없이 니논을 만나러 오셨다기에 버선발로 뛰쳐나왔사와요 입니다! 기쁨에 못 이겨 할복 해버릴 것 같습니다~!"
@@ -2788,15 +2788,18 @@ label start:
 
     ## 니논 어둡게
 
-    show stand_Monica onlayer forward at veryright with dissolve ## 시무룩한 표정
+    show stand_Monica_down onlayer forward at veryright with dissolve ## 시무룩한 표정
 
     ch_monica "‘그거, 뭔가 다른 이름이었던 것 같은데……’"
 
     hide stand_Ninon_down onlayer forward
 
+    show stand_Monica onlayer forward at veryright
+    hide stand_Monica_down onlayer forward
+    $ renpy.pause(0.01)
     show stand_Monica onlayer forward at movetocenter
 
-    ## 모니카 자신만만한 표정
+    ## 모니카 웃는 표정
 
     ch_monica "……걱정할 것 없다, 니논! [name]의 도움이 있다면 그보다 더 강한 놈들도 충분히 상대할 수 있게 될 거다."
 
@@ -2835,21 +2838,21 @@ label start:
     ch_monica "음, 과연……. 귀공을 여기까지 데려온 보람이 있군. 훌륭한 통찰력이다."
 
     ch_monica "그렇다면 귀공이 지적한 대로, 우리의 문제점을 보완하는 것은 곧 바이스플뤼겔의 전력을 증강하는 길이라 봐도 무방할 터. 이제부터 그 방법을……"
+    hide stand_Monica onlayer forward
 
     ## 잠깐 텀
+    $renpy.pause(0.5)
+
     ## 니논 자신만만한 표정
-    show stand_Ninon onlayer forward at veryleft:
-        linear 0.5 xalign 0.5 
-
-
+    show stand_Ninon_wink onlayer forward
+        
     ch_ninon "특훈만이 살 길이다!!!!!!!! 입니다!!!"
-
-    show stand_Monica onlayer forward at movetoright ##볼빵빵, 얼굴이 절반정도만 보이도록
     
     ch_ninon "닌자가 강해지는 길은 오직 수련, 또 수련하는 것 뿐!! 천하통일을 위해서라면 그 어떤 지옥훈련이라도 견뎌낼 각오가 되어있소 입니다!!"
 
-    show stand_Monica onlayer forward at movetocenter
-    show stand_Ninon onlayer forward at movetoleft
+    hide stand_Ninon_wink onlayer forward with dissolve
+    show stand_Monica onlayer forward at left
+    show stand_Ninon onlayer forward at right
 
     ## 니논 기본표정, 어둡게/모니카 밝게
     ch_monica "흠, 흠!"
@@ -2864,7 +2867,7 @@ label start:
 
     ## 모니카 어둡게/니논 시무룩한 표정, 밝게
     hide stand_Ninon onlayer forward
-    show stand_Ninon_down onlayer forward at veryleft
+    show stand_Ninon_down onlayer forward at right
     ch_ninon "과연…… 입니다. 그럼 니논은 무엇을 할 수 있다 입니까? 할복 입니까?"
 
     ## 니논 어둡게/ 모니카 밝게, 기본 표정
@@ -2879,7 +2882,7 @@ label start:
     ch_nar "갑자기 나한테 떠넘긴다고? 미쳤나?"
     ## 모���카 cg어둡게/니논 밝게, 니논 놀란 표정
     hide stand_Ninon_down onlayer forward
-    show stand_Ninon_panic onlayer forward at veryleft
+    show stand_Ninon_panic onlayer forward at right
 
     ch_ninon "우오옷~ 믿고 있었다고 쥐엔장~~!! 입니다!"
 
@@ -2887,14 +2890,14 @@ label start:
 
     hide stand_Monica onlayer forward
     hide stand_Ninon_panic onlayer forward
-    show stand_Ninon_wink onlayer forward at veryleft:
-        linear 0.5 xalign 0.5
+    show stand_Ninon_wink onlayer forward:
+        xpos 640
+        linear 0.3 ypos 0 xpos 350
     ch_ninon "DAIJOBU 입니다~! 왜냐하면 쇼군은~"
     hide stand_Ninon_wink onlayer forward
-    hide bg_black onlayer background
     hide bg_guildhouse onlayer middle
     show stand_Ninon_daiji onlayer forward
-    $ camera_move(0, 0, 400, 0, 6)
+    $ camera_move(0, -1000, 400, 0, 6)
 
     scene bg_surf onlayer middle with dissolve
     ## 배경음 일본풍 bgm
@@ -2911,7 +2914,7 @@ label start:
     ##빠르게 원래 크기로 복구
     $ camera_move(0, 0, 0, 0, 0.2)
 
-
+    hide bg_black onlayer background
     hide bg_surf onlayer middle
     ## 길드하우스로 다시 변경
     scene bg_guildhouse
@@ -2935,7 +2938,7 @@ label start:
     hide stand_Monica
     hide stand_Ninon_wink
     show stand_Ninon_down at left:
-        linear 0.5 xalign 0.5
+        linear 0.3 ypos 0 xpos 500
     
     ch_ninon "HIDOI 입니다……."
 
@@ -3515,7 +3518,7 @@ label onsen:
 
             pass
 
-        "쿠우카에게 의견을 묻는다.choice_4":
+        "쿠우카에게 의견을 묻는다.choice_5":
             if love_point == kuka:
                 $point_kuka += 1
             elif love_point != kuka:
@@ -3553,7 +3556,7 @@ label onsen:
 
             pass
         
-        "유키에게 의견을 묻는다.choice_5":
+        "유키에게 의견을 묻는다.choice_6":
             if love_point == yuki:
                 $point_yuki += 1
             elif love_point != yuki:
@@ -3764,7 +3767,7 @@ label onsen_inside:
     menu:
         "게임 이어서 계속하기choice_1":
             pass
-        "유키 cg 확인하기choice_2":
+        "   유키 cg 확인하기choice_2":
             hide stand_gura onlayer forward
             hide bg_onsen onlayer middle
             hide bg_black onlayer background
@@ -4455,9 +4458,11 @@ label scene_eight:
     hide stand_gura
     ## 모니카 부끄러워하는 표정
     show stand_Monica_dere at center with dissolve:
-        easeout 0.1 yalign 1.0
-        ease 0.3 yalign 0.0
-        easeout 0.1 yalign 1.0 ## 팔짝 뛰는 모션
+        easeout 0.3 ypos -50
+        ease 0.2 ypos 50
+        easeout 0.3 ypos -50
+        ease 0.2 ypos 50  
+        ## 팔짝 뛰는 모션
         
     ch_monica "그러니까 어린애가 아니란 말이다———!!!!!!!!"
 

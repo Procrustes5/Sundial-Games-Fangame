@@ -206,18 +206,20 @@ style input:
 
 init:
     image center:
-        im.FactorScale('choice/choice_0.png', 0.5)
+        im.FactorScale('choice/choice_0.png', 0.2)
     $ feel = "-"
     $ length_items = "-"
     screen icon:
         if length_items == "1":
-            add (im.FactorScale('/choice/choice_%s.png' %feel, 0.5)) xalign 0.2 yalign 1.0
+            add (im.FactorScale('/choice/choice_%s.png' %feel, 0.2)) xalign 0.2 yalign 0.93
+        elif length_items == "4":
+            add (im.FactorScale('/choice/choice_%s1.png' %feel, 0.2)) xalign 0.5 yalign 0.93
         else:
-            add (im.FactorScale('/choice/choice_%s.png' %feel, 0.5)) xalign 0.5 yalign 1.0
+            add (im.FactorScale('/choice/choice_%s.png' %feel, 0.2)) xalign 0.5 yalign 0.93
     screen choice(items):
         
         if len(items) == 1:
-            imagebutton idle 'center' hover 'center' action NullAction() xalign 0.2 yalign 1.0
+            imagebutton idle 'center' hover 'center' action NullAction() xalign 0.2 yalign 0.93
             vbox:
                 xalign 0.5 yalign 0.9
                 for caption, action, chosen in items[3:]:
@@ -243,30 +245,56 @@ init:
                             unhovered Hide('icon')
                             xminimum 100
             
-        else:
-            imagebutton idle 'center' hover 'center' action NullAction() xalign 0.5 yalign 1.0
+        elif len(items) == 4 or len(items) == 2:
+            imagebutton idle 'center' hover 'center' action NullAction() xalign 0.5 yalign 0.93
             vbox:
-                xalign 0.3 yalign 0.9
-                for caption, action, chosen in items[3:]:
+                xpos 60 yalign 0.9
+                for caption, action, chosen in items[2:]:
                     if action:
                         button:
                             action (action, Hide('icon'))
                             style "menu_choice_button"
-                            text caption[:-8] size 25 text_align 0.0 color "#ffffff" outlines [ (absolute(1), "#000", absolute(0), absolute(0)) ] hover_color '#FFD700' line_spacing 25 style "menu_choice"
-                            hovered Show('icon', length_items = "2", feel=caption[-1])
+                            text caption[:-8] size 23 text_align 0.0 color "#ffffff" outlines [ (absolute(1), "#000", absolute(0), absolute(0)) ] hover_color '#FFD700' line_spacing 25 style "menu_choice"
+                            hovered Show('icon', length_items = "4", feel=caption[-1])
                             unhovered Hide('icon')
                     
             
             vbox:
                 xpos 720 yalign 0.9
+                for caption, action, chosen in items[:2]:
+                    if action:
+    
+                        button:
+                            action (action, Hide('icon'))
+                            style "menu_choice_button"
+                            text caption[:-8] size 23 text_align 0.0 color "#ffffff" outlines [ (absolute(1), "#000", absolute(0), absolute(0)) ] hover_color '#FFD700' line_spacing 25 style "menu_choice"
+                            hovered Show('icon', length_items = "4", feel=caption[-1])
+                            unhovered Hide('icon')
+                            xminimum 100
+        else:
+            imagebutton idle 'center' hover 'center' action NullAction() xalign 0.5 yalign 0.93
+            vbox:
+                xpos 300 yalign 0.94
+                for caption, action, chosen in items[3:]:
+                    if action:
+                        button:
+                            action (action, Hide('icon'))
+                            style "menu_choice_button"
+                            text caption[:-8] size 23 text_align 0.0 color "#ffffff" outlines [ (absolute(1), "#000", absolute(0), absolute(0)) ] hover_color '#FFD700' line_spacing 25 style "menu_choice"
+                            hovered Show('icon', length_items = "6", feel=caption[-1])
+                            unhovered Hide('icon')
+                    
+            
+            vbox:
+                xpos 720 yalign 0.94
                 for caption, action, chosen in items[:3]:
                     if action:
     
                         button:
                             action (action, Hide('icon'))
                             style "menu_choice_button"
-                            text caption[:-8] size 25 text_align 0.0 color "#ffffff" outlines [ (absolute(1), "#000", absolute(0), absolute(0)) ] hover_color '#FFD700' line_spacing 25 style "menu_choice"
-                            hovered Show('icon', length_items = "2", feel=caption[-1])
+                            text caption[:-8] size 23 text_align 0.0 color "#ffffff" outlines [ (absolute(1), "#000", absolute(0), absolute(0)) ] hover_color '#FFD700' line_spacing 25 style "menu_choice"
+                            hovered Show('icon', length_items = "6", feel=caption[-1])
                             unhovered Hide('icon')
                             xminimum 100
 define config.narrator_menu = True
@@ -998,13 +1026,6 @@ screen preferences():
                         label _("화면 모드")
                         textbutton _("창 화면") action Preference("display", "window")
                         textbutton _("전체 화면") action Preference("display", "fullscreen")
-
-                vbox:
-                    style_prefix "radio"
-                    label _("측면 되감기")
-                    textbutton _("비활성화") action Preference("rollback side", "disable")
-                    textbutton _("화면 왼쪽 클릭") action Preference("rollback side", "left")
-                    textbutton _("화면 오른쪽 클릭") action Preference("rollback side", "right")
 
                 vbox:
                     style_prefix "check"
