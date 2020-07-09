@@ -283,34 +283,42 @@ init:
     
 ## 캐릭터 ###############################
 init:
-    define ch_ninon = Character('니논', color = "#ffffff")
+    image CTC = Image("/menu/ctc_icon.png", xpos = 1125, ypos = 670)
+    image CTC_TRANS = Image("/menu/ctc_trans.png", xpos = 1125, ypos = 670)
+    image ctc_icon:
+        "CTC"
+        pause 0.7
+        "CTC_TRANS"
+        pause 0.7
+        repeat
+    define ch_ninon = Character('니논', color = "#ffffff", ctc = 'ctc_icon', ctc_position = "fixed")
 
-    define ch_monica = Character('모니카', color = "#ffffff")
+    define ch_monica = Character('모니카', color = "#ffffff", ctc = 'ctc_icon', ctc_position = "fixed")
 
-    define ch_kuka = Character('쿠우카', color = "#ffffff")
+    define ch_kuka = Character('쿠우카', color = "#ffffff", ctc = 'ctc_icon', ctc_position = "fixed")
 
-    define ch_yuki = Character('유키', color = "#ffffff")
+    define ch_yuki = Character('유키', color = "#ffffff", ctc = 'ctc_icon', ctc_position = "fixed")
 
-    define ch_ayumi = Character('아유미', color = "#ffffff")
+    define ch_ayumi = Character('아유미', color = "#ffffff", ctc = 'ctc_icon', ctc_position = "fixed")
 
     define player_name = "가상의 이름 simulated name"
 
-    define player = Character("name", dynamic = True, color = "#ffffff")
+    define player = Character("name", dynamic = True, color = "#ffffff", ctc = 'ctc_icon', ctc_position = "fixed")
 
-    define monster = Character("마물", color = "#ffffff")
+    define monster = Character("마물", color = "#ffffff", ctc = 'ctc_icon', ctc_position = "fixed")
 
-    define ch_peco = Character("페코린느", color = "#ffffff")
+    define ch_peco = Character("페코린느", color = "#ffffff", ctc = 'ctc_icon', ctc_position = "fixed")
 
-    define ch_kyaru = Character("배신자", color = "#ffffff")
+    define ch_kyaru = Character("배신자", color = "#ffffff", ctc = 'ctc_icon', ctc_position = "fixed")
 
-    define ch_gura = Character("구라노스케", color = "#ffffff")
+    define ch_gura = Character("구라노스케", color = "#ffffff", ctc = 'ctc_icon', ctc_position = "fixed")
 
 ## 나래이터류 ############################
 init:
     define narrator = Character(None, kind = nvl)
-    define ch_nar = Character(None)
-    define centered = Character(what_bold = True, color = "#000000")
-    define hatena = Character('???', color = "#ffffff")
+    define ch_nar = Character(None, ctc = 'ctc_icon', ctc_position = "fixed")
+    define centered = Character(what_bold = True, color = "#000000", ctc = 'ctc_icon', ctc_position = "fixed")
+    define hatena = Character('???', color = "#ffffff", ctc = 'ctc_icon', ctc_position = "fixed")
 ## 포지셔닝 ##############################
 init:
     define center = Position(xalign = 0.5)
@@ -2316,13 +2324,6 @@ label pong_done:
             
     hide stand_Ninon
     return
-## 닉네임 글자수제한 ######################
-init python:
-    def length(name):
-        if len(name) > 10:
-            return False
-        else:
-            return True
 
 ## 게임 시작 ##############################
 ## 이름 짓기 #############################
@@ -2336,7 +2337,87 @@ label naming:
     $ name = player_name
     $ finalConso = finalChecker(name)
     hide bg_whatsyourname onlayer forward
-    if length(name) == True:
+    if len(name) > 10:
+        hatena "어떻게 사람 이름이 [name]일수가 있지 ㅋㅋ"
+        hatena "진짜 이름을 10자 이내로 알려 줘."
+        jump naming
+    elif len(name) == 0:
+        hatena "……알려 주고 싶지 않다는 걸까?"
+
+        hatena "곤란한걸…… 다시 한 번 생각해 줘."
+
+        jump naming
+    elif name == "페코린느":
+        hatena "당신도 제 이름을 뺏어 가려는 걸까요? 장난 아니네요~☆" 
+        jump naming    
+    elif name == "캬루" or name == "배신자":
+        hatena "하? 머리 어떻게 된 거 아니야? 죽여버린다!"
+        jump naming  
+    elif name == "콧코로":
+        hatena "주인님, 남의 이름을 멋대로 사용하시는 것은 「떽」입니다."
+        jump naming
+    elif name == "니논":
+        hatena "두구두구둥~ 그 이름은 아니 되오 입니다, 쇼군~!"
+        jump naming
+    elif name == "모니카":
+        hatena "귀공, 이름 정도는 스스로 생각하는 것이 어떤가……?"
+        jump naming
+    elif name == "쿠우카":
+        hatena "히이이~~!!! 이제는 이름까지 빼앗아, 정체성도 감정도 잃어버린 고기 인형으로 만들어 버리시려는 건가요!!!! 도S 씨의 가학성은 정말이지 상상을 뛰어넘는 수준이네요……!!!!"
+        jump naming
+    elif name == "유키":
+        hatena "후훗…… 아름다운 나를 동경하는 것은 이해하지만, 이름까지 따라하려는 건 참아 줬으면 좋겠는데~"
+        jump naming
+    elif name == "구라노스케":
+        hatena "{b}{size=30}오에도---!!!!!!!!!{/size}{/b}"
+        jump naming
+    elif name == "아메스":
+        hatena "흐응…… 당신은 뭔가 알고 있는 걸까나."
+
+        hatena "그렇지만, 나는 당신의 진짜 이름이 알고 싶은걸."
+
+        jump naming
+    elif name == "키무라" or name == "키무라유이토" or name == "키무라 유이토":
+        hatena "천장을 찍고 싶습니까, Korean 키시쿤?"
+
+        jump naming
+    elif name == "아유미":
+        show movie onlayer forward
+        play movie "library/ames.mpg" noloop
+        $renpy.pause(3.0)
+        hatena "어서 와, {color=#51f07c}아유미{/color}. 그게 당신의 이름이구나."
+        hide movie onlayer forward
+        show cg_ames onlayer forward with dissolve
+
+        hatena "지금부터 당신이……"
+
+        ch_ayumi "{b}{size=30}잠깐 잠깐 잠깐!!!!!!!{/size}{/b}"
+
+        ch_ayumi "{b}{size=30}잠깐 기다려 주세요!!!!!{/size}{/b}"
+
+        hatena "뭐?!"
+
+        ch_ayumi "어째서 아무렇지도 않게 넘어가시는 건가요!!!"
+
+        ch_ayumi "그건 제 이름이란 말이에요……!!"
+
+        hatena "이건 대체…… 저런 아이는 한 번도 본 적이 없는데……!"
+
+        hatena "뭔가 오류가……?!"
+
+        ch_ayumi "오류 아니에요오!!!!"
+
+        hatena "……뭐……"
+
+        hatena "……뭐가 뭔진 모르겠지만…… 다른 이름을 알려 주겠어……?"
+
+        hatena "이 오류는 내가 고쳐 볼 테니까……"
+
+        ch_ayumi "그러니까 오류 가흔 게…… 우붑!!!!!"
+
+        hide cg_ames onlayer forward
+        jump naming
+    else:
         show movie onlayer forward
         play movie "library/ames.mpg" noloop
         $renpy.pause(3.0)
@@ -2353,16 +2434,8 @@ label naming:
                 hatena "당신이 알아야 할 건 단지…… 이제부터 여러 명의 ‘소녀’들을 만나게 된다는 것과,"
                 hatena "당신이 어떤 선택을 내리느냐에 따라 그녀들의 운명이 조금씩 바뀌게 된다는 것밖에 없어. 그럼 잘해 봐. 행운을 빌게, 왕자님♪"
                 hide cg_ames onlayer forward
-            ##텍스트 사라지면서 볼륨 서서히 off
-            "니논이랑 탁구하기choice_2":
-                jump ninon
-            
-            
-    else:
-        hatena "어떻게 사람 이름이 [name]일수가 있지 ㅋㅋ"
-        hatena "진짜 이름을 10자 이내로 알려 줘."
-        call naming from _call_naming
-
+            ##텍스트 사라지면서 볼륨 서서히 off    
+                jump start    
     return
 
 ## 프롤로그 #############################
@@ -2370,7 +2443,7 @@ label start:
     $ camera_reset()
 ## 이름 생성 여부 ######################
     if (player_name == "가상의 이름 simulated name"):
-        call naming from _call_naming_1
+        jump naming
     else:
         hide bg_whatsyourname
         pass        

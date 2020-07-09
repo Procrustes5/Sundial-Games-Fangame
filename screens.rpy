@@ -213,7 +213,7 @@ init:
         if length_items == "1":
             add (im.FactorScale('/choice/choice_%s.png' %feel, 0.2)) xalign 0.2 yalign 0.93
         elif length_items == "4":
-            add (im.FactorScale('/choice/choice_%s1.png' %feel, 0.2)) xalign 0.5 yalign 0.93
+            add (im.FactorScale('/choice/choice_%s1.png' %feel, 0.2)) xalign 0.2 yalign 0.93
         else:
             add (im.FactorScale('/choice/choice_%s.png' %feel, 0.2)) xalign 0.5 yalign 0.93
     screen choice(items):
@@ -233,19 +233,44 @@ init:
                     
             
             vbox:
-                xalign 0.5 yalign 0.9
+                xpos 420 yalign 0.86
                 for caption, action, chosen in items[:3]:
                     if action:
     
                         button:
                             action (action, Hide('icon'))
                             style "menu_choice_button"
-                            text caption[:-8] size 30 color "#ffffff" outlines [ (absolute(1), "#000", absolute(0), absolute(0)) ] hover_bold True hover_color '#FFD700' line_spacing 15 style "menu_choice"
+                            text caption[:-8] size 30 color "#ffffff" outlines [ (absolute(1), "#000", absolute(0), absolute(0)) ] hover_color '#FFD700' line_spacing 15 style "menu_choice"
                             hovered Show('icon', length_items = "1", feel="2")
                             unhovered Hide('icon')
                             xminimum 100
+        elif len(items) == 2:
+            imagebutton idle 'center' hover 'center' action NullAction() xalign 0.2 yalign 0.93
+            vbox:
+                xpos 60 yalign 0.9
+                for caption, action, chosen in items[2:]:
+                    if action:
+                        button:
+                            action (action, Hide('icon'))
+                            style "menu_choice_button"
+                            text caption[:-8] size 23 text_align 0.0 color "#ffffff" outlines [ (absolute(1), "#000", absolute(0), absolute(0)) ] hover_color '#FFD700' line_spacing 25 style "menu_choice"
+                            hovered Show('icon', length_items = "4", feel=caption[-1])
+                            unhovered Hide('icon')
+                    
             
-        elif len(items) == 4 or len(items) == 2:
+            vbox:
+                xpos 400 yalign 0.9
+                for caption, action, chosen in items[:2]:
+                    if action:
+    
+                        button:
+                            action (action, Hide('icon'))
+                            style "menu_choice_button"
+                            text caption[:-8] size 25 text_align 0.0 color "#ffffff" outlines [ (absolute(1), "#000", absolute(0), absolute(0)) ] hover_color '#FFD700' line_spacing 25 style "menu_choice"
+                            hovered Show('icon', length_items = "4", feel=caption[-1])
+                            unhovered Hide('icon')
+                            xminimum 100    
+        elif len(items) == 4:
             imagebutton idle 'center' hover 'center' action NullAction() xalign 0.5 yalign 0.93
             vbox:
                 xpos 60 yalign 0.9
@@ -854,7 +879,6 @@ screen about():
 
             text _("{a=https://www.renpy.org/}Ren'Py{/a} [renpy.version_only] 으로 만들어진 게임입니다.\n\n[renpy.license!t]")
 
-            text "{a=https://namu.wiki/w/%EC%9D%B4%EC%84%9C%EA%B7%9C}히키니트{/a}"
 ## options.rpy에서 규정된 내용이 about 스크린에 추가됩니다.
 define gui.about = ""
 
