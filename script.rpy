@@ -243,10 +243,10 @@ init:
         im.FactorScale("bg/bg_universe.png", 1.2)
 
     image bg_onsen:
-        im.FactorScale("bg/bg_onsen.jpg", 1.8)
+        im.FactorScale("bg/bg_onsen.png", 1.0)
 
     image bg_routen:
-        im.FactorScale("bg/bg_routen.jpg", 1.3)
+        im.FactorScale("bg/bg_routen.png", 1.0)
 
     image bg_onsen_heya_01:
         im.FactorScale("bg/bg_onsen_heya_01.png", 0.67)
@@ -2382,12 +2382,10 @@ label naming:
 
         jump naming
     elif name == "아유미":
-        show movie onlayer forward
-        play movie "library/ames.mpg" noloop
-        $renpy.pause(3.0)
+        $ renpy.movie_cutscene("library/ames.mpg")
+        show cg_ames onlayer middle
+
         hatena "어서 와, {color=#51f07c}아유미{/color}. 그게 당신의 이름이구나."
-        hide movie onlayer forward
-        show cg_ames onlayer forward with dissolve
 
         hatena "지금부터 당신이……"
 
@@ -2415,15 +2413,13 @@ label naming:
 
         ch_ayumi "그러니까 오류 가흔 게…… 우붑!!!!!"
 
-        hide cg_ames onlayer forward
+        hide cg_ames onlayer middle
         jump naming
-    else:
-        show movie onlayer forward
-        play movie "library/ames.mpg" noloop
-        $renpy.pause(3.0)
+    else:     
+        $ renpy.movie_cutscene("library/ames.mpg")
+        show cg_ames onlayer middle
         hatena "어서 와, [name]. 그게 당신의 이름이구나."
-        hide movie onlayer forward
-        show cg_ames onlayer forward with dissolve
+
         hatena "지금부터 당신이 보게 될 것은, 이른바 꿈 같은 거야. 이미 겪어 보았거나, 언젠가 일어날지도 모르는, 한여름 밤의 꿈 같은 일. ‘몽상’이라 불러도 좋겠네."
 
         menu:
@@ -2433,7 +2429,7 @@ label naming:
                 hatena "……호기심도 많네. 내 정체 같은 건 중요하지 않아."
                 hatena "당신이 알아야 할 건 단지…… 이제부터 여러 명의 ‘소녀’들을 만나게 된다는 것과,"
                 hatena "당신이 어떤 선택을 내리느냐에 따라 그녀들의 운명이 조금씩 바뀌게 된다는 것밖에 없어. 그럼 잘해 봐. 행운을 빌게, 왕자님♪"
-                hide cg_ames onlayer forward
+                hide cg_ames onlayer middle
             ##텍스트 사라지면서 볼륨 서서히 off    
                 jump start    
     return
@@ -2895,16 +2891,16 @@ label start:
 ## 캐릭터 선택 분기 #########################
     menu:
         "어설픈 실력과 저돌적인 행동으로 쉽게 위험에 빠지는 것choice_1":
-            $love_point = ninon
+            $love_point = 1  ## 니논
 
         "동료를 신뢰하지 않고 독단적으로 행동하는 것choice_2":
-            $point_point = monica
+            $love_point = 2  ## 모니카
 
         "순간의 욕망을 억제하지 못하고 충동적으로 행동하는 것choice_3":
-            $point_point = kuka
+            $love_point = 3  ## 쿠우카
 
         "자기 자신만을 중시하며 동료를 배려하지 않는 것choice_4":
-            $point_point = yuki
+            $love_point = 4 ## 유키
 
     show stand_Monica onlayer forward with dissolve ## 기본 표정
 
@@ -3495,9 +3491,9 @@ label onsen:
 ## 선택지 ##########################################
     menu:
         "니논에게 의견을 묻는다.choice_1":
-            if love_point == ninon:
+            if love_point == 1:
                 $point_ninon += 1
-            elif love_point != ninon:
+            elif love_point != 1:
                 $point_ninon = 0
             
             player "니논은 내가 어떻게 했으면 좋겠어?"
@@ -3537,9 +3533,9 @@ label onsen:
             pass
 
         "       모니카에게 의견을 묻는다.choice_2":
-            if love_point == monica:
+            if love_point == 2:
                 $point_monica += 1
-            elif love_point != monica:
+            elif love_point != 2:
                 $point_monica = 0
             
             player "모니카는 내가 어떻게 했으면 좋겠어?"
@@ -3576,13 +3572,13 @@ label onsen:
 
             pass
         "다시 생각해 보니 이것들 의견은 별로 중요하지 않은 것 같다.choice_3":
-            if love_point == ninon:
+            if love_point == 1:
                 $point_ninon -= 1
-            elif love_point == monica:
+            elif love_point == 2:
                 $point_monica -= 1
-            elif love_point == kuka:
+            elif love_point == 3:
                 $point_kuka -= 1
-            elif love_point == yuki:
+            elif love_point == 4:
                 $point_yuki -= 1
             
             player "아니…… 아무것도 아니야."
@@ -3592,9 +3588,9 @@ label onsen:
             pass
 
         "쿠우카에게 의견을 묻는다.choice_5":
-            if love_point == kuka:
+            if love_point == 3:
                 $point_kuka += 1
-            elif love_point != kuka:
+            elif love_point != 3:
                 $point_kuka = 0
 
             player "쿠우카는 내가 어떻게 했으면 좋겠어?"
@@ -3630,9 +3626,9 @@ label onsen:
             pass
         
         "유키에게 의견을 묻는다.choice_6":
-            if love_point == yuki:
+            if love_point == 4:
                 $point_yuki += 1
-            elif love_point != yuki:
+            elif love_point != 4:
                 $point_yuki = 0
 
             player "유키는 내가 어떻게 했으면 좋겠어?"
@@ -3869,7 +3865,7 @@ label onsen_inside:
 
     ch_yuki "“세상에…… 대체 뭘 먹고 자라면 저렇게 못생겨지는 거지……?! 윽…… 역겨워……”"
 
-    ch_yuki "“아아— 못생긴 녀석들은 얼굴만 봐도 토할 것 같단 말이지— 얼른 죽어 주지 않으려나—”"
+    ch_yuki "“아아- 못생긴 녀석들은 얼굴만 봐도 토할 것 같단 말이지- 얼른 죽어 주지 않으려나-”"
 
     hide stand_Yuki_ddung onlayer forward
     show bg_onsen
@@ -4742,9 +4738,12 @@ label sceneNum10:
     hatena "먹는다."
 
     ## 심각한 bgm 점점 작게
-    return
-## S# 12. 대욕탕 (공통 루트) ################
-label sceneNum12Common:
+    if love_point == 4:
+        jump cg_yukifirst
+    else:
+        jump sceneNum11_2Common
+## S# 11-2. 대욕탕 (공통 루트) ################
+label sceneNum11_2Common:
     ## 대욕탕 cg
     scene bg_onsen onlayer middle with fade
     hide bg_black
@@ -4885,9 +4884,9 @@ label sceneNum12Common:
 
     hide bg_onsen onlayer middle
 
-    jump sceneNum13Common
-## S# 13. 온천 내부 [여기부터 모든 스탠딩 cg는 유카타 복장으로](공통루트)#######
-label sceneNum13Common:
+    jump sceneNum12Common
+## S# 12. 온천 내부 [여기부터 모든 스탠딩 cg는 유카타 복장으로](공통루트)#######
+label sceneNum12Common:
     scene bg_onsen_heya_02 with fade
     hide bg_black onlayer background
 
@@ -4899,7 +4898,346 @@ label sceneNum13Common:
     hide stand_Ninon_yukata_wink
 
     ## 모니카 무심한 척 하는 표정
-    show stand
+    show stand_Monica_yukata_munen with dissolve
+
+    ch_monica "이것이 동국의 유카타인가…… 바, 바람이 너무 잘 통해서 조금 민망하군……"
+
+    hide stand_Monica_yukata_munen
+    ## 유키 자뻑하는 표정
+    show stand_Yuki_yukata_proud with dissolve
+
+    ch_yuki "어쩜…… 예상은 했지만, 이렇게나 아름다울 줄이야…… 나는 대체 어디까지 예뻐질 작정인 걸까? 나조차도 도저히 가늠이 되지 않아……♪"
+
+    hide stand_Yuki_yukata_proud
+    ## 쿠우카 부끄러워하는 표정
+    show stand_Kuka_yukata_shamed with dissolve
+
+    ch_kuka "……으으…… 지난 번 기모노보단 낫지만…… 유카타도 굉장히 입기 어려운 옷이네요…… 금방이라도 벗겨질 것만 같아요……"
+
+    ## 쿠우카 망상하는 표정
+    show stand_Kuka_yukata_mousou
+    hide stand_Kuka_yukata_shamed
+
+    ch_kuka "……벗겨져? 모두의 앞에서……? 큿, 크흐흣……. 크헷……"
+
+    hide stand_Kuka_yukata_mousou
+
+    ch_ayumi "‘선배…… 귀엽다고 해 주지 않으려나…….’"
+
+    ch_nar "오……"
+
+    ch_nar "4명 다 괜찮네……"
+
+    show stand_gura with dissolve
+
+    ch_gura "저기…… 쇼군 님……"
+
+    player "응?"
+
+    ch_gura "그…… 보셨습니까……?"
+
+    player "……뭘……?"
+
+    ch_gura "유키 님…… 정말 남자인가요……?"
+
+    ## 호흡 끊기
+    $renpy.pause(1.0)
+
+    player "…………"
+
+    player "그 얘긴 하고 싶지 않아……"
+
+    ch_gura "……"
+
+    ch_gura "……실례했습니다……"
+
+    hide stand_gura
+    
+    ## 모니카 웃는 표정
+    show stand_Monica_yukata with dissolve
+
+    ch_monica "그나저나, 구라노스케…… 공?"
+
+    ch_monica "동국의 온천 문화에 대해서는 잘 아는 바가 없는데……. 순서에 맞는 예절을 가르쳐 줄 수 있을까?"
+
+    hide stand_Monica_yukata
+    show stand_gura with dissolve
+
+    ch_gura "물론입죠!"
+
+    ch_gura "그 전에, 가져오신 짐들이 꽤 많아 보이니……. 먼저 객실로 모시겠습니다!"
+
+    ch_gura "남녀 도합 총 다섯 분이니까, 방 개수는……"
+
+    hide stand_gura
+    ## 니논 비장한 표정
+    show stand_Ninon_yukata_daiji with dissolve
+    ch_ninon "……방 개수는?"
+
+    hide stand_Ninon_yukata_daiji
+    show stand_gura with dissolve
+
+    ch_gura "……!!"
+
+    hide stand_gura
+    show bg_onsen_heya_02 onlayer middle
+    ## 니논 비장한 표정
+    show stand_Ninon_yukata_daiji onlayer forward with dissolve
+
+    $ camera_move(0, -1000, 400, 0, 1)
+
+    ch_ninon "……!!!"
+
+    hide stand_Ninon_yukata_daiji onlayer forward
+    $ camera_move(0, 0, 0, 0, 0)
+
+    show stand_gura onlayer forward
+
+    $ camera_move(0, 0, 600, 0, 1)
+
+    ch_gura "……!!!!"
+
+    $ camera_move(0, 0, 0, 0, 0.5)
+
+    ch_gura "…………"
+
+    $ camera_move(0, 0, 600, 0, 0.5)
+
+    show highlight onlayer forward with hpunch
+
+    ch_gura "{b}{size=30}……‘하나’입니다!!!{/size}{/b}" 
+
+    $ camera_move(0, 0, 0, 0, 0)
+
+    hide highlight onlayer forward
+    hide stand_gura onlayer forward
+    hide bg_onsen_heya_02 onlayer middle
+
+    ## 니논 윙크하는 표정
+    show stand_Ninon_yukata_wink with dissolve
+
+    ch_ninon "우효~~"
+
+    hide stand_Ninon_yukata_wink
+    show stand_gura with dissolve
+
+    ch_gura "그게…… 자, 작은 객실은 현재 빈 방이 없어서요……"
+
+    ch_gura "워낙 큰 방이니까, 딱히 불편하진 않으실 겁니다. 그럼……"
+
+    hide stand_gura
+    show stand_Monica_yukata_down with dissolve
+
+    ch_monica "……분명 손님이 없다고 하지 않았나? 빈 방이 없다는 건 무……"
+
+    show stand_Ninon_yukata_daiji at left with dissolve
+
+    ch_ninon "씁! 모니카 씨!"
+
+    ch_ninon "그만! 거기까지! 쓰읍!"
+
+    show stand_Monica_yukata_surprised
+    hide stand_Monica_yukata_down
+    hide stand_Monica_yukata_daiji
+
+    ch_monica "?????"
+
+    hide stand_Monica_yukata_surprised
+    hide stand_Ninon_yukata_daiji
+
+    ch_ayumi "……왜 인원이 다섯 명이라는 말에는 아무도 반박하지 않는 건가요오!!!!"
+
+    hide bg_onsen_heya_02
+
+    jump sceneNum13Common
+## S# 13. 온천숙소 (다다미 방)(공통루트)#####
+label sceneNum13Common:
+    scene bg_onsen_heya_01
+    
+    ## 니논 당황한 표정
+    show stand_Ninon_yukata_surp with dissolve
+
+    ch_ninon "……이건……"
+
+    ch_ninon "꿈에 그리던 동국의 줜통 다다뮈 방 입니다……!!"
+
+    ch_ninon "이런 곳에서 하룻밤을 보낼 수 있다니……! 니논은 이제 죽어도 여한이 없다 입니다! 할복 하고 싶습니다!"
+
+    hide stand_Ninon_yukata_surp
+
+    ## 쿠우카 부끄러워하는 표정
+    show stand_Kuka_yukata_shamed with dissolve
+
+    ch_kuka "……어, 엣? 그, 그러고 보니……"
+
+    ch_kuka "……방이 하나……라고요……? 그렇다는 건……"
+
+    ## 기본 표정으로 변경
+    show stand_Kuka_yukata
+    hide stand_Kuka_yukata_shamed
+
+    ch_kuka "도, 도S 씨와 한 방에서…… 하, 하룻, 밤을……?!"
+
+    hide stand_Kuka_yukata
+    ## 니논 비장한 표정
+    show stand_Ninon_yukata_daiji with dissolve
+
+    ch_ninon "눈치채는 것이 느리군요, 쿠우카 씨……!"
+
+    hide stand_Ninon_yukata_daiji
+    ## 쿠우카 망상하는 표정
+
+    show stand_Kuka_yukata_mousou with dissolve
+
+    ch_kuka "……크흣…… 후히힛…… 모두가 잠든 고요한 새벽…… 가혹한 바깥의 추위로부터 소녀를 지키던 따스한 솜이불은, 격렬하고도 은밀한 침범에 속수무책으로 뚫려 버리고…… 더러움을 모르던 순백의 도화지는 검은 얼룩으로 서서히 물들어 가는데…….!! 케헤헷!!!"
+
+    hide stand_Kuka_yukata_mousou
+
+    ch_ayumi "서…… 선배와 같은 방에서 잠을……"
+
+    ch_ayumi "아, 뭐어…… 처음은 아니긴 하지만요……"
+
+    ## 니논 비장한 표정
+    show stand_Ninon_yukata_daiji with dissolve
+
+    ch_ninon "……아유미 씨?"
+
+    ch_ninon "쇼군의 오른팔로서…… 그냥 넘어갈 이야기는 아닌 듯하오 입니다……?"
+
+    show stand_Ninon_yukata_daiji:
+        linear 0.5 xalign 0.8
+
+    ## 유키 뚱한 표정
+    show stand_Yuki_yukata_ddung at left with dissolve
+
+    ch_yuki "근데 말야~ 니논……"
+
+    ## 니논 놀란 표정
+    show stand_Ninon_yukata_surp at right
+    hide stand_Ninon_yukata_daiji
+
+    ch_ninon "니논을 부르셨소 입니다?!"
+
+    ch_yuki "그 쇼군이라고 부르는 거,"
+
+    ch_yuki "슬슬 그만두는 게 낫지 않아?"
+
+    ## 니논 패닉한 표정
+    show stand_Ninon_yukata_panic at right
+    hide stand_Ninon_yukata_surp
+
+    ch_ninon "무……무머무, MOU, 뭐라고 입니다……?!"
+
+    ## 니논 화난 표정
+    show stand_Ninon_yukata_angry at right
+    hide stand_Ninon_yukata_panic
+
+    ch_ninon "그, 그 말은, 니논한테…… 감히 쇼군에 대한 충의를 버리라는, 그런 뜻 입니까?!!"
+
+    ch_yuki "아니~ 생각을 좀 해 봐."
+
+    ch_yuki "저 녀석이 바보처럼 보이려고 저렇게 노력하는 이유가 뭐였는데?"
+
+    ch_nar "ㅋㅋ 까먹고 있었는데."
+
+    ch_ninon "그야……"
+
+    ch_ninon "……쇼군이 쇼군이라는 것을…… 들키지 않……?"
+
+    ## 호흡 끊기
+    $renpy.pause(1.0)
+
+    ## 니논 패닉한 표정
+    show stand_Ninon_yukata_panic at right
+    hide stand_Ninon_yukata_angry
+
+    ch_ninon "……이럴수GA……"
+
+    ## 니논 억울한 표정
+    show stand_Ninon_yukata_innocent at right
+    hide stand_Ninon_yukata_panic
+
+    ch_ninon "니, 니논은…… 대췌 무슨 짓을……"
+
+    ch_ninon "쏭…… 쏭구하옵뉘다, 쇼군!!! 할복을…… 할복을 하겠소 입니다……!"
+
+    hide stand_Ninon_yukata_innocent
+    hide stand_Yuki_yukata_ddung
+
+    ch_nar "바로 쇼군이라 부르는 니 능지가 레전드다……"
+
+    ## 모니카 시무룩한 표정
+
+    show stand_Monica_yukata_down with dissolve
+
+    ch_monica "……유키의 말이 맞다. 시정할 필요가 있겠어."
+
+    hide stand_Monica_yukata_down
+    ## 니논 억울한 표정
+    show stand_Ninon_yukata_innocent with dissolve
+
+    ch_ninon "OH MON DIEU……!! 쇼군을 앞에 두고도 쇼군이라 부를 수 없다니…… 이 무슨 병천척력 입니다……!!!"
+
+    hide stand_Ninon_yukata_innocent
+
+    player "청력병천이겠지, 바보야!"
+
+    show stand_Monica_yukata_down with dissolve
+
+    ch_monica "진심으로 청천벽력 같은 발언들이군……"
+
+    hide stand_Monica_yukata_down
+
+    ch_ayumi "‘혼란스러운 와중에도 똥멍청이 연기를……! 역시 선배는 대단해…… 나도 분발해야지……!’"
+
+    show stand_Monica_yukata_down at left with dissolve
+
+    ch_monica "니논…… 대의를 위해서다. 적어도 온천에 머무르는 동안만은 참아 다오……!"
+
+    ## 니논 억울한 표정 오른쪽에
+
+    show stand_Ninon_yukata_innocent at right with dissolve
+
+    ch_ninon "모니카 쒸……!"
+
+    ch_ninon "……이 니논, 해내 보이고 말겠소 입니다……!"
+
+    ch_ninon "……쇼군을 위해서라면!"
+
+    ch_nar "벌써 실패했어……"
+
+    hide stand_Ninon_yukata_innocent
+    hide stand_Monica_yukata_down
+
+    ## 쿠우카 기본 표정
+    show stand_Kuka_yukata at left with dissolve
+
+    ch_kuka "그, 그러면……! 도S 씨라 부르는 건 상관없는 거겠죠……!"
+
+    ## 모니카 무심한 척 하는 표정
+    show stand_Monica_yukata_munen at right with dissolve
+
+    ch_monica "아, 그건 뭐…… 마음대로 해라……"
+
+    ## 쿠우카 망상하는 표정
+    show stand_Kuka_yukata_mousou at left
+    hide stand_Kuka_yukata
+
+
+    ch_kuka "쿠헤헤헷……!"
+
+    ch_nar "그딴 거에 집착하지 마……!"
+
+    hide stand_Kuka_yukata_mousou
+    hide stand_Monica_yukata_munen
+
+    ch_ninon "아닛……!! 여러분~~!"
+
+    ch_ninon "이쪽으로 와 보세요 입니다~~!!!"
+
+    ch_nar "저건 또 언제 저기로 기어들어 갔어?"
+
+    hide bg_onsen_heya_01
 
     return
 ## 미니 게임 CG 라벨 ########################
@@ -5337,7 +5675,7 @@ label cg_yukifirst:
 
     hide cg_yuki_03_plus
 
-    jump sceneNum12Common
+    jump sceneNum11_2Common
 
 label cg_yukisecond:
 
