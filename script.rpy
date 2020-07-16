@@ -257,6 +257,27 @@ init:
     image bg_daiyokujyo:
         im.FactorScale("bg/daiyoku.png", 1.0)
 
+    image bg_indoor_onsen:
+        im.FactorScale("bg/indoor_onsen.png", 1.0)
+
+    image bg_indoor_sauna_day:
+        im.FactorScale("bg/indoor_sauna_day.png", 1.0)
+
+    image bg_indoor_sauna_night:
+        im.FactorScale("bg/indoor_sauna_night.png", 1.0)
+    
+    image bg_outside_onsen:
+        im.FactorScale("bg/outside_onsen.png", 1.0)
+    
+    image bg_outside_onsen_2:
+        im.FactorScale("bg/outside_onsen_2.png", 1.0)
+
+    image bg_onsen_yado:
+        im.FactorScale("bg/onsen_yado.png", 1.0)
+    
+    image bg_naibu:
+        im.FactorScale("bg/onsen_inside.png", 1.0)
+
     image bg_entrance:
         im.FactorScale("bg/bg_entrance.png", 1.0)
 
@@ -278,7 +299,10 @@ init:
     image ob_ujitya:
         im.FactorScale("object/ob_ujitya.png", 1.0)
     image ob_wagasi:
-        im.FactorScale("object/ob_wagasi.png", 1.0)    
+        im.FactorScale("object/ob_wagasi.png", 0.5)    
+    image ob_moninon:
+        im.FactorScale("object/moninon.png", 0.7)
+    
     image snow = SnowBlossom(im.FactorScale("object/flower_1.png", 0.5), count=50, border=400, xspeed =(30, 60), yspeed=(30, 100), horizontal=True)
     
 ## 캐릭터 ###############################
@@ -406,6 +430,14 @@ init:
         im.FactorScale("library/yuki_03.png", 1.0)
     image cg_yuki_03_plus:
         im.FactorScale("library/yuki_03_plus.png", 1.0)
+
+    image cg_monica_first_01:
+        im.FactorScale("cg/monica/monica_1_01.png", 1.0)
+    image cg_monica_first_02:
+        im.FactorScale("cg/monica/monica_1_02.png", 1.0)
+    image cg_monica_first_03:
+        im.FactorScale("cg/monica/monica_1_03.png", 1.0)    
+
 
     image cg_ninon_happy_01 = "library/cg_ninon_happy_01.png"
     image cg_ninon_happy_02 = "library/cg_ninon_happy_02.png"
@@ -3836,12 +3868,7 @@ label onsen_inside:
     menu:
         "게임 이어서 계속하기choice_1":
             pass
-        "   유키 cg 확인하기choice_2":
-            hide stand_gura onlayer forward
-            hide bg_onsen onlayer middle
-            hide bg_black onlayer background
-            jump cg_yukifirst
-        "니논 엔딩 확인하기choice_3":
+        "니논 엔딩 확인하기choice_2":
             hide stand_gura onlayer forward
             hide bg_onsen onlayer middle
             hide bg_black onlayer background
@@ -5239,6 +5266,409 @@ label sceneNum13Common:
 
     hide bg_onsen_heya_01
 
+    jump sceneNum14Common
+## S #14. 실내 욕실 (낮) (공통 루트) ########
+label sceneNum14Common:
+    scene bg_indoor_sauna_day with fade
+    show bg_indoor_sauna_day onlayer middle
+    ## 니논 비장한 표정
+    show stand_Ninon_yukata_daiji onlayer forward with dissolve
+
+    ch_ninon "이것이 바로 동국의……"
+
+    show highlight onlayer forward with hpunch
+    $ camera_move(0, -1000, 400, 0, 1)
+
+    ch_ninon "욕실 입니다!!!"
+
+    hide highlight onlayer forward
+    $ camera_move(0, 0, 0, 0, 0)
+
+    ch_ninon "무척이나……"
+
+    hide bg_indoor_sauna_day onlayer middle
+    hide stand_Ninon_yukata_daiji onlayer forward
+
+    ## 모니카 시무룩한 표정
+
+    show stand_Monica_yukata_down with dissolve
+
+    ch_monica "좁군."
+
+    ## 유키 질색하는 표정
+    show stand_Yuki_yukata_angry at left with dissolve
+
+    ch_yuki "좁아."
+
+    ## 쿠우카 질색하는 표정
+    show stand_Kuka_hiku at right with dissolve
+
+    ch_kuka "좁네요."
+
+    ch_ayumi "어……? 나쁘지 않다고 생각한 건 저 뿐인가요……?"
+
+    hide stand_Kuka_hiku
+    hide stand_Yuki_yukata_angry
+    hide stand_Monica_yukata_down
+
+    ## 니논 시무룩한 표정
+    show stand_Ninon_yukata_down with dissolve
+
+    ch_ninon "……좁다 입니다."
+
+    ch_ayumi "에…… 이 정도면 넓……"
+
+    ## 니논 당황하는 표정
+    show stand_Ninon_yukata_emb
+    hide stand_Ninon_yukata_down
+
+    ch_ninon "그…… 그러니까 이, 이것은, 동국의 검소하고 소바쿠한 Culture이 건물 양쉭에 반영된 것으로……"
+
+    hide stand_Ninon_yukata_emb
+    ## 유키 질색하는 표정
+    show stand_Yuki_yukata_angry with dissolve
+
+    ch_yuki "그 동국이라는 곳에는 거지들밖에 없어?"
+
+    hide stand_Yuki_yukata_angry
+    ## 니논 억울한 표정
+
+    show stand_Ninon_yukata_innocent with dissolve
+
+    ch_ninon "…………"
+
+    ## 니논 비장한 표정
+    show stand_Ninon_yukata_daiji
+    hide stand_Ninon_yukata_innocent
+
+    ch_ninon "맞습니다. 동국은 가난하기 짝이 없는 쓰레기 빈민국입니다."
+
+    hide stand_Ninon_yukata_daiji
+
+    ch_nar "컨셉을 포기했어?!"
+
+    ch_ayumi "아니…… 그렇게까지 작……"
+
+    ## 배에서 꼬르륵 소리가 나는 효과음
+
+    $renpy.pause(1.0)
+
+    player "?"
+
+    ## 모니카 무심한 척 하는 표정
+
+    show stand_Monica_yukata_munen with dissolve
+
+    ch_monica "……아니다."
+
+    player "뭐? 뭐가 아니야?"
+
+    ## 모니카 부끄러워하는 표정
+    show stand_Monica_yukata_dere
+    hide stand_Monica_yukata_munen
+
+    ch_monica "내 배에서 난 소리가 아니란 말이다!!"
+
+    hide stand_Monica_yukata_dere
+
+    ch_nar "뭐지?? 어쩌라는 거지?"
+
+    ## 니논 웃는 표정
+
+    show stand_Ninon_yukata with dissolve
+
+    ch_ninon "배고픈 건 부끄러운 것이 아니다 입니다~"
+
+    ## 니논 윙크하는 표정
+    show stand_Ninon_yukata_wink
+    hide stand_Ninon_yukata
+
+    ch_ninon "모니카 씨~ 맘마 먹으러 가까용~ 입니다."
+
+    ## 화면 흔들리는 효과
+    show bg_indoor_sauna_day with hpunch
+
+    hide stand_Ninon_yukata_wink
+    ## 모니카 부끄러워하는 표정
+    show stand_Monica_yukata_dere with dissolve
+
+    ch_monica "시, 시끄럽다!!!!! 그리고 그런 말투 쓰지 마!!!"
+
+    hide stand_Monica_yukata_dere
+    ## 유키 웃는 표정
+    show stand_Yuki_yukata with dissolve
+
+    ch_yuki "하긴, 배고플 만하지. 급하게 온다고 여태 아무것도 먹지 않았잖아."
+
+    hide stand_Yuki_yukata
+    ## 모니카 무심한 척 하는 표정
+    show stand_Monica_yukata_munen with dissolve
+
+    ch_monica "그…… 그렇지? 모두들, 시장할 테니……"
+
+    hide stand_Monica_yukata_munen
+
+    player "난 별로 배 안 고픍"
+
+    show bg_indoor_sauna_day with hpunch
+
+    ## 둔탁한 피격음 효과음
+
+    ## 모니카 무심한 척하는 표정
+    show stand_Monica_yukata_munen with dissolve
+
+    ch_monica "식, 식당이라도 가 보자! 거기서 뭔가 찾을 수 있을지도 모르니!"
+
+    hide stand_Monica_yukata_munen
+
+    ## 니논 웃는 표정
+    show stand_Ninon_yukata with dissolve
+
+    ch_ninon "찬성 입니다~ 그러면 식당으로 출발 입니다~!"
+
+    ## 니논 비장한 표정
+    show stand_Ninon_yukata_daiji
+    hide stand_Ninon_yukata
+
+    ch_ninon "……후후, 모니카 씨."
+
+    ch_ninon "옛정을 생각해서, 미리 말씀드리자면……"
+
+    ch_ninon "서두르는 것이 좋을 것이다 입니다……"
+
+    ch_ninon "빨리 오지 않으면…… 니논이 전부 먹어버릴 수도 있다구요 입니다……?"
+
+    hide stand_Ninon_yukata_daiji
+    ## 모니카 시무룩한 표정
+
+    show stand_Monica_yukata_down with dissolve
+
+    ch_monica "……? 무엇을……"
+
+    hide stand_Monica_yukata_down
+    ## 니논 비장한 표정
+    show stand_Ninon_yukata_daiji with dissolve
+
+    ch_ninon "이론이론…… 잊어버린 겁니까……?"
+
+    ch_ninon "한. 정. 판. 간. 식."
+
+    hide stand_Ninon_yukata_daiji
+    ## 충격적인 효과음
+
+    ## 모니카 놀란 표정
+    show stand_Monica_yukata_surprised with dissolve
+    ch_monica "!!!!!"
+
+    hide stand_Monica_yukata_surprised
+
+    ## 니논 비장한 표정
+    show stand_Ninon_yukata_daiji with dissolve
+
+    ch_ninon "그러면 안녕닌닌 입니다!!!"
+
+    show stand_Ninon_yukata_daiji:
+        rotate 0
+        linear 0.4 rotate 360
+
+    hide stand_Ninon_yukata_daiji with dissolve
+
+    ## 모니카 부끄러워하는 표정
+    show stand_Monica_yukata_dere with dissolve
+
+    ch_monica "제, 제…… 제군들!!!!!! 하루는 짧다!!!! 서, 서둘러라!!!! 어서!!!!!"
+
+    show stand_Monica_yukata_dere with dissolve:
+        xpos 640
+        linear 0.5 xpos -500
+    
+    hide stand_Monica_yukata_dere
+
+    ch_monica "따, 딱히 간식 때문은 아니야! 절대로 오해하지 마라!!!"
+
+    ch_monica "니논!!!! 거기 서!!!!!"
+
+    ch_ninon "헷헤헤!!! 닌자로 빙의한 니논의 SPEED 를 따라잡을 수는 없소 입니다!! 슈바바바밧!!!"
+
+    ch_monica "지, 진짜로 다 먹어버릴 건 아니지?!?! 대답해라!!!! 멈춰~~~!!!!!"
+
+    ch_nar "잘들 노네……"
+
+    $renpy.pause(1.0)
+
+    ## 브금 off
+
+    hatena "……쇼……"
+
+    $renpy.pause(1.0)
+
+    player "……?"
+
+    ## 쿠우카 부끄러워하는 표정
+    show stand_Kuka_yukata_shamed with dissolve
+
+    ch_kuka "도S 씨……?"
+
+    ch_kuka "왜 그러시는…… 뭐, 뭔가 저지르고 싶어지셨나요?"
+
+    hide stand_Kuka_yukata_shamed
+
+    player "어? 그게……"
+
+    player "아무것도…… 아니 근데 뭐라는 거야? 빨리 나가기나 해."
+
+    ## 쿠우카 망상하는 표정
+    show stand_Kuka_yukata_mousou with dissolve
+
+    ## 꾹꾹 누르는 효과음
+
+    show stand_Kuka_yukata_mousou with dissolve:
+        xpos 640
+        easeout 0.6 xpos 300
+    hide stand_Kuka_yukata_mousou
+
+    ch_kuka "도S 씨의 손이 억지로 쿠우카를~~~!! 이런 거친 플레이도 맘에 들어요……!!!"
+
+    $renpy.pause(1.0)
+
+    ch_nar "……뭔가,"
+
+    ch_nar "순간 뭔가 이상한 느낌이……."
+
+    ch_nar "……기분 탓인가……?"
+
+    show bg_black with dissolve
+    hide bg_indoor_sauna_day
+
+    $renpy.pause(1.0)
+
+    hatena "……"
+
+    hatena "……에서?"
+
+    hatena "않은…… 초이……"
+
+    hatena "……끼……"
+
+    hatena "……긱."
+
+    jump sceneNum15_1Common
+## S #15-1. 온천 건물 내부 (식당) (공통 루트)####
+label sceneNum15_1Common:
+    scene bg_naibu with fade
+    ## 동양풍 bgm
+
+    show stand_gura with dissolve
+
+    ch_gura "오, 여러분. 오셨습니까?"
+
+    ch_gura "짐 정리를 끝내셨나 보군요."
+
+    hide stand_gura
+    ## 유키 웃는 표정
+    show stand_Yuki_yukata with dissolve
+
+    ch_yuki "응. 그런데 혹시 모니카 씨 못 봤어?"
+
+    ch_yuki "좀 전에 니논이랑 같이 식당으로 달려갔는데……"
+
+    hide stand_Yuki_yukata
+    show stand_gura with dissolve
+
+    ch_gura "아, 두 분이라면…… 벌써 저쪽에 자리를 잡으셨습니다."
+
+    if love_point == 2:
+        hide stand_gura
+        jump cg_monicafirst
+    else:
+        pass
+    ch_gura "배가 많이 고프신 모양이더군요…… 처음에는 무슨 산짐승 두 마리가 뛰어오는 줄 알았습니다……"
+
+    hide stand_gura
+
+    player "에이…… 아무리 그래도 여자애들한테 산짐승이라니, 말이 너무 심……"
+
+    ## 장난스러운 bgm으로 변경
+
+    ch_ninon "{b}{size=30}모니카 씨, 간다 입니다!!!!{/size}{/b}"
+
+    ch_monica "{b}{size=30}좋다!! 와라, 니논!!! 전력을 다해 상대해 주마!!!{/size}{/b}"
+
+    show ob_moninon with dissolve:
+        xpos 330 ypos 15
+
+    ch_ninon "「인법 ∙ 진공청소기의 술」 !!!!!!"
+
+    ch_monica "큿……?! 꽤 하는구나, 니논!!!"
+
+    ch_monica "하지만…… 질까 보냐!!!! 나는 평소에도 과자를 산처럼 쌓아 놓고 흡입하는 수련을 한다고!!!!!"
+
+    ch_ninon "슈슈슈슈슛!!!!!"
+
+    ch_monica "모니이이잇!!!!!"
+
+    show highlight with dissolve
+
+    ch_ninon "슈슈슈슛쓔슈슈슈슛!!!!!!!"
+
+    ch_monica "모니이이이이이이이잇!!!!!!!!!"
+
+    hide highlight
+
+    player "……미안, 산짐승 맞는 것 같아."
+
+    hide ob_moninon
+    ## 동양풍 bgm으로 변경
+
+    ## 유키 웃는 표정
+    show stand_Yuki_yukata with dissolve
+
+    ch_yuki "우리도 뭔가 먹자~ 나 정도의 아름다움을 유지하려면 제때제때 영양 공급을 잘 해 줘야 한다구."
+
+    hide stand_Yuki_yukata
+
+    ## 쿠우카 망상하는 표정
+    show stand_Kuka_yukata_mousou with dissolve
+
+    ch_kuka "영양 공급…… 도S 씨와…… 쿠헤헷……"
+
+    hide stand_Kuka_yukata_mousou
+
+    show stand_gura with dissolve
+
+    ch_gura "그러시죠, 손님도 많이 없어서 재료가 남아도는 실정이니……"
+
+    show bg_naibu at fast_rotating
+
+    ch_gura "배가 빵빵해질 때까지 양껏 드십쇼-----옷!!!!!!"
+
+    hide stand_gura
+    ## 쿠우카 놀란 표정
+    show stand_Kuka_yukata_surprised with dissolve
+
+    ch_kuka "히이익……!!! 배, 배가 빵빵해질 때까지?!?!"
+
+    show stand_Kuka_yukata
+    hide stand_Kuka_yukata_surprised
+
+    ch_kuka "머…… 먹는다는 게 그런 의미였나요!!!!"
+
+    ch_nar "그런 의미가 뭔데……!!!"
+
+    hide stand_Kuka_yukata
+
+    player "음…… 저 둘은 알아서 잘 쳐먹……"
+
+    player "아니…… 먼저 먹고 있으니까, 우리끼리 먹자."
+
+    show stand_gura with dissolve
+
+    ch_gura "그렇게 하시죠! 그러면 이걸……"
+
+    
+
+
+
     return
 ## 미니 게임 CG 라벨 ########################
 label ninon_win:
@@ -5526,18 +5956,188 @@ label cg_ninonsecond:
     centered "열정적으로 탁구를 치는 유카타 차림의 니논"
 
     return
-
+## S# 15-2. 온천 건물 내부 (식당), 모니카 화과자 cg(모니카 루트)
 label cg_monicafirst:
+    $renpy.pause(1.0)
 
-    centered "한 손으로 목욕가운을 붙잡고 부끄러운 표정으로 주인공을 노려보는 볼빵빵 모니카"
+    ## 니논 웃는 표정
+    show stand_Ninon_yukata with dissolve
 
-    $ persistent.unlock_1 = True
+    ch_ninon "여러분~! 어서 와 입니다!"
 
+    hide stand_Ninon_yukata
+
+    ## 모니카 우는 표정 머리 빼꼼
+
+    show stand_Monica_yukata_crying with dissolve:
+        xpos 200 ypos 400
+        linear 0.5 ypos 250
+    
+    ch_monica "……과자……"
+
+    ch_monica "과자아아………"
+    
+    hide stand_Monica_yukata_crying
+
+    player "……모니카는 왜 저러고 있는 거야?"
+
+    ## 니논 웃는 표정
+    show stand_Ninon_yukata with dissolve
+
+    ch_ninon "그게…… 얼떨결에 니논을 쫓아 달려왔지만……"
+
+    ch_ninon "일행을 뒤로 하고 사리솨욕을 채우는 것은 도의를 저붜리는 것과도 같다고 생각하여, 여러분이 오실 때까지 음식에 손도 대지 않겠다고 말씀하셨소 입니다."
+
+    ## 니논 시무룩한 표정
+    show stand_Ninon_yukata_down
+    hide stand_Ninon_yukata
+
+    ch_ninon "근데…… 보시다쉬피……"
+
+    hide stand_Ninon_yukata_down
+
+    ## 모니카 우는 표정 아래쪽
+    show stand_Monica_yukata_crying with dissolve:
+        xpos 200 ypos 250
+    
+    ch_monica "쪼꼬…… 쪼꼬렛……"
+
+    hide stand_Monica_yukata_crying
+    ## 니논 시무룩한 표정
+    show stand_Ninon_yukata_down with dissolve
+
+    ch_ninon "맛이 가 버렸다 입니다……"
+
+    hide stand_Ninon_yukata_down
+
+    show stand_Monica_yukata_crying with dissolve:
+        xpos 200 ypos 250
+    
+    ch_monica "사탕…… 쩰리이……"
+    
+    hide stand_Monica_yukata_crying
+
+    player "……과자를 먹이면 다시 괜찮아지지 않을까……?"
+
+    ## 니논 놀란 표정
+    show stand_Ninon_yukata_surp with dissolve
+
+    ch_ninon "앗, 확실히……! 그럴지도 몰라요 입니다!!"
+
+    show stand_Ninon_yukata
+    hide stand_Ninon_yukata_surp
+
+    ch_ninon "모니카 씨~ 일어나 입니다~!"
+
+    ch_ninon "까까 먹을 시간이에용~ 입니다."
+
+    hide stand_Ninon_yukata
+
+    show stand_Monica_yukata_surprised with dissolve:
+        xpos 200 ypos 250
+        linear 0.3 ypos 0
+    
+    ch_monica "까까!!!!!"
+
+    ch_monica "단 거!!!!!!!!!"
+
+    $renpy.pause(1.0)
+
+    hide stand_Monica_yukata_surprised
+    show stand_Monica_yukata_munen with dissolve
+
+    ch_monica "어……? 귀, 귀공?"
+
+    ch_monica "이…… 이제 온 건가. 먼저 자리를 잡고 기다리고 있었다."
+
+    player "방금……"
+
+    ch_monica "……방금? 무슨 말인지 모르겠다만……?"
+
+    player "까까……"
+
+    show bg_naibu with hpunch
+
+    ## 둔탁한 피격음 효과음
+
+    ch_monica "모, 모두들!! 몹시 배고플 테지?!! 어서 자리에 앉도록!!!"
+
+    hide stand_Monica_yukata_munen
+    show ob_wagasi with dissolve:
+        xpos 430 yalign 0.3
+
+    player "오, 이게 그 한정판 간식인가?"
+
+    ch_ninon "맞아요 입니다! 오에도의 명물, 한정판 화과자 DELUXE SET 입니다~!"
+
+    ch_monica "………"
+
+    player "……?"
+
+    player "왜 그래?"
+
+    ch_monica "아……?"
+
+    ch_monica "그게…… 이, 이제 먹어도……"
+
+    player "어? 으응……"
+
+    player "참느라 혼났을 텐데 빨리 먹어……."
+
+    ch_monica "고, 고맙군…… 그럼 어디……"
+
+    hide ob_wagasi
+    show cg_monica_first_01 with dissolve
+    hide bg_naibu
+
+    ch_monica "냠……"
+
+    $renpy.pause(1.0)
+
+    ch_monica "……이건……"
+
+    ch_monica "후아아아……"
+
+    ch_monica "달고 맛있어……"
+
+    ch_monica "하, 한 입만 더……"
+
+    ch_monica "암냠……"
+
+    $renpy.pause(1.0)
+
+    show cg_monica_first_02 with dissolve
+    hide cg_monica_first_01
+
+    ch_monica "마딧뎌어어……"
+
+    ch_monica "흐아…… 입에서 살살 녹는다아……."
+
+    player "눈이 풀렸네……"
+
+    player "과자가 그렇게 좋아?"
+
+    show cg_monica_first_03 with dissolve
+    hide cg_monica_first_02
+
+    ch_monica "!!!"
+
+    ch_monica "차, 착각하지 마라……!! 처음 보는 음식이기에 잠깐 관심이 생긴 것 뿐이다!"
+
+    ch_monica "어린아이도 아니고, 과자 같은 것에 흥미가 있을 리가……"
+
+    $renpy.pause(1.0)
+
+    ch_monica "……니논, 거기……"
+
+    ch_monica "……하나 남은 모찌는 내가 먹어도 괜찮을까?"
+
+    hide cg_monica_first_03
     return
 
 label cg_monicasecond:
 
-    centered "달콤한 화과자를 먹으며 눈빛을 반짝이는 유카타 차림의 모니카"
+    centered "한 손으로 목욕가운을 붙잡고 부끄러운 표정으로 주인공을 노려보는 볼빵빵 모니카"
 
     return
 
