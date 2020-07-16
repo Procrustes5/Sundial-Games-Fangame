@@ -212,8 +212,10 @@ init:
     screen icon:
         if length_items == "1":
             add (im.FactorScale('/choice/choice_%s.png' %feel, 0.2)) xalign 0.2 yalign 0.93
-        elif length_items == "4":
+        elif length_items == "2":
             add (im.FactorScale('/choice/choice_%s1.png' %feel, 0.2)) xalign 0.2 yalign 0.93
+        elif length_items == "4":
+            add (im.FactorScale('/choice/choice_%s1.png' %feel, 0.2)) xalign 0.5 yalign 0.93
         else:
             add (im.FactorScale('/choice/choice_%s.png' %feel, 0.2)) xalign 0.5 yalign 0.93
     screen choice(items):
@@ -254,7 +256,7 @@ init:
                             action (action, Hide('icon'))
                             style "menu_choice_button"
                             text caption[:-8] size 23 text_align 0.0 color "#ffffff" outlines [ (absolute(1), "#000", absolute(0), absolute(0)) ] hover_color '#FFD700' line_spacing 25 style "menu_choice"
-                            hovered Show('icon', length_items = "4", feel=caption[-1])
+                            hovered Show('icon', length_items = "2", feel=caption[-1])
                             unhovered Hide('icon')
                     
             
@@ -267,7 +269,7 @@ init:
                             action (action, Hide('icon'))
                             style "menu_choice_button"
                             text caption[:-8] size 25 text_align 0.0 color "#ffffff" outlines [ (absolute(1), "#000", absolute(0), absolute(0)) ] hover_color '#FFD700' line_spacing 25 style "menu_choice"
-                            hovered Show('icon', length_items = "4", feel=caption[-1])
+                            hovered Show('icon', length_items = "2", feel=caption[-1])
                             unhovered Hide('icon')
                             xminimum 100    
         elif len(items) == 4:
@@ -436,11 +438,11 @@ init python:
     g = Gallery()
  
     # 이 CG갤러리에서 "잠긴 CG 버튼"에 쓸 그림을 설정합니다.
-    g.locked_button = 'images/library/slot_idle_background.png'
+    g.locked_button = 'images/gallery/transbutton.png'
  
     # 마우스를 버튼 위에 올렸을 때 이 버튼을 골랐다는 것을 알려줄
     # 그림을 지정합니다. 없으면 비워도 됩니다.
-    g.hover_border = 'images/library/slot_hover_background.png'     
+    ## g.hover_border = 'images/library/slot_hover_background.png'     
  
     # 이제 CG갤러리에서 쓸 CG버튼의 설정을 차례로 만들어줍시다.
     # 맨 처음에는 무조건 g.button('버튼이름') 을 적어줍시다.
@@ -497,21 +499,64 @@ init python:
  
     # 이제 위에서 설정한 것들이 눈에 보이도록 스크린 블럭에 추가해야 합니다.
 init:
+    image gal1:
+        im.FactorScale("gallery/1.png", 1.05)
+    image gal2:
+        im.FactorScale("gallery/2.png", 1.05)
+    image gal3:
+        im.FactorScale("gallery/3.png", 1.05)
+    image gal4:
+        im.FactorScale("gallery/4.png", 1.05)
+    image gal5:
+        im.FactorScale("gallery/5.png", 1.05)
+    image gal6:
+        im.FactorScale("gallery/6.png", 1.05)
+    image gal7:
+        im.FactorScale("gallery/7.png", 1.05)
+    image gal8:
+        im.FactorScale("gallery/8.png", 1.05)
+    image gal9:
+        im.FactorScale("gallery/9.png", 1.05)
+    image gal10:
+        im.FactorScale("gallery/10.png", 1.05)
+    image gal11:
+        im.FactorScale("gallery/11.png", 1.05)
+    image gal12:
+        im.FactorScale("gallery/12.png", 1.05)
+    image gal13:
+        im.FactorScale("gallery/13.png", 1.05)
+    image gal14:
+        im.FactorScale("gallery/14.png", 1.05)
+    image gal15:
+        im.FactorScale("gallery/15.png", 1.05)
+    image gal16:
+        im.FactorScale("gallery/16.png", 1.05)
     screen gallery:
  
         # 갤러리 스크린이 세이브 메뉴나 환경설정 메뉴 화면에서 자연스레 교체되도록 tag menu를 추가합니다.
         tag menu
  
         # 배경화면은 add로 넣습니다.
-        add "images/bg/bg_white.png"
+        add "images/gallery/background.png"
  
         # 버튼 격자판. CG 버튼 정렬용입니다.
-        frame:
-            grid 4 2:
-                style_prefix 'page_1'
-                
-                xfill True
-                yfill True
+        
+        add g.make_button("ninon1", "images/gallery/transbutton.png", xpos = 57, ypos = 45, idle_border = "images/gallery/1.png", hover_border = "gal1")
+        add g.make_button("ninon2", "images/gallery/transbutton.png", xpos = 57, ypos = 200, idle_border = "images/gallery/2.png", hover_border = "gal2")
+        add g.make_button("monica1", "images/gallery/transbutton.png", xpos = 57, ypos = 355, idle_border = "images/gallery/3.png", hover_border = "gal3")
+        add g.make_button("monica2", "images/gallery/transbutton.png", xpos = 57, ypos = 505, idle_border = "images/gallery/4.png", hover_border = "gal4")
+        add g.make_button("kuka1", "images/gallery/transbutton.png", xpos = 350, ypos = 45, idle_border = "images/gallery/5.png", hover_border = "gal5")
+        add g.make_button("kuka2", "images/gallery/transbutton.png", xpos = 350, ypos = 200, idle_border = "images/gallery/6.png", hover_border = "gal6") 
+        add g.make_button("yuki1", "images/gallery/transbutton.png", xpos = 350, ypos = 355, idle_border = "images/gallery/7.png", hover_border = "gal7")
+        add g.make_button("yuki2", "images/gallery/transbutton.png", xpos = 350, ypos = 505, idle_border = "images/gallery/8.png", hover_border = "gal8")
+        add g.make_button("1", "images/gallery/transbutton.png", xpos = 645, ypos = 45, idle_border = "images/gallery/9.png", hover_border = "gal9")
+        add g.make_button("2", "images/gallery/transbutton.png", xpos = 645, ypos = 200, idle_border = "images/gallery/10.png", hover_border = "gal10")            
+        add g.make_button("3", "images/gallery/transbutton.png", xpos = 645, ypos = 355, idle_border = "images/gallery/11.png", hover_border = "gal11")
+        add g.make_button("4", "images/gallery/transbutton.png", xpos = 645, ypos = 505, idle_border = "images/gallery/12.png", hover_border = "gal12")
+        add g.make_button("5", "images/gallery/transbutton.png", xpos = 940, ypos = 45, idle_border = "images/gallery/13.png", hover_border = "gal13")
+        add g.make_button("6", "images/gallery/transbutton.png", xpos = 940, ypos = 200, idle_border = "images/gallery/14.png", hover_border = "gal14") 
+        add g.make_button("7", "images/gallery/transbutton.png", xpos = 940, ypos = 355, idle_border = "images/gallery/15.png", hover_border = "gal15")
+        add g.make_button("8", "images/gallery/transbutton.png", xpos = 940, ypos = 505, idle_border = "images/gallery/16.png", hover_border = "gal16")    
     
                 # 이제 위에서 만들었던 g.button 들을 추가할 차례입니다.
                 # 위에서처럼 g.button으로 설정한 버튼이 없다면 CG버튼은 만들 수 없습니다.
@@ -519,33 +564,8 @@ init:
                 # 스크린문에서는 add와 함께 g.make_button 을 이용해 CG버튼을 만듭니다.
                 # add g.make_button("위에 g.button()에서 적었던 버튼 이름", "버튼 그릴 때 사용할 그림 파일 이름")
                 # 을 적으면 됩니다.
-                add g.make_button("ninon1", "images/library/red.png", hover_border = 'images/library/slot_hover_red.png', xalign = 0.75, yalign = 0.9, background = None)
-                add g.make_button("ninon2", "images/library/orange.png", hover_border = 'images/library/slot_hover_orange.png', xalign = 0.75, yalign = 0.9, background = None)
-                add g.make_button("monica1", "images/library/yellow.png", hover_border = 'images/library/slot_hover_yellow.png', xalign = 0.25, yalign = 0.9, background = None)
-                add g.make_button("monica2", "images/library/yellowgreen.png", hover_border = 'images/library/slot_hover_yellowgreen.png', xalign = 0.25, yalign = 0.9, background = None)
-                add g.make_button("kuka1", "images/library/green.png", hover_border = 'images/library/slot_hover_green.png', xalign = 0.75, yalign = 0.1, background = None)
-                add g.make_button("kuka2", "images/library/blue.png", hover_border = 'images/library/slot_hover_blue.png', xalign = 0.75, yalign = 0.1, background = None) 
-                add g.make_button("yuki1", "images/library/deepblue.png", hover_border = 'images/library/slot_hover_deepblue.png', xalign = 0.25, yalign = 0.1, background = None)
-                add g.make_button("yuki2", "images/library/purple.png", hover_border = 'images/library/slot_hover_purple.png', xalign = 0.25, yalign = 0.1, background = None)
                 
             
-            hbox:
-                    style_prefix "page"
-                    
-                    xalign 0.5
-                    yalign 1.0
-
-                    spacing gui.page_spacing
-
-                    textbutton _("<") action NullAction()
-
-
-                    ## 범위(1, 10)는 1부터 9까지 숫자를 제공합니다.
-                    
-                    textbutton _("1") action NullAction()
-                    textbutton _("2") action Show("gallery_2")
-
-                    textbutton _(">") action Show("gallery_2")
                 # 위에서 g.hover_border를 지정했는데
                 # hover_border 는 g.make_button 에서도 정할 수 있습니다.
                 # 전체에 적용할 때는 g.hover_border 에서, 개별로 적용할 때는 g.make_button에서 지정하면 됩니다.
@@ -556,7 +576,10 @@ init:
     
             # 클릭하면 메인 메뉴로 돌아가는 버튼입니다.
             # CG 버튼 양이 많아서 여러 스크린을 만들었다면 다음 CG버튼을 보여주는 버튼을 만들어야겠죠.
-            textbutton '돌아가기' action Return() xalign .5 yalign .9
+        button:
+            text '돌아가기' color "#ffffff" outlines [ (absolute(1), "#000", absolute(0), absolute(0)) ] hover_color "#f578f3"
+            action Return()
+            xalign 0.5 yalign 1.0 
 
 init:
     screen gallery_2:
