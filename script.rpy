@@ -221,7 +221,7 @@ init:
         im.FactorScale("bg/field.png", 0.67)
 
     image bg_town:
-        im.FactorScale("bg/bg_town.png", 0.68)
+        im.FactorScale("bg/bg_town.png", 1.0)
     
     image bg_room:
         im.FactorScale("bg/room.jpg", 2.55)
@@ -232,7 +232,7 @@ init:
         im.FactorScale("library/highlight_line.png", 1.1)
     
     image bg_guildhouse:
-        im.FactorScale("bg/bg_guildhouse.png", 0.256)
+        im.FactorScale("bg/bg_guildhouse.png", 1.0)
     
     image bg_black:
         im.FactorScale("bg/black.png", 2.0)
@@ -256,6 +256,11 @@ init:
     
     image bg_daiyokujyo:
         im.FactorScale("bg/daiyoku.png", 1.0)
+    
+    image bg_tadami_day: 
+        im.FactorScale("bg/tadami_day.png", 0.67)
+    image bg_tadami_night:
+        im.FactorScale("bg/tadami_night.png", 0.67) 
 
     image bg_indoor_onsen:
         im.FactorScale("bg/indoor_onsen.png", 1.0)
@@ -297,14 +302,176 @@ init:
 ## 오브젝트 #############################
 init:
     image ob_ujitya:
-        im.FactorScale("object/ob_ujitya.png", 1.0)
+        im.FactorScale("object/ob_ujitya.png", 0.5)
     image ob_wagasi:
-        im.FactorScale("object/ob_wagasi.png", 0.5)    
+        im.FactorScale("object/ob_wagasi.png", 0.5)
+    image ob_unagi:
+        im.FactorScale("object/tabekakeunagi.png", 0.5)
+    image ob_hankachi:
+        im.FactorScale("object/hankachi.png", 0.5)
+    image ob_tegami:
+        im.FactorScale("object/tegami.png", 0.5)
+    image ob_key:
+        im.FactorScale("object/gura_key.png", 0.5)
+    image ob_kiroku:
+        im.FactorScale("object/darekanokiroku.png", 0.5)
+    image ob_akudaikan:
+        im.FactorScale("object/akudaikan.png", 0.5)   
+
+    ## 1컷 만화 ####################################
     image ob_moninon:
         im.FactorScale("object/moninon.png", 0.7)
+    image ob_kokkoro:
+        im.FactorScale("object/koro.png", 0.7)
     
     image snow = SnowBlossom(im.FactorScale("object/flower_1.png", 0.5), count=50, border=400, xspeed =(30, 60), yspeed=(30, 100), horizontal=True)
     
+## 이펙트 ###############################
+    image fire_big:
+        im.FactorScale("effect/fire_big/0.png", 0.80)
+        pause 0.05
+        im.FactorScale("effect/fire_big/1.png", 0.80)
+        pause 0.05
+        im.FactorScale("effect/fire_big/2.png", 0.80)
+        pause 0.05
+        im.FactorScale("effect/fire_big/3.png", 0.80)
+        pause 0.05
+        im.FactorScale("effect/fire_big/4.png", 0.80)
+        pause 0.05
+        im.FactorScale("effect/fire_big/5.png", 0.80)
+        pause 0.05
+        im.FactorScale("effect/fire_big/6.png", 0.80)
+        pause 0.05
+        im.FactorScale("effect/fire_big/7.png", 0.80)
+        pause 0.05
+        im.FactorScale("effect/fire_big/8.png", 0.80)
+        pause 0.05
+        im.FactorScale("effect/fire_big/9.png", 0.80)
+        pause 0.05
+        im.FactorScale("effect/fire_big/10.png", 0.80)
+        pause 0.05
+        im.FactorScale("effect/fire_big/11.png", 0.80)
+        pause 0.05
+        im.FactorScale("effect/fire_big/12.png", 0.80)
+        pause 0.05
+        im.FactorScale("effect/fire_big/13.png", 0.80)
+        pause 0.05
+        im.FactorScale("effect/fire_big/14.png", 0.80)
+        pause 0.05
+        im.FactorScale("effect/fire_big/15.png", 0.80)
+        pause 0.05
+        im.FactorScale("effect/fire_big/16.png", 0.80)
+        pause 0.05
+        im.FactorScale("effect/fire_big/17.png", 0.80)
+        pause 0.05
+        im.FactorScale("effect/fire_big/18.png", 0.80)
+        pause 0.05
+        im.FactorScale("effect/fire_big/19.png", 0.80)
+        pause 0.05
+        im.FactorScale("effect/fire_big/20.png", 0.80)
+        pause 0.05
+        im.FactorScale("effect/fire_big/21.png", 0.80)
+        pause 0.05
+        im.FactorScale("effect/fire_big/22.png", 0.80)
+        pause 0.05
+        im.FactorScale("effect/fire_big/23.png", 0.80)
+        pause 0.05
+        im.FactorScale("effect/fire_big/24.png", 0.80)
+        pause 0.05
+        im.FactorScale("effect/fire_big/25.png", 0.80)
+        pause 0.05
+        im.FactorScale("effect/fire_big/26.png", 0.80)
+        pause 0.05
+        im.FactorScale("effect/fire_big/27.png", 0.80)
+        pause 0.05
+    
+    image fire_small:
+        im.FactorScale("effect/fire_small/0.png", 0.55)
+        pause 0.05
+        im.FactorScale("effect/fire_small/1.png", 0.55)
+        pause 0.05
+        im.FactorScale("effect/fire_small/2.png", 0.55)
+        pause 0.05
+        im.FactorScale("effect/fire_small/3.png", 0.55)
+        pause 0.05
+        im.FactorScale("effect/fire_small/4.png", 0.55)
+        pause 0.05
+        im.FactorScale("effect/fire_small/5.png", 0.55)
+        pause 0.05
+        im.FactorScale("effect/fire_small/6.png", 0.55)
+        pause 0.05
+        im.FactorScale("effect/fire_small/7.png", 0.55)
+        pause 0.05
+        repeat
+    image fire_small_2:
+        im.FactorScale("effect/fire_small/0.png", 0.55)
+        pause 0.05
+        im.FactorScale("effect/fire_small/1.png", 0.55)
+        pause 0.05
+        im.FactorScale("effect/fire_small/2.png", 0.55)
+        pause 0.05
+        im.FactorScale("effect/fire_small/3.png", 0.55)
+        pause 0.05
+        im.FactorScale("effect/fire_small/4.png", 0.55)
+        pause 0.05
+        im.FactorScale("effect/fire_small/5.png", 0.55)
+        pause 0.05
+        im.FactorScale("effect/fire_small/6.png", 0.55)
+        pause 0.05
+        im.FactorScale("effect/fire_small/7.png", 0.55)
+        pause 0.05
+        repeat
+    image fire_small_3:
+        im.FactorScale("effect/fire_small/0.png", 0.55)
+        pause 0.05
+        im.FactorScale("effect/fire_small/1.png", 0.55)
+        pause 0.05
+        im.FactorScale("effect/fire_small/2.png", 0.55)
+        pause 0.05
+        im.FactorScale("effect/fire_small/3.png", 0.55)
+        pause 0.05
+        im.FactorScale("effect/fire_small/4.png", 0.55)
+        pause 0.05
+        im.FactorScale("effect/fire_small/5.png", 0.55)
+        pause 0.05
+        im.FactorScale("effect/fire_small/6.png", 0.55)
+        pause 0.05
+        im.FactorScale("effect/fire_small/7.png", 0.55)
+        pause 0.05
+        repeat
+    image knife_issen:
+        im.FactorScale("effect/knife/0.png", 0.67)
+        pause 0.05
+        im.FactorScale("effect/knife/1.png", 0.67)
+        pause 0.05
+        im.FactorScale("effect/knife/2.png", 0.67)
+        pause 0.05
+        im.FactorScale("effect/knife/3.png", 0.67)
+        pause 0.05
+        im.FactorScale("effect/knife/4.png", 0.67)
+        pause 0.05
+        im.FactorScale("effect/knife/5.png", 0.67)
+        pause 0.05
+        im.FactorScale("effect/knife/6.png", 0.67)
+        pause 0.05
+        im.FactorScale("effect/knife/7.png", 0.67)
+        pause 0.05
+        im.FactorScale("effect/knife/8.png", 0.67)
+        pause 0.05
+        im.FactorScale("effect/knife/9.png", 0.67)
+        pause 0.05
+        im.FactorScale("effect/knife/10.png", 0.67)
+        pause 0.05
+        im.FactorScale("effect/knife/11.png", 0.67)
+        pause 0.05
+        im.FactorScale("effect/knife/12.png", 0.67)
+        pause 0.05
+        im.FactorScale("effect/knife/13.png", 0.67)
+        pause 0.05
+        im.FactorScale("effect/knife/14.png", 0.67)
+        pause 0.05
+        im.FactorScale("effect/knife/15.png", 0.67)
+        pause 0.05
 ## 캐릭터 ###############################
 init:
     image CTC = Image("/menu/ctc_icon.png", xpos = 1125, ypos = 670)
@@ -418,8 +585,14 @@ init python:
 ## 갤러리 #################################
 init:
     image end1 = "library/end1.jpg"
-    image ninon_pingping:
-        im.FactorScale("library/ninon_pingping.png", 0.5)
+    ## 쿠우카
+    image cg_kuka_ykt_1:
+        im.FactorScale("cg/kuka/kuka_yukata_1.png", 1.0)
+    image cg_kuka_ykt_2:
+        im.FactorScale("cg/kuka/kuka_yukata_2.png", 1.0)
+    image cg_kuka_ykt_3:
+        im.FactorScale("cg/kuka/kuka_yukata_3.png", 1.0)
+    ## 유키
     image bg_cg_yuki_01:
         im.FactorScale("library/bg_cg_yuki_01.png", 1.0)
     image cg_yuki_01:
@@ -430,15 +603,18 @@ init:
         im.FactorScale("library/yuki_03.png", 1.0)
     image cg_yuki_03_plus:
         im.FactorScale("library/yuki_03_plus.png", 1.0)
-
+    ## 모니카
     image cg_monica_first_01:
         im.FactorScale("cg/monica/monica_1_01.png", 1.0)
     image cg_monica_first_02:
         im.FactorScale("cg/monica/monica_1_02.png", 1.0)
     image cg_monica_first_03:
         im.FactorScale("cg/monica/monica_1_03.png", 1.0)    
-
-
+    ## 니논
+    image ninon_pingping:
+        im.FactorScale("cg/ninon/ninon_pingpong.png", 0.5)
+    image ninon_encore:
+        im.FactorScale("cg/ninon/ninon_encore.png", 0.5)
     image cg_ninon_happy_01 = "library/cg_ninon_happy_01.png"
     image cg_ninon_happy_02 = "library/cg_ninon_happy_02.png"
     image cg_ninon_happy_03 = "library/cg_ninon_happy_03.png"
@@ -456,6 +632,7 @@ label splashscreen:
 ## 미니 게임 변수 #########################
 init:
     define win_point = 0
+    define lose_point = 0
 ## 3D 카메라 ##############################
 init -1600 python:
 
@@ -2327,17 +2504,239 @@ label play_pong:
         $ quick_menu = True
         window show
 
-        show stand_Ninon
+        if win_point == 0:
+            if _return == "니논":
+                ## 0승 1패
+                $ point_ninon = point_ninon + 1
+                ## 뽕이 차오르는 bgm
+                show ninon_pingping with dissolve
 
-        if _return == "니논":
+                ch_ninon "거기다!!!! 입니다!!!"
 
-            ch_ninon "내가 이겼어!"
+                show ninon_pingping with hpunch
 
+                ch_ninon "「인법 ∙ 후쥐산 쪼궤기」 !!!!!"
+
+                player "큭……?!!"
+
+                $ renpy.pause(1.0)
+
+                player "져……"
+
+                player "졌다……"
+
+                ch_ninon "후…… 또 시시한 것을 베어 버렸군 입니다."
+
+                ch_ninon "하지만 너무 상심하지 마십시오 입니다~"
+
+                ch_ninon "쇼군이 약한 것이 아니라 니논이 강한 것 입니다~!"
+
+                player "진짜 잘하네……"
+
+                player "허풍이 아니었구나……"
+
+                ch_ninon "엣헴~ 입니다."
+
+                hide ninon_pingping
+
+                ## bgm off
+                jump sceneNum16Common
+            else:
+                ## 1승 0패
+                $ win_point = win_point + 1
+                show stand_Ninon_yukata_angry with dissolve
+
+                ch_ninon "……"
+
+                ch_ninon "한 번 더 해요 입니다……!!"
+
+                hide stand_Ninon_yukata_angry
+
+                player "얼마든지……!"
+
+                jump play_pong
+        elif win_point == 1:
+            if _return == "니논":
+                ## 1승 1패
+                $ point_ninon = point_ninon + 1
+                ## 뽕이 차오르는 bgm
+                show ninon_pingping with dissolve
+
+                ch_ninon "거기다!!!! 입니다!!!"
+
+                show ninon_pingping with hpunch
+
+                ch_ninon "「인법 ∙ 후쥐산 쪼궤기」 !!!!!"
+
+                player "큭……?!!"
+
+                $ renpy.pause(1.0)
+
+                player "져……"
+
+                player "졌다……"
+
+                ch_ninon "후…… 또 시시한 것을 베어 버렸군 입니다."
+
+                ch_ninon "하지만 너무 상심하지 마십시오 입니다~"
+
+                ch_ninon "쇼군이 약한 것이 아니라 니논이 강한 것 입니다~!"
+
+                player "……근데 전 판은 내가 이겼……"
+
+                ch_ninon "어허~ 입니다."
+
+                ch_ninon "마지막에 이기는 사람이 이긴 것이다 입니다~"
+
+                ch_nar "무슨 논리야……!!"
+
+                hide ninon_pingping
+                ## bgm off
+                jump sceneNum16Common
+            else:
+                ## 2승 0패
+                $ win_point = win_point + 1
+                ## bgm off
+                show stand_Ninon_yukata_daiji with dissolve
+
+                ch_ninon "…………"
+
+                ch_ninon "한 번 더."
+
+                hide stand_Ninon_yukata_daiji
+
+                player "말이 짧아졌어……?!"
+
+                jump play_pong
+        elif win_point == 2:
+            if _return == "니논":
+                ## 2승 1패
+                ## 뽕이 차오르는 bgm
+                show ninon_pingping with dissolve
+
+                ch_ninon "거기다!!!! 입니다!!!"
+
+                show ninon_pingping with hpunch
+
+                ch_ninon "「인법 ∙ 후쥐산 쪼궤기」 !!!!!"
+
+                player "큭……?!!"
+
+                $ renpy.pause(1.0)
+
+                player "져……"
+
+                player "졌다……"
+
+                ch_ninon "후…… 또 시시한 것을 베어 버렸군 입니다."
+
+                ch_ninon "하지만 너무 상심하지 마십시오 입니다~"
+
+                ch_ninon "쇼군이 약한 것이 아니라 니논이 강한 것 입니다~!"
+
+                player "……근데……"
+
+                player "따지고 보면 내가 더 많이 이겼……"
+
+                ch_ninon "쓰읍!!"
+
+                ch_ninon "패배를 순순히 인정하는 것도 SAMURAI의 덕목 입니다!!"
+
+                ch_ninon "쇼군으로서 모두의 귀괌이 되십시오 입니다……!!"
+
+                ch_nar "이…… 치사한……."
+
+                hide ninon_pingping
+                ## bgm off
+                jump sceneNum16Common
+            else:
+                ## 3승 0패
+                $ win_point = win_point + 1
+                show ninon_encore with dissolve
+                ch_ninon "{b}{size=30}ENCORE.{/size}{/b}"
+
+                player "?!"
+
+                ch_ninon "{b}{size=30}다시.{/size}{/b}"
+
+                player "그림체가……"
+
+                ch_ninon "{b}{size=30}다시!!!!{/size}{/b}"
+
+                player "히익……"
+                hide ninon_encore
+                jump play_pong
         else:
+            if _return == "니논":
+                ## 3승 1패
+                ## 뽕이 차오르는 bgm
+                show ninon_pingping with dissolve
 
-            ch_ninon "네가 이겼네. 축하해."
+                ch_ninon "거기다!!!! 입니다!!!"
 
-            $ win_point = win_point + 1
+                show ninon_pingping with hpunch
+
+                ch_ninon "「인법 ∙ 후쥐산 쪼궤기」 !!!!!"
+
+                player "큭……?!!"
+
+                $ renpy.pause(1.0)
+
+                player "져……"
+
+                player "졌다……"
+
+                ch_ninon "후…… 또 시시한 것을 베어 버렸군 입니다."
+
+                ch_ninon "하지만 너무 상심하지 마십시오 입니다~"
+
+                ch_ninon "쇼군이 약한 것이 아니라 니논이 강한 것 입니다~!"
+
+                player "……근데……"
+
+                player "따지고 보면 내가 더 많이 이겼……"
+
+                ch_ninon "쓰읍!!"
+
+                ch_ninon "패배를 순순히 인정하는 것도 SAMURAI의 덕목 입니다!!"
+
+                ch_ninon "쇼군으로서 모두의 귀괌이 되십시오 입니다……!!"
+
+                ch_nar "이…… 치사한……."
+
+                hide ninon_pingping
+                ## bgm off
+                jump sceneNum16Common
+            else:
+                ## 4승 0패
+                $ win_point = win_point + 1
+                $ point_ninon = point_ninon - 1
+                show stand_Ninon_yukata_daiji with dissolve
+
+                ch_ninon "…………"
+
+                ch_ninon "……………………"
+                
+                ch_ninon "……드러워서 진짜………"
+
+                player "?!"
+
+                ch_ninon "니가 이겼다 입니다."
+
+                player "?!?!"
+
+                ch_ninon "이 악물고 여자애 이겨먹어서 좋겠다 입니다."
+
+                ch_nar "……"
+
+                $renpy.pause(1.0)
+
+                ch_nar "내가 이겼다 히히~"
+
+                hide stand_Ninon_yukata_daiji
+                hide bg_naibu
+        return
+
 
 label pong_done:
 
@@ -2508,8 +2907,11 @@ label start:
     ## 마물 cg
     ## 불길이 치솟는 효과 ## E - 불길 치솟음 ## 화면 흔들림 효과(지글지글거리는 느낌 정도로 작게)
     show stand_monster onlayer middle with dissolve
+    show fire_big onlayer forward:
+        xpos -100 ypos -70
+    show stand_monster onlayer middle with hpunch
     monster "쿠아아악!! 크르륵..."
-
+    hide fire_big onlayer forward
     ## 울부짖는 효과, 화면 흔들림 효과
     show stand_monster onlayer middle with hpunch
     ## 괴물 울음소리
@@ -2519,60 +2921,109 @@ label start:
     hide stand_monster onlayer middle
 
 
-    show stand_Monica onlayer middle with dissolve
-    ch_monica "칫… 이 정도로는 어림도 없나. 모두들, 뒤로 물러나! 놈이 반격해 온다!"
-    hide stand_Monica onlayer middle
-    show stand_Kuka onlayer middle with dissolve
+    show stand_Monica_ddung onlayer middle with dissolve
 
-    ch_kuka "이… 이렇게 커다란 마물이라면… 쿠… 쿠우카, 돌아오지 못할 강을 건너 버릴지도…! 크흐흣….츄릅…."
+    ch_monica "칫… 이 정도로는 어림도 없나. 모두들, 뒤로 물러나! 놈이 반격해 온다!"
+    
+    hide stand_Monica_ddung onlayer middle
+
+    show stand_Kuka_mousou onlayer middle with dissolve
+
+    ch_kuka "아…… 아무리 쿠우카라도 이렇게 커다란 건…… 쿠…… 쿠우카, 돌아오지 못할 강을 건너 버릴지도……! 크흐흣……"
     ##쿠우카 어둡게
-    ch_ayumi "쿠…쿠우카 씨…! 혼자 너무 앞에 있으면 위험해요…!"
-    hide stand_Kuka onlayer middle
-    show stand_Monica onlayer middle with dissolve
+    hide stand_Kuka_mousou onlayer middle
+
+    ch_ayumi "쿠…… 쿠우카 씨……? 무슨 소릴 하는 거예요……?! 혼자 너무 앞에 있으면 위험해요……!!"
+    
+    show stand_Monica_surprised onlayer middle with dissolve
+
+    ## 피격 효과 ## 칼이 부딪히는 금속음
+
     ch_monica "큭! 이건 버틸 수가… 유키, 서포트를!"
-    hide stand_Monica onlayer middle
-    show stand_Yuki onlayer middle with dissolve
+
+    hide stand_Monica_surprised onlayer middle
+
+    show stand_Yuki_angry onlayer middle with dissolve
+
     ch_yuki "뭐? 나는 분명히 말했다? 데려와도 아~무것도 안 할 거라고. 아름다운 내 몸에 생채기라도 나면 책임질 거야?"    
+    
+    show stand_Yuki_shamed onlayer middle
+    hide stand_Yuki_angry onlayer middle
+
     extend " 앗…… 나뭇잎에 맺힌 이슬…… 내 모습이 비쳐서 너무 예뻐…… 하아……."
-    hide stand_Yuki onlayer middle ## 자뻑하는 표정
-    show stand_Ninon onlayer middle with dissolve
+
+    hide stand_Yuki_shamed onlayer middle
+
+    show stand_Ninon_angry onlayer middle with dissolve
+
     ch_ninon "유키 씨, 무사답지 못하다 입니다~! 모름지기 사무라이라면 아무리 YABAI한 상황일지라도…"
     
     ## 니논 화난 표정 주변에 불이 붙는 효과/ 불길 치솟음
+
     ## 니논 놀란 표정
+    hide stand_Ninon_angry onlayer middle
+    
+    show fire_small_2 onlayer forward:
+        xpos -70 ypos 180
+    show fire_small_3 onlayer forward:
+        xpos 300 ypos 180
+    show fire_small onlayer forward:
+        xpos 100 ypos 210
+    
+    show stand_Ninon_panic onlayer middle at center:
+        easeout 0.3 ypos -50
+        ease 0.2 ypos 50
+        easeout 0.3 ypos -50
+        ease 0.2 ypos 50 
+    
     ch_ninon "우와아아아앗!!! 불이 옮겨붙었다 입니다!!! 후끼약!!!"
 
+    hide fire_small onlayer forward
+    hide fire_small_2 onlayer forward
+    hide fire_small_3 onlayer forward
+
     #둔탁한 피격음
-    hide stand_Ninon onlayer middle
-    show stand_Kuka onlayer middle with dissolve##쿠우카중앙으로 서서히 작아지다 사라짐
+    hide stand_Ninon_panic onlayer middle
+    show stand_Kuka_mousou onlayer middle with dissolve##쿠우카중앙으로 서서히 작아지다 사라짐
     #멀리 날아가는 소리
     
     ch_kuka "쿠, 쿠우카, 날아가버려요오오옷!!!!"
-    hide stand_Kuka onlayer middle with zoomout
-    show stand_Monica onlayer middle with dissolve
+    show stand_Kuka_mousou onlayer middle:
+        rotate 0
+        linear 0.4 rotate 360
+    hide stand_Kuka_mousou onlayer middle
+    show stand_Monica_ddung onlayer middle with dissolve
     ch_monica "니논! 쿠우카!! 이대로면 모두가 위험… 에에잇! 이판사판이다!"
     # 칼을 검집에서 빼는 소리
 
     ch_monica "자전―"
 
-    show bg_black onlayer forward
+    show bg_black onlayer middle
 
     ch_monica "―일섬!!"
     #일순간 까맣게 된 화면을 가로로 베는 효과
+    show knife_issen onlayer forward
     #칼로 베는 소리
-    hide bg_black onlayer forward
-    hide stand_Monica onlayer middle with dissolve
-    hide bg_field onlayer background with fade
-## 길드 하우스 cg
+
+    $renpy.pause(1.0)
+    hide bg_black onlayer middle
+    hide stand_Monica_ddung onlayer middle
+    hide bg_field onlayer background
+## S# 2.길드 하우스 #########################################
     scene bg_black
+    hide knife_issen onlayer forward
     show bg_guildhouse with fade
     ch_nar "식칼에 베였다."
 
     ch_nar "콧코로의 눈망울이 연상되는 와인색의 피가 손끝에 맺힌다. 아프다."
 
     ## 피 묻은 손수건 이미지 팝업
+    show ob_hankachi with dissolve:
+        xpos 430 yalign 0.3
 
     ch_nar "언젠가 콧코로에게 받았던 손수건으로 피를 닦았다."
+
+    hide ob_hankachi
 
     ch_nar "콧코로…… 언제 와? 나 배고파. 무서워."
 
@@ -2592,20 +3043,29 @@ label start:
 
     ch_nar "그래서 직접 요리를 해 보려고 식칼을 꺼냈는데 쥐는 법을 몰라서 바로 손가락을 베였다."
 
-    ch_nar "콧코로…… 생전 손에 물 한 번 묻혀 본 적 없는 나에게 이런 수모를 겪게 하다니…… 돌아오면 잘못했다고 울며불며 매달릴 때까지 단식투쟁을 할 것이다."
+    ch_nar "콧코로…… 생전 손에 물 한 번 묻혀 본 적 없는 나에게 이런 수모를 겪게 하다니……"
+
+    show ob_kokkoro with dissolve:
+        xpos 200 ypos 15
+    
+    ch_nar "돌아오면 잘못했다고 울며불며 매달릴 때까지 단식투쟁을 할 것이다."
+
+    hide ob_kokkoro
 
     ## 대화창 사라짐
     ## 문 두드리는 소리
     ## 잠깐 텀
+    $ renpy.pause(1.0)
 
     player "마망!!!! 내가 잘못했어!! 다시는 반찬 투정 안 할게!!!"    
 
     ## 대화창 사라짐
     ## 문 열리는 소리
     ## 잠깐 텀
+    $ renpy.pause(1.0)
    
     ## 모니카 우는표정 cg
-    show stand_Monica with dissolve
+    show stand_Monica_crying with dissolve
     ch_nar "에이씨, 콧코로가 아니잖아." 
     
     ch_monica "훌쩍…… 귀, 귀공…… 훌쩍, 날 좀…… 도와주게…… 으아앙, 우아아앙~"
@@ -2629,7 +3089,7 @@ label start:
             pass
     
     
-    hide stand_Monica
+    hide stand_Monica_crying
     ## 길드하우스 페이드 아웃
     hide bg_guildhouse with fade
     ## 마을 브금 불륨 페이드 아웃
@@ -2643,9 +3103,9 @@ label start:
     scene bg_guildhouse with fade
     
     ## 모니카 화난 표정 페이드
-    show stand_Monica with dissolve
+    show stand_Monica_ddung with dissolve
     ch_monica "이대로는 안 돼!"
-    show stand_Monica at movetoleft
+    show stand_Monica_ddung at movetoleft
     ## 모니카가 왼쪽으로 밀리면서 니논 오른쪽에 팝업
     show stand_Ninon at right with dissolve ## 웃는 표정
     ## 모니카 어둡게, 니논 밝게
@@ -2655,31 +3115,37 @@ label start:
     ## 니논 어둡게, 모니카 밝게
 
     ##모니카 놀란 표정
+    hide stand_Monica_ddung
+    show stand_Monica_surprised at left with dissolve
     ch_monica "뭐, 뭐지 그건? 달콤한 과자인가…?"
     ##모니카 화난 표정
     window hide
     hide stand_Ninon
     
-    show stand_Monica at movetocenter
+    show stand_Monica_surprised at movetocenter
+    show stand_Monica_ddung
+    hide stand_Monica_surprised
     extend " ……아니, 아니! 그게 중요한 게 아니다!"
 
     ch_monica "우리는 ‘바이스플뤼겔 랜드솔지부’다! 마물을 소탕하고, 곤란에 빠진 사람들을 도와주는 유능한 모험가 길드!"
     ch_monica "……였어야 했는데, 마지막으로 마물을 토벌했던 게 언제인지 이제는 기억도 안 날 지경이다. 채집 의뢰만 산더미처럼 쌓여 있어! 이게 뭐냐! 우리는 전투 길드란 말이다~!!"
 
-    hide stand_Monica
+    hide stand_Monica_ddung
     show stand_Kuka with dissolve
 
     ch_kuka "쿠, 쿠우카는 식물 채집도 좋다고 생각해요… 숲에서 가끔 식물형 마물도 튀어나와서… 도끼로도 잘 안 끊어지는 억센 넝쿨로 온몸을 잔뜩 조여오면…"
     ## 쿠우카 망상하는 표정으로 변경
+    show stand_Kuka_mousou
+    hide stand_Kuka
 
     extend " 크, 크흣, 크헤헤헷…"
 
-    hide stand_Kuka
-    show stand_Yuki with dissolve #화난 표정
+    hide stand_Kuka_mousou
+    show stand_Yuki_angry with dissolve #화난 표정
     ch_yuki "나참~ 대체 뭐가 불만인데? 채집 의뢰도 어쨌든 사람들을 도와주는 거잖아. 그리고 오에도에서 엄청나게 못생긴 마물을 해치웠던 건 머리에서 지워버린 거야?"
 
-    hide stand_Yuki
-    show stand_Monica at center with dissolve:
+    hide stand_Yuki_angry
+    show stand_Monica_ddung at center with dissolve:
         easeout 0.3 ypos -50
         ease 0.2 ypos 50
         easeout 0.3 ypos -50
@@ -2688,7 +3154,7 @@ label start:
     ch_monica "그래서 더 문제라는 거다!! 그 강력한 마물을 쓰러뜨릴 정도의 역량을 가지고 있으면서, 이전에 비해 바뀐 게 아무것도 없잖아!"
 
     ch_monica "다들 약속이라도 한 것마냥 비전투 의뢰만 잔뜩 수주해오고! 그대들은 모험가 길드를 대체 뭐라고 생각하는 건가?!"
-    hide stand_Monica
+    hide stand_Monica_ddung
     show stand_Ninon with dissolve ##자신만만
     ch_ninon "니논도 할 때는 한다 입니다, 모니카 씨! 명령만 내리신다면 당장이라도 마물녀석들의 모가쥐를 따버릴 수 있습니다~!"
     hide stand_Ninon
@@ -2700,15 +3166,18 @@ label start:
 
     ch_monica "모든 일에는 타당한 이유가 존재하기 마련. 그렇다면 우리들에게 부족한 건 대체 뭘까? 아유미! 대답해 봐라!"
     ## 호흡 한 번 끊기
+    $renpy.pause(1.0)
     ## 모니카 어둡게
-
+    hide stand_Monica
     ch_ayumi "힉, 히이익……? 저, 저, 저 말인가요?! 그건, 그, 저기,"
 
     ch_ayumi "제… 제가 생각하응기잇!! 흐에… 혀 깨무러써…"
     ## 모니카 밝게/뚱한 표정
-
+    show stand_Monica_down with dissolve
     ch_monica "……"
     ## 모니카 화난 표정
+    show stand_Monica_ddung
+    hide stand_Monica_down
     ch_monica "…………바이스플뤼겔에 가장 부족한 것은 바로…………"
 
     show highlight onlayer forward with hpunch
@@ -2718,20 +3187,22 @@ label start:
     ch_monica "…………‘실전’이다!!"
     ch_monica "아무리 강력한 전사라 해도 실전 경험이 없다면 지나가던 들개 한 마리 상대하는 것도 버거울 터."
 
-    show stand_Monica at movetoleft
+    show stand_Monica_ddung at movetoleft
     show stand_Ninon_surprise at right with dissolve## 니논 놀란 표정
     ## 모니카 어두워지고 니논 밝게
 
     ch_ninon "지나가던 들개 씨…… 무섭다 입니다……!"
     hide stand_Ninon_surprise with dissolve
     
-    show stand_Monica at movetocenter
+    show stand_Monica_ddung at movetocenter
     
     ch_monica "요점이 그게 아니지 않나!!!"
 
     ch_monica "……우리가 실제로 마물을 해치운 전적은 손에 꼽을 정도다. 그마저도 대부분은 요행에 불과했던 것들이지."
 
     ## 자신만만한 표정
+    show stand_Monica
+    hide stand_Monica_ddung
     ch_monica "하지만! 운에 기대지 않고 마물을 쓰러뜨릴 수 있는, 확실한 실력을 쌓는 방법을 우리는 알고 있다! 어떻게?"
     hide stand_Monica
     ## 유키 질색하는 표정
@@ -2745,24 +3216,24 @@ label start:
     ch_monica "마물을 왕창 때려잡는 거다!!! 아주 커다랗고 무지막지한 놈들로!!"
     hide highlight onlayer forward
     hide stand_Monica
-    show stand_Kuka at center with dissolve: ## 망상
+    show stand_Kuka_mousou at center with dissolve: ## 망상
         ease 0.2 ypos -50
         ease 0.2 ypos 50
     ch_kuka "으히익♥"
-    hide stand_Kuka
+    hide stand_Kuka_mousou
     show stand_Monica with dissolve ## 자신만만
 
     ch_monica "그런 고로 떠날 채비를 서두르도록, 제군들! 곧바로 프라노 평원으로 출발한다!!"
     hide stand_Monica with dissolve
-    show stand_Yuki at left with dissolve ## 질색하는 표정
+    show stand_Yuki_angry at left with dissolve ## 질색하는 표정
     
     ch_yuki "아니 아니~~ 마물을 잡으러 가자고? 지금 당장~?! 진심이야?"
     ch_yuki "나는 가서도 아무것도 안 할 거니까! 전투 같이 위험한 일엔 끼어들기 싫어! 피부에 안 좋단 말이야~!"
 
     ## 유키 어둡게
     ch_ayumi "뭐, 뭐어~ 모니카 씨 말씀이 틀린 것도 아니구요……."
-    show stand_Yuki at movetoleft
-    show stand_Kuka with dissolve ## 망상
+    show stand_Yuki_angry at movetoleft
+    show stand_Kuka_mousou with dissolve ## 망상
 
     ch_kuka "힘세고 강한 마물…… 뜨겁고 크고 묵직한…… 크힛, 크흐흣……."
 
@@ -2772,9 +3243,9 @@ label start:
     ch_ninon "진군입니다! 찢고 죽인다 입니다!!"
 
     ## 니논 어둡게
-    hide stand_Kuka
+    hide stand_Kuka_mousou
     hide stand_Ninon
-    hide stand_Yuki
+    hide stand_Yuki_angry
 
     show stand_Monica with dissolve ## 자신만만
     ch_monica "그럼 출발이다! 바이스플뤼겔의 긍지를 걸고!!"
@@ -2783,13 +3254,16 @@ label start:
     ## 배경 페이드 아웃
     hide bg_guildhouse
     show bg_black
-## 길드하우스 페이드 인
+    $renpy.pause(1.0)
+    ## 길드하우스 페이드 인
     scene bg_guildhouse with fade
     player "……그렇게 긍지가 박살난 거야?"
 
-    show stand_Monica with dissolve ## 빼애액 표정
+    show stand_Monica_dere with dissolve ## 빼애액 표정
     ch_monica "박살나지 않았어!!"
     ## 시무룩한 표정으로 변경
+    show stand_Monica_down
+    hide stand_Monica_dere
     extend " ……나는 그저……."
 
     ch_monica "……무작정 부딪혀 보면 어떻게든 될 거라고 생각했건만……. 귀공은 내 방식이 잘못됐다고 생각하나?"
@@ -2797,55 +3271,61 @@ label start:
     menu:
         "결과가 말해 주고 있잖아choice_1":
             ## 볼빵빵
+            show stand_Monica_ddung
+            hide stand_Monica_down
             ch_monica "……마, 맞는 말이다만……, 그렇게 말하는 귀공에게는 더 좋은 해결책이 있는 거겠지?"
             ch_monica "자세한 이야기는 우리 길드원들 앞에서 하는 게 어떤가? 지금 바로 출발하도록 하지."
+            hide stand_Monica_ddung
         "틀린 방법은 아니었다고 생각해choice_2":
             ## 시무룩한 표정
             ch_monica "빈말이라도 고맙군…… 하지만 우리는 실제로 마물에게 이렇다 할 타격도 주지 못하고 당해 버렸어."
             ch_monica "이대로면 부하들이 입는 피해만 늘어갈 터……. 뭔가 다른 방법이 필요해." 
             ch_monica "귀공, 도움을 줄 수 있겠나? 일단 우리 길드하우스로 자리를 옮기도록 하지."
-    hide stand_Monica
+            hide stand_Monica_down
     ## cg 페이드 아웃
     hide bg_guildhouse
     show bg_black
-    ## 잠깐 텀
-## 랜드솔 마을 cg 페이드
+## S# 3.랜드솔 마을, 길드하우스
     scene bg_town with fade
     show stand_Ninon with dissolve ##웃는표정
 
     ch_ninon "오오~ 쇼군~! 친히 행차하셨나이까 입니다? 기별도 없이 니논을 만나러 오셨다기에 버선발로 뛰쳐나왔사와요 입니다! 기쁨에 못 이겨 할복 해버릴 것 같습니다~!"
 
     show stand_Ninon at movetoleft ##어둡게
-    show stand_Kuka with fade
+    show stand_Kuka_mousou with fade
 
     ch_kuka "도, 도S씨, 오랜만이에요…….!! 쿠우카를 도S씨가 없으면 살 수 없는 몸으로 만들어놓고, 쿠우카가 먼저 파렴치한 요구를 입밖으로 꺼낼 때까지 몇 날 며칠을 방치하면서 즐기시다니……! 이상성욕변태! 인격파탄자! 이제 만족하셨나요……!! 크흣…… 크히힛……."
     
-    show stand_Kuka at movetoright ##어둡게
-    show stand_Yuki with dissolve ## 자뻑하는 모습
+    show stand_Kuka_mousou at movetoright ##어둡게
+    show stand_Yuki_proud with dissolve ## 자뻑하는 모습
     
     ch_yuki "뭐야~ [name]. 오늘도 변함없이 귀여운 내 모습이 보고 싶어서 여기까지 왔구나? 이해해~ 내 미모는 매일매일 언제 봐도 질리지 않으니까. 하아…… 거울 속의 나…… 너무 귀여워……."
 
     ## 유키 어둡게
+    hide stand_Kuka_mousou
+    hide stand_Ninon
+    hide stand_Yuki_proud
 
     ch_ayumi "히히…… 선배…… 오늘도 잘생겼어…… 히히……"
 
     ch_nar "예전부터 생각했던 거지만 여긴 제정신인 사람이 아무도 없는 것 같다."
 
-    hide stand_Kuka
-    hide stand_Ninon
-    hide stand_Yuki
-    
     show stand_Monica with dissolve ##자신만만
 
 
     ch_monica "모두들, [name]가 반가운 마음은 이해한다만 밖에서 이럴 것이 아니라 어서 안으로 들지. 차라도 한 잔 마시면서 얘기하는 게 좋겠군."
 
     ## 무심한 표정으로 변경
+    show stand_Monica_munen
+
+    hide stand_Monica
 
     ch_monica "그…… 그리고 달콤한 과자도 조금…… 흠흠."
-    hide stand_Monica
+
+    hide stand_Monica_munen
+
     hide bg_town
-## 길드 하우스 cg 페이드
+    ## 길드 하우스 cg 페이드
     show bg_black onlayer background
     scene bg_guildhouse onlayer middle with fade
     show stand_Ninon onlayer forward
@@ -2863,23 +3343,24 @@ label start:
 
     ch_kuka "그, 그러니까 도S씨는…… 정확히 무슨 일 때문에 오신 거죠?"
     ## 쿠우카 망상하는 표정
+    show stand_Kuka_mousou onlayer forward
+    hide stand_Kuka onlayer forward
     ch_kuka "설마…… 어둡고 구석진 골목에 마구잡이로 쿠우카를 밀어붙였던 그날…… 쿠우카가 아직까지도 그날의 쾌락을 잊지 못한 채 추잡스러운 행위를 계속하고 있는지 직접 확인하려고……?!"
 
     ch_kuka " 쿠, 쿠우카를 나락으로 빠뜨리기 위해 어디까지 계획을 세워 놓은 건가요?! 이…… 인륜배반자! 관음증 변태! 쿠, 쿠훗, 크흐흐……."
 
-    hide stand_Kuka onlayer forward
+    hide stand_Kuka_mousou onlayer forward
     show stand_Monica onlayer forward with dissolve
 
     ch_monica "음! [name]를 이 자리에 호출한 건 다름이 아니라, 바이스플뤼겔의 향후 방향성과 마물 소탕 건에 대해 조언을 구하기 위해서다. 모두 한자리에 모였으니 드디어 이야기를 시작할 수 있겠군."
 
-    ## 모니카 어둡게
+    hide stand_Monica onlayer forward
 
     ch_ayumi "역시 선배, 계획이 다 있으신 거군요……!"
 
     player "그런 거 없는데……."
 
     ch_ayumi "무계획이 계획인 거네요……! 역시!"
-    hide stand_Monica onlayer forward
 
     show stand_Ninon_down onlayer forward with dissolve ## 시무룩한 표정
 
@@ -2912,11 +3393,13 @@ label start:
     ch_yuki "이렇게나 귀여운 내가 있는데, 무슨 문제가 있다는 거야~? 복잡한 생각 하지 말고 예쁜 내 얼굴이나 감상하라구♪"
 
     hide stand_Yuki onlayer forward
-    show stand_Monica onlayer forward with dissolve ## 화난 표정
+    show stand_Monica_ddung onlayer forward with dissolve ## 화난 표정
 
     ch_monica "그렇게 건성으로 넘길 문제가 아니다! 귀공, 다시 한 번 정식으로 요청하도록 하지."
 
     ## 모니카 자신만만한 표정
+    show stand_Monica onlayer forward
+    hide stand_Monica_ddung onlayer forward
 
     ch_monica "‘바이스플뤼겔 랜드솔지부’가 나아갈 길을 제시해 주게! 귀공은 우리의 문제가 무엇이라고 생각하나?"
 
@@ -2952,17 +3435,17 @@ label start:
     ch_ninon "닌자가 강해지는 길은 오직 수련, 또 수련하는 것 뿐!! 천하통일을 위해서라면 그 어떤 지옥훈련이라도 견뎌낼 각오가 되어있소 입니다!!"
 
     hide stand_Ninon_wink onlayer forward with dissolve
-    show stand_Monica onlayer forward at left
+    show stand_Monica_ddung onlayer forward at left
     show stand_Ninon onlayer forward at right
 
     ## 니논 기본표정, 어둡게/모니카 밝게
     ch_monica "흠, 흠!"
 
-    ## 모니카 진지한 표정
-
     ch_monica "……확실히 틀린 말은 아니다. 가혹한 훈련은 고통스럽지만 그만큼 효과적일 수 있지."
 
     ## 모니카 시무룩한 표정
+    show stand_Monica_down onlayer forward at left
+    hide stand_Monica_ddung onlayer forward
 
     ch_monica "하지만 니논, 훈련의 강도가 높은 것만이 능사는 아니야. 그건 우리가 누구보다도 뼈저리게 경험하지 않았나."
 
@@ -2975,7 +3458,8 @@ label start:
     ch_monica "그건……"
 
     ## 모니카 자신만만한 표정
-
+    show stand_Monica onlayer forward at left
+    hide stand_Monica_down onlayer forward
     ch_monica "우리의 새로운 해결사가 답을 알려 줄 거다!"
 
     ## 둘 다 어둡게
@@ -3029,14 +3513,14 @@ label start:
     ## 니논 어둡게/ 오른쪽에 모니카 시무룩한 표정
 
     show stand_Ninon_wink at movetoleft
-    show stand_Monica at right
+    show stand_Monica_down at right
 
     ch_monica "미안하군. 아직 니논이 충격에서 벗어나지 못한 것 같아."
 
     player "괜찮아. 빼놓고 얘기하자!"
 
     ## 모니카 사라짐/ 니논 밝아지고 화면 중앙으로 이동, 시무룩한 표정
-    hide stand_Monica
+    hide stand_Monica_down
     hide stand_Ninon_wink
     show stand_Ninon_down at left:
         linear 0.3 ypos 0 xpos 500
@@ -3045,9 +3529,9 @@ label start:
 
     ## 니논 cg 어둡게
 
-    ch_ayumi "‘……멍청해 보인다는 말을 돌려서 얘기한 건 못 알아채신 걸까, 선배…….’"
-
     hide stand_Ninon_down
+
+    ch_ayumi "‘……멍청해 보인다는 말을 돌려서 얘기한 건 못 알아채신 걸까, 선배…….’"
 
     ch_nar "그나저나 큰일이군……."
 
@@ -3086,38 +3570,41 @@ label start:
     ch_kuka "도…… 도S씨가 뭔가 생각에 잠겼어요……!"
 
     ## 쿠우카 망상하는 표정
+    show stand_Kuka_mousou
+    hide stand_Kuka
 
     extend " 어, 어떻게 하면 쿠우카를 더 수치스럽게 능욕할 수 있을지 머리를 쥐어짜내고 있는 게 분명해요!!"
 
     ch_kuka "아아, 그, 그치만…… 얼마나 심한 짓을 당할지 가늠조차 하지 못하면서, 아니 어쩌면 누구보다도 잘 알고 있으면서!! 무구하고 앳된 소녀의 마음은, 불나방과 같이 그 순결함을 제발로 불사르려는 충동을 떨쳐내지 못하고……!!! 이 얼마나 잔혹하고 달콤한 유혹인가…… 크히, 크히힛…… 쿠후후후훗……"
     
-    ## 쿠우카 어두워짐
+    hide stand_Kuka_mousou
 
     ch_ayumi "음, 선배…… 쿠우카 씨가 하는 말은 일단 모르는 척하는 게 좋을 것 같아요……."
 
-    ## 쿠우카 밝아짐
+    show stand_Kuka_mousou with dissolve
 
     ch_kuka "히이……♥ 아유미 씨에게 무시당하는 감각……! 이건 굉장히 귀하네요……. 크큭…… 여기서 더 떨어질 바닥이 있을까……."
 
-    ## 쿠우카 어두워짐
+    hide stand_Kuka_mousou
 
     ch_ayumi "그…… 그건 무슨 의미인가요오!!!!"
-
-    hide stand_Kuka
-    show stand_Yuki with dissolve ## 자뻑하는 표정
+ 
+    show stand_Yuki_proud with dissolve ## 자뻑하는 표정
 
     ch_yuki "참, [name]. 오해는 하지 마? 내 미모는 얼마나 밝은 곳에 있든 간에 빛이 나고, 어두운 곳에 있으면 더욱 돋보이는 범우주적 매력을 갖고 있으니까, 장소는 아무래도 상관없어~"
 
     ch_yuki "그치만 기왕 뭔가를 할 거라면, 나의 아름다움에 공헌할 수 있는 걸 하는 게 세상에 더 도움이 될 거라구. 내가 예뻐질수록 세계는 한층 더 아름다워질 테니까~"
 
     ## 유키 웃는 표정
+    show stand_Yuki
+    hide stand_Yuki_proud
 
     ch_yuki "예를 들면~ 응, 피부 미용에 좋은 거라든지?"
 
     ## 유키 어두워지고 화면 오른쪽/ 모니카 시무룩한 표정 왼쪽
 
     show stand_Yuki at movetoright
-    show stand_Monica at left
+    show stand_Monica_down at left
 
     ch_monica "……그대는 어째서 그렇게까지 피부에 집착하는 건가……"
 
@@ -3126,10 +3613,14 @@ label start:
     ch_yuki "음~ 예쁜 얼굴은 타고나는 거라 해도, 피부는 꾸준히 잘 관리해 줘야 한다구. 이참에 모니카 씨도 신경 좀 써 보는 건 어때? 충분히 귀여운 얼굴인데, 아깝잖아~ 뭐, 나만큼은 아니지만."
 
     ## 유키 어두워지고 모니카 부끄러워하는 표정 밝아짐
+    show stand_Monica_dere at left
+    hide stand_Monica_down
 
     ch_monica "누…… 누가 귀엽다는 거냐!"
 
     ## 모니카 시무룩한 표정
+    show stand_Monica_down at left
+    hide stand_Monica_dere
 
     extend " ……애초에 나는 군인이다. 그런 것에 신경 쓸 여유는……"
 
@@ -3137,48 +3628,61 @@ label start:
 
     ## 유키 사라짐/ 모니카 놀란 표정, 화면중앙
     hide stand_Yuki
-    show stand_Monica at movetocenter
+    show stand_Monica_down at movetocenter
+    show stand_Monica_surprised
+    hide stand_Monica_down
 
     ch_monica "귀공……? 아아, 특훈에 관한 것 말인가! 허심탄회하게 얘기해 보게!"
+
+    hide stand_Monica_surprised
 
     player "특훈을 하면…… 땀이 나."
 
     ## 모니카 시무룩한 표정
+    show stand_Monica_down with dissolve
+
     ch_monica "……?"
 
-    player "땀이 난다는 것은 힘이 든다는 것입니다."
+    hide stand_Monica_down
 
-    ## 모니카 cg 어둡게
+    player "땀이 난다는 것은 힘이 든다는 것입니다."
 
     ch_ayumi "??"
 
     player "힘이 들면, 피부에 좋지 않습니다. 그렇기 때문에 나는 생각합니다. 피부에 좋지 않으면, 땀이 나는 것이 아닌가 하고."
 
-    hide stand_Monica
-    show stand_Kuka with dissolve ## 쿠우카 망상하는 표정
+    show stand_Kuka_mousou with dissolve ## 쿠우카 망상하는 표정
     ch_kuka "뇌가 겁탈당하고 있어요……!!"
 
-    player "하지만 온천이라면 어떨까?"
+    hide stand_Kuka_mousou
 
-    hide stand_Kuka
-    show stand_Yuki at left ## 유키 놀라는 표정, 밝게
-    show stand_Ninon_surprise at right ## 니논 놀라는 표정, 어둡게
+    player "하지만 온천이라면 어떨까?"
+    
+    show bg_guildhouse onlayer middle
+
+    show stand_Yuki onlayer forward at left ## 유키 놀라는 표정, 밝게
+    
+    show stand_Ninon_surprise onlayer forward at right ## 니논 놀라는 표정, 어둡게
+    
+    $ camera_move(-2300, -1500, 800, 0, 0.7)
 
     ch_yuki "온!" ## 유키 줌 인
 
-    #show stand_Yuki at left ## 유키 어둡게
-    #show stand_Ninon_surprise at right ##니논 밝게
-
+    $ camera_move(0, 0, 0, 0, 0)
+    $ camera_move(2500, -1800, 800, 0, 0.7)
+    
     ch_ninon "천!" ## 니논 줌 인
+    $ camera_move(0, 0, 0, 0, 0)
 
-    hide stand_Yuki
-    hide stand_Ninon_surprise
+    hide stand_Yuki onlayer forward
+    hide stand_Ninon_surprise onlayer forward
+    hide bg_guildhouse onlayer middle
 
-    show stand_Monica with dissolve ## 시무룩한 표정
+    show stand_Monica_down with dissolve ## 시무룩한 표정
 
     ch_monica "다…… 좋은데, 온천이 특훈과 무슨 관계가 있는 건가……?"
 
-    hide stand_Monica
+    hide stand_Monica_down
 
     show stand_Ninon with dissolve
 
@@ -3206,7 +3710,7 @@ label start:
 
     ## 니논 어둡게
 
-    show stand_Monica at veryleft ## 모니카 놀란 표정
+    show stand_Monica_surprised at veryleft ## 모니카 놀란 표정
 
     ch_monica "오오……! 그런 것이었나! 나도 아직 한참 부족하군…….!!"
 
@@ -3216,7 +3720,7 @@ label start:
 
     ch_yuki "뭐~ 그런 이유라면 어울려 주지 못할 것도 없긴 해~ 이런 것까지 신경써 주다니, 꽤나 섬세하잖아?"
 
-    hide stand_Monica
+    hide stand_Monica_surprised
     hide stand_Ninon_wink
     hide stand_Yuki
 
@@ -3237,21 +3741,24 @@ label start:
     ch_kuka "그……러면, 온천에 가서는 구체적으로 어떤 일을 하게 되나요……?"
 
     ## 쿠우카 망상하는 표정
+    show stand_Kuka_mousou
+    hide stand_Kuka
 
     ch_kuka "여, 역시 혼욕을 노리시는 건가요?! 모두가 지켜보는 가운데 쿠우카의 치부를 억지로 드러내 보이게 하려는 속셈인 거네요!!! 치욕감에 정신을 차리지 못하는 쿠우카의 주변을 수많은 남성들이 에워싸고선…… 으헤헷…… 쿠헤헤헤헷……"
 
-    ## 쿠우카 어둡게
+    hide stand_Kuka_mousou
 
     ch_ayumi "호……호호흐호, 혼, 혼욕?! 서, 스, 서, 선배와 함께?!!?"
 
-    hide stand_Kuka
-    show stand_Monica with dissolve ## 뚱한 표정 
+    show stand_Monica_ddung with dissolve ## 뚱한 표정 
 
     ch_monica "……그대들이 뭘 상상하는 건지 잘은 모르겠다만……"
 
     ch_monica "최소한 건전한 속내가 아니라는 것만은 분명해 보이는군……."
 
     ## 모니카 웃는 표정
+    show stand_Monica
+    hide stand_Monica_ddung
 
     ch_monica "그건 그렇다 치고, 귀공."
 
@@ -3303,25 +3810,29 @@ label start:
     extend "앗…… 화내는 얼굴도 어쩜 이렇게 새침하고 귀여울 수가…… 세상에……. 거울에서 눈을 뗄 수가…"
 
     hide stand_Yuki_shamed
-    show stand_Monica ## 모니카 화난 표정
+    show stand_Monica_ddung ## 모니카 화난 표정
 
     ch_monica "둘 다 뭘 하고 있는 건가, 대체?! 니논, 편지를 이리로 넘겨라!"
 
-    hide stand_Monica
+    hide stand_Monica_ddung
     show stand_Ninon_surprise ## 니논 놀란 표정
 
     ch_ninon "……모니카 씨……? 이거……."
 
     hide stand_Ninon_surprise
-    show stand_Monica ## 모니카 화난 표정
+    show stand_Monica_ddung ## 모니카 화난 표정
 
     ch_monica "대관절 무슨……"
 
     ## 모니카 놀란 표정
+    show stand_Monica_surprised
+    hide stand_Monica_ddung
 
     ch_monica "……."
 
     ## 모니카 화난 표정
+    show stand_Monica_ddung
+    hide stand_Monica_surprised
 
     ch_monica "……귀공."
 
@@ -3330,6 +3841,8 @@ label start:
     ch_monica "……온천에 가야만 하는 이유가 생긴 것 같다."
 
     ## 화면 중앙에 피로 휘갈겨 쓴 편지 이미지 show blood_letter
+    show ob_tegami with dissolve:
+        xpos 430 yalign 0.3
     ## 마을 bgm 멈춤
     ## 충격적인 효과음
 
@@ -3338,8 +3851,8 @@ label start:
     ## 대화창 사라짐
 
     ## 피로 휘갈겨 쓴 편지 이미지, 길드하우스 cg F.O
-    
-    hide stand_Monica ##(모니카 화난 표정)
+    hide ob_tegami
+    hide stand_Monica_ddung ##(모니카 화난 표정)
     hide bg_guildhouse
 
     jump black_haikei
@@ -3431,6 +3944,8 @@ label onsen:
     player "뭐, 뭐야 이거?! 혈서?!"
 
     ## 피로 휘갈겨 쓴 편지 이미지 show blood_letter with dissolve
+    show ob_tegami with dissolve:
+        xpos 430 yalign 0.3
 
     ch_nar "형형색색의 꽃무늬로 화려하게 장식된 동양풍의 겉봉 속, 편지지의 새하얀 빛깔과 대비되는 검붉은 선혈이 마구잡이로 흩뿌려져 있다."
 
@@ -3438,6 +3953,8 @@ label onsen:
 
     ch_nar "살려 달라고 외치는 듯한 문자의 나열은 꺼림칙한 정도를 넘어 기괴한 분위기까지 자아낸다……."
 
+    hide ob_tegami
+    
     player "……”도와주세요” 라니…… 온천 초대장이 아니었어? 누가 장난친 건가?"
 
     show stand_Ninon_down with dissolve
@@ -3450,7 +3967,8 @@ label onsen:
 
     ch_nar "알아보기 힘든 글씨체……. 편지가 쓰였을 당시의 상황이 매우 긴박했다는 것을 암시하는 듯하다."
 
-    ## show blood_letter with dissolve
+    show ob_tegami with dissolve:
+        xpos 430 yalign 0.3
 
     ch_nar "{color=#FF2929}마 물이 숨 어 드ㄹ었 다{/color}"
 
@@ -3466,22 +3984,24 @@ label onsen:
 
     ch_nar "{color=#FF2929}입구에서 구라노스케를 찾아주세요.{/color}"
 
+    hide ob_tegami
+
     player "잘 나가다가 이 삐끼 같은 마무리는 뭐야."
 
     ## hide blood_letter with dissolve
 
-    show stand_Kuka with dissolve ## 쿠우카 놀란 표정
+    show stand_Kuka_surprised with dissolve ## 쿠우카 놀란 표정
 
     ch_kuka "저…… 정말 피로 쓴 글씨인가요……?! 히이이……."
 
-    hide stand_Kuka
-    show stand_Monica with dissolve ## 모니카 화난 표정
+    hide stand_Kuka_surprised
+    show stand_Monica_down with dissolve ## 모니카 화난 표정
 
     ch_monica "이렇게 곳곳에 흩뿌려져 있는 형태는 인위적으로 연출했다고 보긴 어려워."
 
     ch_monica "모종의 이유로 피를 흘리면서까지 편지를 쓸 수밖에 없었던 상황이었을지도……."
 
-    hide stand_Monica
+    hide stand_Monica_down
     show stand_Yuki_ddung with dissolve ## 유키 뚱한 표정
 
     ch_yuki "잠깐, 너무 진지하게 받아들이는 거 아니야? 저 빨간 자국이 진짜 피가 맞다 쳐도, 이상한 점이 한두 개가 아니잖아."
@@ -3490,20 +4010,20 @@ label onsen:
 
     ch_ayumi "마지막 힘을 짜내어 써 놓은 편지를…… 다른 누군가가 발견해서 여기로 몰래 보내 준 것 아닐까요……? 우으…… 제가 말하면서도 무서워요……."
 
-    show stand_Monica with dissolve ## 모니카 화난 표정
+    show stand_Monica_down with dissolve ## 모니카 화난 표정
 
     ch_monica "뭐…… 자세한 내막은 직접 가서 알아내면 될 뿐이다. 편지의 마지막에 언급된 ‘구라노스케’라는 인물에 대해서도 석연치 않은 부분이 많고……"
 
     ch_monica "……귀공은 어떻게 할 텐가? 위험할 수도 있는 일이다. 이건 우리가 해결해야 할 문제고, ‘바이스플뤼겔 랜드솔지부’에 소속되지 않은 귀공이 우리와 함께해야 할 의무는 없어."
 
-    show stand_Monica at movetoleft ## 모니카 화난 표정
+    show stand_Monica_down at movetoleft ## 모니카 화난 표정
     show stand_Ninon at right ## 니논 웃는 표정
 
     ch_ninon "니논도 동의하오 입니다. 비록 쇼군과 떨어지게 되는 것은 애통하나, 쇼군이 다치는 것은 그 무엇과도 비교할 수 없는 비극 입니다!"
     
     player "……."
 
-    hide stand_Monica
+    hide stand_Monica_down
     hide stand_Ninon
 
     ch_nar "이 녀석들과 함께 가지 않으면…… 미식전으로 돌아가는 수밖에 없겠지."
@@ -3572,14 +4092,15 @@ label onsen:
             
             player "모니카는 내가 어떻게 했으면 좋겠어?"
 
-            show stand_Monica with dissolve ## 모니카 놀란 표정
+            show stand_Monica_surprised with dissolve ## 모니카 놀란 표정
 
             ch_monica "……내 의견을 묻는 건가?"
 
             ch_monica "뭐어…… 위험할 것이라 경고하기도 했고, 귀공이 관여할 필요가 없는 일인 것도 사실이지만……"
-
-            ## hide stand_Monica
-            ## show stand_Monica ## 모니카 웃는 표정
+            
+            show stand_Monica
+            hide stand_Monica_surprised
+             ## 모니카 웃는 표정
 
             ch_monica "개인적인 바람으로는, 우리와 동행해 주었으면 한다."
 
@@ -3589,8 +4110,8 @@ label onsen:
 
             ch_monica "하지만…… 뭐랄까, 귀공과 함께라면 무슨 일이든 잘 풀릴 것만 같은 느낌이 들어. 단지 그뿐이다."
 
-            ## hide stand_Monica
-            ## show stand_Monica ## 모니카 당황한 표정
+            show stand_Monica_munen ## 모니카 당황한 표정
+            hide stand_Monica
 
             ch_monica "아, 오해는 말아 다오! 의견을 물었기에 진솔하게 대답한 것일 뿐이다."
 
@@ -3600,7 +4121,7 @@ label onsen:
 
             player "그럼…… 같이 가지 뭐. 나도 싫지 않아."
 
-            hide stand_Monica
+            hide stand_Monica_munen
 
             pass
         "다시 생각해 보니 이것들 의견은 별로 중요하지 않은 것 같다.choice_3":
@@ -3627,17 +4148,21 @@ label onsen:
 
             player "쿠우카는 내가 어떻게 했으면 좋겠어?"
 
-            show stand_Kuka with dissolve ## 쿠우카 부끄러워하는 표정
+            show stand_Kuka_surprised with dissolve ## 쿠우카 부끄러워하는 표정
 
             ch_kuka "엣? 에?! 쿠, 쿠우카 말인가요?!"
 
             ## 쿠우카 부끄러워하는 표정으로 변경
+            show stand_Kuka_shamed
+            hide stand_Kuka_surprised
 
             ch_kuka "아, 아뇨, 그…… 저기, 너무 갑작스럽게 물어보셔서……"
 
             ch_kuka "쿠…… 쿠우카는…………"
 
             ## 쿠우카 망상하는 표정으로 변경
+            show stand_Kuka_mousou
+            hide stand_Kuka_shamed
 
             ch_kuka "여, 역시 안돼!! 쿠우카를 곧 버릴 물건처럼 심하게 다루어 주셨으면 좋겠다고 말하는 건 역시 무리……!! 그, 그렇군요. 그런 것이었군요! 일부러 쿠우카가 모두의 앞에서 파렴치한 말을 하도록 유도하고, 주변에서 쏟아지는 경멸의 눈빛을 버티지 못해 주저앉은 쿠우카를 들…"
 
@@ -3653,7 +4178,7 @@ label onsen:
 
             player "같이 가자, 온천."
 
-            hide stand_Kuka
+            hide stand_Kuka_mousou
 
             pass
         
@@ -3731,13 +4256,13 @@ label onsen:
 
     ch_ayumi "……굳이 따라오지 않으셔도 저는 24시간 내내 언제나 선배의 모습을 감상할 수 있는데…… 아, 그래도 온천이라면 유카타 차림의 선배를…… 아니, 아니지, 유카타가 문제가 아니네요……. {cps=*0.8}탕속에들어가신다면수건한장만걸치고있는선배가,거기다운이좋으면수건마저풀어헤친평소에는볼수없었던고혹적인선배의또다른은밀한모습을{/cps}"
         
-    show stand_Kuka with dissolve ## 질색하는 표정
+    show stand_Kuka_hiku with dissolve ## 질색하는 표정
 
     ch_kuka "아유미 씨…… 아무리 그래도 그건 범죄라고 생각해요……"
 
     ch_nar "진짜 세계관 최강자들의 싸움이다……."
 
-    hide stand_Kuka
+    hide stand_Kuka_hiku
 
     player "뭐…… 위험하다 해 봤자 온천일 뿐이잖아? 편지 자체가 장난일 가능성도 있고……"
 
@@ -3757,12 +4282,12 @@ label onsen:
     ch_ninon "OUI!! 동국의 온천 문화가 몹쉬 기대된다 입니다!!!"
 
     ## 니논 어둡게
-    show stand_Kuka at left ## 쿠우카 망상하는 표정
+    show stand_Kuka_mousou at left ## 쿠우카 망상하는 표정
 
     ch_kuka "겨, 결국 가는 건가요…… 가 버리는 건가요오……!!"
 
     ## 쿠우카 어둡게
-    show stand_Yuki with dissolve ## 유키 자뻑하는 표정
+    show stand_Yuki_proud with dissolve ## 유키 자뻑하는 표정
 
     ch_yuki "어떤 옷을 입어도 아름다운 내가 유카타를 입은 모습…… 수건 한 장으로는 감히 숨길 수 없는 미의 결정체. 그 고귀한 모습이 비쳐 흐르는, 한 폭의 그림 같은 노천탕…… 하아…… 너무 기대돼……."
 
@@ -3772,8 +4297,8 @@ label onsen:
 
     ch_nar "이것들한테 진지한 걸 기대한 내가 잘못했다."
 
-    hide stand_Kuka
-    hide stand_Yuki
+    hide stand_Kuka_mousou
+    hide stand_Yuki_proud
     show stand_Ninon at movetocenter
 
     ch_ninon "아, 그리고 모니카 씨—"
@@ -3786,7 +4311,7 @@ label onsen:
     ch_ninon "무엇보다 오에도 온천에서만 맛볼 수 있는 한정판 간식이 있다고 하네요 입니다~!"
 
     ## 니논 어둡게
-    show stand_Monica at veryleft ## 모니카 놀란 표정
+    show stand_Monica_surprised at veryleft ## 모니카 놀란 표정
 
     ch_monica "뭣, 뭐라고?! 간식이라면 과자도 있다는 말인가?!"
 
@@ -3799,7 +4324,7 @@ label onsen:
     ch_nar "별일이야 있겠어?"
 
     hide stand_Ninon_wink
-    hide stand_Monica
+    hide stand_Monica_surprised
     hide bg_guildhouse
 
     ## 마을 bgm 점점 작아짐
@@ -3811,7 +4336,7 @@ label onsen_inside:
     scene bg_onsen onlayer middle with fade ## 온천내부 cg 빠르게
     show stand_gura onlayer forward with dissolve## 빠르게
 
-    $ renpy.pause(1.5, hard = True)
+    $ renpy.pause(1.5)
 
     ## 충격적인 효과음
 
@@ -3832,41 +4357,43 @@ label onsen_inside:
     hatena "입장은 몇 분임까아———앗!!!!!!!!!!!!!!!!"
     hide stand_gura onlayer forward
     
-    show stand_Monica onlayer forward ## 모니카 화난 표정
+    show stand_Monica_ddung onlayer forward ## 모니카 화난 표정
 
     ch_monica "아아, 다섯 명으로 부탁하지."
 
     ## 모니카 어둡게
+    hide stand_Monica_ddung onlayer forward
 
     ch_ayumi "엣? 여…… 여섯 명 아닌가요……?"
 
     ## 모니카 놀란 표정
+    show stand_Monica_surprised onlayer forward with dissolve
 
     ch_monica "이런, 아유미의 존재를 깜빡 잊고 있었다……. 미안하군. 모습이 보이지 않아서 무심코……"
 
     ## 모니카 어둡게
+    hide stand_Monica_surprised onlayer forward
 
     ch_ayumi "차…… 차라리 존재감이 없다고 해 주세요……! 모습이 안 보인다는 말은 좀 너무하잖아요……!!"
 
     player "아니 과장이 아니라 진짜로 안 보이는데……"
 
-    hide stand_Monica onlayer forward
-
     show stand_gura onlayer forward with dissolve
 
     player "그, 그보다 다들, 이 녀석 생김새를 보고도 아무렇지 않은 거야?! 이건 사람이라기보다……"
 
-    show stand_Monica onlayer forward at veryleft ## 모니카 화난 표정
+    show stand_Monica_ddung onlayer forward at veryleft ## 모니카 화난 표정
 
     ch_monica "귀공…… 사람을 외모로 판단하는 건 나쁜 버릇이다."
 
-    hide stand_Monica onlayer forward
+    hide stand_Monica_ddung onlayer forward
 
     player "외모고 뭐고 사람의 형상이 아니잖……"
 
     ## 임시 선택지
     menu:
         "게임 이어서 계속하기choice_1":
+            hide stand_gura onlayer forward
             pass
         "니논 엔딩 확인하기choice_2":
             hide stand_gura onlayer forward
@@ -5079,7 +5606,7 @@ label sceneNum12Common:
     jump sceneNum13Common
 ## S# 13. 온천숙소 (다다미 방)(공통루트)#####
 label sceneNum13Common:
-    scene bg_onsen_heya_01
+    scene bg_tadami_day
     
     ## 니논 당황한 표정
     show stand_Ninon_yukata_surp with dissolve
@@ -5264,7 +5791,7 @@ label sceneNum13Common:
 
     ch_nar "저건 또 언제 저기로 기어들어 갔어?"
 
-    hide bg_onsen_heya_01
+    hide bg_tadami_day
 
     jump sceneNum14Common
 ## S #14. 실내 욕실 (낮) (공통 루트) ########
@@ -5301,13 +5828,13 @@ label sceneNum14Common:
     ch_yuki "좁아."
 
     ## 쿠우카 질색하는 표정
-    show stand_Kuka_hiku at right with dissolve
+    show stand_Kuka_yukata_hiku at right with dissolve
 
     ch_kuka "좁네요."
 
     ch_ayumi "어……? 나쁘지 않다고 생각한 건 저 뿐인가요……?"
 
-    hide stand_Kuka_hiku
+    hide stand_Kuka_yukata_hiku
     hide stand_Yuki_yukata_angry
     hide stand_Monica_yukata_down
 
@@ -5385,12 +5912,11 @@ label sceneNum14Common:
 
     ch_ninon "모니카 씨~ 맘마 먹으러 가까용~ 입니다."
 
-    ## 화면 흔들리는 효과
-    show bg_indoor_sauna_day with hpunch
-
     hide stand_Ninon_yukata_wink
     ## 모니카 부끄러워하는 표정
     show stand_Monica_yukata_dere with dissolve
+    ## 화면 흔들리는 효과
+    show bg_indoor_sauna_day with hpunch
 
     ch_monica "시, 시끄럽다!!!!! 그리고 그런 말투 쓰지 마!!!"
 
@@ -5408,7 +5934,7 @@ label sceneNum14Common:
 
     hide stand_Monica_yukata_munen
 
-    player "난 별로 배 안 고픍"
+    player "난 별로 배 안 고프"
 
     show bg_indoor_sauna_day with hpunch
 
@@ -5665,10 +6191,40 @@ label sceneNum15_1Common:
 
     ch_gura "그렇게 하시죠! 그러면 이걸……"
 
+    hide stand_gura
+
+    show ob_wagasi with dissolve:
+        xpos 430 yalign 0.3
     
+    ch_gura "오에도의 명물, 한정판 화과자 디럭스 세트임다----앗!!!!!!!!"
 
+    player "오……"
 
+    ch_yuki "꺄~ 예쁘다. 나보다는 아니지만~"
 
+    ch_kuka "겨…… 경단들이 농후한 꿀에 흠뻑 절여진 채 서로의 몸을 탐하고 있어요……!!! 이 얼마나 상스러운…… 케헤헤헷……!!"
+
+    ch_gura "그럼, 맛있게 즐겨주시길 바랍니다!!"
+
+    hide ob_wagasi
+    hide bg_naibu
+
+    if love_point == 1:
+        jump cg_ninonfirst
+    elif love_point == 3:
+        jump cg_kukafirst
+    else:
+        jump sceneNum16Common
+
+    return
+## S# 16. 온천 건물 내부 (식당) (공통 루트) ##
+label sceneNum16Common:
+    ## 동양풍 bgm
+    scene bg_naibu with fade
+
+    show stand_gura with dissolve
+
+    ch_gura "여러분, 식사는 맛있게 하셨습니까?"
     return
 ## 미니 게임 CG 라벨 ########################
 label ninon_win:
@@ -5690,7 +6246,7 @@ label ninon:
 
     menu:
         "응choice_1":
-            call play_pong from _call_play_pong
+            jump play_pong
     
 
         "아니choice_2":
@@ -5943,20 +6499,182 @@ label yuki:
 
     return
 
-## CG ################################   
+## CG ####################################   
+## S# 15-3. 니논 탁구 CG (니논 루트) ##################
 label cg_ninonfirst:
 
-    centered "목욕가운 차림으로 탕에 몸을 담근 채 부끄러워 하며 주인공을 힐끔 보는 니논"
+    scene bg_naibu
+
+    ## 니논 시무룩한 표정
+    show stand_Ninon_yukata_down with dissolve
+
+    ch_ninon "우우…… 엄청나게 많이 먹었다 입니다."
+
+    ch_ninon "더는 안 들어가요 입니다……"
+    
+    ## 쿠우카 기본 표정
+    show stand_Kuka_yukata at right with dissolve
+
+    ch_kuka "더, 더는 안 들어간다니……!! 끝에 닿을 정도면 대체 얼마나 길고 굵{nw}"
+
+    hide stand_Kuka_yukata
+    hide stand_Ninon_yukata_down
+
+    ch_ayumi "아……아아아아~~!!!"
+
+    ch_ayumi "저, 저기 좀 보세요!!"
+
+    ## 모니카 시무룩한 표정
+    show stand_Monica_yukata_down with dissolve
+
+    ch_monica "흐음……? 저건……"
+
+    hide stand_Monica_yukata_down
+    ## 니논 놀란 표정
+    show stand_Ninon_yukata_surp with dissolve
+
+    ch_ninon "오옷!!!!! 저것은……!!!"
+
+    hide stand_Ninon_yukata_surp
+
+    player "탁구대……인가?"
+
+    ## 쿠우카 기본 표정
+    show stand_Kuka_yukata with dissolve
+
+    ch_kuka "탁탁탁……"
+
+    hide stand_Kuka_yukata
+    ## 유키 뚱한 표정
+    show stand_Yuki_yukata_ddung with dissolve
+    
+    ch_yuki "탁구? 운동 같은 거엔 관심 없으니까, 나는 빠질게~"
+
+    hide stand_Yuki_yukata_ddung
+
+    player "어…… 탁구도 운동이긴 하지……"
+    
+    ## 니논 웃는 표정
+    show stand_Ninon_yukata with dissolve
+
+    ch_ninon "……어떻습니까, 쇼군!! 한 판 뜨자 입니다!!!"
+
+    hide stand_Ninon_yukata
+
+    player "뭐?! 한 판 뜨자고?!"
+
+    ## 쿠우카 망상하는 표정
+    show stand_Kuka_yukata_mousou with dissolve
+
+    ch_kuka "히이이~~~!!!! 서방의 문화는 듣던 대로 엄청나게 개방적이네요!!!!"
+
+    hide stand_Kuka_yukata_mousou
+
+    ## 니논 시무룩한 표정
+    show stand_Ninon_yukata_down with dissolve
+
+    ch_ninon "……??"
+
+    ch_ninon "탁구를 말하는 것 입니다……?"
+
+    hide stand_Ninon_yukata_down
+
+    player "아……"
+
+    player "타…… 탁구!! 그, 그래!"
+
+    player "하자! 탁구!!"
+
+    show stand_Kuka_yukata_down with dissolve
+
+    ch_kuka "스읍……"
+
+    hide stand_Kuka_yukata_down
+
+    show stand_Ninon_yukata with dissolve
+    
+    ch_ninon "쇼군, 탁구 실력은 좀 어떠신가요 입니까?"
+
+    hide stand_Ninon_yukata
+
+    player "호오……"
+
+    player "너야말로 자신 있는 건가……?"
+
+    show stand_Ninon_yukata_daiji with dissolve
+
+    ch_ninon "훗……"
+
+    ch_ninon "수리검 던지기 연습을 하루도 거르쥐 않는 저에게 이런 것쯤……"
+
+    ch_ninon "누워서 똥 싸기에 불과……!!"
+
+    ch_nar "앉아서 싸!!!"
+
+    ch_ninon "후후, 미리 말씀드리자면……"
+
+    ch_ninon "니논의 탁구력은…… 530,000 입니다!"
+
+    hide stand_Ninon_yukata_daiji
+
+    ch_ayumi "타, 탁구력이 뭔지는 모르겠지만…… 엄청나게 강해 보여요……!!"
+
+    player "짐바브웨 달러 같은 거 아닐까……?!"
+
+    show stand_Ninon_yukata_daiji with dissolve
+
+    ch_ninon "그렇지만, 물론 전력으로 쇼군과 싸울 생각은 없으니 걱정하지 마세요 입니다……"
+
+    ch_ninon "너무 재미가 없을지도 모르니…… 이 오른손으로만 상대해 드리지요 입니다……!!"
+
+    show stand_Monica_yukata_down at right with dissolve
+
+    ch_monica "‘……탁구는 원래 한 손으로 하는 거 아닌가……?’"
+
+    hide stand_Monica_yukata_down
+    show stand_Ninon_yukata
+    hide stand_Ninon_yukata_daiji
+
+    ch_ninon "그럼…… 쇼군!!"
+
+    show stand_Ninon_yukata_wink
+    hide stand_Ninon_yukata
+
+    ch_ninon "니논이 한 수 가르쳐 드리겠소 입니다~!"
+
+    ch_ninon "마음의 준비가 되었다면 불러주세요 입니다!!"
+    jump pingpong_choice
+## 탁구 선택지 #########################################
+label pingpong_choice:
+    menu:
+        "시간을 조금만 더 줘.":
+            show stand_Ninon_yukata
+            hide stand_Ninon_yukata_wink
+
+            ch_ninon "후후…… 이 니논이 상대라 긴장하셨나요 입니까?"
+            show stand_Ninon_yukata_wink
+            hide stand_Ninon_yukata
+
+            ch_ninon "괜찮습니다~ 얼마든지 기다린다 입니다~!"
+
+            jump pingpong_choice
+        "덤벼!":
+            ch_ninon "오오, 좋은 기백이다 입니다~!!"
+
+            ch_ninon "그러면…… HAJIMARUYO 입니다!!!"
+
+            hide stand_Ninon_yukata_wink
+            jump play_pong
 
 
     return
 
 label cg_ninonsecond:
 
-    centered "열정적으로 탁구를 치는 유카타 차림의 니논"
+    centered "목욕가운 차림으로 탕에 몸을 담근 채 부끄러워 하며 주인공을 힐끔 보는 니논"
 
     return
-## S# 15-2. 온천 건물 내부 (식당), 모니카 화과자 cg(모니카 루트)
+## S# 15-2. 온천 건물 내부 (식당), 모니카 화과자 cg(모니카 루트) ########
 label cg_monicafirst:
     $renpy.pause(1.0)
 
@@ -6104,6 +6822,8 @@ label cg_monicafirst:
 
     ch_monica "암냠……"
 
+    ## 과자 먹는 소리 효과음
+
     $renpy.pause(1.0)
 
     show cg_monica_first_02 with dissolve
@@ -6133,23 +6853,203 @@ label cg_monicafirst:
     ch_monica "……하나 남은 모찌는 내가 먹어도 괜찮을까?"
 
     hide cg_monica_first_03
-    return
+    
+    jump sceneNum16Common
 
 label cg_monicasecond:
 
     centered "한 손으로 목욕가운을 붙잡고 부끄러운 표정으로 주인공을 노려보는 볼빵빵 모니카"
 
     return
-
+## S# 15-4. 온천 건물 내부 (식당), 쿠우카 유카타 cg (쿠우카 루트) #######
 label cg_kukafirst:
+    scene bg_naibu
 
-    centered "탕 속에서 망상에 빠져 침을 흘리자 엄지손가락으로 입을 닦아주는 주인공을 깜짝 놀란 표정으로 바라보는 목욕가운 차림의 쿠우카"
+    player "너무 잘 먹었다……"
 
-    return
+    show stand_Yuki_yukata with dissolve
+
+    ch_yuki "맛있었어~ 그치? 아유ㅁ……"
+
+    hide stand_Yuki_yukata
+
+    ch_ayumi "‘헉…… 다른 사람도 아니고 유키 씨가…… 제 이름을 먼저……?!‘"
+
+    show stand_Yuki_yukata with dissolve
+
+    ch_yuki "……아유…… 아…… 아유……나……? 뭐더라?"
+
+    hide stand_Yuki_yukata
+
+    ch_ayumi "{b}{size=30}아 유 미 예요오!!!!!!!{/size}{/b}"
+
+    show stand_Yuki_yukata with dissolve
+
+    ch_yuki "뭐, 상관 없나~"
+
+    hide stand_Yuki_yukata
+
+    ch_ayumi "{b}{size=30}상관 없지 않아요!!!!!!!{/size}{/b}"
+
+    show stand_Kuka_yukata_shamed with dissolve
+
+    ch_kuka "……"
+
+    ch_kuka "으으……"
+
+    hide stand_Kuka_yukata_shamed
+
+    ch_nar "응……?"
+
+    ch_nar "멀찍이 떨어져서 뭘 하는 거야?"
+
+    player "쿠우카, 아까부터 뒤에서 뭐 해……?"
+
+    player "너무 많이 먹었어?"
+
+    show stand_Kuka_yukata_shamed with dissolve
+
+    ch_kuka "아…… 아뇨, 그…… 유카타가……"
+
+    ch_kuka "아무래도…… 처, 처음 입을 때부터 뭔가 잘못됐는지,"
+
+    ch_kuka "이게…… 자꾸 흘러내려서 발에 밟히……"
+
+    show bg_naibu with hpunch
+
+    show stand_Kuka_yukata_surprised with dissolve
+    hide stand_Kuka_yukata_shamed
+
+    ch_kuka "꺄악……?!?!!"
+
+    hide stand_Kuka_yukata_surprised
+
+    player "엇……!!"
+
+    ch_kuka "너, 넘어져 버렷……!!!"
+
+    show bg_black with dissolve
+    hide bg_naibu
+
+    ## bgm off
+
+    ch_kuka "……"
+
+    ch_kuka "에……"
+
+    $ renpy.pause(1.0)
+
+    ## 장난스러운 bgm
+
+    show cg_kuka_ykt_1 with fade
+
+    show cg_kuka_ykt_1 with hpunch
+
+    ch_kuka "{b}{size=30}에에에엣~~?!!!{/size}{/b}"
+
+    ch_kuka "{b}{size=30}도S 씨?!?!?!{/size}{/b}"
+
+    ch_kuka "{b}{size=30}이…… 이이, 이런 곳에서 저질러 버릴 생각인가요?!!{/size}{/b}"    
+
+    ch_kuka "{b}{size=30}이 무슨 대담함……!! 이…… 인격파탄자!!!{/size}{/b}"
+
+    ch_kuka "벗겨질락 말락 하는 유카타를 홀딱 벗겨 누구에게도 보여준 적 없는 쿠우카의 쿠우카를 만천하에 드러내고…… 수치심에 어쩔 줄 몰라하는 쿠우카의 귀에 {b}너도 사실은 이런 걸 원하고 있었지{/b} 라고 속삭이며, 남자는 욕망의 골짜기에 두 손을 뻗친다…… 쿠헤헷……"    
+    
+    player "아니…… 넘어질 뻔한 걸 잡아 준 것 뿐이고……"
+
+    show cg_kuka_ykt_2 with dissolve
+    hide cg_kuka_ykt_1
+
+    ch_kuka "라…… 랄까, 그, 그보다 도, 도, 도, 도S 씨……!"
+
+    ch_kuka "너, 너, 너무…… 가…… 가깝지 않나요……?!"
+
+    player "응?"
+
+    ch_kuka "그, 수, 숨, 숨결……"
+
+    show cg_kuka_ykt_3 with dissolve
+    hide cg_kuka_ykt_2
+
+    ch_kuka "목에, 숨결이 닿아서…… 아우우……"
+
+    ch_nar "숨결……?"
+
+    ch_nar "그러네…… 이런 자세라면……"
+
+    ch_nar "……장난 좀 쳐 줄까?"
+
+    player "후우우우……"
+
+    show cg_kuka_ykt_1 with hpunch
+    hide cg_kuka_ykt_3
+
+    ch_kuka "{b}{size=30}히이~~~~!!!!!{/size}{/b}"
+
+    ch_nar "까, 깜짝이야."
+
+    ch_nar "너무 심했나……?!"
+
+    show cg_kuka_ykt_2 with dissolve
+    hide cg_kuka_ykt_1
+
+    ch_kuka "………"
+
+    player "미…… 미안……! 장난이 과했……"
+
+    ch_kuka "더어……"
+
+    player "??"
+
+    show cg_kuka_ykt_1 with hpunch
+    hide cg_kuka_ykt_2
+
+    ch_kuka "더 해 주세요오오!!!!!!!"
+
+    player "뭐?!?!"
+
+    ch_kuka "방금, 방금 거……!!!"
+
+    ch_kuka "버르읏♥ 버릇이 될 것 같아요오!!!!!"
+
+    ch_kuka "이…… 이런 걸 당해 버리면…… 쿠우카……!!!"
+
+    show cg_kuka_ykt_1 with hpunch
+
+    ch_kuka "도S 씨 이외에는 만족할 수 없는 몸이 되어 버려요!!!!!! 케헤헷!!!! 케게게게!!!!!"
+
+    player "내, 내가 뭘 했……?!"
+
+    ch_monica "쿠우카! 무슨 일이냐! 큰 소리가 났는데……!"
+
+    ch_kuka "도S 씨가…… 도S 씨가……!!! 누구에게도 만져진 적 없는 쿠우카의 스위치를……"
+
+    show bg_black
+    hide cg_kuka_ykt_1
+
+    extend " 우브부붑~~~!!!!"
+
+    player "뭐, 뭔 소리야!!!! 그런 적 없어!!!!!!"
+
+    ch_kuka "우그응……!! 응큿, 응보옵……♥"
+
+    player "이…… 이상한 소리 내지 마!!!!!"
+
+    ch_ninon "쇼군……?! 쉐상에 만솽에……"
+
+    ch_monica "……귀공, 대체 무슨 짓을……"
+
+    player "아무 짓도 안 했어어~~!!!!!!"
+
+    ch_kuka "쿠헤헤헤헷……!!"
+
+    ## 장난스러운 bgm off
+
+    jump sceneNum16Common
 
 label cg_kukasecond:
 
-    centered "오비가 풀려 유카타가 벗겨지려 하자 자신을 껴안아서 가려주는 주인공을 부끄러운 표정으로 바라보는 쿠우카"
+    centered "탕 속에서 망상에 빠져 침을 흘리자 엄지손가락으로 입을 닦아주는 주인공을 깜짝 놀란 표정으로 바라보는 목욕가운 차림의 쿠우카"
 
     return
 ## S# 11. 유키 1번 cg

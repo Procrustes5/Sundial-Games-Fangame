@@ -418,6 +418,8 @@ screen navigation():
 
         textbutton _("갤러리") action ShowMenu("gallery")
 
+        textbutton _("단서") action ShowMenu("clue")
+
         if renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile")):
 
             ## 도움말 메뉴는 모바일 디바이스와 맞지 않아 불필요합니다.
@@ -453,13 +455,13 @@ init python:
     g.unlock_image("ninon_pingping")
 
     g.button('monica1')
-    g.unlock_image("end3")
+    g.unlock_image("cg_monica_first_01")
     
     g.button("monica2")
     g.unlock_image("end4")
 
     g.button("kuka1")
-    g.unlock_image("end5")
+    g.unlock_image("cg_kuka_ykt_3")
 
     g.button("kuka2")
     g.unlock_image("end6")
@@ -913,10 +915,90 @@ style about_text is gui_text
 style about_label_text:
     size gui.label_text_size
 
-## 라이브러리 ########################################################################
+## 단서 ########################################################################
 ##
-## CG해금용 스크린
+## 단서 해금용 스크린
+init:
+    image ujitya:
+        im.FactorScale("object/ob_ujitya.png", 0.2)
+    image wagasi:
+        im.FactorScale("object/ob_wagasi.png", 0.2) 
+screen clue:
 
+    tag menu
+
+    use game_menu(_("단서")):
+        grid 1 3:
+            xfill True
+            yfill True
+
+            imagebutton idle 'ujitya' hover 'ujitya' action NullAction() tooltip "우지챠"
+            imagebutton idle 'wagasi' hover 'wagasi' action NullAction()
+            imagebutton idle 'bg mainmenu' hover 'bg mainmenu' action NullAction()
+                
+        hbox:
+            style_prefix "page"
+                        
+            xalign 0.5
+            yalign 1.0
+
+            spacing gui.page_spacing
+
+            textbutton _("<") action NullAction()
+
+
+            ## 범위(1, 10)는 1부터 9까지 숫자를 제공합니다.
+            textbutton _("1") action NullAction()
+            textbutton _("2") action Show("clue2")
+            textbutton _("3") action Show("clue3")
+
+            textbutton _(">") action Show("clue2")
+screen clue2:
+
+    tag menu
+
+    #grid 1 3:
+    use game_menu(_("단서"), scroll="viewport"):    
+        hbox:
+            style_prefix "page"
+                        
+            xalign 0.5
+            yalign 1.0
+
+            spacing gui.page_spacing
+
+            textbutton _("<") action Show("clue")
+
+
+            ## 범위(1, 10)는 1부터 9까지 숫자를 제공합니다.
+            textbutton _("1") action Show("clue")
+            textbutton _("2") action NullAction()
+            textbutton _("3") action Show("clue3")
+
+            textbutton _(">") action Show("clue3")
+screen clue3:
+
+    tag menu
+    use game_menu(_("단서"), scroll="viewport"):
+    #grid 1 3:
+
+        hbox:
+            style_prefix "page"
+                        
+            xalign 0.5
+            yalign 1.0
+
+            spacing gui.page_spacing
+
+            textbutton _("<") action Show("clue2")
+
+
+            ## 범위(1, 10)는 1부터 9까지 숫자를 제공합니다.
+            textbutton _("1") action Show("clue")
+            textbutton _("2") action Show("clue2")
+            textbutton _("3") action NullAction()
+
+            textbutton _(">") action NullAction()
 
 
 
@@ -1241,8 +1323,8 @@ screen history():
 
                         ## 화자 Character에 화자 색깔이 지정되어 있으면 불러옵니
                         ## 다.
-                        if "color" in h.who_args:
-                            text_color h.who_args["color"]
+                        if "#ffffff" in h.who_args:
+                            text_color h.who_args["#ffffff"]
 
                 $ what = renpy.filter_text_tags(h.what, allow=gui.history_allow_tags)
                 text what:
