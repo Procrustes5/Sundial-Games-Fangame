@@ -191,7 +191,7 @@ init:
         im.FactorScale("library/ames.png", 0.67) 
 ## 트랜스폼
     transform movetoright:
-        ease 0.5 xalign 1.0
+        ease 0.5 xalign 0.8
 
     transform movetoveryright:
         ease 0.5 xalign 1.1
@@ -200,7 +200,7 @@ init:
         linear 0.5 xalign 0.5
         
     transform movetoleft:
-        ease 0.5 xalign 0.0
+        ease 0.5 xalign 0.2
 
         
     transform rotated:
@@ -253,6 +253,9 @@ init:
 
     image bg_onsen_heya_02:
         im.FactorScale("bg/bg_onsen_heya_02.png", 1.0)
+
+    image bg_onsen_heya_03:
+        im.FactorScale("bg/bg_onsen_heya_03.png", 1.0)
     
     image bg_daiyokujyo:
         im.FactorScale("bg/daiyoku.png", 1.0)
@@ -326,6 +329,14 @@ init:
     
     image snow = SnowBlossom(im.FactorScale("object/flower_1.png", 0.5), count=50, border=400, xspeed =(30, 60), yspeed=(30, 100), horizontal=True)
     
+    ## npc 스탠딩 ###################################
+    image npc_1:
+        im.FactorScale("object/npc_1.png", 0.8) ## 여자직원
+    image npc_2:
+        im.FactorScale("object/npc_2.png", 0.8) ## 양아치
+    image npc_3:
+        im.FactorScale("object/npc_3.png", 0.8) ## 리마
+
 ## 이펙트 ###############################
     image fire_big:
         im.FactorScale("effect/fire_big/0.png", 0.80)
@@ -504,6 +515,7 @@ init:
 
     define ch_gura = Character("구라노스케", color = "#ffffff", ctc = 'ctc_icon', ctc_position = "fixed")
 
+    define ch_syokuin = Character("여직원", color = "#ffffff", ctc = 'ctc_icon', ctc_position = "fixed")
 ## 나래이터류 ############################
 init:
     define narrator = Character(None, kind = nvl)
@@ -621,7 +633,7 @@ init:
     image cg_ninon_happy_04 = "library/cg_ninon_happy_04.png"
     image cg_ninon_happy_05 = "library/cg_ninon_happy_05.png"
 
-define persistent.unlock_1 = False  
+define persistent.clue = False  
 ## 시작 전 로고 화면 ######################
 label splashscreen:
     scene logo_head onlayer middle with fade
@@ -2874,7 +2886,7 @@ label start:
     else:
         hide bg_whatsyourname
         pass        
-## S# 1. 초원 ###
+## S# 1. 초원 ##########################
     show bg_black
     scene bg_field onlayer background with fade # 배경화면
 
@@ -2950,7 +2962,7 @@ label start:
     show stand_Yuki_shamed onlayer middle
     hide stand_Yuki_angry onlayer middle
 
-    extend " 앗…… 나뭇잎에 맺힌 이슬…… 내 모습이 비쳐서 너무 예뻐…… 하아……."
+    ch_yuki " 앗…… 나뭇잎에 맺힌 이슬…… 내 모습이 비쳐서 너무 예뻐…… 하아……."
 
     hide stand_Yuki_shamed onlayer middle
 
@@ -2988,7 +3000,7 @@ label start:
     #멀리 날아가는 소리
     
     ch_kuka "쿠, 쿠우카, 날아가버려요오오옷!!!!"
-    show stand_Kuka_mousou onlayer middle:
+    show stand_Kuka_mousou onlayer middle with dissolve:
         rotate 0
         linear 0.4 rotate 360
     hide stand_Kuka_mousou onlayer middle
@@ -6210,10 +6222,16 @@ label sceneNum15_1Common:
     hide bg_naibu
 
     if love_point == 1:
+        show bg_black
+        $renpy.pause(1.0)
         jump cg_ninonfirst
     elif love_point == 3:
+        show bg_black
+        $renpy.pause(1.0)
         jump cg_kukafirst
     else:
+        show bg_black
+        $renpy.pause(1.0)
         jump sceneNum16Common
 
     return
@@ -6225,281 +6243,460 @@ label sceneNum16Common:
     show stand_gura with dissolve
 
     ch_gura "여러분, 식사는 맛있게 하셨습니까?"
-    return
-## 미니 게임 CG 라벨 ########################
-label ninon_win:
+
+    hide stand_gura
+
+    show stand_Monica_yukata with dissolve
+
+    ch_monica "음……! 굉장하더군…… 특히 그 꿀 바른 경단이 일품이었다……!!"
+
+    hide stand_Monica_yukata
+
+    show stand_gura with dissolve
+
+    ch_gura "!!!!"
+
+    ch_gura "……좀 더 자세히 말씀해 주실 수 있으신지요……?"
+
+    show bg_black with fade
+    hide bg_naibu
+
+    $renpy.pause(1.0)
+
+    show bg_naibu with fade
+    hide bg_black
+
+    show stand_Monica_yukata at left with dissolve
+    show stand_gura at right with dissolve
+
+    ch_monica "……주목할 만했던 점은, 전체적으로 쫀득한 식감과 대비되는 부분이었는데…"
+
+    ch_gura "호오, 호오……"
+
+    show stand_Monica_yukata_surprised at left
+    hide stand_Monica_yukata
+
+    ch_monica "……거기에서 상상치도 못한 바삭한 견과류가……!!! 눈물이 나올 정도로 감동적인 맛이었다!!!"
+
+    show bg_naibu at fast_rotating
+
+    ch_gura "과연!!!!! 뭘 좀 아시는군요!!!! 감동임다——앗!!!!!!"
+
+    ch_ayumi "저 둘, 즐거워 보이네요……"
+
+    hide stand_Monica_yukata_surprised
+    show stand_gura at movetocenter
+
+    ch_gura "……아앗, 내 정신 좀 봐. 이런 지적인 대화는 너무 오랜만이라……!"
+
+    ch_nar "지적이라기엔 쳐먹는 얘기밖에……"
+
+    ch_gura "저희 온천의 요리를 사랑해주시는 것은 매우 기쁜 일이지만, 더 중요한 일을 깜빡할 뻔 했군요……"
+
+    ch_gura "여러분께 드릴 물건이 있습니다."
+
+    hide stand_gura
+    show stand_Yuki_yukata with dissolve
+
+    ch_yuki "물건? 나의 아름다움을 더 돋보이게 해 줄 수 있는 걸까나~?"
+
+    hide stand_Yuki_yukata
+    show stand_gura with dissolve
+
+    ch_gura "……그, 그런 건 아니고요……"
+
+    hide stand_gura
+
+    show ob_key with dissolve:
+        xpos 430 yalign 0.3
     
-    return
-## 니논 루트 ################################
-label ninon:
-    $ camera_reset()
-    scene bg_room onlayer background with fade
-    play music "audio/main/LostPrincessmain.mp3"
+    ## 충격적인 효과음
 
-    centered "니논의 방"
-
-    show stand_Ninon onlayer forward at rotated
-
-    ch_ninon "앗,와줬구나!"
-
-    ch_ninon "탁구 한 판 하지 않을래?"
-
-    menu:
-        "응choice_1":
-            jump play_pong
+    $ renpy.pause(1.0)
     
-
-        "아니choice_2":
-            pass
+    ch_yuki "……뭐야, 이…… 극도로 아름답지 못한 건……"
     
-    if(win_point > 2):
-        show ninon_pingping onlayer forward with fade
-        
-        
-        ch_ninon "이것이 사무라이 정신이다, 입니다!\n천하통일의 염원을 담은 SERVE를 받아라 입니다!\n「인법 · 후쥐산 쪼궤기」~! 슈바바바밧!"
+    ch_gura "{b}쁘띠 구라노스케 마스터키 입니다.{/b}"
 
-        hide ninon_pingping onlayer forward with fade
-        
-        centered "다시 게임"
+    ch_yuki "으으…… 흉측한 게 갑자기 눈에 들어와서…… 정신을…… 차릴 수가……"
+
+    ## 털썩 쓰러지는 소리 효과음
+
+    ch_ninon "유키 씨~~!!! 정신 차리세요 입니다~~~!!!!!"
+
+    hide ob_key
+
+    show stand_Monica_yukata_down with dissolve
+
+    ch_monica "이…… 이게 대체 뭐지……?!"
+
+    hide stand_Monica_yukata_down
+    show stand_gura with dissolve
+
+    ch_gura "문자 그대로, 온천의 잠긴 문을 모두 열 수 있는 ‘마스터키’입니다."
+
+    ch_gura "아, 그리고 여기…… 하나 더 드리겠습니다."
+
+    hide stand_gura
+    show ob_key with dissolve:
+        xpos 430 yalign 0.3
+    
+    ch_yuki "으으으으…… 흉물스러움이 2배로……"
+
+    ## 털썩 쓰러지는 효과음
+
+    ch_ninon "유키 씨~~~!!!!"
+
+    hide ob_key
+    show stand_gura with dissolve
+
+    ch_gura "이것을 여러분께 드리는 이유는……"
+
+    ch_gura "지금까지는 손님을 접대한다는 명목으로 행동했지만, 앞으로도 여러분을 에스코트하며 온천 구석구석을 함께 돌아다니는 것은 아무래도 무리가 있을 것 같습니다."
+
+    hide stand_gura
+    show stand_Kuka_yukata_down with dissolve
+
+    ch_kuka "그럼…… 이제부터는 저희의 힘만으로 조사를……?"
+
+    hide stand_Kuka_yukata_down
+    show stand_gura with dissolve
+
+    ch_gura "네…… 이 이상 눈에 띄는 행동을 하는 건 위험할 것 같네요."
+
+    ch_gura "{b}쁘띠 구라노스케 마스터키{/b}를 부디 잘 활용해 주시길 바라겠습니다."
+    hide stand_gura
+
+    player "그런데 이걸 두 개나 주는 이유는 뭐야……? 혹시라도 잃어버릴까 봐?"
+
+    show stand_gura with dissolve
+
+    ch_gura "다섯 분이시니까, 두 그룹으로 나누어 열쇠를 하나씩 가지고 다니시는 편이 효율적이라고 생각했습니다."
+
+    ch_gura "그 정도면 불시의 위험에 대비하기도 적당한 인원일 것 같고요."
+
+    hide stand_gura
+
+    ch_ayumi "그러니까 다섯 명이 아니……"
+
+    show stand_Ninon_yukata_daiji with dissolve
+
+    ch_ninon "두 그룹이라면…… 어느 쪽이 쇼군과 함께 행동할지를 먼저 정해야 할 것 같군요 입니다……!"
+
+    hide stand_Ninon_yukata_daiji
+
+    show stand_Monica_yukata_ddung with dissolve
+
+    ch_monica "음…… 잠깐 기다려라, 니논. 계획 없는 개별 행동은 혼란만을 야기할 뿐이야."
+
+    ch_monica "온천의 내부 구조를 어느 정도 파악할 때까지는 전원이 함께 행동하는 것이 좋을 것 같다. 그룹을 나누는 것은 그 이후에 해도 늦지 않아."
+
+    hide stand_Monica_yukata_ddung
+    show stand_Ninon_yukata_surp with dissolve
+
+    ch_ninon "그렇소 입니까…… 니논의 생각이 짧았다 입니다."
+
+    hide stand_Ninon_yukata_surp
+
+    show stand_Kuka_yukata with dissolve
+
+    ch_kuka "그러면…… 어디부터 가는 게 좋을까요?"
+
+    ch_kuka "아무래도 도S 씨가 정해 주시는 편이……"
+
+    hide stand_Kuka_yukata
+
+    player "으음……"
+
+    player "……일단 숙소 쪽부터 둘러볼까?"
+
+    show bg_white
+    hide bg_naibu
+    $ persistent.clue = True
+    narrator "{color=#FF2929}단서{/color} 기능이 해금되었습니다!{vspace=15} {p}이제부터 {color=#FF2929}화면 우측 상단의 톱니바퀴{/color} 또는 {color=#FF2929}ESC{/color}를 눌러 {p}메뉴에 진입한 뒤 '{color=#FF2929}단서{/color}' 항목에서 수집한 단서들을 열람할 수 있습니다. "
+
+    hide bg_white
+
+    jump sceneNum19Common
+## S# 17. 온천 숙소 - 리터칭 1 (공통루트) ####
+label sceneNum19Common:
+    scene bg_onsen_heya_03 with fade
+
+    player "방이 생각보다 엄청 많네……"
+
+    player "어느 세월에 다 돌지는 모르겠지만…… 여기부터 시작해 보자."
+
+    show stand_Ninon_yukata_surp with dissolve
+
+    ch_ninon "오오~! 뭔가 숨겨져 있을 것만 같은 곳 입니다~~!!!"
+
+    hide stand_Ninon_yukata_surp
+
+    show stand_Kuka_yukata_down with dissolve
+
+    ch_kuka "니, 니논 씨…… 너무 큰 소리는 내지 않는 게 좋을 것 같은데요……!"
+
+    hide stand_Kuka_yukata_down
+
+    show stand_Ninon_yukata_panic with dissolve
+
+    ch_ninon "합……! 큰일 날 뻔했다 입니다……"
+
+    hide stand_Ninon_yukata_panic
+    show stand_Yuki_yukata_ddung with dissolve
+
+    ch_yuki "일단은 몰래 들어온 거니까…… 뭐, 차라리 마물이 우리를 알아보고 먼저 덤벼드는 편이 빠르고 편할지도 모르겠지만."
+
+    hide stand_Yuki_yukata_ddung
+    show stand_Monica_yukata_ddung with dissolve
+
+    ch_monica "……구라노스케의 말에 따르면, 굉장히 영악한 놈이다. 그렇게 허술할 리가 없지……"
+
+    hide stand_Monica_yukata_ddung
+    show stand_Yuki_yukata_ddung with dissolve
+
+    ch_yuki "어디까지나 희망사항일 뿐이라구."
+
+    ch_yuki "하아…… 빨리 끝내고 돌아가서 쉬고 싶어……. 충분히 잠을 자 두지 않으면 피부가 다 상해 버릴 텐데."
+
+    hide stand_Yuki_yukata_ddung
+    show stand_Ninon_yukata with dissolve
+
+    ch_ninon "걱정 마세요 입니다, 유키 씨. 니논의 NINJA SOUL에 따르면, 이 방에는 결정적인 단숴가 분명히 존재한다 입니다……!"
+
+    ch_ninon "니논이 금방 놈의 행방을 알아내겠소 입니다. 조금만 기다려 주세요 입니다! 슈바바바밧!!"
+
+    show bg_black with fade
+    hide bg_onsen_heya_03
+
+    $renpy.pause(1.0)
+
+    show bg_onsen_heya_03
+
+    show stand_Ninon_yukata_innocent with dissolve
+
+    ch_ninon "닌자 관두겠소 입니다……"
+
+    hide stand_Ninon_yukata_innocent
+
+    player "으음…… 애초에 단서랄 게 있긴 한 거야……?"
+
+    player "이런 식이면 끝도 없을 것 같아……"
+
+    show stand_Monica_yukata_ddung with dissolve
+
+    ch_monica "귀공…… 벌써부터 낙담하기엔 이르다. 조금만 더 힘을……"
+
+    hide stand_Monica_yukata_ddung
+
+    ## bgm off
+    ## 발자국 소리 효과음
+    $renpy.pause(1.0)
+
+    ## 긴박한 bgm
+    show stand_Monica_yukata_surprised with dissolve
+
+    ch_monica "!!!!"
+
+    hide stand_Monica_yukata_surprised
+
+    player "발자국 소리?!?!"
+
+    show stand_Kuka_yukata_surprised with dissolve
+
+    ch_kuka "저, 점점 가까워지고 있어요……!!"
+
+    hide stand_Kuka_yukata_surprised
+
+    show stand_Monica_yukata_ddung with dissolve
+
+    ch_monica "이…… 이런 낭패가 있나. 마땅히 숨을 만한 곳도 없는데……!"
+
+    hide stand_Monica_yukata_ddung
+
+    player "뭐야……?! 망보던 사람이 아무도 없었어?!"
+
+    show stand_Yuki_yukata_ddung with dissolve
+
+    ch_yuki "망볼 틈이 어디 있어? 귀여운 내 얼굴만 감상하기에도 시간이 모자라!"
+
+    hide stand_Yuki_yukata_ddung
+
+    ch_ayumi "저…… 저는 선배만 보고 있느라……"
+
+    ch_ayumi "~~~가 아니라!!! 선배가 딱히 아무 말씀 없으셔서……!"
+
+    ch_nar "이런 멍청이들……!!!"
+
+    show stand_Yuki_yukata_angry with dissolve
+
+    ch_ninon "이익…… 일단 니논이 상황을 파악하겠다 입니다!!"
+
+    show stand_Ninon_yukata_daiji
+    hide stand_Yuki_yukata_angry
+
+    ch_ninon "가는 겁니다~~!! 「인법 · 천뤼안」 !!!! 츄츄츗!!!!"
+
+    player "천리안?! 벽 너머를 볼 수 있는 거야?!"
+
+    ch_ninon "그냥 문 틈쇄로 바깥을 내다보는 인법 입니다!!!"
+
+    ch_nar "인법도 뭣도 아니잖아……!!"
+
+    ch_ninon "취취췻——!!!!"
+
+    ch_ninon "이것은 입에서 나는 소리가 아니여 입니다!!"
+
+    $renpy.pause(1.0)
+
+    ch_ninon "푸취췻— 발소리의 주인은……"
+
+    ch_ninon "사람…… 사람 입니다!"
+
+    ch_ninon "옷차림으로 봐선, 아마도 온천의 직원……!!"
+
+    hide stand_Ninon_yukata_daiji    
+
+    show stand_Monica_yukata_surprised with dissolve
+
+    ch_monica "겉모습만으로는 판단할 수 없어……! 직원의 모습을 흉내낸 마물일지도 모른다!"
+
+    hide stand_Monica_yukata_surprised
+
+    show stand_Kuka_yukata_surprised with dissolve
+
+    ch_kuka "그, 그럼…… 이제 어떡해야……!!!"
+
+    hide stand_Kuka_yukata_surprised
+
+    player "……"
+
+    player "……나한테 좋은 생각이 있어."
+
+    player "다들, 내가 시키는 대로만 해 줘……!"
+
+    show bg_black with fade
+    hide bg_onsen_heya_03
+
+    ## bgm off
+
+    ## 발자국 소리 효과음 off
+
+    $renpy.pause(1.0)
+
+    show bg_onsen_heya_03 with fade
+    hide bg_black
+
+    show npc_1 with dissolve
+
+    ch_syokuin "……응?"
+
+    ch_syokuin "어라, 이상하다……?"
+
+    ch_syokuin "문이 왜 열려 있지? 좀 전까지만 해도 잠겨……"
+
+    hide npc_1
+    show cg_babybung with dissolve
+
+    ## 충격적인 효과음
+
+    ## 장난스러운 bgm
+
+    player "{b}{size=30}응애!!!!!!!!!!!{/size}{/b}"
+
+    hide cg_babybung
+    show npc_1 with dissolve
+    show bg_onsen_heya_03 with hpunch
+
+    ch_syokuin "꺄———아아악?!!!?!!!!!"
+
+    show npc_1 at movetoleft
+
+    show cg_babybung at right with dissolve
+
+    player "테에엥!!! 마망!!!!"
+
+    ch_syokuin "어, 어린아이……?"
+
+    ch_syokuin "근데 생긴 게……"
+
+    player "싸…… 싸물응애……!"
+
+    ch_syokuin "어……린애…… 맞겠지……?"
+
+    ch_syokuin "길을 잃은 거니? 엄마는 어디 계셔?"
+
+    player "응애…… 맘마조……"
+
+    ch_syokuin "곤란하네…… 여기 있으면 안 돼요. 일단 누나랑 같이 가자."
+
+    player "테에에엥……"
+
+    hide cg_babybung
+    hide npc_1
+
+    ## 장난스러운 bgm off
+
+    $renpy.pause(1.0)
+
+    show stand_Monica_yukata_munen with dissolve:
+        xpos 200 ypos 400
+    
+    ch_monica "……갔나?"
+
+    hide stand_Monica_yukata_munen
+    show stand_Ninon_yukata_surp with dissolve:
+        xpos 200 ypos 400
+    ch_ninon "간 것 같아요 입니다……"
+
+    hide stand_Ninon_yukata_surp
+
+    ch_ayumi "선배…… 고생이란 고생은 다 하시네요오……"
+
+    show stand_Yuki_yukata_angry with dissolve:
+        xpos 200 ypos 400
+    
+    ch_yuki "……저기, 그럼 일단 어디로든 이동하지 않을래? 너무 답답해……"
+
+    hide stand_Yuki_yukata_angry
+    show stand_Kuka_yukata_mousou with dissolve:
+        xpos 200 ypos 400
+    
+    ch_kuka "쿠…… 쿠우카는 이대로도 나쁘지 않아요……! 마구 짓눌리는 이 느낌이 엄청……!! 케헷, 케…… 헤으극……!!!"
+
+    hide stand_Kuka_yukata_mousou
+    hide bg_onsen_heya_03
+
+    if love_point == 1 or love_point == 3:
+        jump scene18_1
     else:
-        centered "다시 게임" 
+        jump scene18_2
+## S# 18-1. 실내 온천 (니논, 쿠우카 루트) #########
+label scene18_1:
+    scene bg_indoor_sauna_day
+    ## 동양풍 bgm
 
-    show stand_Ninon onlayer forward with dissolve
+    show stand_Ninon_yukata_emb with dissolve
 
-    menu:
-        "+1":           
-            $love_point = love_point + 1
-            
-        "0":
-            $love_point = love_point
-        "-1":
-        
-            $love_point = love_point - 1
+    ch_ninon "휴우우…… 좀 전에는 정말 깜짝 놀랐다데스 였습니다……!!"
 
-    menu:
-        "+1":
-            
-            $love_point = love_point + 1
-        "0":
-            $love_point = love_point
-        "-1":
-            
-            $love_point = love_point - 1
-    
-    menu:
-        "+1":
-            
-            $love_point = love_point + 1
-        "0":
-            $love_point = love_point
-        "-1":
-            
-            $love_point = love_point - 1
-    
-    if(love_point == 3):
-        jump ninonHappy
 
-    if(love_point == 2):
-        jump Success
-
-    if(love_point == 0 or love_point == 1):
-        jump Badkyaru
-    
-    if(love_point == -1 or love_point == -2):
-        jump Kimura
-    
-    if(love_point == -3):
-        jump BAD
 
     return
+## S# 18-2. 실내 온천 (모니카, 유키 루트) #########
+label scene18_2:
+    scene bg_indoor_sauna_day
+    ## 동양풍 bgm
 
+    show stand_Monica_yukata_down with dissolve
 
-## 모니카 루트 ###################################
-label monica:
-    scene bg_room with fade
-    play music "audio/main/LostPrincessmain.mp3"
-    centered "모니카의 방"
-    show stand_Monica with dissolve
-
-    $ camera_move(-70, 130, 1000, 0, 5)
-
-    show stand_Monica at movetoright
-
-
-    ch_monica "음..."
-
-    show stand_Monica at movetoleft
-
-    ch_monica "아직인걸까..."
-
-    show stand_Monica at movetocenter
-
-    ch_monica "왔구나!"
-
-    menu:
-        "+1":           
-            $love_point = love_point + 1
-            call cg_monicafirst from _call_cg_monicafirst
-
-        "0":
-            $love_point = love_point
-        "-1":
-        
-            $love_point = love_point - 1
-
-    menu:
-        "+1":
-            
-            $love_point = love_point + 1
-
-        "0":
-            $love_point = love_point
-        "-1":
-            
-            $love_point = love_point - 1
-    
-    menu:
-        "+1":
-            
-            $love_point = love_point + 1
-        "0":
-            $love_point = love_point
-        "-1":
-            
-            $love_point = love_point - 1
-    
-    if(love_point == 3):
-        jump monicaHappy
-
-    if(love_point == 2):
-        jump Success
-
-    if(love_point == 0 or love_point == 1):
-        jump Badkyaru
-    
-    if(love_point == -1 or love_point == -2):
-        jump Kimura
-    
-    if(love_point == -3):
-        jump BAD
-
+    ch_monica "휴우…… 좀 전에는 정말, 꼼짝없이 들키는 줄만 알았다……"
     return
+## CG ####################################
 
-## 쿠우카 루트 #############################
-label kuka:
-    $ camera_reset()
-    scene bg_room onlayer background with fade
-    play music "audio/main/LostPrincessmain.mp3"
-    centered "쿠우카의 방"
-    show stand_Kuka with dissolve
-
-    $ layer_move("background", 2000)
-    $ layer_move("middle", 1500)
-    $ layer_move("forward", 1000)
-    show A onlayer middle
-    show B onlayer forward
-    with dissolve
-    $ camera_move(-70, 130, 1000, 0, 5)
-
-    menu:
-        "+1":           
-            $love_point = love_point + 1
-        "0":
-            $love_point = love_point
-        "-1":
-        
-            $love_point = love_point - 1
-
-    menu:
-        "+1":
-            
-            $love_point = love_point + 1
-        "0":
-            $love_point = love_point
-        "-1":
-            
-            $love_point = love_point - 1
-    
-    menu:
-        "+1":
-            
-            $love_point = love_point + 1
-        "0":
-            $love_point = love_point
-        "-1":
-            
-            $love_point = love_point - 1
-    
-    if(love_point == 3):
-        jump kukaHappy
-
-    if(love_point == 2):
-        jump Success
-
-    if(love_point == 0 or love_point == 1):
-        jump Badkyaru
-    
-    if(love_point == -1 or love_point == -2):
-        jump Kimura
-    
-    if(love_point == -3):
-        jump BAD
-
-    return
-
-## 유키 루트 ###########################
-label yuki:
-    scene bg_room with fade
-    play music "audio/main/LostPrincessmain.mp3"
-    centered "유키의 방"
-    show stand_Yuki with dissolve
-
-    menu:
-        "+1":           
-            $love_point = love_point + 1
-        "0":
-            $love_point = love_point
-        "-1":
-            $love_point = love_point - 1
-
-    menu:
-        "+1":
-            
-            $love_point = love_point + 1
-        "0":
-            $love_point = love_point
-        "-1":
-            
-            $love_point = love_point - 1
-    
-    menu:
-        "+1":
-            
-            $love_point = love_point + 1
-        "0":
-            $love_point = love_point
-        "-1":
-            
-            $love_point = love_point - 1
-    
-    if(love_point == 3):
-        jump yukiHappy
-
-    if(love_point == 2):
-        jump Success
-
-    if(love_point == 0 or love_point == 1):
-        jump Badkyaru
-    
-    if(love_point == -1 or love_point == -2):
-        jump Kimura
-    
-    if(love_point == -3):
-        jump BAD
-
-    return
-
-## CG ####################################   
+## 니논 루트 ########################### 
+##
+##  
 ## S# 15-3. 니논 탁구 CG (니논 루트) ##################
 label cg_ninonfirst:
 
@@ -6674,6 +6871,10 @@ label cg_ninonsecond:
     centered "목욕가운 차림으로 탕에 몸을 담근 채 부끄러워 하며 주인공을 힐끔 보는 니논"
 
     return
+
+## 모니카 루트 ###############################
+##
+##
 ## S# 15-2. 온천 건물 내부 (식당), 모니카 화과자 cg(모니카 루트) ########
 label cg_monicafirst:
     $renpy.pause(1.0)
@@ -6861,6 +7062,10 @@ label cg_monicasecond:
     centered "한 손으로 목욕가운을 붙잡고 부끄러운 표정으로 주인공을 노려보는 볼빵빵 모니카"
 
     return
+
+## 쿠우카 루트 ################################
+##
+##
 ## S# 15-4. 온천 건물 내부 (식당), 쿠우카 유카타 cg (쿠우카 루트) #######
 label cg_kukafirst:
     scene bg_naibu
@@ -7052,6 +7257,10 @@ label cg_kukasecond:
     centered "탕 속에서 망상에 빠져 침을 흘리자 엄지손가락으로 입을 닦아주는 주인공을 깜짝 놀란 표정으로 바라보는 목욕가운 차림의 쿠우카"
 
     return
+
+## 유카 루트 ##################################
+##
+##
 ## S# 11. 유키 1번 cg
 label cg_yukifirst:
     show bg_black

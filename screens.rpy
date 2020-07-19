@@ -418,7 +418,8 @@ screen navigation():
 
         textbutton _("갤러리") action ShowMenu("gallery")
 
-        textbutton _("단서") action ShowMenu("clue")
+        if persistent.clue == True:
+            textbutton _("단서") action ShowMenu("clue")
 
         if renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile")):
 
@@ -1717,8 +1718,8 @@ screen nvl(dialogue, items=None):
         if gui.nvl_height:
 
             vpgrid:
-                cols 1
-                yinitial 1.0
+                cols 2
+                xpos -100 ypos 280
 
                 use nvl_dialogue(dialogue)
 
