@@ -920,10 +920,47 @@ style about_label_text:
 ##
 ## 단서 해금용 스크린
 init:
-    image ujitya:
-        im.FactorScale("object/ob_ujitya.png", 0.2)
-    image wagasi:
-        im.FactorScale("object/ob_wagasi.png", 0.2) 
+    image hankachi:
+        im.FactorScale("clue/hankachi.png", 0.8)
+    image letter:
+        im.FactorScale("clue/letter.png", 0.8)
+    image key:
+        im.FactorScale("clue/key.png", 0.8)
+    image unagi:
+        im.FactorScale("clue/unagi.png", 0.8)
+    image kiroku:
+        im.FactorScale("clue/kiroku.png", 0.8)
+    image akudaikan:
+        im.FactorScale("clue/akudaikan.png", 0.8)
+    image syokuin:
+        im.FactorScale("clue/syokuin.png", 0.8)
+    image rima:
+        im.FactorScale("clue/rima.png", 0.8)
+    image yanki:
+        im.FactorScale("clue/yanki.png", 0.8)
+
+    image hankachi1:
+        im.FactorScale("clue/hankachi.png", 0.85)
+    image letter1:
+        im.FactorScale("clue/letter.png", 0.85)
+    image key1:
+        im.FactorScale("clue/key.png", 0.85)
+    image unagi1:
+        im.FactorScale("clue/unagi.png", 0.85)
+    image kiroku1:
+        im.FactorScale("clue/kiroku.png", 0.85)
+    image akudaikan1:
+        im.FactorScale("clue/akudaikan.png", 0.85)
+    image syokuin1:
+        im.FactorScale("clue/syokuin.png", 0.85)
+    image rima1:
+        im.FactorScale("clue/rima.png", 0.85)
+    image yanki1:
+        im.FactorScale("clue/yanki.png", 0.85)
+
+    image locked:
+        im.FactorScale("clue/locked.png", 0.8)
+     
 screen clue:
 
     tag menu
@@ -932,16 +969,26 @@ screen clue:
         grid 1 3:
             xfill True
             yfill True
+            if persistent.hankachi == True:
+                imagebutton idle 'hankachi' hover 'hankachi1' action NullAction()
+            else:
+                imagebutton idle 'locked' hover 'locked' action NullAction()
 
-            imagebutton idle 'ujitya' hover 'ujitya' action NullAction() tooltip "우지챠"
-            imagebutton idle 'wagasi' hover 'wagasi' action NullAction()
-            imagebutton idle 'bg mainmenu' hover 'bg mainmenu' action NullAction()
+            if persistent.letter == True:
+                imagebutton idle 'letter' hover 'letter1' action NullAction()
+            else:
+                imagebutton idle 'locked' hover 'locked' action NullAction()
+
+            if persistent.key == True:
+                imagebutton idle 'key' hover 'key1' action NullAction()
+            else:
+                imagebutton idle 'locked' hover 'locked' action NullAction()
                 
         hbox:
             style_prefix "page"
                         
             xalign 0.5
-            yalign 1.0
+            ypos 550
 
             spacing gui.page_spacing
 
@@ -949,7 +996,7 @@ screen clue:
 
 
             ## 범위(1, 10)는 1부터 9까지 숫자를 제공합니다.
-            textbutton _("1") action NullAction()
+            textbutton _("1") action NullAction() text_color "#f578f3"
             textbutton _("2") action Show("clue2")
             textbutton _("3") action Show("clue3")
 
@@ -959,12 +1006,34 @@ screen clue2:
     tag menu
 
     #grid 1 3:
-    use game_menu(_("단서"), scroll="viewport"):    
+    use game_menu(_("단서")):
+        grid 1 3:
+            xfill True
+            yfill True
+            
+            if persistent.unagi == True:
+                imagebutton idle 'unagi' hover 'unagi1' action NullAction()
+            else:
+                imagebutton idle 'locked' hover 'locked' action NullAction()
+
+            if persistent.kiroku == True:
+                imagebutton idle 'kiroku' hover 'kiroku1' action NullAction()
+            else:
+                imagebutton idle 'locked' hover 'locked' action NullAction()
+
+            if persistent.akudaikan == True:
+                imagebutton idle 'akudaikan' hover 'akudaikan1' action NullAction()
+            else:
+                imagebutton idle 'locked' hover 'locked' action NullAction()
+            
+            
+            
+   
         hbox:
             style_prefix "page"
                         
             xalign 0.5
-            yalign 1.0
+            ypos 550
 
             spacing gui.page_spacing
 
@@ -973,21 +1042,41 @@ screen clue2:
 
             ## 범위(1, 10)는 1부터 9까지 숫자를 제공합니다.
             textbutton _("1") action Show("clue")
-            textbutton _("2") action NullAction()
+            textbutton _("2") action NullAction() text_color "#f578f3"
             textbutton _("3") action Show("clue3")
 
             textbutton _(">") action Show("clue3")
 screen clue3:
 
     tag menu
-    use game_menu(_("단서"), scroll="viewport"):
-    #grid 1 3:
+    use game_menu(_("단서")):
+        grid 1 3:
+            xfill True
+            yfill True
+            
+            if persistent.syokuin == True:
+                imagebutton idle 'syokuin' hover 'syokuin1' action NullAction()
+            else:
+                imagebutton idle 'locked' hover 'locked' action NullAction()
+
+            if persistent.rima == True:
+                imagebutton idle 'rima' hover 'rima1' action NullAction()
+            else:
+                imagebutton idle 'locked' hover 'locked' action NullAction()
+
+            if persistent.yanki == True:
+                imagebutton idle 'yanki' hover 'yanki1' action NullAction()
+            else:
+                imagebutton idle 'locked' hover 'locked' action NullAction()
+            
+            
+                
 
         hbox:
             style_prefix "page"
                         
             xalign 0.5
-            yalign 1.0
+            ypos 550
 
             spacing gui.page_spacing
 
@@ -997,7 +1086,7 @@ screen clue3:
             ## 범위(1, 10)는 1부터 9까지 숫자를 제공합니다.
             textbutton _("1") action Show("clue")
             textbutton _("2") action Show("clue2")
-            textbutton _("3") action NullAction()
+            textbutton _("3") action NullAction() text_color "#f578f3"
 
             textbutton _(">") action NullAction()
 
