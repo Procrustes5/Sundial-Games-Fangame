@@ -361,11 +361,11 @@ define gui.nvl_borders = Borders(0, 10, 0, 20)
 
 ## 렌파이가 표시할 NVL-mode 항목의 최대 수입니다. 설정보다 많은 항목이 표시되면
 ## 가장 오래된 항목이 제거됩니다.
-define gui.nvl_list_length = 6
+define gui.nvl_list_length = 1
 
 ## NVL-모드 항목의 높이입니다. 이것을 None으로 설정하면 항목들은 동적으로 높이를
 ## 조정합니다.
-define gui.nvl_height = 115
+define gui.nvl_height = 180
 
 ## gui.nvl_height 값이 None일 때 NVL-모드 항목들, 그리고 NVL-모드 항목들과 NVL-
 ## 모드 메뉴간의 간의 간격입니다.

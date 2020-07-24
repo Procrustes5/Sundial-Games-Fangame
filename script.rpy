@@ -491,6 +491,61 @@ init:
         pause 0.05
         im.FactorScale("effect/knife/15.png", 0.67)
         pause 0.05
+
+## BGM & Sound ##################################
+    ## Main ##
+
+        ## ## ## ## ## ## ## ## ## ## ## ##
+        ## audio/main/ames.mp3
+        ## audio/main/2sentou.mp3
+        ## audio/main/3town.mp3
+        ## audio/main/4japan.mp3
+        ## audio/main/5orientalcommon.mp3
+        ## audio/main/6orientalcommon.mp3
+        ## audio/main/7emergencycommon.mp3
+
+    ## Sound ##
+
+        ## ## ## ## ## ## ## ## ## ## ## ##
+        ## 문 두드리는 소리 audio/sound/knocking.wav
+        ## 문 열리는 소리 audio/sound/opendoor.wav
+        ## 충격적인 효과음 audio/sound/surp.mp3
+        ## 1박2일 효과음 audio/sound/1bak2il.mp3
+        ## 꼬르륵 audio/sound/harapeko.mp3
+        ## 꾹꾹 누르는 효과음 audio/sound/gguk.mp3 ##
+        ## 숨소리 audio/sound/breathe.mp3
+        ## 털썩 audio/sound/down.mp3 ##
+        ## 발자국 소리 audio/sound/walking.mp3
+        ## 원숭이 울음소리 audio/sound/monkey.wav
+        ## 괴물 울부짖는 소리 audio/sound/growl.mp3
+        ## 괴물 으르렁거리는 소리 audio/sound/exo.mp3
+        ## 멀리 날아가는 소리 audio/sound/fly.mp3
+        ## 불길이 치솟는 소리 audio/sound/fire.mp3
+        ## 소름 돋는 소리 audio/sound/torihada.mp3
+        ## 총소리 audio/sound/gunshot.mp3
+        ## 키무라 웃음소리 audio/sound/kimura.mp3
+        ## 칼 부딪히는 소리 audio/sound/knife1.wav
+        ## 둔탁한 피격음 audio/sound/hit.wav
+        ## 칼을 검집에서 빼는 소리 audio/sound/baldo.mp3
+        ## 칼로 베어가르는 소리 audio/sound/knife2.wav
+        ## 뛰어가는 소리 audio/sound/running.wav
+
+    ## Voice ##
+
+        ## ## ## ## ## ## ## ## ## ## ## ##
+        ## audio/titlesound/ayumi.mp3
+        ## audio/titlesound/kuka.mp3
+        ## audio/titlesound/monica.mp3
+        ## audio/titlesound/ninon.mp3
+        ## audio/titlesound/yuki.mp3
+
+## 시험용
+init python:
+    def beep(event, **kwargs):
+        if event == "show":
+            renpy.music.play("audio/sound/gguk.mp3", channel="voice", loop=True)
+        elif event == "slow_done" or event == "end":
+            renpy.music.stop(channel="voice")
 ## 캐릭터 ###############################
 init:
     image CTC = Image("/menu/ctc_icon.png", xpos = 1125, ypos = 670)
@@ -2528,7 +2583,7 @@ label play_pong:
 
         if persistent.practicepong == True:
             show stand_Ninon_yukata_wink with dissolve
-            ch_ninon "마음의 준비가 되었다면 불러주세요 입니다!!"
+            ch_ninon "쇼군~ 쫄보 입니까? 빨리 시작하자 입니다~!!"
 
             hide stand_Ninon_yukata_wink
             jump pingpong_choice
@@ -2792,12 +2847,12 @@ label naming:
     scene bg_black
     show bg_whatsyourname onlayer forward with squares
     # 아메스 테마 서서히 커지다가 고정
-    play music "audio/main/ames.mp3" fadein 3.0
     $ renpy.pause(1.0)
     $ player_name = renpy.input("내 이름...")
     $ name = player_name
     $ finalConso = finalChecker(name)
     hide bg_whatsyourname onlayer forward
+    window hide
     if len(name) > 10:
         hatena "어떻게 사람 이름이 [name]일수가 있지 ㅋㅋ"
         hatena "진짜 이름을 10자 이내로 알려 줘."
@@ -2877,7 +2932,9 @@ label naming:
         hide cg_ames onlayer middle
         jump naming
     else:     
+        play music "audio/main/ames.mp3" fadein 3.0
         $ renpy.movie_cutscene("library/ames.mpg")
+        
         show cg_ames onlayer middle
         hatena "어서 와, [name]. 그게 당신의 이름이구나."
 
@@ -2918,7 +2975,7 @@ label start:
     show bg_black
     scene bg_field onlayer background with fade # 배경화면
 
-    play music "audio/main/nature.mp3"
+    play music "audio/main/2sentou.mp3"
 
     hatena "빈틈! 받아라앗...!!"
 
@@ -2926,6 +2983,7 @@ label start:
     show stand_monster onlayer middle with dissolve
 
     ## 총소리
+    play sound "audio/sound/gunshot.mp3"
 
     ## 피격효과, 화면 흔들림 효과
     show bg_field onlayer background with hpunch
@@ -2947,12 +3005,14 @@ label start:
     ## 마물 cg
     ## 불길이 치솟는 효과 ## E - 불길 치솟음 ## 화면 흔들림 효과(지글지글거리는 느낌 정도로 작게)
     show stand_monster onlayer middle with dissolve
+    play sound "audio/sound/fire.mp3"
     show fire_big onlayer forward:
         xpos -100 ypos -70
     show stand_monster onlayer middle with hpunch
     monster "쿠아아악!! 크르륵..."
     hide fire_big onlayer forward
     ## 울부짖는 효과, 화면 흔들림 효과
+    play sound "audio/sound/growl.mp3"
     show stand_monster onlayer middle with hpunch
     ## 괴물 울음소리
 
@@ -2975,9 +3035,11 @@ label start:
 
     ch_ayumi "쿠…… 쿠우카 씨……? 무슨 소릴 하는 거예요……?! 혼자 너무 앞에 있으면 위험해요……!!"
     
+    play sound "audio/sound/knife1.wav"
     show stand_Monica_surprised onlayer middle with dissolve
 
     ## 피격 효과 ## 칼이 부딪히는 금속음
+    
 
     ch_monica "큭! 이건 버틸 수가… 유키, 서포트를!"
 
@@ -3002,6 +3064,8 @@ label start:
 
     ## 니논 놀란 표정
     hide stand_Ninon_angry onlayer middle
+
+    play sound "audio/sound/fire.mp3"
     
     show fire_small_2 onlayer forward:
         xpos -70 ypos 180
@@ -3023,18 +3087,22 @@ label start:
     hide fire_small_3 onlayer forward
 
     #둔탁한 피격음
+    play sound "audio/sound/hit.wav"
     hide stand_Ninon_panic onlayer middle
     show stand_Kuka_mousou onlayer middle with dissolve##쿠우카중앙으로 서서히 작아지다 사라짐
     #멀리 날아가는 소리
     
     ch_kuka "쿠, 쿠우카, 날아가버려요오오옷!!!!"
+    play sound "audio/sound/fly.mp3"
     show stand_Kuka_mousou onlayer middle:
         rotate 0
         linear 0.4 rotate 720 ypos 0
+    $renpy.pause(4.0)
     hide stand_Kuka_mousou onlayer middle with dissolve
     show stand_Monica_ddung onlayer middle with dissolve
     ch_monica "니논! 쿠우카!! 이대로면 모두가 위험… 에에잇! 이판사판이다!"
     # 칼을 검집에서 빼는 소리
+    play sound "audio/sound/baldo.mp3"
 
     ch_monica "자전―"
 
@@ -3042,6 +3110,7 @@ label start:
 
     ch_monica "―일섬!!"
     #일순간 까맣게 된 화면을 가로로 베는 효과
+    play sound "audio/sound/knife2.wav"
     show knife_issen onlayer forward
     #칼로 베는 소리
 
@@ -3052,6 +3121,7 @@ label start:
 ## S# 2.길드 하우스 #########################################
     scene bg_black
     hide knife_issen onlayer forward
+    play music "audio/main/3town.mp3" fadein 1.0
     show bg_guildhouse with fade
     ch_nar "식칼에 베였다."
 
@@ -3095,13 +3165,16 @@ label start:
 
     ## 대화창 사라짐
     ## 문 두드리는 소리
+    play sound "audio/sound/knocking.wav"
     ## 잠깐 텀
     $ renpy.pause(1.0)
 
     player "마망!!!! 내가 잘못했어!! 다시는 반찬 투정 안 할게!!!"    
 
     ## 대화창 사라짐
+    window hide
     ## 문 열리는 소리
+    play sound "audio/sound/opendoor.wav"
     ## 잠깐 텀
     $ renpy.pause(1.0)
    
@@ -3134,12 +3207,14 @@ label start:
     ## 길드하우스 페이드 아웃
     hide bg_guildhouse with fade
     ## 마을 브금 불륨 페이드 아웃
+    stop music fadeout 1.0
     
     ## 까만 배경
 
     centered "몇 시간 전……"
 
     ## 마을 브금 볼륨 페이드 인
+    play music "audio/main/3town.mp3" fadein 1.0
     ## 길드 하우스 cg 페이드 인
     scene bg_guildhouse with fade
     
@@ -6444,7 +6519,7 @@ label sceneNum16Common:
     show bg_white
     hide bg_naibu
     $ persistent.clue = True
-    narrator "{color=#FF2929}단서{/color} 기능이 해금되었습니다!{vspace=15} {p}이제부터 {color=#FF2929}화면 우측 상단의 톱니바퀴{/color} 또는 {color=#FF2929}ESC{/color}를 눌러 {p}메뉴에 진입한 뒤 '{color=#FF2929}단서{/color}' 항목에서 수집한 단서들을 열람할 수 있습니다. "
+    narrator "{color=#FF2929}단서{/color} 기능이 해금되었습니다!{vspace=15} \n이제부터 {color=#FF2929}화면 우측 상단의 톱니바퀴{/color} 또는 {color=#FF2929}ESC{/color}를 눌러 \n메뉴에 진입한 뒤 '{color=#FF2929}단서{/color}' 항목에서 수집한 단서들을 열람할 수 있습니다. "
 
     hide bg_white
 
@@ -8894,6 +8969,8 @@ label pingpong_choice:
             hide stand_Ninon_yukata_wink
 
             narrator "「니논과의 탁구게임 한 판!」 {vspace=15} {p}연습 경기에서는 승패가 기록되지 않습니다. 부담없이 도전해 보세요."
+
+            ch_nar "시 - 작 !"
             jump play_pong
         "덤벼!choice_2":
             $ persistent.practicepong = False

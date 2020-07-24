@@ -1808,7 +1808,7 @@ screen nvl(dialogue, items=None):
 
             vpgrid:
                 cols 2
-                xpos -100 ypos 280
+                xpos -100 ypos 260
 
                 use nvl_dialogue(dialogue)
 
