@@ -702,15 +702,17 @@ init:
 init:
     define persistent.clue = False  
     define persistent.practicepong = True
-    define persistent.hankachi = False
-    define persistent.letter = False
-    define persistent.key = False
-    define persistent.unagi = False
-    define persistent.kiroku = False
-    define persistent.akudaikan = False
-    define persistent.syokuin = False
-    define persistent.rima = False
-    define persistent.yanki = False
+    define persistent.clues_hankachi = False
+    define persistent.clues_letter = False
+    define persistent.clues_key = False
+    define persistent.clues_unagi = False
+    define persistent.clues_kiroku = False
+    define persistent.clues_akudaikan = False
+    define persistent.clues_syokuin = False
+    define persistent.clues_rima = False
+    define persistent.clues_yanki = False
+
+
 ## 시작 전 로고 화면 ######################
 label splashscreen:
     scene logo_head onlayer middle with fade
@@ -2956,15 +2958,15 @@ label naming:
 label start:
     $ camera_reset()
     $ persistent.clue = False
-    $ persistent.hankachi = False
-    $ persistent.letter = False
-    $ persistent.key = False
-    $ persistent.unagi = False
-    $ persistent.kiroku = False
-    $ persistent.akudaikan = False
-    $ persistent.syokuin = False
-    $ persistent.rima = False
-    $ persistent.yanki = False
+    $ persistent.clues_hankachi = False
+    $ persistent.clues_letter = False
+    $ persistent.clues_key = False
+    $ persistent.clues_unagi = False
+    $ persistent.clues_kiroku = False
+    $ persistent.clues_akudaikan = False
+    $ persistent.clues_syokuin = False
+    $ persistent.clues_rima = False
+    $ persistent.clues_yanki = False
 ## 이름 생성 여부 ######################
     if (player_name == "가상의 이름 simulated name"):
         jump naming
@@ -2999,7 +3001,7 @@ label start:
     hide stand_Monica onlayer middle
     show stand_Ninon onlayer middle with dissolve
 
-    ch_ninon "ROGER! 이거나 먹어라, 입니다! 「인법 · 쇙강 줜병 회오뤼」~!!"
+    ch_ninon "ROGER! 이거나 먹어라, 입니다! {font=NanumGothic.ttf}{b}{i}{size=24}「인법 · 쇙강 줜병 회오뤼」{/size}{/i}{/b}{/font}~!!"
     hide stand_Ninon onlayer middle
 
     ## 마물 cg
@@ -3104,11 +3106,11 @@ label start:
     # 칼을 검집에서 빼는 소리
     play sound "audio/sound/baldo.mp3"
 
-    ch_monica "자전―"
+    ch_monica "자전{font=NanumGothic.ttf}―{/font}"
 
     show bg_black onlayer middle
 
-    ch_monica "―일섬!!"
+    ch_monica "{font=NanumGothic.ttf}――{/font}일섬!!"
     #일순간 까맣게 된 화면을 가로로 베는 효과
     play sound "audio/sound/knife2.wav"
     show knife_issen onlayer forward
@@ -3128,7 +3130,7 @@ label start:
     ch_nar "콧코로의 눈망울이 연상되는 와인색의 피가 손끝에 맺힌다. 아프다."
 
     ## 피 묻은 손수건 이미지 팝업
-    $ persistent.hankachi = True
+    $ persistent.clues_hankachi = True
     show ob_hankachi with dissolve:
         xpos 430 yalign 0.3
 
@@ -3602,6 +3604,7 @@ label start:
 
     scene bg_surf onlayer middle with dissolve
     ## 배경음 일본풍 bgm
+    play music "audio/main/4japan.mp3"
     ch_ninon "……쇼군은…… 언제나 정도만을 걸어온 남자."
 
     ch_ninon "제아무뤼 겉으로는 언행이 아둔하고 이취에 맞지 않는 듯하여도, 쇼군이 인도하는 길의 끝에는 항시 광명이 우뤼를 비추고 있었소."
@@ -3620,6 +3623,7 @@ label start:
     ## 길드하우스로 다시 변경
     scene bg_guildhouse
     ## 마을 bgm으로 다시 변경
+    play music "audio/main/3town.mp3"
     ## 니논 윙크하는 표정
     hide stand_Ninon_daiji onlayer forward
     show stand_Ninon_wink
@@ -3957,11 +3961,13 @@ label start:
     ch_monica "……온천에 가야만 하는 이유가 생긴 것 같다."
 
     ## 화면 중앙에 피로 휘갈겨 쓴 편지 이미지 show blood_letter
-    $ persistent.letter = True
+    $ persistent.clues_letter = True
     show ob_tegami with dissolve:
         xpos 430 yalign 0.3
     ## 마을 bgm 멈춤
+    stop music fadeout 1.0
     ## 충격적인 효과음
+    play sound "audio/sound/surp.mp3"
 
     ch_nar "{color=#FF2929}「도와주세요」{/color}"
 
@@ -4015,6 +4021,7 @@ label black_haikei:
 label onsen:
     scene bg_onsen with fade
     ## 노천탕 cg ## 동양풍 bgm
+    play music "audio/main/5orientalcommon.mp3"
 
     player "이히~ 온천 최고~ 히히히~"
 
@@ -4045,6 +4052,7 @@ label onsen:
     ## 노천탕 cg 내리기
     hide bg_onsen
     ## 동양풍 bgm 서서히 작아지다 끄기
+    stop music fadeout 1.0
 
     ## 까만 배경
     scene bg_black ## 까만 배경에 대화창만 팝업
@@ -4052,7 +4060,7 @@ label onsen:
     ch_nar "하루 전……"
 
     ## 심각한 브금 서서히 커지면서 들어오기
-
+    play music "audio/main/7emergencycommon.mp3" fadein 1.0
     hide bg_black
     scene bg_guildhouse
 
@@ -4154,6 +4162,7 @@ label onsen:
     ch_nar "차라리 여기에 있는 게 낫지 않을까?"
 
     ## 마을 bgm으로 변경
+    play music "audio/main/3town.mp3" fadein 1.0
 
     player "……저기, 물어볼 게 있는데."
 
@@ -6412,7 +6421,7 @@ label sceneNum16Common:
     ch_gura "……그, 그런 건 아니고요……"
 
     hide stand_gura
-    $ persistent.key = True
+    $ persistent.clues_key = True
     show ob_key with dissolve:
         xpos 430 yalign 0.3
     
@@ -6816,9 +6825,10 @@ label sceneNum19Common:
     
     ch_kuka "쿠…… 쿠우카는 이대로도 나쁘지 않아요……! 마구 짓눌리는 이 느낌이 엄청……!! 케헷, 케…… 헤으극……!!!"
 
-    $ persistent.syokuin = True
-
+    $ persistent.clues_syokuin = True
+    show screen clueFinded
     hide stand_Kuka_yukata_mousou
+    $renpy.pause(1.0)
     hide bg_tadami_night
 
     if love_point == 1 or love_point == 3:
@@ -7666,7 +7676,9 @@ label scene18_1:
 
     ch_ayumi "단체로 맛이 간 것 같아요……"
 
-    $ persistent.unagi = True
+    $ persistent.clues_unagi = True
+    show screen clueFinded
+    $renpy.pause(1.0)
     show bg_black with fade
     hide bg_indoor_sauna_day
 
@@ -8425,8 +8437,10 @@ label scene18_2:
 
     ch_monica "아직 걸리는 게 조금 남아 있지만…… 좋다. 나머지 단서를 찾는다면 조각이 맞춰질 테지. 다음 장소로 이동하자."
 
-    $ persistent.unagi = True
+    $ persistent.clues_unagi = True
+    show screen clueFinded
     hide stand_Monica_yukata
+    $renpy.pause(1.0)
     show bg_black
     hide bg_indoor_sauna_day
     jump scene19_2
@@ -8792,8 +8806,10 @@ label scene19_1:
 
     ch_nar "……이거, 진짜로 좀 위험할지도 모르겠는데……"
 
-    $ persistent.rima = True
-    $ persistent.kiroku = True
+    $ persistent.clues_rima = True
+    $ persistent.clues_kiroku = True
+    show screen clueFinded
+    $renpy.pause(1.0)
     show bg_black
     hide bg_outside_onsen_2
 
@@ -9523,7 +9539,7 @@ label ninonHappy:
 
     ch_nar "평소와 다를 것 없는 하루,"
 
-    ch_nar "- 였다고 생각했다."
+    ch_nar "{font=NanumGothic.ttf}―{/font} 였다고 생각했다."
 
     ch_nar "츠바키가오카의 하굣길은 인적이 드문 편이다."
 
@@ -9539,7 +9555,7 @@ label ninonHappy:
 
     ch_nar "구심점을 상실한 패거리만이 갈 곳을 잃은 채 거리를 서성일 뿐이었다."
 
-    player "……."
+    player "……"
 
     hide bg_tyugaku
     show bg_tyugaku_running
@@ -9606,9 +9622,9 @@ label ninonHappy:
 
     ch_ninon "쇼군."
 
-    ch_nar "장난스러운 어감이지만, 그녀에게는 동경 -"
+    ch_nar "장난스러운 어감이지만, 그녀에게는 동경 {font=NanumGothic.ttf}―{/font}"
 
-    ch_nar "- 혹은 그 이상의 감정이 담겨 있을지 모르는 호칭."
+    ch_nar "{font=NanumGothic.ttf}―{/font} 혹은 그 이상의 감정이 담겨 있을지 모르는 호칭."
 
     ch_nar "장난스럽고, 우스꽝스럽게 들려야 할 그 호칭이,"
 
