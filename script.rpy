@@ -403,6 +403,8 @@ init:
         pause 0.05
         im.FactorScale("effect/fire_big/27.png", 0.80)
         pause 0.05
+        im.FactorScale("effect/fire_big/28.png", 0.80)
+        pause 0.05
     
     image fire_small:
         im.FactorScale("effect/fire_small/0.png", 0.55)
@@ -491,6 +493,138 @@ init:
         pause 0.05
         im.FactorScale("effect/knife/15.png", 0.67)
         pause 0.05
+    
+    image pohyo:
+        im.FactorScale("effect/pohyo/1.png", 1.5)
+        pause 0.07
+        im.FactorScale("effect/pohyo/2.png", 1.5)
+        pause 0.07
+        im.FactorScale("effect/pohyo/3.png", 1.5)
+        pause 0.07
+        im.FactorScale("effect/pohyo/4.png", 1.5)
+        pause 0.07
+        im.FactorScale("effect/fire_big/28.png", 1.0)
+        pause 0.01
+        repeat 5
+    
+    image hit:
+        im.FactorScale("effect/hit/1.png", 3.0)
+        pause 0.05
+        im.FactorScale("effect/hit/2.png", 3.0)
+        pause 0.05
+        im.FactorScale("effect/hit/3.png", 3.0)
+        pause 0.05
+        im.FactorScale("effect/hit/4.png", 3.0)
+        pause 0.05
+        im.FactorScale("effect/fire_big/28.png", 1.0)
+        pause 0.01
+    
+    image ames_swift:
+        im.FactorScale("effect/ames/1.png", 1.0)
+        pause 0.05
+        im.FactorScale("effect/ames/2.png", 1.0)
+        pause 0.05
+        im.FactorScale("effect/ames/3.png", 1.0)
+        pause 0.05
+        im.FactorScale("effect/ames/4.png", 1.0)
+        pause 0.05
+        im.FactorScale("effect/ames/5.png", 1.0)
+        pause 0.05
+        im.FactorScale("effect/ames/6.png", 1.0)
+        pause 0.05
+        im.FactorScale("effect/ames/7.png", 1.0)
+        pause 0.05
+        im.FactorScale("effect/ames/8.png", 1.0)
+        pause 0.05
+        im.FactorScale("effect/ames/9.png", 1.0)
+        pause 0.05
+        im.FactorScale("effect/ames/10.png", 1.0)
+        pause 0.05
+        im.FactorScale("effect/ames/11.png", 1.0)
+        pause 0.05
+        im.FactorScale("effect/ames/12.png", 1.0)
+        pause 0.05
+    
+    image ames_reverse:
+        im.FactorScale("effect/ames/12.png", 1.0)
+        pause 0.05
+        im.FactorScale("effect/ames/11.png", 1.0)
+        pause 0.05
+        im.FactorScale("effect/ames/10.png", 1.0)
+        pause 0.05
+        im.FactorScale("effect/ames/9.png", 1.0)
+        pause 0.05
+        im.FactorScale("effect/ames/8.png", 1.0)
+        pause 0.05
+        im.FactorScale("effect/ames/7.png", 1.0)
+        pause 0.05
+        im.FactorScale("effect/ames/6.png", 1.0)
+        pause 0.05
+        im.FactorScale("effect/ames/5.png", 1.0)
+        pause 0.05
+        im.FactorScale("effect/ames/4.png", 1.0)
+        pause 0.03
+        im.FactorScale("effect/ames/3.png", 1.0)
+        pause 0.03
+        im.FactorScale("effect/ames/2.png", 1.0)
+        pause 0.03
+        im.FactorScale("effect/ames/1.png", 1.0)
+        pause 0.05 
+
+## BGM & Sound ##################################
+    ## Main ##
+
+        ## ## ## ## ## ## ## ## ## ## ## ##
+        ## audio/main/ames.mp3
+        ## audio/main/2sentou.mp3
+        ## audio/main/3town.mp3
+        ## audio/main/4japan.mp3
+        ## audio/main/5orientalcommon.mp3
+        ## audio/main/6orientalcommon.mp3
+        ## audio/main/7emergencycommon.mp3
+
+    ## Sound ##
+
+        ## ## ## ## ## ## ## ## ## ## ## ##
+        ## 문 두드리는 소리 audio/sound/knocking.wav
+        ## 문 열리는 소리 audio/sound/opendoor.wav
+        ## 충격적인 효과음 audio/sound/surp.mp3
+        ## 1박2일 효과음 audio/sound/1bak2il.mp3
+        ## 꼬르륵 audio/sound/harapeko.mp3
+        ## 꾹꾹 누르는 효과음 audio/sound/gguk.mp3 ##
+        ## 숨소리 audio/sound/breathe.mp3
+        ## 털썩 audio/sound/down.mp3 ##
+        ## 발자국 소리 audio/sound/walking.mp3
+        ## 원숭이 울음소리 audio/sound/monkey.wav
+        ## 괴물 울부짖는 소리 audio/sound/growl.mp3
+        ## 괴물 으르렁거리는 소리 audio/sound/exo.mp3
+        ## 멀리 날아가는 소리 audio/sound/fly.mp3
+        ## 불길이 치솟는 소리 audio/sound/fire.mp3
+        ## 소름 돋는 소리 audio/sound/torihada.mp3
+        ## 총소리 audio/sound/gunshot.mp3
+        ## 키무라 웃음소리 audio/sound/kimura.mp3
+        ## 칼 부딪히는 소리 audio/sound/knife1.wav
+        ## 둔탁한 피격음 audio/sound/hit.wav
+        ## 칼을 검집에서 빼는 소리 audio/sound/baldo.mp3
+        ## 칼로 베어가르는 소리 audio/sound/knife2.wav
+        ## 뛰어가는 소리 audio/sound/running.wav
+
+    ## Voice ##
+
+        ## ## ## ## ## ## ## ## ## ## ## ##
+        ## audio/titlesound/ayumi.mp3
+        ## audio/titlesound/kuka.mp3
+        ## audio/titlesound/monica.mp3
+        ## audio/titlesound/ninon.mp3
+        ## audio/titlesound/yuki.mp3
+
+## 시험용
+init python:
+    def beep(event, **kwargs):
+        if event == "show":
+            renpy.music.play("audio/sound/gguk.mp3", channel="voice", loop=True)
+        elif event == "slow_done" or event == "end":
+            renpy.music.stop(channel="voice")
 ## 캐릭터 ###############################
 init:
     image CTC = Image("/menu/ctc_icon.png", xpos = 1125, ypos = 670)
@@ -518,6 +652,8 @@ init:
     define monster = Character("마물", color = "#ffffff", ctc = 'ctc_icon', ctc_position = "fixed")
 
     define ch_peco = Character("페코린느", color = "#ffffff", ctc = 'ctc_icon', ctc_position = "fixed")
+
+    define ch_kokoro = Character("콧코로", color = "#ffffff", ctc = 'ctc_icon', ctc_position = "fixed")
 
     define ch_kyaru = Character("배신자", color = "#ffffff", ctc = 'ctc_icon', ctc_position = "fixed")
 
@@ -643,19 +779,25 @@ init:
     image cg_ninon_happy_04 = "library/cg_ninon_happy_04.png"
     image cg_ninon_happy_05 = "library/cg_ninon_happy_05.png"
 
+    ## 콧코로
+    image cg_kokoro_01 = "cg/kokoro/kokoro1.png"
+    image cg_kokoro_02 = "cg/kokoro/kokoro2.png"
+    image cg_kokoro_03 = "cg/kokoro/kokoro3.png"
+    image cg_kokoro_04 = "cg/kokoro/kokoro4.png"
+
 ## persistent 변수 ##################################
 init:
     define persistent.clue = False  
     define persistent.practicepong = True
-    define persistent.hankachi = False
-    define persistent.letter = False
-    define persistent.key = False
-    define persistent.unagi = False
-    define persistent.kiroku = False
-    define persistent.akudaikan = False
-    define persistent.syokuin = False
-    define persistent.rima = False
-    define persistent.yanki = False
+    define persistent.clues_hankachi = False
+    define persistent.clues_letter = False
+    define persistent.clues_key = False
+    define persistent.clues_unagi = False
+    define persistent.clues_kiroku = False
+    define persistent.clues_akudaikan = False
+    define persistent.clues_syokuin = False
+    define persistent.clues_rima = False
+    define persistent.clues_yanki = False
 ## 시작 전 로고 화면 ######################
 label splashscreen:
     scene logo_head onlayer middle with fade
@@ -2528,7 +2670,7 @@ label play_pong:
 
         if persistent.practicepong == True:
             show stand_Ninon_yukata_wink with dissolve
-            ch_ninon "마음의 준비가 되었다면 불러주세요 입니다!!"
+            ch_ninon "쇼군~ 쫄보 입니까? 빨리 시작하자 입니다~!!"
 
             hide stand_Ninon_yukata_wink
             jump pingpong_choice
@@ -2792,12 +2934,13 @@ label naming:
     scene bg_black
     show bg_whatsyourname onlayer forward with squares
     # 아메스 테마 서서히 커지다가 고정
-    play music "audio/main/ames.mp3" fadein 3.0
+    
     $ renpy.pause(1.0)
     $ player_name = renpy.input("내 이름...")
     $ name = player_name
     $ finalConso = finalChecker(name)
     hide bg_whatsyourname onlayer forward
+    window hide
     if len(name) > 10:
         hatena "어떻게 사람 이름이 [name]일수가 있지 ㅋㅋ"
         hatena "진짜 이름을 10자 이내로 알려 줘."
@@ -2876,7 +3019,8 @@ label naming:
 
         hide cg_ames onlayer middle
         jump naming
-    else:     
+    else:
+        play music "audio/main/ames.mp3" fadein 3.0
         $ renpy.movie_cutscene("library/ames.mpg")
         show cg_ames onlayer middle
         hatena "어서 와, [name]. 그게 당신의 이름이구나."
@@ -2899,15 +3043,15 @@ label naming:
 label start:
     $ camera_reset()
     $ persistent.clue = False
-    $ persistent.hankachi = False
-    $ persistent.letter = False
-    $ persistent.key = False
-    $ persistent.unagi = False
-    $ persistent.kiroku = False
-    $ persistent.akudaikan = False
-    $ persistent.syokuin = False
-    $ persistent.rima = False
-    $ persistent.yanki = False
+    $ persistent.clues_hankachi = False
+    $ persistent.clues_letter = False
+    $ persistent.clues_key = False
+    $ persistent.clues_unagi = False
+    $ persistent.clues_kiroku = False
+    $ persistent.clues_akudaikan = False
+    $ persistent.clues_syokuin = False
+    $ persistent.clues_rima = False
+    $ persistent.clues_yanki = False
 ## 이름 생성 여부 ######################
     if (player_name == "가상의 이름 simulated name"):
         jump naming
@@ -2918,7 +3062,7 @@ label start:
     show bg_black
     scene bg_field onlayer background with fade # 배경화면
 
-    play music "audio/main/nature.mp3"
+    play music "audio/main/2sentou.mp3"
 
     hatena "빈틈! 받아라앗...!!"
 
@@ -2926,12 +3070,14 @@ label start:
     show stand_monster onlayer middle with dissolve
 
     ## 총소리
-
+    play sound "audio/sound/gunshot.mp3"
     ## 피격효과, 화면 흔들림 효과
+    show hit onlayer forward:
+        xalign 0.5 yalign 0.6
     show bg_field onlayer background with hpunch
     
     monster "커르륵...!"
-
+    hide hit onlayer forward
     hide stand_monster onlayer middle
 
     ## 모니카 웃는 표정
@@ -2941,22 +3087,28 @@ label start:
     hide stand_Monica onlayer middle
     show stand_Ninon onlayer middle with dissolve
 
-    ch_ninon "ROGER! 이거나 먹어라, 입니다! 「인법 · 쇙강 줜병 회오뤼」~!!"
+    ch_ninon "ROGER! 이거나 먹어라, 입니다! {font=NanumGothic.ttf}{b}{i}{size=24}「인법 · 쇙강 줜병 회오뤼」{/size}{/i}{/b}{/font}~!!"
     hide stand_Ninon onlayer middle
 
     ## 마물 cg
     ## 불길이 치솟는 효과 ## E - 불길 치솟음 ## 화면 흔들림 효과(지글지글거리는 느낌 정도로 작게)
     show stand_monster onlayer middle with dissolve
+    play sound "audio/sound/fire.mp3"
     show fire_big onlayer forward:
         xpos -100 ypos -70
     show stand_monster onlayer middle with hpunch
     monster "쿠아아악!! 크르륵..."
     hide fire_big onlayer forward
     ## 울부짖는 효과, 화면 흔들림 효과
+    $renpy.pause(0.5)
+    play sound "audio/sound/growl.mp3"
+    show pohyo onlayer forward:
+        xalign 0.5 yalign 0.5
     show stand_monster onlayer middle with hpunch
     ## 괴물 울음소리
 
     monster "크워어어어어!!"
+    hide pohyo onlayer forward
 
     hide stand_monster onlayer middle
 
@@ -2975,6 +3127,8 @@ label start:
 
     ch_ayumi "쿠…… 쿠우카 씨……? 무슨 소릴 하는 거예요……?! 혼자 너무 앞에 있으면 위험해요……!!"
     
+    play sound "audio/sound/knife1.wav"
+
     show stand_Monica_surprised onlayer middle with dissolve
 
     ## 피격 효과 ## 칼이 부딪히는 금속음
@@ -3002,6 +3156,8 @@ label start:
 
     ## 니논 놀란 표정
     hide stand_Ninon_angry onlayer middle
+
+    play sound "audio/sound/fire.mp3"
     
     show fire_small_2 onlayer forward:
         xpos -70 ypos 180
@@ -3023,25 +3179,31 @@ label start:
     hide fire_small_3 onlayer forward
 
     #둔탁한 피격음
+    play sound "audio/sound/hit.wav"
     hide stand_Ninon_panic onlayer middle
     show stand_Kuka_mousou onlayer middle with dissolve##쿠우카중앙으로 서서히 작아지다 사라짐
     #멀리 날아가는 소리
     
     ch_kuka "쿠, 쿠우카, 날아가버려요오오옷!!!!"
+    play sound "audio/sound/fly.mp3"
     show stand_Kuka_mousou onlayer middle:
         rotate 0
         linear 0.4 rotate 720 ypos 0
+    $renpy.pause(4.0)
     hide stand_Kuka_mousou onlayer middle with dissolve
     show stand_Monica_ddung onlayer middle with dissolve
     ch_monica "니논! 쿠우카!! 이대로면 모두가 위험… 에에잇! 이판사판이다!"
     # 칼을 검집에서 빼는 소리
+    stop music fadeout 1.0
+    play sound "audio/sound/baldo.mp3"
 
-    ch_monica "자전―"
+    ch_monica "자전{font=NanumGothic.ttf}―{/font}"
 
     show bg_black onlayer middle
 
-    ch_monica "―일섬!!"
+    ch_monica "{font=NanumGothic.ttf}―{/font}일섬!!"
     #일순간 까맣게 된 화면을 가로로 베는 효과
+    play sound "audio/sound/knife2.wav"
     show knife_issen onlayer forward
     #칼로 베는 소리
 
@@ -3052,13 +3214,14 @@ label start:
 ## S# 2.길드 하우스 #########################################
     scene bg_black
     hide knife_issen onlayer forward
+    play music "audio/main/3town.mp3" fadein 1.0
     show bg_guildhouse with fade
     ch_nar "식칼에 베였다."
 
     ch_nar "콧코로의 눈망울이 연상되는 와인색의 피가 손끝에 맺힌다. 아프다."
 
     ## 피 묻은 손수건 이미지 팝업
-    $ persistent.hankachi = True
+    $ persistent.clues_hankachi = True
     show ob_hankachi with dissolve:
         xpos 430 yalign 0.3
 
@@ -3094,7 +3257,10 @@ label start:
     hide ob_kokkoro
 
     ## 대화창 사라짐
+    window hide
+    $ renpy.pause()
     ## 문 두드리는 소리
+    play sound "audio/sound/knocking.wav"
     ## 잠깐 텀
     $ renpy.pause(1.0)
 
@@ -3102,9 +3268,10 @@ label start:
 
     ## 대화창 사라짐
     ## 문 열리는 소리
+    play sound "audio/sound/opendoor.wav"
     ## 잠깐 텀
     $ renpy.pause(1.0)
-   
+
     ## 모니카 우는표정 cg
     show stand_Monica_crying with dissolve
     ch_nar "에이씨, 콧코로가 아니잖아." 
@@ -3134,12 +3301,14 @@ label start:
     ## 길드하우스 페이드 아웃
     hide bg_guildhouse with fade
     ## 마을 브금 불륨 페이드 아웃
+    stop music fadeout 1.0
     
     ## 까만 배경
 
     centered "몇 시간 전……"
 
     ## 마을 브금 볼륨 페이드 인
+    play music "audio/main/3town.mp3" fadein 1.0
     ## 길드 하우스 cg 페이드 인
     scene bg_guildhouse with fade
     
@@ -3235,7 +3404,7 @@ label start:
     ch_ninon "지나가던 들개 씨…… 무섭다 입니다……!"
     hide stand_Ninon_surprise with dissolve
     
-    show stand_Monica_ddung at movetocenter
+    show stand_Monica_ddung at movetocenter with hpunch
     
     ch_monica "요점이 그게 아니지 않나!!!"
 
@@ -3527,6 +3696,9 @@ label start:
 
     scene bg_surf onlayer middle with dissolve
     ## 배경음 일본풍 bgm
+
+    play music "audio/main/4japan.mp3"
+
     ch_ninon "……쇼군은…… 언제나 정도만을 걸어온 남자."
 
     ch_ninon "제아무뤼 겉으로는 언행이 아둔하고 이취에 맞지 않는 듯하여도, 쇼군이 인도하는 길의 끝에는 항시 광명이 우뤼를 비추고 있었소."
@@ -3545,6 +3717,7 @@ label start:
     ## 길드하우스로 다시 변경
     scene bg_guildhouse
     ## 마을 bgm으로 다시 변경
+    play music "audio/main/3town.mp3"
     ## 니논 윙크하는 표정
     hide stand_Ninon_daiji onlayer forward
     show stand_Ninon_wink
@@ -3882,11 +4055,13 @@ label start:
     ch_monica "……온천에 가야만 하는 이유가 생긴 것 같다."
 
     ## 화면 중앙에 피로 휘갈겨 쓴 편지 이미지 show blood_letter
-    $ persistent.letter = True
+    $ persistent.clues_letter = True
     show ob_tegami with dissolve:
         xpos 430 yalign 0.3
     ## 마을 bgm 멈춤
+    stop music fadeout 1.0
     ## 충격적인 효과음
+    play sound "audio/sound/surp.mp3"
 
     ch_nar "{color=#FF2929}「도와주세요」{/color}"
 
@@ -3940,6 +4115,7 @@ label black_haikei:
 label onsen:
     scene bg_onsen with fade
     ## 노천탕 cg ## 동양풍 bgm
+    play music "audio/main/5orientalcommon.mp3"
 
     player "이히~ 온천 최고~ 히히히~"
 
@@ -3970,6 +4146,7 @@ label onsen:
     ## 노천탕 cg 내리기
     hide bg_onsen
     ## 동양풍 bgm 서서히 작아지다 끄기
+    stop music fadeout 1.0
 
     ## 까만 배경
     scene bg_black ## 까만 배경에 대화창만 팝업
@@ -3977,6 +4154,7 @@ label onsen:
     ch_nar "하루 전……"
 
     ## 심각한 브금 서서히 커지면서 들어오기
+    play music "audio/main/7emergencycommon.mp3" fadein 1.0
 
     hide bg_black
     scene bg_guildhouse
@@ -4079,6 +4257,7 @@ label onsen:
     ch_nar "차라리 여기에 있는 게 낫지 않을까?"
 
     ## 마을 bgm으로 변경
+    play music "audio/main/3town.mp3" fadein 1.0
 
     player "……저기, 물어볼 게 있는데."
 
@@ -4381,6 +4560,7 @@ label onsen_inside:
     $ renpy.pause(1.5)
 
     ## 충격적인 효과음
+    play sound "audio/sound/surp.mp3"
 
     ## 빠르게 화면전체가 돌아가는 효과
     show bg_onsen onlayer middle at fast_rotating_2
@@ -6337,7 +6517,7 @@ label sceneNum16Common:
     ch_gura "……그, 그런 건 아니고요……"
 
     hide stand_gura
-    $ persistent.key = True
+    $ persistent.clues_key = True
     show ob_key with dissolve:
         xpos 430 yalign 0.3
     
@@ -6444,7 +6624,7 @@ label sceneNum16Common:
     show bg_white
     hide bg_naibu
     $ persistent.clue = True
-    narrator "{color=#FF2929}단서{/color} 기능이 해금되었습니다!{vspace=15} {p}이제부터 {color=#FF2929}화면 우측 상단의 톱니바퀴{/color} 또는 {color=#FF2929}ESC{/color}를 눌러 {p}메뉴에 진입한 뒤 '{color=#FF2929}단서{/color}' 항목에서 수집한 단서들을 열람할 수 있습니다. "
+    narrator "{color=#FF2929}단서{/color} 기능이 해금되었습니다!{vspace=15} \n이제부터 {color=#FF2929}화면 우측 상단의 톱니바퀴{/color} 또는 {color=#FF2929}ESC{/color}를 눌러 \n메뉴에 진입한 뒤 '{color=#FF2929}단서{/color}' 항목에서 수집한 단서들을 열람할 수 있습니다. "
 
     hide bg_white
 
@@ -6741,9 +6921,11 @@ label sceneNum19Common:
     
     ch_kuka "쿠…… 쿠우카는 이대로도 나쁘지 않아요……! 마구 짓눌리는 이 느낌이 엄청……!! 케헷, 케…… 헤으극……!!!"
 
-    $ persistent.syokuin = True
+    $ persistent.clues_syokuin = True
+    show screen clueFinded
 
     hide stand_Kuka_yukata_mousou
+    $renpy.pause(1.0)
     hide bg_tadami_night
 
     if love_point == 1 or love_point == 3:
@@ -7591,7 +7773,9 @@ label scene18_1:
 
     ch_ayumi "단체로 맛이 간 것 같아요……"
 
-    $ persistent.unagi = True
+    $ persistent.clues_unagi = True
+    show screen clueFinded
+    $renpy.pause(1.0)
     show bg_black with fade
     hide bg_indoor_sauna_day
 
@@ -8351,7 +8535,10 @@ label scene18_2:
     ch_monica "아직 걸리는 게 조금 남아 있지만…… 좋다. 나머지 단서를 찾는다면 조각이 맞춰질 테지. 다음 장소로 이동하자."
 
     $ persistent.unagi = True
+    $ persistent.clues_unagi = True
+    show screen clueFinded
     hide stand_Monica_yukata
+    $renpy.pause(1.0)
     show bg_black
     hide bg_indoor_sauna_day
     jump scene19_2
@@ -8717,8 +8904,10 @@ label scene19_1:
 
     ch_nar "……이거, 진짜로 좀 위험할지도 모르겠는데……"
 
-    $ persistent.rima = True
-    $ persistent.kiroku = True
+    $ persistent.clues_rima = True
+    $ persistent.clues_kiroku = True
+    show screen clueFinded
+    $renpy.pause(1.0)
     show bg_black
     hide bg_outside_onsen_2
 
@@ -8894,6 +9083,9 @@ label pingpong_choice:
             hide stand_Ninon_yukata_wink
 
             narrator "「니논과의 탁구게임 한 판!」 {vspace=15} {p}연습 경기에서는 승패가 기록되지 않습니다. 부담없이 도전해 보세요."
+            
+            ch_nar "시 - 작 !"
+            
             jump play_pong
         "덤벼!choice_2":
             $ persistent.practicepong = False
@@ -9446,7 +9638,7 @@ label ninonHappy:
 
     ch_nar "평소와 다를 것 없는 하루,"
 
-    ch_nar "- 였다고 생각했다."
+    ch_nar "{font=NanumGothic.ttf}―{/font} 였다고 생각했다."
 
     ch_nar "츠바키가오카의 하굣길은 인적이 드문 편이다."
 
@@ -9462,7 +9654,7 @@ label ninonHappy:
 
     ch_nar "구심점을 상실한 패거리만이 갈 곳을 잃은 채 거리를 서성일 뿐이었다."
 
-    player "……."
+    player "……"
 
     hide bg_tyugaku
     show bg_tyugaku_running
@@ -9529,9 +9721,9 @@ label ninonHappy:
 
     ch_ninon "쇼군."
 
-    ch_nar "장난스러운 어감이지만, 그녀에게는 동경 -"
+    ch_nar "장난스러운 어감이지만, 그녀에게는 동경 {font=NanumGothic.ttf}―{/font}"
 
-    ch_nar "- 혹은 그 이상의 감정이 담겨 있을지 모르는 호칭."
+    ch_nar "{font=NanumGothic.ttf}―{/font} 혹은 그 이상의 감정이 담겨 있을지 모르는 호칭."
 
     ch_nar "장난스럽고, 우스꽝스럽게 들려야 할 그 호칭이,"
 
@@ -9665,8 +9857,10 @@ label ninonHappy:
     ch_nar "……안녕, 니논."
 
     hide snow onlayer forward
-
+    hide bg_black
     ## 빨려들어가는 효과
+    show ames_reverse
+    $renpy.pause(1.0)
     
     ## bgm 서서히 off
     ## 아메스 ####################################
@@ -9674,6 +9868,7 @@ label ninonHappy:
     play music "audio/main/ames.mp3" fadein 3.0
     ## 아메스 cg DIS
     show cg_ames with dissolve
+    hide ames_reverse
     hatena "……와우."
 
     hatena "엄청난…… 걸 봐버렸네."
@@ -9725,7 +9920,8 @@ label ninonHappy:
     hatena "그럼 또 봐."
 
     ## 빨려들어가는 효과
-
+    show ames_swift
+    $renpy.pause(1.0)
     ## bgm 볼륨 서서히 off
     stop music fadeout 3.0
     ## 랜드솔 마을 #####################
@@ -9733,7 +9929,7 @@ label ninonHappy:
     ## 마을 bgm 서서히 커짐
 
     show bg_town with fade
-    hide bg_black
+    hide ames_swift
 
     show bg_end with fade
 
@@ -9778,6 +9974,178 @@ label Success:
     show bg_end with fade
 
     ch_nar "Thank you for playing"
+
+    return
+## 히든 엔딩 #####################
+label end_kokoro:
+    scene bg_black
+
+    ch_nar "의문의 빛이 온몸을 감싼다……"
+
+    ## 루트별 해피엔딩 bgm/ 배경
+    ## 해당 루트 첫 대사 출력 도중에 끊기
+
+    ## bgm off
+    ## 검은 배경
+    $renpy.pause(1.0)
+
+    hatena "……인님."
+
+    hatena "주인님……"
+
+    show cg_kokoro_02 with fade
+
+    ## 아련한 bgm
+
+    ch_kokoro "주인님……!"
+
+    ch_kokoro "정신이 드십니까……?!"
+
+    player "……"
+
+    player "……마망?"
+
+    show cg_kokoro_01 with dissolve
+    hide cg_kokoro_02
+
+    ch_kokoro "아아, 다행이다……"
+
+    ch_kokoro "저, 저는…… 주인님이, 어딘가 먼 곳으로 떠나 버리시는 줄만 알고……"
+
+    player "콧코로……?"
+
+    player "내가 맨날 말썽 부리고, 속만 썩여서……"
+
+    player "못 버티고 도망가 버린 게…… 아니었어……?"
+
+    show cg_kokoro_02 with dissolve
+    hide cg_kokoro_01
+
+    ch_kokoro "……!"
+
+    ch_kokoro "……주인님, 설마…… 그렇게 생각하고 계실 줄은……"
+
+    ch_kokoro "저는 단지…… 주인님이 조금이라도 더 행복하게 지내시길 바라는 마음에……"
+
+    $renpy.pause(1.0)
+
+    ch_kokoro "……저의 불찰입니다."
+
+    ch_kokoro "가이드 역으로서, 단 한순간이라도 주인님의 곁을 비워서는 안 되었는데……"
+
+    ch_kokoro "제가 잠시 어떻게 됐었나 봅니다…… 주인님을 며칠씩이나 방치하다니……"
+
+    ch_kokoro "앞으로는…… 절대 주인님을 혼자 두지 않겠습니다."
+
+    ch_kokoro "그러니 다시는…… 다시는 콧코로의 곁을 떠나지 말아주십시오."
+
+    ch_kokoro "주인님은 저의 모든 것. 주인님이 없으면 저는……"
+
+    $renpy.pause(1.0)
+
+    ch_kokoro "……주인님, 부디…… 콧코로를 미워하지 말아주세요……"
+
+    player "무슨 소리야……"
+
+    player "내가 콧코로를 미워할 리가 없잖아……"
+
+    show cg_kokoro_01 with dissolve
+    hide cg_kokoro_02
+
+    ch_kokoro "아아, 주인님……"
+
+    ch_kokoro "어찌 이리도 상냥하신지……"
+
+    ch_kokoro "역시, 주인님의 곁에는……"
+
+    ## bgm 멈춤
+
+    show cg_kokoro_04 with dissolve
+    hide cg_kokoro_01
+
+    ch_kokoro "{size=30}{b}{cps=*3}아무도 없{/cps}어야{cps=*3}만 합니{/cps}다.{/b}{/size}"
+
+    $renpy.pause(1.0)
+
+    player "뭐……?"
+
+    ch_kokoro "해로운 것으로부터 주인님을 안전하게 지키는 일이야말로…… 제가 태어난 이유이자, 저의 사명."
+
+    ch_kokoro "주인님…… 콧코로가 자리를 비운 사이, 온갖 추악하고 더러운 것들을 보고 들으셨을 테지요."
+
+    ch_kokoro "언제나 상대방을 먼저 배려하는 따뜻한 마음씨…… 부탁을 거절하지 못하는 상냥함."
+
+    ch_kokoro "어느 누가 그런 주인님을 사랑하지 않을 수 있을까요……?"
+
+    ch_kokoro "본분을 지키지 못한 저의 오판 때문에, 주인님께서 얼마나 고통스러우셨을지…… 저는 감히 상상조차 할 수 없습니다."
+
+    player "콧코로……?"
+
+    ch_kokoro "괜찮습니다, 주인님…… 안심하십시오."
+
+    ch_kokoro "이제부터는, 어느 누구도 주인님께 접근하지 못하게 할 테니까요."
+
+    ## 상하좌우로 불규칙하게 흔들리는 효과
+
+    ## 심장박동 효과음
+
+    ch_kokoro "그 누구도……"
+
+    ch_kokoro "그 누구도 저와 주인님을 떨어뜨려 놓을 수 없습니다."
+
+    ch_kokoro "설령 그것이, 아메스 님이라 할지라도……"
+
+    player "코, 콧코로……!"
+
+    $renpy.pause(1.0)
+
+    show cg_kokoro_03 with dissolve
+    hide cg_kokoro_04
+
+    ch_kokoro "오야……?"
+
+    ch_kokoro "주인님, 겁먹으신 걸까요……?"
+
+    ch_kokoro "귀여워라…… 후후, 마치 어린아이 같습니다……♪"
+
+    ch_kokoro "착하지…… 착하지……♪"
+
+    ch_kokoro "주인님은…… 착한 아이……♪"
+
+    ch_kokoro "착한 아이는…… 엄마 말을 잘 듣는답니다……♪"
+
+    player "콧……코로, 무, 무서우니까…… 이제 그만……"
+
+    ch_kokoro "쉬—잇……♪"
+
+    ch_kokoro "주인님은 그저 가만히……"
+
+    ch_kokoro "착한 아이로, 있어 주시면 됩니다…….♪"
+
+    ch_kokoro "언제까지고 콧코로가,"
+
+    ch_kokoro "주인님의 모든 것을 준비하고, 관리해 드릴 테니까요."
+
+    show bg_black with fade
+    hide cg_kokoro_03
+
+    ## 심장박동 효과음 멈춤
+
+    $renpy.pause(1.0)
+
+    ch_kokoro "콧코로가,"
+
+    ch_kokoro "주인님을,"
+
+    ch_kokoro "영원히,"
+
+    ch_kokoro "지켜드릴 테니까요."
+
+    ch_kokoro "영원히……"
+
+    $renpy.pause(1.0)
+
+
 
     return
 ## 캬루 엔딩 #####################

@@ -132,7 +132,7 @@ define gui.dialogue_xpos = 180
 define gui.dialogue_ypos = 40
 
 ## 픽셀값에서 대사의 최대 너비입니다.
-define gui.dialogue_width = 800
+define gui.dialogue_width = 930
 
 ## 대사 글자의 수평 정렬입니다. 이것은 0.0으로 좌측 정렬, 0.5로 중앙, 그리고 1.0
 ## 으로 우측 정렬이 될 수 있습니다.
@@ -357,15 +357,15 @@ define gui.history_text_xalign = 0.0
 ## NVL-모드 화면은 NVL-모드 캐릭터들에 의한 대화를 화면에 표시합니다.
 
 ## NVL-모드 배경 창에서 배경의 테두리입니다.
-define gui.nvl_borders = Borders(0, 10, 0, 20)
+define gui.nvl_borders = Borders(0, 20, 0, 20)
 
 ## 렌파이가 표시할 NVL-mode 항목의 최대 수입니다. 설정보다 많은 항목이 표시되면
 ## 가장 오래된 항목이 제거됩니다.
-define gui.nvl_list_length = 6
+define gui.nvl_list_length = 1
 
 ## NVL-모드 항목의 높이입니다. 이것을 None으로 설정하면 항목들은 동적으로 높이를
 ## 조정합니다.
-define gui.nvl_height = 115
+define gui.nvl_height = 180
 
 ## gui.nvl_height 값이 None일 때 NVL-모드 항목들, 그리고 NVL-모드 항목들과 NVL-
 ## 모드 메뉴간의 간의 간격입니다.

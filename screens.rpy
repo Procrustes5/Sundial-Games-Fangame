@@ -1748,7 +1748,29 @@ style skip_triangle:
     ## BLACK RIGHT-POINTING SMALL TRIANGLE 글리프가 있는 글꼴을 사용해야 합니다.
     font "DejaVuSans.ttf"
 
+## Clue Finded 스크린 #############################################################
+##
+## 단서를 발견했을 때 좌측 상단에 이미지를 출력합니다.
+##
 
+screen clueFinded:
+
+    zorder 100
+
+    add "gui/clue.png" at clue_appear
+    vbox:
+        xalign 0.08 yalign 0.03
+        text "  새로운 단서 발견!"
+        text "단서 항목에서 확인 가능"
+    timer 3.25 action Hide('clueFinded')
+
+transform clue_appear:
+    on show:
+        alpha 0
+        linear .25 alpha 1.0
+    on hide:
+        linear .5 alpha 0.0
+        
 ## Notify 스크린 ##################################################################
 ##
 ## Notify 스크린으로 플레이어에게 메시지를 출력합니다. (예를 들어 '퀵세이브 완
@@ -1808,7 +1830,7 @@ screen nvl(dialogue, items=None):
 
             vpgrid:
                 cols 2
-                xpos -100 ypos 280
+                xpos -100 ypos 260
 
                 use nvl_dialogue(dialogue)
 
