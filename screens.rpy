@@ -1763,6 +1763,16 @@ screen clueFinded:
         text "  새로운 단서 발견!"
         text "단서 항목에서 확인 가능"
     timer 3.25 action Hide('clueFinded')
+<<<<<<< HEAD
+=======
+
+transform clue_appear:
+    on show:
+        alpha 0
+        linear .25 alpha 1.0
+    on hide:
+        linear .5 alpha 0.0
+>>>>>>> 147987df992e73325041a5f5ad0b8e0e6c876dfb
 
 transform clue_appear:
     on show:

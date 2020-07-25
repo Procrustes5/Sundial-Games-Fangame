@@ -798,6 +798,11 @@ init:
     define persistent.clues_syokuin = False
     define persistent.clues_rima = False
     define persistent.clues_yanki = False
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 147987df992e73325041a5f5ad0b8e0e6c876dfb
 ## 시작 전 로고 화면 ######################
 label splashscreen:
     scene logo_head onlayer middle with fade
@@ -3019,9 +3024,14 @@ label naming:
 
         hide cg_ames onlayer middle
         jump naming
+<<<<<<< HEAD
     else:
+=======
+    else:     
+>>>>>>> 147987df992e73325041a5f5ad0b8e0e6c876dfb
         play music "audio/main/ames.mp3" fadein 3.0
         $ renpy.movie_cutscene("library/ames.mpg")
+        
         show cg_ames onlayer middle
         hatena "어서 와, [name]. 그게 당신의 이름이구나."
 
@@ -3071,6 +3081,10 @@ label start:
 
     ## 총소리
     play sound "audio/sound/gunshot.mp3"
+<<<<<<< HEAD
+=======
+
+>>>>>>> 147987df992e73325041a5f5ad0b8e0e6c876dfb
     ## 피격효과, 화면 흔들림 효과
     show hit onlayer forward:
         xalign 0.5 yalign 0.6
@@ -3100,10 +3114,14 @@ label start:
     monster "쿠아아악!! 크르륵..."
     hide fire_big onlayer forward
     ## 울부짖는 효과, 화면 흔들림 효과
+<<<<<<< HEAD
     $renpy.pause(0.5)
     play sound "audio/sound/growl.mp3"
     show pohyo onlayer forward:
         xalign 0.5 yalign 0.5
+=======
+    play sound "audio/sound/growl.mp3"
+>>>>>>> 147987df992e73325041a5f5ad0b8e0e6c876dfb
     show stand_monster onlayer middle with hpunch
     ## 괴물 울음소리
 
@@ -3128,10 +3146,10 @@ label start:
     ch_ayumi "쿠…… 쿠우카 씨……? 무슨 소릴 하는 거예요……?! 혼자 너무 앞에 있으면 위험해요……!!"
     
     play sound "audio/sound/knife1.wav"
-
     show stand_Monica_surprised onlayer middle with dissolve
 
     ## 피격 효과 ## 칼이 부딪히는 금속음
+    
 
     ch_monica "큭! 이건 버틸 수가… 유키, 서포트를!"
 
@@ -3201,7 +3219,11 @@ label start:
 
     show bg_black onlayer middle
 
+<<<<<<< HEAD
     ch_monica "{font=NanumGothic.ttf}―{/font}일섬!!"
+=======
+    ch_monica "{font=NanumGothic.ttf}――{/font}일섬!!"
+>>>>>>> 147987df992e73325041a5f5ad0b8e0e6c876dfb
     #일순간 까맣게 된 화면을 가로로 베는 효과
     play sound "audio/sound/knife2.wav"
     show knife_issen onlayer forward
@@ -3267,6 +3289,7 @@ label start:
     player "마망!!!! 내가 잘못했어!! 다시는 반찬 투정 안 할게!!!"    
 
     ## 대화창 사라짐
+    window hide
     ## 문 열리는 소리
     play sound "audio/sound/opendoor.wav"
     ## 잠깐 텀
@@ -3696,9 +3719,13 @@ label start:
 
     scene bg_surf onlayer middle with dissolve
     ## 배경음 일본풍 bgm
+<<<<<<< HEAD
 
     play music "audio/main/4japan.mp3"
 
+=======
+    play music "audio/main/4japan.mp3"
+>>>>>>> 147987df992e73325041a5f5ad0b8e0e6c876dfb
     ch_ninon "……쇼군은…… 언제나 정도만을 걸어온 남자."
 
     ch_ninon "제아무뤼 겉으로는 언행이 아둔하고 이취에 맞지 않는 듯하여도, 쇼군이 인도하는 길의 끝에는 항시 광명이 우뤼를 비추고 있었소."
@@ -4155,7 +4182,10 @@ label onsen:
 
     ## 심각한 브금 서서히 커지면서 들어오기
     play music "audio/main/7emergencycommon.mp3" fadein 1.0
+<<<<<<< HEAD
 
+=======
+>>>>>>> 147987df992e73325041a5f5ad0b8e0e6c876dfb
     hide bg_black
     scene bg_guildhouse
 
@@ -6923,7 +6953,10 @@ label sceneNum19Common:
 
     $ persistent.clues_syokuin = True
     show screen clueFinded
+<<<<<<< HEAD
 
+=======
+>>>>>>> 147987df992e73325041a5f5ad0b8e0e6c876dfb
     hide stand_Kuka_yukata_mousou
     $renpy.pause(1.0)
     hide bg_tadami_night
@@ -8534,7 +8567,10 @@ label scene18_2:
 
     ch_monica "아직 걸리는 게 조금 남아 있지만…… 좋다. 나머지 단서를 찾는다면 조각이 맞춰질 테지. 다음 장소로 이동하자."
 
+<<<<<<< HEAD
     $ persistent.unagi = True
+=======
+>>>>>>> 147987df992e73325041a5f5ad0b8e0e6c876dfb
     $ persistent.clues_unagi = True
     show screen clueFinded
     hide stand_Monica_yukata
@@ -9083,9 +9119,14 @@ label pingpong_choice:
             hide stand_Ninon_yukata_wink
 
             narrator "「니논과의 탁구게임 한 판!」 {vspace=15} {p}연습 경기에서는 승패가 기록되지 않습니다. 부담없이 도전해 보세요."
+<<<<<<< HEAD
             
             ch_nar "시 - 작 !"
             
+=======
+
+            ch_nar "시 - 작 !"
+>>>>>>> 147987df992e73325041a5f5ad0b8e0e6c876dfb
             jump play_pong
         "덤벼!choice_2":
             $ persistent.practicepong = False
@@ -10048,7 +10089,11 @@ label end_kokoro:
     player "무슨 소리야……"
 
     player "내가 콧코로를 미워할 리가 없잖아……"
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> 147987df992e73325041a5f5ad0b8e0e6c876dfb
     show cg_kokoro_01 with dissolve
     hide cg_kokoro_02
 
@@ -10145,7 +10190,11 @@ label end_kokoro:
 
     $renpy.pause(1.0)
 
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> 147987df992e73325041a5f5ad0b8e0e6c876dfb
 
     return
 ## 캬루 엔딩 #####################
