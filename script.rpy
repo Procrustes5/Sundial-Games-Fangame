@@ -574,6 +574,8 @@ init:
 
     define ch_peco = Character("페코린느", color = "#ffffff", ctc = 'ctc_icon', ctc_position = "fixed")
 
+    define ch_kokoro = Character("콧코로", color = "#ffffff", ctc = 'ctc_icon', ctc_position = "fixed")
+
     define ch_kyaru = Character("배신자", color = "#ffffff", ctc = 'ctc_icon', ctc_position = "fixed")
 
     define ch_gura = Character("구라노스케", color = "#ffffff", ctc = 'ctc_icon', ctc_position = "fixed")
@@ -697,6 +699,12 @@ init:
     image cg_ninon_happy_03 = "library/cg_ninon_happy_03.png"
     image cg_ninon_happy_04 = "library/cg_ninon_happy_04.png"
     image cg_ninon_happy_05 = "library/cg_ninon_happy_05.png"
+
+    ## 콧코로
+    image cg_kokoro_01 = "cg/kokoro/kokoro1.png"
+    image cg_kokoro_02 = "cg/kokoro/kokoro2.png"
+    image cg_kokoro_03 = "cg/kokoro/kokoro3.png"
+    image cg_kokoro_04 = "cg/kokoro/kokoro4.png"
 
 ## persistent 변수 ##################################
 init:
@@ -3104,6 +3112,7 @@ label start:
     show stand_Monica_ddung onlayer middle with dissolve
     ch_monica "니논! 쿠우카!! 이대로면 모두가 위험… 에에잇! 이판사판이다!"
     # 칼을 검집에서 빼는 소리
+    stop music fadeout 1.0
     play sound "audio/sound/baldo.mp3"
 
     ch_monica "자전{font=NanumGothic.ttf}―{/font}"
@@ -3312,7 +3321,7 @@ label start:
     ch_ninon "지나가던 들개 씨…… 무섭다 입니다……!"
     hide stand_Ninon_surprise with dissolve
     
-    show stand_Monica_ddung at movetocenter
+    show stand_Monica_ddung at movetocenter with hpunch
     
     ch_monica "요점이 그게 아니지 않나!!!"
 
@@ -9871,6 +9880,178 @@ label Success:
     show bg_end with fade
 
     ch_nar "Thank you for playing"
+
+    return
+## 히든 엔딩 #####################
+label end_kokoro:
+    scene bg_black
+
+    ch_nar "의문의 빛이 온몸을 감싼다……"
+
+    ## 루트별 해피엔딩 bgm/ 배경
+    ## 해당 루트 첫 대사 출력 도중에 끊기
+
+    ## bgm off
+    ## 검은 배경
+    $renpy.pause(1.0)
+
+    hatena "……인님."
+
+    hatena "주인님……"
+
+    show cg_kokoro_02 with fade
+
+    ## 아련한 bgm
+
+    ch_kokoro "주인님……!"
+
+    ch_kokoro "정신이 드십니까……?!"
+
+    player "……"
+
+    player "……마망?"
+
+    show cg_kokoro_01 with dissolve
+    hide cg_kokoro_02
+
+    ch_kokoro "아아, 다행이다……"
+
+    ch_kokoro "저, 저는…… 주인님이, 어딘가 먼 곳으로 떠나 버리시는 줄만 알고……"
+
+    player "콧코로……?"
+
+    player "내가 맨날 말썽 부리고, 속만 썩여서……"
+
+    player "못 버티고 도망가 버린 게…… 아니었어……?"
+
+    show cg_kokoro_02 with dissolve
+    hide cg_kokoro_01
+
+    ch_kokoro "……!"
+
+    ch_kokoro "……주인님, 설마…… 그렇게 생각하고 계실 줄은……"
+
+    ch_kokoro "저는 단지…… 주인님이 조금이라도 더 행복하게 지내시길 바라는 마음에……"
+
+    $renpy.pause(1.0)
+
+    ch_kokoro "……저의 불찰입니다."
+
+    ch_kokoro "가이드 역으로서, 단 한순간이라도 주인님의 곁을 비워서는 안 되었는데……"
+
+    ch_kokoro "제가 잠시 어떻게 됐었나 봅니다…… 주인님을 며칠씩이나 방치하다니……"
+
+    ch_kokoro "앞으로는…… 절대 주인님을 혼자 두지 않겠습니다."
+
+    ch_kokoro "그러니 다시는…… 다시는 콧코로의 곁을 떠나지 말아주십시오."
+
+    ch_kokoro "주인님은 저의 모든 것. 주인님이 없으면 저는……"
+
+    $renpy.pause(1.0)
+
+    ch_kokoro "……주인님, 부디…… 콧코로를 미워하지 말아주세요……"
+
+    player "무슨 소리야……"
+
+    player "내가 콧코로를 미워할 리가 없잖아……"
+    
+    show cg_kokoro_01 with dissolve
+    hide cg_kokoro_02
+
+    ch_kokoro "아아, 주인님……"
+
+    ch_kokoro "어찌 이리도 상냥하신지……"
+
+    ch_kokoro "역시, 주인님의 곁에는……"
+
+    ## bgm 멈춤
+
+    show cg_kokoro_04 with dissolve
+    hide cg_kokoro_01
+
+    ch_kokoro "{size=30}{b}{cps=*3}아무도 없{/cps}어야{cps=*3}만 합니{/cps}다.{/b}{/size}"
+
+    $renpy.pause(1.0)
+
+    player "뭐……?"
+
+    ch_kokoro "해로운 것으로부터 주인님을 안전하게 지키는 일이야말로…… 제가 태어난 이유이자, 저의 사명."
+
+    ch_kokoro "주인님…… 콧코로가 자리를 비운 사이, 온갖 추악하고 더러운 것들을 보고 들으셨을 테지요."
+
+    ch_kokoro "언제나 상대방을 먼저 배려하는 따뜻한 마음씨…… 부탁을 거절하지 못하는 상냥함."
+
+    ch_kokoro "어느 누가 그런 주인님을 사랑하지 않을 수 있을까요……?"
+
+    ch_kokoro "본분을 지키지 못한 저의 오판 때문에, 주인님께서 얼마나 고통스러우셨을지…… 저는 감히 상상조차 할 수 없습니다."
+
+    player "콧코로……?"
+
+    ch_kokoro "괜찮습니다, 주인님…… 안심하십시오."
+
+    ch_kokoro "이제부터는, 어느 누구도 주인님께 접근하지 못하게 할 테니까요."
+
+    ## 상하좌우로 불규칙하게 흔들리는 효과
+
+    ## 심장박동 효과음
+
+    ch_kokoro "그 누구도……"
+
+    ch_kokoro "그 누구도 저와 주인님을 떨어뜨려 놓을 수 없습니다."
+
+    ch_kokoro "설령 그것이, 아메스 님이라 할지라도……"
+
+    player "코, 콧코로……!"
+
+    $renpy.pause(1.0)
+
+    show cg_kokoro_03 with dissolve
+    hide cg_kokoro_04
+
+    ch_kokoro "오야……?"
+
+    ch_kokoro "주인님, 겁먹으신 걸까요……?"
+
+    ch_kokoro "귀여워라…… 후후, 마치 어린아이 같습니다……♪"
+
+    ch_kokoro "착하지…… 착하지……♪"
+
+    ch_kokoro "주인님은…… 착한 아이……♪"
+
+    ch_kokoro "착한 아이는…… 엄마 말을 잘 듣는답니다……♪"
+
+    player "콧……코로, 무, 무서우니까…… 이제 그만……"
+
+    ch_kokoro "쉬—잇……♪"
+
+    ch_kokoro "주인님은 그저 가만히……"
+
+    ch_kokoro "착한 아이로, 있어 주시면 됩니다…….♪"
+
+    ch_kokoro "언제까지고 콧코로가,"
+
+    ch_kokoro "주인님의 모든 것을 준비하고, 관리해 드릴 테니까요."
+
+    show bg_black with fade
+    hide cg_kokoro_03
+
+    ## 심장박동 효과음 멈춤
+
+    $renpy.pause(1.0)
+
+    ch_kokoro "콧코로가,"
+
+    ch_kokoro "주인님을,"
+
+    ch_kokoro "영원히,"
+
+    ch_kokoro "지켜드릴 테니까요."
+
+    ch_kokoro "영원히……"
+
+    $renpy.pause(1.0)
+
+    
 
     return
 ## 캬루 엔딩 #####################

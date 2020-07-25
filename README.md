@@ -8,3 +8,4 @@ NVL GUI
 0725 Modified bt Laptop
 screen cluefinded
 font
+kokoro ending
