@@ -902,7 +902,10 @@ screen about():
             ## gui.about 의 내용은 보통 options.rpy에 있습니다.
             if gui.about:
                 text "[gui.about!t]\n"
-
+            text "{a=https://www.pixiv.net/en/users/27350443}픽시브{/a}"
+            text "Jynack {a=https://twitter.com/Nackjy09}트위터{/a}"
+            text "대노 {a=https://www.pixiv.net/users/8407788}픽시브{/a}"
+            text "{a=https://www.pixiv.net/users/29074698}픽시브{/a}"
             text _("{a=https://www.renpy.org/}Ren'Py{/a} [renpy.version_only] 으로 만들어진 게임입니다.\n\n[renpy.license!t]")
 
 ## options.rpy에서 규정된 내용이 about 스크린에 추가됩니다.
@@ -969,17 +972,17 @@ screen clue:
         grid 1 3:
             xfill True
             yfill True
-            if persistent.hankachi == True:
+            if persistent.clues_hankachi == True:
                 imagebutton idle 'hankachi' hover 'hankachi1' action NullAction()
             else:
                 imagebutton idle 'locked' hover 'locked' action NullAction()
 
-            if persistent.letter == True:
+            if persistent.clues_letter == True:
                 imagebutton idle 'letter' hover 'letter1' action NullAction()
             else:
                 imagebutton idle 'locked' hover 'locked' action NullAction()
 
-            if persistent.key == True:
+            if persistent.clues_key == True:
                 imagebutton idle 'key' hover 'key1' action NullAction()
             else:
                 imagebutton idle 'locked' hover 'locked' action NullAction()
@@ -1011,17 +1014,17 @@ screen clue2:
             xfill True
             yfill True
             
-            if persistent.unagi == True:
+            if persistent.clues_unagi == True:
                 imagebutton idle 'unagi' hover 'unagi1' action NullAction()
             else:
                 imagebutton idle 'locked' hover 'locked' action NullAction()
 
-            if persistent.kiroku == True:
+            if persistent.clues_kiroku == True:
                 imagebutton idle 'kiroku' hover 'kiroku1' action NullAction()
             else:
                 imagebutton idle 'locked' hover 'locked' action NullAction()
 
-            if persistent.akudaikan == True:
+            if persistent.clues_akudaikan == True:
                 imagebutton idle 'akudaikan' hover 'akudaikan1' action NullAction()
             else:
                 imagebutton idle 'locked' hover 'locked' action NullAction()
@@ -1054,17 +1057,17 @@ screen clue3:
             xfill True
             yfill True
             
-            if persistent.syokuin == True:
+            if persistent.clues_syokuin == True:
                 imagebutton idle 'syokuin' hover 'syokuin1' action NullAction()
             else:
                 imagebutton idle 'locked' hover 'locked' action NullAction()
 
-            if persistent.rima == True:
+            if persistent.clues_rima == True:
                 imagebutton idle 'rima' hover 'rima1' action NullAction()
             else:
                 imagebutton idle 'locked' hover 'locked' action NullAction()
 
-            if persistent.yanki == True:
+            if persistent.clues_yanki == True:
                 imagebutton idle 'yanki' hover 'yanki1' action NullAction()
             else:
                 imagebutton idle 'locked' hover 'locked' action NullAction()
@@ -1763,8 +1766,6 @@ screen clueFinded:
         text "  새로운 단서 발견!"
         text "단서 항목에서 확인 가능"
     timer 3.25 action Hide('clueFinded')
-<<<<<<< HEAD
-=======
 
 transform clue_appear:
     on show:
@@ -1772,15 +1773,7 @@ transform clue_appear:
         linear .25 alpha 1.0
     on hide:
         linear .5 alpha 0.0
->>>>>>> 147987df992e73325041a5f5ad0b8e0e6c876dfb
 
-transform clue_appear:
-    on show:
-        alpha 0
-        linear .25 alpha 1.0
-    on hide:
-        linear .5 alpha 0.0
-        
 ## Notify 스크린 ##################################################################
 ##
 ## Notify 스크린으로 플레이어에게 메시지를 출력합니다. (예를 들어 '퀵세이브 완
