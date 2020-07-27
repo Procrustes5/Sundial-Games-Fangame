@@ -214,6 +214,8 @@ init:
             add (im.FactorScale('/choice/choice_%s.png' %feel, 0.2)) xalign 0.2 yalign 0.93
         elif length_items == "2":
             add (im.FactorScale('/choice/choice_%s1.png' %feel, 0.2)) xalign 0.2 yalign 0.93
+        elif length_items == "3":
+            add (im.FactorScale('/choice/choice_%s.png' %feel, 0.2)) xalign 0.2 yalign 0.93
         elif length_items == "4":
             add (im.FactorScale('/choice/choice_%s1.png' %feel, 0.2)) xalign 0.5 yalign 0.93
         else:
@@ -272,6 +274,33 @@ init:
                             hovered Show('icon', length_items = "2", feel=caption[-1])
                             unhovered Hide('icon')
                             xminimum 100    
+        elif len(items) == 3:
+            imagebutton idle 'center' hover 'center' action NullAction() xalign 0.2 yalign 0.93
+            vbox:
+                xpos 60 yalign 0.94
+                for caption, action, chosen in items[3:]:
+                    if action:
+                        button:
+                            action (action, Hide('icon'))
+                            style "menu_choice_button"
+                            text caption[:-8] size 23 text_align 0.0 color "#ffffff" outlines [ (absolute(1), "#000", absolute(0), absolute(0)) ] hover_color '#FFD700' line_spacing 25 style "menu_choice"
+                            hovered Show('icon', length_items = "3", feel=caption[-1])
+                            unhovered Hide('icon')
+                    
+            
+            vbox:
+                xpos 400 yalign 0.94
+                for caption, action, chosen in items[:3]:
+                    if action:
+    
+                        button:
+                            action (action, Hide('icon'))
+                            style "menu_choice_button"
+                            text caption[:-8] size 23 text_align 0.0 color "#ffffff" outlines [ (absolute(1), "#000", absolute(0), absolute(0)) ] hover_color '#FFD700' line_spacing 25 style "menu_choice"
+                            hovered Show('icon', length_items = "3", feel=caption[-1])
+                            unhovered Hide('icon')
+                            xminimum 100
+
         elif len(items) == 4:
             imagebutton idle 'center' hover 'center' action NullAction() xalign 0.5 yalign 0.93
             vbox:

@@ -324,6 +324,7 @@ init:
 init:
     image ob_ujitya:
         im.FactorScale("object/ob_ujitya.png", 0.5)
+        xpos 650 yalign 0.3
     image ob_wagasi:
         im.FactorScale("object/ob_wagasi.png", 0.5)
     image ob_unagi:
@@ -364,9 +365,16 @@ init:
         im.FactorScale("object/yas1.png", 1.0)
         xpos 490 yalign 0.58
     image ob_yas2:
-        im.FactorScale("object/yas2.png", 1.0)
+        im.FactorScale("object/yas2.png", 0.8)
+        xalign 0.0 yalign 0.5
     image ob_yas3:
-        im.FactorScale("object/yas3.png", 1.0)
+        im.FactorScale("object/yas3.png", 0.4)
+        xpos 1000 yalign 0.4
+    
+    ## 유키 회상 ####################################
+    image kaisou_guildhouse = "object/kaisou_g.png"
+    image kaisou_field = "object/kaisou_f.png"
+    image kaisou_town = "object/kaisou_t.png"
 
 ## 이펙트 ###############################
     image fire_big:
@@ -619,8 +627,8 @@ init:
         ## 숨소리 audio/sound/breathe.mp3
         ## 털썩 audio/sound/down.mp3 ##
         ## 발자국 소리 audio/sound/walking.mp3
-        ## 원숭이 울음소리 audio/sound/monkey.wav
-        ## 원숭이 울음소리 2 audio/sound/monkey2.wav
+        ## 원숭이 울음소리 audio/sound/monkey.mp3
+        ## 원숭이 울음소리 2 audio/sound/monkey2.mp3
         ## 괴물 울부짖는 소리 audio/sound/growl.mp3
         ## 괴물 으르렁거리는 소리 audio/sound/exo.mp3
         ## 멀리 날아가는 소리 audio/sound/fly.mp3
@@ -3195,7 +3203,7 @@ label start:
 
     show stand_Ninon_angry onlayer middle with dissolve
 
-    ch_ninon "유키 씨, 무사답지 못하다 입니다~! 모름지기 사무라이라면 아무리 YABAI한 상황일지라도…"
+    ch_ninon "유키 씨, 무사답지 못하다 입니다~! 모름쥐기 사무라이라면 아무리 YABAI한 상황일지라도…"
     
     ## 니논 화난 표정 주변에 불이 붙는 효과/ 불길 치솟음
 
@@ -3438,9 +3446,10 @@ label start:
 
     show highlight onlayer forward with hpunch
 
+    ch_monica "…………‘실전’이다!!"
+
     hide highlight onlayer forward
 
-    ch_monica "…………‘실전’이다!!"
     ch_monica "아무리 강력한 전사라 해도 실전 경험이 없다면 지나가던 들개 한 마리 상대하는 것도 버거울 터."
 
     show stand_Monica_ddung at movetoleft
@@ -3584,16 +3593,18 @@ label start:
     ## 길드 하우스 cg 페이드
     show bg_black onlayer background
     scene bg_guildhouse onlayer middle with fade
-    show stand_Ninon onlayer forward
+    show ob_ujitya onlayer forward with dissolve
 
     ch_ninon "쇼군! 이것은 마음을 안정시키는 동국의 3대 명차, 우지차라고 하는 것입니다!"
 
-    ## 
+    hide ob_ujitya onlayer forward
+    show stand_Ninon onlayer forward
+
     extend " 어서 들이켜 보세요 입니다!"
 
     hide stand_Ninon onlayer forward
 
-    player "우지챠……."
+    player "우지챠……"
 
     show stand_Kuka onlayer forward with dissolve ##기본 표정
 
@@ -4225,7 +4236,7 @@ label onsen:
 
     hide ob_tegami
     
-    player "……”도와주세요” 라니…… 온천 초대장이 아니었어? 누가 장난친 건가?"
+    player "……“도와주세요” 라니…… 온천 초대장이 아니었어? 누가 장난친 건가?"
 
     show stand_Ninon_down with dissolve
 
@@ -4277,6 +4288,11 @@ label onsen:
     ch_yuki "잠깐, 너무 진지하게 받아들이는 거 아니야? 저 빨간 자국이 진짜 피가 맞다 쳐도, 이상한 점이 한두 개가 아니잖아."
 
     hide stand_Yuki_ddung
+    show stand_Ninon_surprise with dissolve
+
+    ch_ninon "……! 그건 그렇다 입니다. 저렇게 글자를 날려쓸 정도로 일쵹즉봘의 상황이었다면…… 편지를 보낼 틈도 없었을 터 입니다."
+
+    hide stand_Ninon_surprise
 
     ch_ayumi "마지막 힘을 짜내어 써 놓은 편지를…… 다른 누군가가 발견해서 여기로 몰래 보내 준 것 아닐까요……? 우으…… 제가 말하면서도 무서워요……."
 
@@ -4662,17 +4678,6 @@ label onsen_inside:
 
     player "외모고 뭐고 사람의 형상이 아니잖……"
 
-    ## 임시 선택지
-    menu:
-        "게임 이어서 계속하기choice_1":
-            hide stand_gura onlayer forward
-            pass
-        "니논 엔딩 확인하기choice_2":
-            hide stand_gura onlayer forward
-            hide bg_onsen onlayer middle
-            hide bg_black onlayer background
-            jump ninonHappy
-
     show stand_Yuki_ddung onlayer forward at right with dissolve ## 유키 뚱한 표정 오른쪽
 
     ch_yuki "맞아~ 얼른 사과해. 그 누구보다 아름다운 나조차도 남의 외모를 함부로 깎아내리진 않는다구."
@@ -4681,22 +4686,23 @@ label onsen_inside:
     hide bg_onsen onlayer middle
     ## 길드하우스 cg + 유키 회색으로
 
-    show bg_guildhouse onlayer middle with fade
-    show stand_Yuki_angry onlayer forward with dissolve ## 회색
+    show kaisou_guildhouse onlayer forward with dissolve
 
     ch_yuki "“……엄청나게 못생긴 마물……”"
 
-    show stand_Yuki_ddung onlayer forward ## 회색
-    hide stand_Yuki_angry onlayer forward 
+    show kaisou_field onlayer forward with dissolve
+    hide kaisou_guildhouse onlayer forward
 
     ch_yuki "“세상에…… 대체 뭘 먹고 자라면 저렇게 못생겨지는 거지……?! 윽…… 역겨워……”"
 
+    show kaisou_town onlayer forward with dissolve
+    hide kaisou_field onlayer forward
+
     ch_yuki "“아아- 못생긴 녀석들은 얼굴만 봐도 토할 것 같단 말이지- 얼른 죽어 주지 않으려나-”"
 
-    hide stand_Yuki_ddung onlayer forward
     show bg_onsen
+    hide kaisou_town onlayer forward
     hide bg_black onlayer background
-    hide bg_guildhouse onlayer middle with fade
     
 
     show stand_gura with dissolve
@@ -4920,11 +4926,14 @@ label routen:
 
     ch_gura "처음에는 제가 꿈을 꾸고 있는 건지, 과로 때문에 정신병에 걸리기라도 한 건지 의심했습니다……."
 
+    hide stand_gura
     ## 피로 휘갈겨 쓴 편지 이미지
+    show ob_tegami with dissolve:
+        xpos 430 yalign 0.3
 
     ch_gura "……그 편지를 ‘발견’하기 전까지는 말이죠."
 
-    hide stand_gura
+    hide ob_tegami
     ## 모니카 화난 표정
     show stand_Monica_ddung with dissolve
 
@@ -10442,7 +10451,7 @@ label scene23Common:
 
         hide stand_Ninon_yukata_panic
 
-        play sound "audio/sound/monkey.wav"
+        play sound "audio/sound/monkey.mp3"
 
         hatena "끼에!!!!! 끼에에!!! 끼아아아아악!!!!!!!!"
 
@@ -10450,7 +10459,7 @@ label scene23Common:
 
         $renpy.pause(2.0)
 
-        play sound "audio/sound/monkey2.wav"
+        play sound "audio/sound/monkey2.mp3"
 
         monster "{b}{size=30}야스각이다!!!! 야스각!!!!!{/size}{/b}"
 
@@ -10937,7 +10946,7 @@ label cg_ninonsecond:
 
     ch_ninon "~~~~~!!!!"
 
-    ch_ninon "쇼, 쇼군~~!! 짓궃어 입니다……!!"
+    ch_ninon "쇼, 쇼군~~!! 짓궂어 입니다……!!"
 
     show cg_ninon_onsen_02 with dissolve
     hide cg_ninon_onsen_03
@@ -10953,7 +10962,7 @@ label cg_ninonsecond:
     player "그렇다면……"
 
     menu:
-        "“내가 나쁜 짓을 한다 해도?”":
+        "“내가 나쁜 짓을 한다 해도?”choice_1":
             $point_ninon += 1
             show cg_ninon_onsen_01 with dissolve
             hide cg_ninon_onsen_02
@@ -10992,20 +11001,112 @@ label cg_ninonsecond:
 
             show cg_ninon_onsen_03 onlayer middle with dissolve
 
-            $camera_move(200, 1000, 600, 0, 1)
+            $camera_move(200, -500, 600, 0, 1)
 
             ch_ninon "!!!!!"
 
             ch_ninon "쇼, 쇼군……!!! 갑자기……?!"
+            $camera_move(0, 0, 0, 0, 0)
 
 
-        "“이리 가까이 와.”":
-            show cg_ninon_onsen_01 with dissolve
-            
-        "“벗어.”":
+
+        "    “이리 가까이 와.”choice_2":
+            show cg_ninon_onsen_01 onlayer middle with dissolve
+
+            ch_ninon "가, 가까이…… 입니까?"
+
+            $camera_move(200, -500, 400, 0, 1)
+
+            ch_ninon "……!!"
+
+            show cg_ninon_onsen_02 onlayer middle with dissolve
+            hide cg_ninon_onsen_01 onlayer middle
+
+            ch_ninon "쇼…… 쇼군……?!"
+
+            ch_ninon "너무 가까워요 입니다……!!"
+
+            player "더 가까이."
+
+            ch_ninon "에에……?"
+
+            player "더 가까이 와."
+
+            show cg_ninon_onsen_03 onlayer middle with dissolve
+            hide cg_ninon_onsen_02 onlayer middle
+
+            $camera_move(200, -700, 1000, 0, 0.5)
+
+            ch_ninon "우우우……"
+
+            ch_ninon "너, 너무 가까워 입니다……"
+
+            ch_ninon "쇼군의…… 체온까지 느껴져요 입니다……!"
+  
+        "“벗어.”choice_3":
             $point_ninon -= 1
+            show cg_ninon_onsen_03 onlayer middle with dissolve
+            ch_ninon "?!?!?!!"
 
+            ch_ninon "쇼군……?! 갑자기 무엇을……!!"
+
+            ch_ninon "니, 니논이…… 잘못 들은 것이다 입니까……?"
+
+            player "다시 한 번 말해 줄까?"
+
+            player "{b}{size=30}벗어.{/size}{/b}"
+
+            ch_ninon "…………"
+
+            ch_ninon "이런 거…… 이상해요 입니다……"
+
+            ch_ninon "쇼, 쇼군은…… 흐윽……"
+
+            ch_ninon "이런 파렴치한 행동 따위…… 히끅…… 강요하지 않을 텐데……"
+
+            $camera_move(200, -700, 1000, 0, 0.5)
     
+    player "니논……"
+
+    ch_ninon "쇼, 쇼군……"
+
+    player "그대로…… 가만히 있어……"
+
+    ch_ninon "쇼군…… 쇼구운……"
+
+    $renpy.pause(1.0)
+
+    play sound "audio/sound/surp.mp3"
+
+    show stand_gura onlayer forward with dissolve:
+        xalign 0.5 yalign 0.4
+
+    show highlight onlayer forward
+
+    ch_gura "여러부우우{font=NanumGothic.ttf}————{/font}우운!!!!!!!!!!!"
+
+    ch_gura "구하러 왔슴다{font=NanumGothic.ttf}————{/font}아앗!!!!!!!!!!!!"
+
+    $camera_move(0, 0, 0, 0, 0)
+
+    show bg_outside_onsen_2
+    hide highlight onlayer forward
+    hide stand_gura onlayer forward
+    hide cg_ninon_onsen_03 onlayer middle
+
+    show ob_yas3 with dissolve
+
+    play sound "audio/sound/monkey.mp3"
+
+    play music "audio/main/7emergencycommon.mp3"
+
+    monster "아 씹빨!!!!! 폭풍야스 왜 안하냐고!!!!!!!!"
+
+    hide ob_yas3
+
+
+
+
 
     return
 
