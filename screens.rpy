@@ -902,10 +902,10 @@ screen about():
             ## gui.about 의 내용은 보통 options.rpy에 있습니다.
             if gui.about:
                 text "[gui.about!t]\n"
-            text "{a=https://www.pixiv.net/en/users/27350443}픽시브{/a}"
+            text "Leviathan {a=https://www.pixiv.net/en/users/27350443}Pixiv{/a}, {a=https://twitter.com/hikinito0902}트위터{/a}"
             text "Jynack {a=https://twitter.com/Nackjy09}트위터{/a}"
-            text "대노 {a=https://www.pixiv.net/users/8407788}픽시브{/a}"
-            text "{a=https://www.pixiv.net/users/29074698}픽시브{/a}"
+            text "대노 {a=https://www.pixiv.net/users/8407788}Pixiv{/a}"
+            text "??? {a=https://www.pixiv.net/users/29074698}Pixiv{/a}"
             text _("{a=https://www.renpy.org/}Ren'Py{/a} [renpy.version_only] 으로 만들어진 게임입니다.\n\n[renpy.license!t]")
 
 ## options.rpy에서 규정된 내용이 about 스크린에 추가됩니다.

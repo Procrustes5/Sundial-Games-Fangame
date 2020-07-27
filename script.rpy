@@ -227,15 +227,23 @@ init:
         im.FactorScale("bg/room.jpg", 2.55)
 
     image bg_end:
-        im.FactorScale("bg/bg_end.png", 1.0)    
+        im.FactorScale("bg/bg_end.png", 1.0)  
+
+    image bg_badend:
+        im.FactorScale("bg/bg_badend.png", 1.0)
+
     image highlight:
         im.FactorScale("library/highlight_line.png", 1.1)
     
     image bg_guildhouse:
         im.FactorScale("bg/bg_guildhouse.png", 1.0)
     
+    image bg_guildhouse_rev:
+        im.FactorScale("bg/bg_guildhouse_reversed.png", 1.0)
+    
     image bg_black:
         im.FactorScale("bg/black.png", 2.0)
+
     image bg_surf:
         im.FactorScale("bg/surf.jpg", 1.75)
 
@@ -244,6 +252,9 @@ init:
 
     image bg_onsen:
         im.FactorScale("bg/bg_onsen.png", 1.0)
+
+    image bg_onsen_dark:
+        im.FactorScale("bg/bg_onsen_dark.png", 1.0)
 
     image bg_routen:
         im.FactorScale("bg/bg_routen.png", 1.0)
@@ -262,6 +273,7 @@ init:
     
     image bg_tadami_day: 
         im.FactorScale("bg/tadami_day.png", 0.67)
+
     image bg_tadami_night:
         im.FactorScale("bg/tadami_night.png", 0.67) 
 
@@ -324,10 +336,10 @@ init:
         im.FactorScale("object/gura_key.png", 0.5)
     image ob_kiroku:
         im.FactorScale("object/darekanokiroku.png", 0.5)
-        xpos 430 yalign 0.3
+        xpos 650 yalign 0.3
     image ob_akudaikan:
         im.FactorScale("object/akudaikan.png", 0.5)
-        xpos 430 yalign 0.3   
+        xpos 650 yalign 0.3   
 
     ## 1컷 만화 ####################################
     image ob_moninon:
@@ -344,6 +356,17 @@ init:
         im.FactorScale("object/npc_2.png", 0.8) ## 양아치
     image npc_3:
         im.FactorScale("object/npc_3.png", 0.8) ## 리마
+    image npc_4:
+        im.FactorScale("object/npc_4.png", 0.8) ## 머리 잘린 양아치
+
+    ## 야스 침팬지 ##################################
+    image ob_yas1:
+        im.FactorScale("object/yas1.png", 1.0)
+        xpos 490 yalign 0.58
+    image ob_yas2:
+        im.FactorScale("object/yas2.png", 1.0)
+    image ob_yas3:
+        im.FactorScale("object/yas3.png", 1.0)
 
 ## 이펙트 ###############################
     image fire_big:
@@ -582,6 +605,7 @@ init:
         ## audio/main/5orientalcommon.mp3
         ## audio/main/6orientalcommon.mp3
         ## audio/main/7emergencycommon.mp3
+        ## audio/main/9bbong.mp3
 
     ## Sound ##
 
@@ -596,6 +620,7 @@ init:
         ## 털썩 audio/sound/down.mp3 ##
         ## 발자국 소리 audio/sound/walking.mp3
         ## 원숭이 울음소리 audio/sound/monkey.wav
+        ## 원숭이 울음소리 2 audio/sound/monkey2.wav
         ## 괴물 울부짖는 소리 audio/sound/growl.mp3
         ## 괴물 으르렁거리는 소리 audio/sound/exo.mp3
         ## 멀리 날아가는 소리 audio/sound/fly.mp3
@@ -609,6 +634,11 @@ init:
         ## 칼로 베어가르는 소리 audio/sound/knife2.wav
         ## 뛰어가는 소리 audio/sound/running.wav
         ## 과자 먹는 소리 audio/sound/snack.wav
+        ## A FEW MOMENTS LATER audio/sound/AFEWMOMENTSLATER.mp3
+        ## SIX MONTHS LATER audio/sound/SixMonthsLater.mp3
+        ## 침 뱉는 소리 audio/sound/spit.wav
+        ## 액체 묻는 소리 audio/sound/liquid.wav
+        ## 리마 우는 소리 audio/sound/rima.wav
 
     ## Voice ##
 
@@ -663,6 +693,10 @@ init:
     define ch_syokuin = Character("여직원", color = "#ffffff", ctc = 'ctc_icon', ctc_position = "fixed")
 
     define ch_rima = Character("역겹게 생긴 짐승", color = "#ffffff", ctc = 'ctc_icon', ctc_position = "fixed")
+
+    define ch_head = Character("머리가 대단한 손님", color = "#ffffff", ctc = 'ctc_icon', ctc_position = "fixed")
+
+    define ch_head_2 = Character("머리가 대단했던 손님", color = "#ffffff", ctc = 'ctc_icon', ctc_position = "fixed") 
 ## 나래이터류 ############################
 init:
     define narrator = Character(None, kind = nvl)
@@ -774,6 +808,14 @@ init:
         im.FactorScale("cg/ninon/ninon_pingpong.png", 0.5)
     image ninon_encore:
         im.FactorScale("cg/ninon/ninon_encore.png", 0.5)
+
+    image cg_ninon_onsen_01:
+        im.FactorScale("cg/ninon/ninon_onsen_1.png", 1.0)
+    image cg_ninon_onsen_02:
+        im.FactorScale("cg/ninon/ninon_onsen_2.png", 1.0)
+    image cg_ninon_onsen_03:
+        im.FactorScale("cg/ninon/ninon_onsen_3.png", 1.0)
+
     image cg_ninon_happy_01 = "library/cg_ninon_happy_01.png"
     image cg_ninon_happy_02 = "library/cg_ninon_happy_02.png"
     image cg_ninon_happy_03 = "library/cg_ninon_happy_03.png"
@@ -3128,10 +3170,11 @@ label start:
 
     ch_ayumi "쿠…… 쿠우카 씨……? 무슨 소릴 하는 거예요……?! 혼자 너무 앞에 있으면 위험해요……!!"
     
-    play sound "audio/sound/knife1.wav"
+    
     show stand_Monica_surprised onlayer middle with dissolve
 
     ## 피격 효과 ## 칼이 부딪히는 금속음
+    play sound "audio/sound/knife1.wav"
     show hit onlayer forward:
         xalign 0.5 yalign 0.6
 
@@ -3629,6 +3672,11 @@ label start:
 
         "자기 자신만을 중시하며 동료를 배려하지 않는 것choice_4":
             $love_point = 4 ## 유키
+    hide bg_black onlayer background
+    hide bg_guildhouse onlayer middle
+    hide stand_Monica onlayer forward
+    stop music
+    jump scene20Common ## 버그테스트 용
 
     show stand_Monica onlayer forward with dissolve ## 기본 표정
 
@@ -5532,9 +5580,8 @@ label sceneNum10:
 ## S# 11-2. 대욕탕 (공통 루트) ################
 label sceneNum11_2Common:
     ## 대욕탕 cg
-    scene bg_onsen onlayer middle with fade
+    scene bg_daiyokujyo onlayer middle with fade
     hide bg_black
-    show bg_black onlayer background
 
     ch_nar "……와."
 
@@ -5565,7 +5612,7 @@ label sceneNum11_2Common:
     ch_nar "……이대로면 잠들 수 있겠"
 
     ## 화면 흔들리는 효과
-    show bg_onsen onlayer middle with hpunch
+    show bg_daiyokujyo onlayer middle with hpunch
 
     ## 니논 대사 글꼴 크기 크게 + 굵게
     ch_ninon "{b}{size=30}우오오오옷!!!!!!!!!!{/size}{/b}"
@@ -5598,7 +5645,7 @@ label sceneNum11_2Common:
     ch_ninon "모니카 씨는 귀여우니까 아무래도 좋다 입니다~"
 
     ## 화면 흔들리는 효과
-    show bg_onsen onlayer middle with hpunch
+    show bg_daiyokujyo onlayer middle with hpunch
 
     ch_monica "어린애 취급 하지 마아아아!!!!!!!!"
 
@@ -5649,7 +5696,7 @@ label sceneNum11_2Common:
     ch_yuki "{cps=*0.5}알. 몸. 인. 채. 로.{/cps}"
 
     ## 화면 흔들리는 효과
-    show bg_onsen onlayer middle with hpunch
+    show bg_daiyokujyo onlayer middle with hpunch
 
     player "으아아아!!! 말하면서 그런 거 보여 주지 마!!!!"
 
@@ -5669,12 +5716,12 @@ label sceneNum11_2Common:
 
     ch_ayumi "지이이이………"
 
-    hide bg_onsen onlayer middle
+    hide bg_daiyokujyo onlayer middle
 
     jump sceneNum12Common
 ## S# 12. 온천 내부 [여기부터 모든 스탠딩 cg는 유카타 복장으로](공통루트)#######
 label sceneNum12Common:
-    scene bg_onsen_heya_02 with fade
+    scene bg_onsen with fade
     hide bg_black onlayer background
 
     ## 니논 윙크하는 표정
@@ -5767,7 +5814,7 @@ label sceneNum12Common:
     ch_gura "……!!"
 
     hide stand_gura
-    show bg_onsen_heya_02 onlayer middle
+    show bg_onsen onlayer middle
     ## 니논 비장한 표정
     show stand_Ninon_yukata_daiji onlayer forward with dissolve
 
@@ -5790,6 +5837,7 @@ label sceneNum12Common:
 
     $ camera_move(0, 0, 600, 0, 0.5)
 
+    play sound "audio/sound/1bak2il.mp3"
     show highlight onlayer forward with hpunch
 
     ch_gura "{b}{size=30}……‘하나’입니다!!!{/size}{/b}" 
@@ -5798,7 +5846,7 @@ label sceneNum12Common:
 
     hide highlight onlayer forward
     hide stand_gura onlayer forward
-    hide bg_onsen_heya_02 onlayer middle
+    hide bg_onsen onlayer middle
 
     ## 니논 윙크하는 표정
     show stand_Ninon_yukata_wink with dissolve
@@ -5834,7 +5882,7 @@ label sceneNum12Common:
 
     ch_ayumi "……왜 인원이 다섯 명이라는 말에는 아무도 반박하지 않는 건가요오!!!!"
 
-    hide bg_onsen_heya_02
+    hide bg_onsen
 
     jump sceneNum13Common
 ## S# 13. 온천숙소 (다다미 방)(공통루트)#####
@@ -6318,7 +6366,7 @@ label sceneNum14Common:
     jump sceneNum15_1Common
 ## S #15-1. 온천 건물 내부 (식당) (공통 루트)####
 label sceneNum15_1Common:
-    scene bg_naibu with fade
+    scene bg_onsen with fade
     ## 동양풍 bgm
     play music "audio/main/5orientalcommon.mp3"
     show stand_gura with dissolve
@@ -6402,7 +6450,7 @@ label sceneNum15_1Common:
 
     ch_gura "그러시죠, 손님도 많이 없어서 재료가 남아도는 실정이니……"
 
-    show bg_naibu at fast_rotating
+    show bg_onsen at fast_rotating
 
     ch_gura "배가 빵빵해질 때까지 양껏 드십쇼-----옷!!!!!!"
 
@@ -6445,7 +6493,7 @@ label sceneNum15_1Common:
     ch_gura "그럼, 맛있게 즐겨주시길 바랍니다!!"
 
     hide ob_wagasi
-    hide bg_naibu
+    hide bg_onsen
 
     if love_point == 1:
         show bg_black
@@ -6648,7 +6696,7 @@ label sceneNum16Common:
     jump sceneNum19Common
 ## S# 17. 온천 숙소 - 리터칭 1 (공통루트) ####
 label sceneNum19Common:
-    scene tadami_day with fade
+    scene bg_onsen_heya_03 with fade
 
     player "방이 생각보다 엄청 많네……"
 
@@ -6696,11 +6744,11 @@ label sceneNum19Common:
 
     show afewmoment with fade
     ## A FEW MOMENTS LATER 효과음
-    hide bg_tadami_day
+    hide bg_onsen_heya_03
 
     $renpy.pause(1.0)
 
-    show bg_tadami_day
+    show bg_onsen_heya_03
     hide afewmoment
 
     show stand_Ninon_yukata_innocent with dissolve
@@ -6720,14 +6768,14 @@ label sceneNum19Common:
 
     hide stand_Monica_yukata
     show sixmonths with fade
-    hide tadami_day
+    hide bg_onsen_heya_03
 
     ## 6months 효과음
 
     $renpy.pause(1.0)
 
     hide sixmonths
-    show bg_tadami_night
+    show bg_onsen_heya_02
 
     show stand_Monica_yukata_crying with dissolve
     ch_monica "어떻게 아무것도 없을 수가…… 조사한 방만 몇 개째인데……"
@@ -6853,7 +6901,7 @@ label sceneNum19Common:
     player "다들, 내가 시키는 대로만 해 줘……!"
 
     show bg_black with fade
-    hide bg_tadami_night
+    hide bg_onsen_heya_02
 
     ## bgm off
     stop music
@@ -6862,7 +6910,7 @@ label sceneNum19Common:
 
     $renpy.pause(1.0)
 
-    show bg_tadami_night with fade
+    show bg_onsen_heya_02 with fade
     hide bg_black
 
     show npc_1 with dissolve
@@ -6885,7 +6933,7 @@ label sceneNum19Common:
 
     hide cg_babybung
     show npc_1 with dissolve
-    show bg_tadami_night with hpunch
+    show bg_onsen_heya_02 with hpunch
 
     ch_syokuin "꺄———아아악?!!!?!!!!!"
 
@@ -6947,7 +6995,7 @@ label sceneNum19Common:
     show screen clueFinded
     hide stand_Kuka_yukata_mousou
     $renpy.pause(1.0)
-    hide bg_tadami_night
+    hide bg_onsen_heya_02
 
     if love_point == 1 or love_point == 3:
         jump scene18_1
@@ -6955,7 +7003,7 @@ label sceneNum19Common:
         jump scene18_2
 ## S# 18-1. 실내 온천 (니논, 쿠우카 루트) #########
 label scene18_1:
-    scene bg_indoor_sauna_day
+    scene bg_indoor_onsen
     ## 동양풍 bgm
     play music "audio/main/5orientalcommon.mp3"
 
@@ -7045,11 +7093,11 @@ label scene18_1:
         hide stand_Ninon_yukata_innocent
 
         show bg_black with fade
-        hide bg_indoor_sauna_day
+        hide bg_indoor_onsen
 
         ch_nar "조금 전……"
 
-        show bg_tadami_night with fade
+        show bg_onsen_heya_02 with fade
         hide bg_black
 
         ## 긴박한 bgm
@@ -7274,7 +7322,7 @@ label scene18_1:
 
         $renpy.pause(1.5)
 
-        show bg_indoor_sauna_day with fade
+        show bg_indoor_onsen with fade
         hide bg_black
 
         player "응…… 니논이 아니었다면, 자연스럽게 빠져나오지 못했을 거야……"
@@ -7302,11 +7350,11 @@ label scene18_1:
         hide stand_Kuka_yukata_mousou
 
         show bg_black with fade
-        hide bg_indoor_sauna_day
+        hide bg_indoor_onsen
 
         ch_nar "조금 전……"
 
-        show bg_tadami_night with fade
+        show bg_onsen_heya_02 with fade
         hide bg_black
 
         ## 긴박한 bgm
@@ -7357,6 +7405,7 @@ label scene18_1:
         hide stand_Kuka_yukata_mousou
 
         show bg_black
+        hide bg_onsen_heya_02
         $renpy.pause(1.0)
         ## 긴박한 bgm 볼륨 서서히 작아짐
         stop music fadeout 3.0
@@ -7538,7 +7587,7 @@ label scene18_1:
 
         $renpy.pause(1.5)
 
-        show bg_indoor_sauna_day with fade
+        show bg_indoor_onsen with fade
         hide bg_black
 
         player "응…… 쿠우카가 아니었다면, 절대 자연스럽게 빠져나오지 못했을 거야……"
@@ -7599,11 +7648,11 @@ label scene18_1:
     ch_ayumi "지이이이……"
 
     show bg_black with fade
-    hide bg_indoor_sauna_day
+    hide bg_indoor_onsen
 
     $renpy.pause(1.0)
 
-    show bg_indoor_sauna_day
+    show bg_indoor_onsen
     hide bg_black
 
     show stand_Ninon_yukata_angry with dissolve
@@ -7733,7 +7782,7 @@ label scene18_1:
     ch_kuka "묘, 묘사가 쓸데없이 구체적이라서 화가 치밀어 올라요……!!"
 
     hide stand_Kuka_yukata_mousou
-    show bg_indoor_sauna_day onlayer middle with dissolve
+    show bg_indoor_onsen onlayer middle with dissolve
     show stand_Ninon_yukata_daiji onlayer forward with dissolve
 
     ch_ninon "그것도 아니라면……"
@@ -7757,7 +7806,7 @@ label scene18_1:
     show stand_Ninon_yukata
     hide stand_Ninon_yukata onlayer forward
     hide highlight onlayer forward
-    hide bg_indoor_sauna_day onlayer middle
+    hide bg_indoor_onsen onlayer middle
 
     ch_ninon "장어구이 조각을 보고 여기까지 추리하시다니…… 쇼군은 정말 굉장해요 입니다!!!"
 
@@ -7810,12 +7859,12 @@ label scene18_1:
     show screen clueFinded
     $renpy.pause(1.0)
     show bg_black with fade
-    hide bg_indoor_sauna_day
+    hide bg_indoor_onsen
 
     jump scene19_1
 ## S# 18-2. 실내 온천 (모니카, 유키 루트) #########
 label scene18_2:
-    scene bg_indoor_sauna_day
+    scene bg_indoor_onsen
     ## 동양풍 bgm
     play music "audio/main/5orientalcommon.mp3"
 
@@ -7845,13 +7894,13 @@ label scene18_2:
         hide stand_Monica_yukata_dere
 
         show bg_black with fade
-        hide bg_indoor_sauna_day
+        hide bg_indoor_onsen
         ## 동양풍 bgm 볼륨 서서히 작아지다 off
         stop music fadeout 3.0
 
         ch_nar "조금 전……"
 
-        show bg_tadami_night
+        show bg_onsen_heya_02
         hide bg_black
 
         ## 긴박한 bgm
@@ -8146,7 +8195,7 @@ label scene18_2:
 
         $renpy.pause(1.5)
 
-        show bg_indoor_sauna_day with fade
+        show bg_indoor_onsen with fade
         hide bg_black
 
         player "응…… 모니카가 아니었다면, 자연스럽게 빠져나오지 못했을 거야……"
@@ -8170,11 +8219,11 @@ label scene18_2:
         hide stand_Yuki_yukata_shamed
 
         show bg_black with fade
-        hide bg_indoor_sauna_day
+        hide bg_indoor_onsen
 
         ch_nar "조금 전……"
 
-        show bg_tadami_night with fade
+        show bg_onsen_heya_02 with fade
         hide bg_black
 
         ## 긴박한 bgm
@@ -8396,7 +8445,7 @@ label scene18_2:
 
         $renpy.pause(1.5)
 
-        show bg_indoor_sauna_day with fade
+        show bg_indoor_onsen with fade
         hide bg_black
 
         player "응…… 유키가 아니었다면, 절대 자연스럽게 빠져나오지 못했을 거야……"
@@ -8454,11 +8503,11 @@ label scene18_2:
     ch_ayumi "지이이이……"
 
     show bg_black with fade
-    hide bg_naibu
+    hide bg_indoor_onsen
 
     $renpy.pause(1.0)
 
-    show bg_indoor_sauna_day
+    show bg_indoor_onsen
     hide bg_black
 
     show stand_Monica_yukata_down with dissolve
@@ -8587,11 +8636,11 @@ label scene18_2:
     hide stand_Monica_yukata
     $renpy.pause(1.0)
     show bg_black
-    hide bg_indoor_sauna_day
+    hide bg_indoor_onsen
     jump scene19_2
 ## S# 19-1. 야외 온천 2 (밤) (니논, 쿠우카 루트) ######
 label scene19_1:
-    scene bg_outside_onsen_2 with fade
+    scene bg_outside_onsen with fade
     show stand_Kuka_yukata with dissolve
 
     ch_kuka "음…… 온천은 여기가 마지막인 것 같네요……"
@@ -8677,7 +8726,7 @@ label scene19_1:
     ## bgm off
     stop music
 
-    show bg_outside_onsen_2 with hpunch
+    show bg_outside_onsen with hpunch
 
     ## 기괴한 울음소리 효과음
 
@@ -8703,7 +8752,7 @@ label scene19_1:
 
     show npc_3 with dissolve
 
-    show bg_outside_onsen_2 with hpunch
+    show bg_outside_onsen with hpunch
 
     ch_rima "꿰에에에에엑!!!"
 
@@ -8959,12 +9008,12 @@ label scene19_1:
     show screen clueFinded
     $renpy.pause(1.0)
     show bg_black
-    hide bg_outside_onsen_2
+    hide bg_outside_onsen
 
     jump scene20Common
 ## S# 19-2. 야외 온천 2 (밤) (모니카, 유키 루트) ######
 label scene19_2:
-    scene bg_outside_onsen_2
+    scene bg_outside_onsen
 
     show stand_Monica_yukata with dissolve
 
@@ -9000,7 +9049,7 @@ label scene19_2:
 
     stop music fadeout 3.0
 
-    show bg_outside_onsen_2 with hpunch
+    show bg_outside_onsen with hpunch
 
     ## 기괴한 울음소리 효과음
 
@@ -9026,7 +9075,7 @@ label scene19_2:
 
     show npc_3 with dissolve
 
-    show bg_outside_onsen_2 with hpunch
+    show bg_outside_onsen with hpunch
 
     ch_rima "꿰에에에에엑!!!"
 
@@ -9270,7 +9319,7 @@ label scene19_2:
     show screen clueFinded
     $renpy.pause(1.0)
     show bg_black
-    hide bg_outside_onsen_2
+    hide bg_outside_onsen
 
     jump scene20Common
     return
@@ -9286,6 +9335,7 @@ label scene20Common:
     hide stand_Ninon_yukata_wink
 
     show stand_Monica_yukata_dere with dissolve:
+        xalign 0.5
         easeout 0.3 ypos -50
         ease 0.2 ypos 50
         easeout 0.3 ypos -50
@@ -9299,14 +9349,17 @@ label scene20Common:
     if love_point == 1 or love_point == 3:
         show stand_Yuki_yukata with dissolve
 
-        ch_yuki "다들 뭐라도 좀 찾았니?"
+        ch_yuki "다들 뭐라도 좀 찾았어?"
 
         show stand_Yuki_yukata_ddung
         hide stand_Yuki_yukata
 
-        ch_yuki "이쪽은 허탕이었어~ 에휴……"
+        ch_yuki "이 이상 나의 미모를 음미할 시간이 낭비되는 건 곤란하다구…… 지고의 아름다움에 도달했음에도 만족할 줄을 모르고, 하루가 다르게 사랑스러워지는 나를 지켜보지 못하다니…… 이건 엄청난 죄악이야~! 알아?"
 
         hide stand_Yuki_yukata_ddung
+
+        ch_nar "아무것도 안 하고 거울만 쳐다보고 있었을 거면서……"
+
         show stand_Ninon_yukata_down with dissolve
 
         ch_ninon "으음, 그게……"
@@ -9515,19 +9568,16 @@ label scene20Common:
 
         hide stand_Yuki_yukata
 
-        ch_nar "자기방어 기제로 기억을 지워 버렸어……?!"
+        ch_nar "기억을 지워 버렸어……?!"
 
-    ch_ayumi "이거, 아무리 봐도…… 설계도 같아요……!"
+    ch_ayumi "저기, 이건…… 설계도일까요……?"
 
-    show stand_Monica_yukata_ddung with dissolve
-
-    ch_monica "……치잇…… 최악이군. 설계도가 있다는 건……"
-
-    hide stand_Monica_yukata_ddung
+    player "설계도……가 있다는 말은……"
 
     player "아쿠다이칸을 ‘만든’ 녀석이 따로 있다……는 거야?"
 
     show stand_Ninon_yukata_panic with dissolve:
+        xalign 0.5
         easeout 0.3 ypos -50
         ease 0.2 ypos 50
         easeout 0.3 ypos -50
@@ -9575,11 +9625,16 @@ label scene20Common:
 
     show stand_Monica_yukata_ddung with dissolve
 
-    ch_monica "아쿠다이칸을 설계한 것과 사람들을 공격한 마물이 동일한 존재라면…… 상상 이상으로 위험한 녀석일 거다……!!"
+    ch_monica "……아쿠다이칸을 만든 자가…… 이곳에 있다는 것이겠지."
 
-    ch_monica "제길…… 어떻게 상대해야 할지 감도 오지 않아……"
+    ch_monica "만약…… 놈이 사람들을 공격한 마물과 동일한 존재라면……"
 
+    show stand_Monica_yukata_down
     hide stand_Monica_yukata_ddung
+
+    ch_monica "위험해…… 상상 이상으로 위험하다. 어떻게 상대해야할지 도저히……"
+
+    hide stand_Monica_yukata_down
 
     player "……"
 
@@ -9595,12 +9650,1053 @@ label scene20Common:
 
     play music "audio/main/5orientalcommon.mp3"
 
-    show stand_Ninon_yukata_panic with dissolve
+    show stand_Monica_yukata_down with dissolve
+
+    ch_monica "……"
+
+    hide stand_Monica_yukata_down
+    show stand_Ninon_yukata with dissolve
+
+    ch_ninon "모니카 씨~ 그렇게 쉐상 다 잃은 표정 하고 있으면 되던 일도 안 풀려요 입니다~"
+
+    ch_ninon "달달구뤼한 과자로 기분 전환이라도……"
+
+    play sound "audio/sound/hit.wav"
+
+    show hit onlayer forward
+
+    show stand_Ninon_yukata_panic
+    hide stand_Ninon_yukata
+
+    $renpy.pause(0.5)
+    hide hit onlayer forward
 
     ch_ninon "아이코~~ 입니다!!!"
 
+    show stand_Ninon_yukata_emb
+    hide stand_Ninon_yukata_panic
 
-    return
+    ch_ninon "미…… 미안하오 입니다!! 딴 생각을……"
+
+    hide stand_Ninon_yukata_emb
+    stop music
+    show bg_onsen with hpunch
+
+    hatena "{b}{size=30}아앙~~~~~??!!!{/size}{/b}"
+
+    show npc_2 with dissolve
+
+    ## 장난스러운 bgm
+
+    show bg_onsen with hpunch
+
+    ch_head "이런 건방진 자식이…… 사과하면 다인 줄 알아?!?!!"
+
+    hide npc_2
+    show stand_Ninon_yukata_emb with dissolve
+
+    ch_ninon "아, 아우우…… 이걸로는 부족하다 입니까? 그, 그렇다면…… 「인법 ∙ 동국 트뤠디셔널 도게자」를……!!"
+
+    show stand_Ninon_yukata_emb:
+        linear 0.5 ypos 1400
+
+    $renpy.pause()
+
+    show bg_onsen with hpunch
+
+    hide stand_Ninon_yukata_emb
+    show npc_2 with dissolve
+
+    ch_head "장난하냐!!!!!!!"
+
+    hide npc_2
+    
+    show stand_Ninon_yukata_innocent with dissolve:
+        xalign 0.5 ypos 250
+    
+    show stand_Ninon_yukata_innocent:
+        linear 0.5 ypos 0
+    
+    ch_ninon "우우…… 「인법 ∙ 동국 트뤠디셔널 도게자」가 통하지 않는다니…… 이보다 더한 것을 요구할 셈인가요 입니다!!"
+
+    hide stand_Ninon_yukata_innocent
+
+    show stand_Kuka_yukata_mousou with dissolve
+
+    ch_kuka "그, 그보다 더한 것이라면…… 알몸 도게자?!!?!"
+
+    ch_kuka "드…… 드디어 도S 씨의 라이벌이 등장하고 만 건가요!!!! 쿠케케케케!!!!"
+
+    hide stand_Kuka_yukata_mousou
+
+    show npc_2 with dissolve
+
+    ch_head "햐~~~하핫하~~~!!!!! 네 녀석들, 어물쩍 넘어갈 생각하지 마라!!!"
+
+    ch_head "이 몸은 오에도 최악의 자해공갈범!!!!!"
+
+    hide npc_2
+
+    ch_ayumi "그…… 그걸 말해 버리면 더 이상 자해공갈이 아니게 되는 것 아닌가요?!"
+
+    show npc_2 with dissolve
+
+    ch_head "얼마나 최악이냐 하면…… 지나가던 꼬맹이와 일부러 부딪혀서, 녀석이 빨고 있던 사탕을 뺏어 먹을 정도지!!!"
+
+    hide npc_2
+
+    show stand_Monica_yukata_down with dissolve
+
+    ch_monica "그…… 그냥 미친놈이잖나……!!"
+
+    hide stand_Monica_yukata_down
+
+    show stand_Ninon_yukata_angry with dissolve
+
+    ch_ninon "나쁜놈 이었습니까……?!! 못된 악당은 처단한다 입니다!!!"
+
+    hide stand_Ninon_yukata_angry
+
+    show npc_2 with dissolve
+
+    ch_head "뭐……?! 이, 이 자시익~~!!!! 방금 네놈과 부딪혀서 생긴 피멍이 보이지 않는 거냐!!!!"
+
+    hide npc_2
+
+    show stand_Ninon_yukata_angry with dissolve
+
+    ch_ninon "뭐가 보인다는 거냐 입니다~~~!!!! 까매서 아무것도 안 보인다 입니다!!!!!"
+
+    hide stand_Ninon_yukata_angry
+
+    player "니논!!! 그건 논란의 여지가 될 수 있는 발언이야!!!!"
+
+    show stand_Ninon_yukata_angry with dissolve
+
+    ch_ninon "받아 보거라 입니다!!! 「인법 ∙ 가뢔떡 나박썰기」!!!!"
+
+    hide stand_Ninon_yukata_angry
+
+    show npc_2 with dissolve
+
+    ch_head "크아아아아악!!!!"
+
+    hide npc_2
+
+    show bg_black
+    hide bg_onsen
+
+    play sound "audio/sound/knife2.wav"
+    show knife_issen
+
+    $renpy.pause(0.5)
+
+    show bg_onsen
+    hide knife_issen
+    hide bg_black
+
+    show npc_4 with dissolve
+
+    ch_head_2 "히이~~~~~이이익!!!!!"
+
+    ch_head_2 "내…… 내 리젠트가아아~~~!!!!!"
+
+    hide npc_4
+
+    show stand_Yuki_yukata_angry with dissolve
+
+    ch_yuki "으윽…… 애매하게 잘려 나가서 더 흉물스러워……"
+
+    hide stand_Yuki_yukata_angry
+
+    show stand_Ninon_yukata_daiji with dissolve
+
+    ch_ninon "후…… 또 시시한 걸 베어 버렸군 입니다."
+
+    hide stand_Ninon_yukata_daiji
+
+    show npc_4 with dissolve
+
+    ch_head_2 "죄송함다, 죄송함다!!!! 목숨만 살려주십쇼~~~!!!!"
+
+    hide npc_4
+
+    show stand_Ninon_yukata with dissolve
+
+    ch_ninon "나쁜놈 씨, 잘못을 뉘우취십시오 입니다~! 또 못된 짓 할 거다 입니까?"
+
+    hide stand_Ninon_yukata
+
+    show npc_4 with dissolve
+
+    ch_head_2 "잘모씀다!! 잘모씀다~~!!!! 다시는 이런 일……"
+
+    ch_head_2 "……어라라?"
+
+    ch_head_2 "그쪽에 있는 아재, 혹시……"
+
+    stop music
+
+    ch_head_2 "……쇼군?"
+
+    hide npc_4
+
+    show stand_Monica_yukata_surprised with dissolve
+
+    ch_monica "……!!!!"
+
+    hide stand_Monica_yukata_surprised
+
+    ch_nar "어……?"
+
+    show npc_4 with dissolve
+
+    ch_head_2 "아…… 아무것도 아님다!!!! 잘못 봐씀다!!!!"
+
+    ch_head_2 "저, 저는 이만……!!!!"
+
+    show npc_4:
+        linear 0.3 xpos -1000
+    $renpy.pause(0.5)
+
+    hide npc_4
+
+    show stand_Ninon_yukata_surp with dissolve
+
+    ch_ninon "쇼군……?! 잠깐 기다…… 웁!"
+
+    hide stand_Ninon_yukata_surp
+
+    show stand_Monica_yukata_ddung with dissolve
+
+    ch_monica "니논!!! 멈춰라!!!"
+
+    hide stand_Monica_yukata_ddung
+
+    show stand_Ninon_yukata_surp with dissolve
+
+    ch_ninon "모니카 씨?! 왜……!!"
+
+    hide stand_Ninon_yukata_surp
+
+    show stand_Monica_yukata_ddung with dissolve
+
+    ch_monica "단독행동은 금지라고 하지 않았나!! 혼자서 뭘 어쩌려고 한 거냐!"
+
+    hide stand_Monica_yukata_ddung
+
+    show stand_Ninon_yukata_down with dissolve
+
+    ch_ninon "그…… 그취만…… 저 솨람, 쇼군을 알아보……"
+
+    hide stand_Ninon_yukata_down
+
+    show stand_Monica_yukata_ddung with dissolve
+
+    ch_monica "직원이 아니야……. 오에도 주민일 수도 있다."
+
+    ch_monica "……그리고, 만약 함정이라면 어떻게 할 거였나!! 모두를 위험에 빠뜨릴 셈인가?!"
+
+    hide stand_Monica_yukata_ddung
+
+    show stand_Ninon_yukata_innocent with dissolve
+
+    ch_ninon "우우웃……"
+
+    ch_ninon "죄…… 죄송해요 입니다……"
+
+    hide stand_Ninon_yukata_innocent
+
+    show stand_Kuka_yukata with dissolve
+
+    ch_kuka "알몸 도게자……! 알몸 도게자……!!"
+
+    hide stand_Kuka_yukata
+
+    show stand_Yuki_yukata_ddung with dissolve
+
+    ch_yuki "뭐…… 따라가지 않았으니 된 거잖아? 얼른 방에 가자~ 이제 그만 쉬고 싶다구……"
+
+    hide stand_Yuki_yukata_ddung
+
+    show stand_Monica_yukata_down with dissolve
+
+    ch_monica "가더라도 쉴 수는 없을 테지만…… 알겠다."
+
+    ch_monica "……너무 서운해하지 마라, 니논. 모두를 위해서였다."
+
+    hide stand_Monica_yukata_down
+
+    show stand_Ninon_yukata_innocent with dissolve
+
+    ch_ninon "힝힝…… 입니다."
+
+    hide stand_Ninon_yukata_innocent
+
+    show bg_black
+    hide bg_onsen
+    $renpy.pause(2.0)
+
+    jump scene21Common
+
+## S# 21. 온천 숙소 (다다미 방) (공통 루트)#############
+label scene21Common:
+    scene bg_tadami_day
+
+    play music "audio/main/5orientalcommon.mp3"
+
+    show stand_Yuki_yukata_shamed with dissolve
+
+    ch_yuki "흐아아아아~ 스위트홈~♪"
+
+    show stand_Yuki_yukata
+    hide stand_Yuki_yukata_shamed
+
+    ch_yuki "성에 찰 정도로 편안하진 않지만…… 귀여운 내가 있으니, 이 공간마저 금세 아름다워지겠지."
+
+    hide stand_Yuki_yukata
+
+    show stand_Kuka_yukata_mousou with dissolve
+
+    ch_kuka "머지않아 도S 씨와 몸을 섞을 거라는 생각에 두근거림이 멈추지 않아요……!"
+
+    hide stand_Kuka_yukata_mousou
+
+    ch_nar "섞인 건 니 머릿속 우동사리겠지……!"
+
+    show stand_Monica_yukata_down with dissolve
+
+    ch_monica "……그나저나, 고민이군……"
+
+    ch_monica "지금까지 수집한 단서들에 의하면…… 상대는 엄청나게 위험한 마물인데,"
+
+    ch_monica "정작 놈의 정체에 대해서는 아무런 실마리도 찾지 못했어……"
+
+    hide stand_Monica_yukata_down
+    
+    player "하루 정도 더 머물면서 단서를 찾아보는 건 어때?"
+
+    show stand_Ninon_yukata with dissolve
+
+    ch_ninon "니논은 찬성 입니다~!"
+
+    hide stand_Ninon_yukata
+
+    show stand_Monica_yukata_down with dissolve
+
+    ch_monica "아무래도…… 그럴 수밖에 없을 것 같군."
+
+    hide stand_Monica_yukata_down
+
+    show stand_Yuki_yukata_ddung with dissolve
+
+    ch_yuki "나머지는 내일 생각하면 안 될까……? 이 이상 잠을 자지 못한다면 내 아름다움에 치명적인 타격이 갈지도 모른다구우……"
+
+    hide stand_Yuki_yukata_ddung
+
+    show stand_Monica_yukata_ddung with dissolve
+
+    ch_monica "흐음…… 마음 편히 쉴 때가 아닌 것 같지만, 일단 휴식하도록 할까."
+
+    ch_monica "수면 부족은 전투에도 악영향을 미치니까 말이야."
+
+    hide stand_Monica_yukata_ddung
+
+    ch_ayumi "그런데…… 모두가 잠들어 있을 때에 마물이 습격해 오면 어떻게 하죠……?"
+
+    show stand_Monica_yukata_surprised with dissolve
+
+    ch_monica "……!! 그것도 그렇군."
+
+    show stand_Monica_yukata_ddung
+    hide stand_Monica_yukata_surprised
+
+    ch_monica "으음…… 뭔가 좋은 방법이……"
+
+    hide stand_Monica_yukata_ddung
+
+    player "불침번을 서는 건 어떨까……?"
+
+    show stand_Yuki_yukata_angry with dissolve
+
+    ch_yuki "{b}{size=30}엑.{/size}{/b}"
+
+    hide stand_Yuki_yukata_angry
+    show stand_Ninon_yukata with dissolve
+
+    ch_ninon "오오~ 쇼군~!! IDEA BANK 입니까~?"
+
+    hide stand_Ninon_yukata
+    show stand_Kuka_yukata with dissolve
+
+    ch_kuka "부…… 불침번?! 「오늘 밤은 너를 재우지 않겠어」 인가요!!!! 이 얼마나 절륜한……!!!"
+
+    hide stand_Kuka_yukata
+    show stand_Monica_yukata with dissolve
+
+    ch_monica "나쁘지 않은 생각이야. 불침번이라면……"
+
+    ch_monica "혼자서는 위험할지도 모르니, 두 명 정도가 적당할 것 같군."
+
+    hide stand_Monica_yukata
+
+    show stand_Yuki_yukata_angry with dissolve
+
+    ch_yuki "으으…… 나는 빼 주면 안 될까……?"
+
+    hide stand_Yuki_yukata_angry
+    show stand_Ninon_yukata_daiji with dissolve
+
+    ch_ninon "……안 내면."
+
+    hide stand_Ninon_yukata_daiji
+
+    player "으응……?"
+
+    show stand_Ninon_yukata_daiji with dissolve
+
+    ch_ninon "안 내면 진다!!!!! 가위바위보!!!!!!!!!!!"
+
+    hide stand_Ninon_yukata_daiji
+
+    show stand_Yuki_yukata_shamed with dissolve
+
+    ch_yuki "우…… 우아아악~~~!!! 잠깐만!!!!!"
+
+    hide stand_Yuki_yukata_shamed
+
+    show bg_black
+    hide bg_tadami_day
+
+    $renpy.pause(2.0)
+
+    show bg_tadami_day
+    hide bg_black
+
+    if love_point == 1:
+        show stand_Ninon_yukata_panic with dissolve
+
+        ch_ninon "으엑……!! 졌다 입니다……?!"
+
+        hide stand_Ninon_yukata_panic
+
+        player "윽, 나도……?!"
+
+        show stand_Yuki_yukata_shamed with dissolve
+
+        ch_yuki "휘유…… 다행이다……"
+
+        hide stand_Yuki_yukata_shamed
+        show stand_Monica_yukata_munen with dissolve
+
+        ch_monica "……정해진 것 같군."
+
+        ch_monica "그럼 잘 부탁한다, 제군들……!!"
+
+        hide stand_Monica_yukata_munen
+
+        show stand_Ninon_yukata_emb with dissolve
+
+        ch_ninon "쇼…… 쇼군과 함께라면, 얼마든지 힘내겠소 입니다……!!"
+
+        hide stand_Ninon_yukata_emb
+
+    elif love_point == 2:
+        show stand_Monica_yukata_surprised with dissolve
+
+        ch_monica "크윽……!! 졌다!!!"
+
+        hide stand_Monica_yukata_surprised
+
+        player "윽, 나도……?!"
+
+        show stand_Yuki_yukata_shamed with dissolve
+
+        ch_yuki "휘유…… 다행이다……"
+
+        hide stand_Yuki_yukata_shamed
+
+        show stand_Monica_yukata_down with dissolve
+
+        ch_monica "어쩔 수 없군……"
+
+        show stand_Monica_yukata
+        hide stand_Monica_yukata_down
+
+        ch_monica "이렇게 된 이상 잘 부탁한다, 귀공!"
+
+    elif love_point == 3:
+        show stand_Kuka_yukata_surprised with dissolve
+
+        ch_kuka "히이익……!! 져 버렸어요……?!"
+
+        hide stand_Kuka_yukata_surprised
+        
+        player "윽, 나도……?!"
+
+        show stand_Yuki_yukata_shamed with dissolve
+
+        ch_yuki "휘유…… 다행이다……"
+
+        hide stand_Yuki_yukata_shamed
+
+        show stand_Monica_yukata_munen with dissolve
+
+        ch_monica "……정해진 것 같군."
+
+        ch_monica "그럼 잘 부탁한다, 제군들……!!"
+
+        hide stand_Monica_yukata_munen
+
+        show stand_Kuka_yukata_mousou with dissolve
+
+        ch_kuka "스…… 승부에서 패배한 히로인은 밤새 어떤 수모를 당하게 될까요!!!! 상상만 해도 온몸이 떨려…… 크헤헤헤헷……!!!!"
+
+        hide stand_Kuka_yukata_mousou
+    
+    else:
+        show stand_Yuki_yukata_angry with dissolve
+
+        ch_yuki "으아악……!! 안돼!!!!"
+
+        hide stand_Yuki_yukata_angry
+
+        player "윽, 졌어……?!"
+
+        show stand_Monica_yukata_munen with dissolve
+
+        ch_monica "……정해진 것 같군."
+
+        ch_monica "그럼 잘 부탁한다, 제군들……!!"
+
+        hide stand_Monica_yukata_munen
+
+        show stand_Yuki_yukata_angry with dissolve
+
+        ch_yuki "으으으…… 8시간 이상 잠을 자지 않으면 안 되는데……"
+
+        show stand_Yuki_yukata_ddung
+
+        hide stand_Yuki_yukata_angry
+
+        ch_yuki "……너와 함께라서 그나마 다행이지만……"
+
+        ch_yuki "귀여운 나를 에스코트할 수 있는 걸 영광으로 알아! 밤새도록 나를 제대로 책임져 달라구. 알겠어?"
+
+        hide stand_Yuki_yukata_ddung
+        show stand_Kuka_yukata_mousou with dissolve
+
+        ch_kuka "{cps=* 0.5}다, 다다(/cps}단둘이서 밤새도록……!! 후히히힛……!!"
+        hide stand_Kuka_yukata_mousou
+    
+    show stand_Monica_yukata_ddung with dissolve
+
+    ch_monica "그나저나……"
+
+    ch_monica "오늘 하루, 꽤 많은 걸 보고 들은 것 같은데……"
+
+    ch_monica "귀공은 어떻게 생각하나?"
+
+    hide stand_Monica_yukata_ddung
+
+    player "어? 나 말이야?"
+
+    show stand_Monica_yukata_ddung with dissolve
+
+    ch_monica "음. 사소한 것이라도 좋으니, 귀공의 의견을 듣고 싶다."
+
+    ch_monica "오늘 조우한 인물들 중, 의심이 가는 이는 없던가?"
+
+    hide stand_Monica_yukata_ddung
+
+    player "……의심이 간다라고 하면……"
+
+    show stand_Monica_yukata_ddung with dissolve
+
+    ch_monica "……‘마물’로 보이는 존재가 있었나, 라는 질문이다."
+
+    hide stand_Monica_yukata_ddung
+
+    player "음……"
+
+    menu:
+        "‘여직원’이 의심스럽다choice_1":
+            pass
+        "     ‘머리가 대단한 손님’이 의심스럽다choice_2":
+            pass
+        "‘역겹게 생긴 짐승’이 의심스럽다choice_3":
+            pass
+    
+    stop music
+    $renpy.pause(2.0)
+
+    hatena "……킥……"
+
+    play sound "audio/sound/opendoor.wav"
+
+    show bg_tadami_night with fade
+
+    hide bg_tadami_day
+
+    $renpy.pause(1.0)
+
+    play sound "audio/sound/breathe.mp3" loop
+
+    ch_nar "……어……?"
+
+    ch_nar "이게……"
+
+    ch_nar "무……슨……"
+
+    stop sound
+    ## 털썩 쓰러지는 소리 효과음
+    show bg_black
+    hide bg_tadami_night
+    
+    $renpy.pause(3.0)
+
+    jump scene22Common
+
+## S# 22. 다다미 방 (밤) (공통 루트) ########
+label scene22Common:
+
+    scene bg_tadami_night with fade
+
+    ch_nar "…………"
+
+    player "아윽……"
+
+    ch_nar "머리가……"
+
+    ch_nar "머리가…… 깨질 것 같아."
+
+    ch_nar "몸이…… 이상해. 뜨거워……"
+
+    if love_point == 1:
+
+        ch_nar "잠깐, 그런데…… 다들 어디 간 거야……?"
+
+        ch_nar "……불침번을 서기로 했던 니논도 보이지 않아……?"
+
+        ch_nar "뭐가 뭔지 모르겠어…… 일단 니논을 찾으러 가야……"
+
+        menu:
+            "여탕으로 이동한다choice_1":
+                $point_ninon -= 1
+                ch_nar "그래…… 여탕으로 가 보자……"
+
+                ch_nar "이유는 모르겠지만…… 그곳에 있을 것만 같은 느낌이 들어……"
+
+            "화장실로 이동한다choice_2":
+                ch_nar "그래…… 화장실에 가 보자……"
+
+                ch_nar "이유는 모르겠지만…… 화장실에 있을 것만 같은 느낌이 들어……"
+
+            "혼욕탕으로 이동한다choice_3":
+                $point_ninon += 1
+                ch_nar "그래…… 혼욕탕으로 가 보자……"
+
+                ch_nar "이유는 모르겠지만…… 그곳에 있을 것만 같은 느낌이 들어……"
+    elif love_point == 2:
+
+        ch_nar "잠깐, 그런데…… 다들 어디 간 거야……?"
+
+        ch_nar "……불침번을 서기로 했던 모니카도 보이지 않아……?"
+
+        ch_nar "뭐가 뭔지 모르겠어…… 일단 모니카를 찾으러 가야……"
+
+        menu:
+            "여탕으로 이동한다choice_1":
+                $point_monica -= 1
+                ch_nar "그래…… 여탕으로 가 보자……"
+
+                ch_nar "이유는 모르겠지만…… 그곳에 있을 것만 같은 느낌이 들어……"
+
+            "화장실로 이동한다choice_2":
+                ch_nar "그래…… 화장실에 가 보자……"
+
+                ch_nar "이유는 모르겠지만…… 화장실에 있을 것만 같은 느낌이 들어……"
+
+            "혼욕탕으로 이동한다choice_3":
+                $point_monica += 1
+                ch_nar "그래…… 혼욕탕으로 가 보자……"
+
+                ch_nar "이유는 모르겠지만…… 그곳에 있을 것만 같은 느낌이 들어……"
+                
+    elif love_point == 3:
+
+        ch_nar "잠깐, 그런데…… 다들 어디 간 거야……?"
+
+        ch_nar "……불침번을 서기로 했던 쿠우카도 보이지 않아……?"
+
+        ch_nar "뭐가 뭔지 모르겠어…… 일단 쿠우카를 찾으러 가야……"
+
+        menu:
+            "여탕으로 이동한다choice_1":
+                $point_kuka -= 1
+                ch_nar "그래…… 여탕으로 가 보자……"
+
+                ch_nar "이유는 모르겠지만…… 그곳에 있을 것만 같은 느낌이 들어……"
+
+            "화장실로 이동한다choice_2":
+                ch_nar "그래…… 화장실에 가 보자……"
+
+                ch_nar "이유는 모르겠지만…… 화장실에 있을 것만 같은 느낌이 들어……"
+
+            "혼욕탕으로 이동한다choice_3":
+                $point_kuka += 1
+                ch_nar "그래…… 혼욕탕으로 가 보자……"
+
+                ch_nar "이유는 모르겠지만…… 그곳에 있을 것만 같은 느낌이 들어……"
+    
+    else:
+
+        ch_nar "잠깐, 그런데…… 다들 어디 간 거야……?"
+
+        ch_nar "……불침번을 서기로 했던 유키도 보이지 않아……?"
+
+        ch_nar "뭐가 뭔지 모르겠어…… 일단 유키를 찾으러 가야……"
+
+        menu:
+            "여탕으로 이동한다choice_1":
+                $point_yuki -= 1
+                ch_nar "그래…… 여탕으로 가 보자……"
+
+                ch_nar "이유는 모르겠지만…… 그곳에 있을 것만 같은 느낌이 들어……"
+
+            "화장실로 이동한다choice_2":
+                ch_nar "그래…… 화장실에 가 보자……"
+
+                ch_nar "이유는 모르겠지만…… 화장실에 있을 것만 같은 느낌이 들어……"
+
+            "혼욕탕으로 이동한다choice_3":
+                $point_yuki += 1
+                ch_nar "그래…… 혼욕탕으로 가 보자……"
+
+                ch_nar "이유는 모르겠지만…… 그곳에 있을 것만 같은 느낌이 들어……"
+    
+    hide bg_tadami_night
+    jump scene23Common
+
+## S# 23. 온천 건물 내부 (2) ##################
+label scene23Common:
+    scene bg_onsen_dark with fade
+
+    ## 삐걱거리는 소리 효과음
+
+    ch_nar "……"
+
+    ch_nar "……뭔가 이상하다……"
+
+    ch_nar "이렇게까지 조용한 곳이었나……?"
+
+    ch_nar "아무런 소리도 들리지 않는다……"
+
+    ch_nar "……낡아 빠진 마룻바닥이 규칙적으로 내지르는 비명소리를 제외하면."
+
+    ch_nar "섬뜩하다. 이 세상에 나 혼자만 남겨진 것 같다."
+
+    ch_nar "마치 꿈을 꾸는 것만 같   {nw}"
+
+    if love_point == 1:
+        play sound "audio/sound/surp.mp3"
+
+        show bg_onsen_dark onlayer middle
+        show stand_Ninon_yukata_surp onlayer forward with dissolve
+
+        $camera_move(0, -1000, 400, 0, 0.2)
+
+        ch_ninon "{b}{size=30}쇼군!!!!!{/size}{/b}"
+
+        $camera_move(0, 0, 0, 0, 0)
+        hide stand_Ninon_yukata_surp onlayer forward
+        hide bg_onsen_dark onlayer middle
+
+        player "{b}{size=30}으아아악!!!!!{/size}{/b}"
+
+        show stand_Ninon_yukata_surp with dissolve
+
+        ch_ninon "이런 곳에서 혼자 뭘 하시나요 입니다?!"
+
+        hide stand_Ninon_yukata_surp
+
+        player "뭐, 뭘 하냐니……"
+
+        player "널 찾으러 다녔는데…… 그러는 너는 왜 여기 있는 거야……?"
+
+        show stand_Ninon_yukata_down with dissolve
+
+        ch_ninon "니논도 잘 모르겠소 입니다……"
+
+        ch_ninon "갑자기 머엉~ 하다가…… 정신을 차려 보니 이곳에……"
+
+        hide stand_Ninon_yukata_down
+        stop sound
+        play sound "audio/sound/running.wav"
+
+        player "?!?!?!?!?!"
+
+        show stand_Ninon_yukata_panic with dissolve
+
+        ch_ninon "무…… 무슨 소리 입니까?!?!"
+
+        hide stand_Ninon_yukata_panic
+
+        play sound "audio/sound/monkey.wav"
+
+        hatena "끼에!!!!! 끼에에!!! 끼아아아아악!!!!!!!!"
+
+        show ob_yas1 with dissolve:
+
+        $renpy.pause(2.0)
+
+        play sound "audio/sound/monkey2.wav"
+
+        monster "{b}{size=30}야스각이다!!!! 야스각!!!!!{/size}{/b}"
+
+        play sound "audio/sound/hit.wav"
+
+        show hit
+
+        $renpy.pause(2.0)
+
+        hide hit
+
+        hide ob_yas1
+
+        show bg_black
+
+        hide bg_onsen_dark
+
+        $renpy.pause(2.0)
+
+        jump cg_ninonsecond
+
+    elif love_point == 2:
+        play sound "audio/sound/surp.mp3"
+
+        show bg_onsen_dark onlayer middle
+        show stand_Monica_yukata_surprised onlayer forward with dissolve
+
+        $camera_move(0, -1000, 400, 0, 0.2)
+
+        ch_monica "{b}{size=30}귀공!!!!!{/size}{/b}"
+
+        $camera_move(0, 0, 0, 0, 0)
+        hide stand_Monica_yukata_surprised onlayer forward
+        hide bg_onsen_dark onlayer middle
+
+        player "{b}{size=30}으아아악!!!!!{/size}{/b}"
+
+        show stand_Monica_yukata_surprised with dissolve
+
+        ch_monica "이런 곳에서 혼자 뭘 하고 있나?!"
+
+        hide stand_Monica_yukata_surprised
+
+        player "뭐, 뭘 하냐니……"
+
+        player "널 찾으러 다녔는데…… 그러는 너는 왜 여기 있는 거야……?"
+
+        show stand_Monica_yukata_down with dissolve
+
+        ch_monica "……실은, 나도 잘 모르겠다."
+
+        ch_monica "갑자기 정신이 혼미해졌다가…… 정신을 차려 보니 이곳에……"
+
+        hide stand_Monica_yukata_down
+        stop sound
+        play sound "audio/sound/running.wav"
+
+        player "?!?!?!?!?!"
+
+        show stand_Monica_yukata_surprised with dissolve
+
+        ch_monica "무…… 무슨 소리냐?!?!"
+
+        hide stand_Monica_yukata_surprised
+
+        play sound "audio/sound/monkey.wav"
+
+        hatena "끼에!!!!! 끼에에!!! 끼아아아아악!!!!!!!!"
+
+        show ob_yas1 with dissolve:
+
+        $renpy.pause(2.0)
+
+        play sound "audio/sound/monkey2.wav"
+
+        monster "{b}{size=30}야스각이다!!!! 야스각!!!!!{/size}{/b}"
+
+        play sound "audio/sound/hit.wav"
+
+        show hit
+
+        $renpy.pause(2.0)
+
+        hide hit
+
+        hide ob_yas1
+
+        show bg_black
+
+        hide bg_onsen_dark
+
+        $renpy.pause(2.0)
+
+        jump cg_monicasecond
+
+    elif love_point == 3:
+        play sound "audio/sound/surp.mp3"
+
+        show bg_onsen_dark onlayer middle
+        show stand_Kuka_yukata_surprised onlayer forward with dissolve
+
+        $camera_move(0, -1000, 400, 0, 0.2)
+
+        ch_kuka "{b}{size=30}도S 씨!!!!!{/size}{/b}"
+
+        $camera_move(0, 0, 0, 0, 0)
+        hide stand_Kuka_yukata_surprised onlayer forward
+        hide bg_onsen_dark onlayer middle
+
+        player "{b}{size=30}으아아악!!!!!{/size}{/b}"
+
+        show stand_Kuka_yukata_surprised with dissolve
+
+        ch_kuka "이런 곳에서 혼자 뭘 하고 계시나요?!"
+
+        hide stand_Kuka_yukata_surprised
+
+        player "뭐, 뭘 하냐니……"
+
+        player "널 찾으러 다녔는데…… 그러는 너는 왜 여기 있는 거야……?"
+
+        show stand_Kuka_yukata_down with dissolve
+
+        ch_kuka "쿠, 쿠우카도 잘 모르겠어요……"
+
+        ch_kuka "갑자기 꿈을 꾸듯 황홀한 기분이 되었다가…… 정신을 차려 보니 이곳에……"
+
+        hide stand_Kuka_yukata_down
+        stop sound
+        play sound "audio/sound/running.wav"
+
+        player "?!?!?!?!?!"
+
+        show stand_Kuka_yukata_surprised with dissolve
+
+        ch_monica "무…… 무슨 소리예요?!"
+
+        hide stand_Kuka_yukata_surprised
+
+        play sound "audio/sound/monkey.wav"
+
+        hatena "끼에!!!!! 끼에에!!! 끼아아아아악!!!!!!!!"
+
+        show ob_yas1 with dissolve:
+
+        $renpy.pause(2.0)
+
+        play sound "audio/sound/monkey2.wav"
+
+        monster "{b}{size=30}야스각이다!!!! 야스각!!!!!{/size}{/b}"
+
+        play sound "audio/sound/hit.wav"
+
+        show hit
+
+        $renpy.pause(2.0)
+
+        hide hit
+
+        hide ob_yas1
+
+        show bg_black
+
+        hide bg_onsen_dark
+
+        $renpy.pause(2.0)
+
+        jump cg_kukasecond
+    
+    else:
+        play sound "audio/sound/surp.mp3"
+
+        show bg_onsen_dark onlayer middle
+        show stand_Yuki_yukata_shamed onlayer forward with dissolve
+
+        $camera_move(0, -1000, 400, 0, 0.2)
+
+        ch_yuki "{b}{size=30}[name]!!!!!{/size}{/b}"
+
+        $camera_move(0, 0, 0, 0, 0)
+        hide stand_Yuki_yukata_shamed onlayer forward
+        hide bg_onsen_dark onlayer middle
+
+        player "{b}{size=30}으아아악!!!!!{/size}{/b}"
+
+        show stand_Yuki_yukata_shamed with dissolve
+
+        ch_yuki "이런 곳에서 혼자 뭘 하고 있는 거야?!"
+
+        hide stand_Yuki_yukata_shamed
+
+        player "뭐, 뭘 하냐니……"
+
+        player "널 찾으러 다녔는데…… 그러는 너는 왜 여기 있는 거야……?"
+
+        show stand_Yuki_yukata_ddung with dissolve
+
+        ch_yuki "그게…… 나도 잘 모르겠어."
+
+        ch_yuki "갑자기 나의 아름다움에 취한 듯 야릇한 기분이 되었다가…… 정신을 차려 보니 이곳에……"
+
+        hide stand_Yuki_yukata_ddung
+        stop sound
+        play sound "audio/sound/running.wav"
+
+        player "?!?!?!?!?!"
+
+        show stand_Yuki_yukata_shamed with dissolve
+
+        ch_yuki "으……으아악!!! 무슨 소리야?!?!"
+
+        hide stand_Yuki_yukata_shamed
+
+        play sound "audio/sound/monkey.wav"
+
+        hatena "끼에!!!!! 끼에에!!! 끼아아아아악!!!!!!!!"
+
+        show ob_yas1 with dissolve:
+
+        $renpy.pause(2.0)
+
+        play sound "audio/sound/monkey2.wav"
+
+        monster "{b}{size=30}야스각이다!!!! 야스각!!!!!{/size}{/b}"
+
+        play sound "audio/sound/hit.wav"
+
+        show hit
+
+        $renpy.pause(2.0)
+
+        hide hit
+
+        hide ob_yas1
+
+        show bg_black
+
+        hide bg_onsen_dark
+
+        $renpy.pause(2.0)
+
+        jump cg_yukisecond
+
+
+
+
 ## CG ####################################
 
 ## 니논 루트 ########################### 
@@ -9782,9 +10878,134 @@ label pingpong_choice:
 
     return
 
+## S# 24-1. 니논 온천 cg (니논 루트) ##################################
 label cg_ninonsecond:
 
-    centered "목욕가운 차림으로 탕에 몸을 담근 채 부끄러워 하며 주인공을 힐끔 보는 니논"
+    scene cg_ninon_onsen_01 with fade
+
+    ## 아련한 bgm
+
+    ch_ninon "쇼, 쇼군……"
+
+    ch_ninon "무…… 물 온도는 적당하신가요 입니다……?"
+
+    player "응. 기분 좋아……"
+
+    ch_ninon "……"
+
+    player "……무슨 할 말이라도 있어?"
+
+    ch_ninon "아……"
+
+    ch_ninon "저기, 그게……"
+
+    ch_ninon "도…… 동국에 대해, 나름 아는 것이 많다고 자부했다 입니다만……"
+
+    ch_ninon "그게…… 동국에서는…… 남성과 여성이 함께 몸을 씻는 일 정도는 아무렇지도 않다 입니까……?"
+
+    player "혼욕탕에 가자고 먼저 제안한 건 너였잖아?"
+
+    ch_ninon "아, 그…… 그랬던 거 같기도 하고…… 아닌 거 같기도 하고……? 그랬던 거 같기도 하고…… 입니다."
+
+    player "……니논은 나랑 있는 게 싫은 거야?"
+
+    show cg_ninon_onsen_03 with dissolve
+    hide cg_ninon_onsen_01
+
+    ch_ninon "다…… 다, 당치도 않소 입니다!!!"
+
+    show cg_ninon_onsen_01 with dissolve
+    hide cg_ninon_onsen_03
+
+    ch_ninon "니논은 그저……"
+
+    ch_ninon "……시, 신하된 DORI 로서, 쇼군의 곁을 지키는 것은 영광입니다만……"
+
+    ch_ninon "그…… 너무 빤히 쳐다보시면……"
+
+    show cg_ninon_onsen_02 with dissolve
+    hide cg_ninon_onsen_01
+
+    ch_ninon "조, 조금…… 부끄러워 입니다……"
+
+    player "부끄러워……?"
+
+    player "그렇게 말하는 것 치고는…… 꽤 대담한 모습을 하고 있잖아?"
+
+    show cg_ninon_onsen_03 with dissolve
+    hide cg_ninon_onsen_02
+
+    ch_ninon "~~~~~!!!!"
+
+    ch_ninon "쇼, 쇼군~~!! 짓궃어 입니다……!!"
+
+    show cg_ninon_onsen_02 with dissolve
+    hide cg_ninon_onsen_03
+
+    ch_ninon "……쇼군이 어떤 행동을 하쉬더라도, 니논은 쇼군을 따르겠소 입니다만……"
+
+    ch_ninon "오…… 오늘의 쇼군은 어쩐지…… 쇼군이 아닌 것 같아요 입니다……"
+
+    ch_ninon "영웅은 호색한이라 들었는데…… 그 말이 옳았다 입니까……?"
+
+    player "내가 어떤 행동을 하더라도…… 따르겠다고?"
+
+    player "그렇다면……"
+
+    menu:
+        "“내가 나쁜 짓을 한다 해도?”":
+            $point_ninon += 1
+            show cg_ninon_onsen_01 with dissolve
+            hide cg_ninon_onsen_02
+
+            ch_ninon "쇼군이…… 나쁜 짓을 한다면?"
+
+            ch_ninon "니논의 충성심을 시험하시는 것입니까……?"
+
+            ch_ninon "……"
+
+            ch_ninon "주군에 대한 충의는 절대적. 그러므로……"
+
+            $renpy.pause(1.0)
+
+            ch_ninon "……아니,"
+
+            ch_ninon "따르지 않겠소 입니다."
+
+            ch_ninon "쇼군은……"
+
+            ch_ninon "적어도…… 제가 아는 쇼군은,"
+
+            ch_ninon "어떤 일이 있어도 나쁜 놈이 되지는 않을 것이오 입니다."
+
+            ch_ninon "절대 그럴리 없쥐만, 만에 하나……"
+
+            ch_ninon "쇼군이…… 나쁜놈이 되어 버린다면, 그때는……"
+
+            ch_ninon "쇼군이 제정신을 찾을 때까지, 니논이 때찌때찌 해 줄 것입니다."
+
+            ch_ninon "그러니까, 따를 수 없소이다 입니다."
+
+            player "……"
+
+            player "역시 니논은…… 나를 실망시키지 않는구나."
+
+            show cg_ninon_onsen_03 onlayer middle with dissolve
+
+            $camera_move(200, 1000, 600, 0, 1)
+
+            ch_ninon "!!!!!"
+
+            ch_ninon "쇼, 쇼군……!!! 갑자기……?!"
+
+
+        "“이리 가까이 와.”":
+            show cg_ninon_onsen_01 with dissolve
+            
+        "“벗어.”":
+            $point_ninon -= 1
+
+    
 
     return
 
@@ -9891,7 +11112,7 @@ label cg_monicafirst:
 
     player "까까……"
 
-    show bg_naibu with hpunch
+    show bg_onsen with hpunch
 
     ## 둔탁한 피격음 효과음
 
@@ -9923,7 +11144,7 @@ label cg_monicafirst:
 
     hide ob_wagasi
     show cg_monica_first_01 with dissolve
-    hide bg_naibu
+    hide bg_onsen
 
     ch_monica "냠……"
 
