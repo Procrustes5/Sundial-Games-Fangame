@@ -363,13 +363,13 @@ init:
     ## 야스 침팬지 ##################################
     image ob_yas1:
         im.FactorScale("object/yas1.png", 1.0)
-        xpos 490 yalign 0.58
+        xpos 1000 yalign 0.58
     image ob_yas2:
-        im.FactorScale("object/yas2.png", 0.8)
+        im.FactorScale("object/yas2.png", 0.3)
         xalign 0.0 yalign 0.5
     image ob_yas3:
-        im.FactorScale("object/yas3.png", 0.4)
-        xpos 1000 yalign 0.4
+        im.FactorScale("object/yas3.png", 0.3)
+        xpos 1100 yalign 0.4
     
     ## 유키 회상 ####################################
     image kaisou_guildhouse = "object/kaisou_g.png"
@@ -647,6 +647,7 @@ init:
         ## 침 뱉는 소리 audio/sound/spit.wav
         ## 액체 묻는 소리 audio/sound/liquid.wav
         ## 리마 우는 소리 audio/sound/rima.wav
+        ## 책장 넘기는 소리 audio/sound/book.wav
 
     ## Voice ##
 
@@ -674,16 +675,50 @@ init:
         "CTC_TRANS"
         pause 0.7
         repeat
-    define ch_ninon = Character('니논', color = "#ffffff", ctc = 'ctc_icon', ctc_position = "fixed")
+    define ch_ninon = Character('니논', color = "#ffffff", ctc = 'ctc_icon', ctc_position = "fixed",  image = 'ninon')
 
-    define ch_monica = Character('모니카', color = "#ffffff", ctc = 'ctc_icon', ctc_position = "fixed")
+    define ch_monica = Character('모니카', image = 'monica', color = "#ffffff", ctc = 'ctc_icon', ctc_position = "fixed")
 
-    define ch_kuka = Character('쿠우카', color = "#ffffff", ctc = 'ctc_icon', ctc_position = "fixed")
+    define ch_kuka = Character('쿠우카', image = 'kuka', color = "#ffffff", ctc = 'ctc_icon', ctc_position = "fixed")
 
-    define ch_yuki = Character('유키', color = "#ffffff", ctc = 'ctc_icon', ctc_position = "fixed")
+    define ch_yuki = Character('유키', image = 'yuki', color = "#ffffff", ctc = 'ctc_icon', ctc_position = "fixed")
 
     define ch_ayumi = Character('아유미', color = "#ffffff", ctc = 'ctc_icon', ctc_position = "fixed")
 
+    ## 사이드 이미지
+    image side ninon panic:
+        im.FactorScale("side/ninonpanic.png", 0.3)
+
+    image side ninon surp:
+        im.FactorScale("side/ninonsurp.png", 0.3)
+
+    image side ninon wink:
+        im.FactorScale("side/ninonwink.png", 0.3)
+
+    image side monica ddung:
+        im.FactorScale("side/monicaddung.png", 0.3)
+
+    image side monica dere:
+        im.FactorScale("side/monicadere.png", 0.3)
+
+    image side kuka smile:
+        im.FactorScale("side/kuka.png", 0.3)
+
+    image side kuka dere:
+        im.FactorScale("side/kukadere.png", 0.3)
+
+    image side kuka surp:
+        im.FactorScale("side/kukasurp.png", 0.3)
+
+    image side yuki smile:
+        im.FactorScale("side/yuki.png", 0.3)
+
+    image side yuki angry:
+        im.FactorScale("side/yukiangry.png", 0.3)
+
+    image side yuki proud:
+        im.FactorScale("side/yukiproud.png", 0.3)
+    
     define player_name = "가상의 이름 simulated name"
 
     define player = Character("name", dynamic = True, color = "#ffffff", ctc = 'ctc_icon', ctc_position = "fixed")
@@ -811,6 +846,14 @@ init:
         im.FactorScale("cg/monica/monica_1_02.png", 1.0)
     image cg_monica_first_03:
         im.FactorScale("cg/monica/monica_1_03.png", 1.0)    
+    
+    image cg_monica_onsen_01:
+        im.FactorScale("cg/monica/monica_onsen_01.png", 0.2845)
+    image cg_monica_onsen_02:
+        im.FactorScale("cg/monica/monica_onsen_02.png", 0.2845)
+    image cg_monica_onsen_03:
+        im.FactorScale("cg/monica/monica_onsen_03.png", 0.2845)
+
     ## 니논
     image ninon_pingping:
         im.FactorScale("cg/ninon/ninon_pingpong.png", 0.5)
@@ -3683,11 +3726,11 @@ label start:
 
         "자기 자신만을 중시하며 동료를 배려하지 않는 것choice_4":
             $love_point = 4 ## 유키
-    hide bg_black onlayer background
-    hide bg_guildhouse onlayer middle
-    hide stand_Monica onlayer forward
-    stop music
-    jump scene20Common ## 버그테스트 용
+    ##hide bg_black onlayer background
+    ##hide bg_guildhouse onlayer middle
+    ##hide stand_Monica onlayer forward
+    ##stop music
+    ##jump scene20Common ## 버그테스트 용
 
     show stand_Monica onlayer forward with dissolve ## 기본 표정
 
@@ -6497,7 +6540,7 @@ label sceneNum15_1Common:
 
     ch_yuki "꺄~ 예쁘다. 나보다는 아니지만~"
 
-    ch_kuka "겨…… 경단들이 농후한 꿀에 흠뻑 절여진 채 서로의 몸을 탐하고 있어요……!!! 이 얼마나 상스러운…… 케헤헤헷……!!"
+    ch_kuka "겨…… 경단들이 농후한 꿀에 흠뻑 절여진 채 서로의 몸을 탐하고 있어요……!!! 이 얼마나 상스러운��… 케헤헤헷……!!"
 
     ch_gura "그럼, 맛있게 즐겨주시길 바랍니다!!"
 
@@ -10455,7 +10498,8 @@ label scene23Common:
 
         hatena "끼에!!!!! 끼에에!!! 끼아아아아악!!!!!!!!"
 
-        show ob_yas1 with dissolve:
+        show ob_yas1 with dissolve
+        show ob_yas2 with dissolve
 
         $renpy.pause(2.0)
 
@@ -10472,6 +10516,7 @@ label scene23Common:
         hide hit
 
         hide ob_yas1
+        hide ob_yas2
 
         show bg_black
 
@@ -10529,7 +10574,7 @@ label scene23Common:
 
         hatena "끼에!!!!! 끼에에!!! 끼아아아아악!!!!!!!!"
 
-        show ob_yas1 with dissolve:
+        show ob_yas1 with dissolve
 
         $renpy.pause(2.0)
 
@@ -10546,6 +10591,7 @@ label scene23Common:
         hide hit
 
         hide ob_yas1
+        hide ob_yas2
 
         show bg_black
 
@@ -10603,7 +10649,8 @@ label scene23Common:
 
         hatena "끼에!!!!! 끼에에!!! 끼아아아아악!!!!!!!!"
 
-        show ob_yas1 with dissolve:
+        show ob_yas1 with dissolve
+        show ob_yas2 with dissolve
 
         $renpy.pause(2.0)
 
@@ -10620,6 +10667,7 @@ label scene23Common:
         hide hit
 
         hide ob_yas1
+        hide ob_yas2
 
         show bg_black
 
@@ -10677,7 +10725,8 @@ label scene23Common:
 
         hatena "끼에!!!!! 끼에에!!! 끼아아아아악!!!!!!!!"
 
-        show ob_yas1 with dissolve:
+        show ob_yas1 with dissolve
+        show ob_yas2 with dissolve
 
         $renpy.pause(2.0)
 
@@ -10694,6 +10743,7 @@ label scene23Common:
         hide hit
 
         hide ob_yas1
+        hide ob_yas2
 
         show bg_black
 
@@ -11006,7 +11056,7 @@ label cg_ninonsecond:
             ch_ninon "!!!!!"
 
             ch_ninon "쇼, 쇼군……!!! 갑자기……?!"
-            $camera_move(0, 0, 0, 0, 0)
+            $camera_move(200, -700, 1000, 0, 0.5)
 
 
 
@@ -11104,7 +11154,137 @@ label cg_ninonsecond:
 
     hide ob_yas3
 
+    ch_ninon panic "꺄아아아악~~~!!!! 입니다!!!!!"
 
+    player "뭐, 뭐야!!!!"
+
+    show stand_gura with dissolve
+
+    ch_gura "다들 무사하시군요!!!! 다행히 늦지 않았습니다!!!!!"
+
+    hide stand_gura
+
+    player "뭐가…… 뭐가 어떻게 된 거야……?!"
+
+    player "난 여기서 뭘 하고 있었던 거지?!"
+
+    show stand_gura with dissolve
+
+    ch_gura "자세히 설명할 시간이 없습니다!!!"
+
+    ch_gura "여러분들은 저 마물에게 홀렸던 겁니다!!!"
+
+    hide stand_gura
+
+    show ob_yas1 with dissolve
+
+    play sound "audio/sound/monkey2.mp3"
+
+    monster "우끼긱!!!!!! 우꺅!!!!!!!"
+
+    ch_ninon panic "저게 대체 뭐야 입니다!!!!"
+
+    hide ob_yas1
+
+    show stand_gura with dissolve
+
+    ch_gura "정신 차리십쇼!!!!! 지금 당장 놈을 퇴치해야 합니다!!!!"
+
+    hide stand_gura
+
+    player "퇴치?! 때려잡으면 되는 거야?!"
+
+    show stand_gura with dissolve
+
+    ch_gura "아니오!!!! 놈은 야스를 하지 못하고 죽은 원념이 모여 탄생한 정신체!!!!"
+
+    ch_gura "물리적 공격은 통하지 않습니다!!!!"
+
+    hide stand_gura
+
+    player "그…… 그러면 어떻게 해?!!"
+
+    show stand_gura with dissolve
+
+    ch_gura "방법은 하나!!!!"
+
+    ch_gura "20년이 넘도록 순결을 지켜 온 청년의 피가 스며든 물건을…… 녀석의 눈앞에서 불태우는 의식을 행해야 합니다!!!!"
+
+    hide stand_gura
+
+    play sound "audio/sound/monkey2.mp3"
+
+    show ob_yas3 with dissolve
+
+    monster "우끽!!! 우끽!!! 우끼긱!!!!! 우끽!!!!! 우꺅!!!!"
+
+    hide ob_yas3
+
+    player "아 진짜!!! 어디서부터 태클을 걸어야 할지 모르겠어!!!!"
+
+    player "그리고 그딴 걸 갑자기 어디서 구……"
+
+    player "……"
+
+    $renpy.pause(1.0)
+
+    show ob_hankachi with dissolve:
+        xpos 430 yalign 0.3
+
+    player "……이거……"
+
+    player "……불태우면…… 될 것 같은데……"
+
+    ch_gura "전…… 전라 상태인데?! 어디서 그런 걸 꺼내신 겁니까?!!"
+
+    player "그런 건 중요하지 않아!!!!"
+
+    player "불!!! 빨리 불!!!!"
+
+    hide ob_hankachi
+    show stand_gura with dissolve
+
+    ch_gura "네…… 넵!!!!!!"
+
+    play sound "audio/sound/fire.mp3"
+    show fire_small:
+        xpos 100 ypos 210
+
+    ch_gura "퐈이야{font=NanumGothic.ttf}——{/font}!!!!!!!!"
+
+    hide fire_small
+
+    show ob_yas2 with dissolve
+
+    play sound "audio/sound/monkey2.mp3"
+
+    monster "아 ㅋㅋ 야스각이었는데 ㅋ"
+
+    monster "까비아깝송~"
+
+    hide ob_yas2 with squares
+
+    stop music
+
+    show stand_gura with dissolve
+
+    ch_gura "허억…… 후우……"
+
+    ch_gura "해……"
+
+    ch_gura "해치웠다!!!!!! 드디어!!!!!!"
+
+    show bg_outside_onsen_2 at fast_rotating
+
+    ch_gura "여러분 덕분임다!!!! 감사함다———아앗!!!!!!"
+
+    hide stand_gura
+
+    ch_ninon surp "……쇼군, 그런데……"
+
+    ch_ninon surp "저걸 불태웠다는 건…… 20년 넘게 동정……"
+
+    player "시끄러워……"
 
 
 
@@ -11298,7 +11478,154 @@ label cg_monicafirst:
 
 label cg_monicasecond:
 
-    centered "한 손으로 목욕가운을 붙잡고 부끄러운 표정으로 주인공을 노려보는 볼빵빵 모니카"
+    scene cg_monica_onsen_01 with fade
+
+    ## 아련한 bgm
+
+    ch_monica "……"
+
+    ch_monica "귀공, 내 얼굴에…… 뭐라도 묻었나?"
+
+    ch_monica "뭘 그렇게 빤히 쳐다보는 거냐……"
+
+    player "응?"
+
+    player "그냥…… 귀여워서."
+
+    show cg_monica_onsen_03 with hpunch
+
+    hide cg_monica_onsen_01
+
+    ch_monica "캬아악……!!!"
+
+    ch_monica "귀…… 귀공은 아직도 내가 어린아이로밖에 보이지 않는 건가?!"
+
+    player "하악질하는 고양이 같네……"
+
+    show cg_monica_onsen_02 with dissolve
+    hide cg_monica_onsen_03
+
+    ch_monica "……"
+
+    ch_monica "……귀공은 언제나 그런 식이다."
+
+    ch_monica "항상…… 나 혼자만 진지하고……"
+
+    ch_monica "……아무리 내가 군인이라 하여도, 이런 상황이라면……"
+
+    $renpy.pause(1.0)
+
+    ch_monica "조, 조금은……"
+
+    ch_monica "……두근거릴 수도 있는 것 아닌가."
+
+    ch_monica "귀공을 보고 있노라면…… 마치 심장에 병이라도 걸린 것처럼, 가슴 한편이 아려 오는데……"
+
+    show cg_monica_onsen_01 with dissolve
+    hide cg_monica_onsen_02
+
+    ch_monica "귀공은…… 나를 보면서도,"
+
+    ch_monica "아무런 감정이…… 들지 않는가?"
+
+    ch_monica "대답해 주게. 귀공은……"
+
+    show cg_monica_onsen_02 with dissolve
+    hide cg_monica_onsen_01
+
+    ch_monica "……나를…… 어떻게 생각하나?"
+
+    menu:
+        "“모두의 귀감이 되는 훌륭한 지휘관이라고 생각해.”choice_1":
+            show cg_monica_onsen_01 with dissolve
+            hide cg_monica_onsen_02
+
+            ch_monica "훌륭한 지휘관……인가."
+
+            ch_monica "뭐…… 길드 마스터이자 군인이라는 신분으로서 들을 수 있는 최고의 칭찬이긴 하군……"
+
+            show cg_monica_onsen_02 with dissolve
+            hide cg_monica_onsen_01
+
+            ch_monica "……기대하던 답변과는 다소 거리가 멀지만."
+
+            player "기대하던 답변?"
+
+            ch_monica "아니, 아무것도 아니다. 괘념치 마라."
+
+            ch_monica "그보다…… 여기서 이럴 게 아니라,"
+
+            ch_monica "함께…… 온천에 들어가는 건 어떤가?"
+
+        "    “예쁘고 어른스러운, 내 이상형이야.”choice_2":
+            $point_monica += 1
+            show cg_monica_onsen_03 with hpunch
+            hide cg_monica_onsen_02
+
+            ch_monica "~~~~?!?!?!?!"
+
+            ch_monica "그……"
+
+            ch_monica "긋……!!"
+
+            show cg_monica_onsen_03 with hpunch
+
+            ch_monica "가…… 갑자기 그런 말을 해 버리는 건…… 반칙이잖나!!!!"
+
+            player "왜 그래?"
+
+            player "솔직하게 대답했을 뿐인데……"
+
+            show cg_monica_onsen_03 with hpunch
+
+            ch_monica "너무 솔직해!!!!!!!"
+
+            ch_monica "으으…… 귀공은 정마아알……!!"
+
+            show cg_monica_onsen_02 with dissolve
+            hide cg_monica_onsen_03
+
+            ch_monica "……되었다. 조금 민망하지만……"
+
+            ch_monica "……아니, 사실은 엄청나게 부끄럽지만……!!"
+
+            ch_monica "귀공이…… 그렇게 말해주었으니……"
+
+            ch_monica "……"
+
+            ch_monica "여, 여기서 이럴 게 아니라!"
+
+            ch_monica "함께 온천에 몸을 담그지 않겠나……?"
+
+        
+        "“집으로 데려가서 키우고 싶어.”choice_3":
+            $point_monica -= 1
+            show cg_monica_onsen_03 with dissolve
+            hide cg_monica_onsen_02
+
+            ch_monica "……뭐, 뭐……?!?!"
+
+            ch_monica "그건 또 무슨……!!"
+
+            show cg_monica_onsen_03 with hpunch
+
+            ch_monica "이, 이제는 어린애 취급도 모자라…… 애완동물 취급까지 하는 거냐!!!!"
+
+            ch_monica "실망스럽군! 귀공은 조금이나마 다를 줄 알았는데……"
+
+            show cg_monica_onsen_02 with dissolve
+            hide cg_monica_onsen_03
+
+            ch_monica "……나도 노력하고 있단 말이다……"
+
+            ch_monica "하루도 거르지 않고 우유를 마셔 보거나…… 성장 호르몬이 많이 분비된다는 시간에 맞춰 잠자리에 드는데……"
+
+            ch_monica "아무리 노력해도 바뀌지 않는 것을…… 나보고 어떡하란 말이냐……"
+
+            ch_monica "다른 사람도 아니고, 귀공에게만큼은…… 어린아이처럼 보이고 싶지 않은데."
+
+    player "모니카……"
+
 
     return
 

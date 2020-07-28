@@ -98,7 +98,7 @@ screen say(who, what):
 
     window:
         id "window"
-
+        add SideImage() xpos 950 yalign 1.0
         if who is not None:
 
             window:
@@ -113,8 +113,6 @@ screen say(who, what):
 
     ## 사이드 이미지가 있는 경우 글자 위에 표시합니다. 휴대폰 환경에서는 보이지
     ## 않습니다.
-    if not renpy.variant("small"):
-        add SideImage() xalign 0.0 yalign 1.0
 
 
 ## Character 객체를 통해 스타일을 지정할 수 있도록 namebox를 사용할 수 있게 만듭
@@ -488,7 +486,7 @@ init python:
     g.unlock_image("cg_monica_first_01")
     
     g.button("monica2")
-    g.unlock_image("end4")
+    g.unlock_image("cg_monica_onsen_01")
 
     g.button("kuka1")
     g.unlock_image("cg_kuka_ykt_3")
@@ -509,7 +507,7 @@ init python:
     g.unlock_image("end8")
 
     g.button("3")
-    g.unlock_image("end8")
+    g.unlock_image("cg_kokoro_01")
 
     g.button("4")
     g.unlock_image("end8")
@@ -518,7 +516,7 @@ init python:
     g.unlock_image("end8")
 
     g.button("6")
-    g.unlock_image("end8")
+    g.unlock_image("cg_ninon_onsen_02")
 
     g.button("7")
     g.unlock_image("end8")
