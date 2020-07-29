@@ -100,6 +100,9 @@ init:
     image stand_Yuki_shamed:
         im.FactorScale("Character/yuki/yuki_shamed.png", 0.30)
         ypos 1000
+    image stand_Yuki_surp:
+        im.FactorScale("Character/yuki/yuki_surp.png", 0.30)
+        ypos 1000
     image stand_Yuki_yukata:
         im.FactorScale("Character/yuki/yuki_yukata.png", 0.30)
         ypos 1000
@@ -114,6 +117,9 @@ init:
         ypos 1000
     image stand_Yuki_yukata_shamed:
         im.FactorScale("Character/yuki/yuki_yukata_shamed.png", 0.30)
+        ypos 1000
+    image stand_Yuki_yukata_surp:
+        im.FactorScale("Character/yuki/yuki_yukata_surp.png", 0.30)
         ypos 1000
     
     ## 니논
@@ -613,7 +619,10 @@ init:
         ## audio/main/5orientalcommon.mp3
         ## audio/main/6orientalcommon.mp3
         ## audio/main/7emergencycommon.mp3
+        ## audio/main/8sad.mp3
         ## audio/main/9bbong.mp3
+        ## audio/main/10end.mp3
+        ## audio/main/11fun.mp3
 
     ## Sound ##
 
@@ -648,6 +657,7 @@ init:
         ## 액체 묻는 소리 audio/sound/liquid.wav
         ## 리마 우는 소리 audio/sound/rima.wav
         ## 책장 넘기는 소리 audio/sound/book.wav
+        ## 삐걱거리는 소리 audio/sound/bbiguk.wav
 
     ## Voice ##
 
@@ -828,6 +838,56 @@ init:
         im.FactorScale("cg/kuka/kuka_yukata_2.png", 1.0)
     image cg_kuka_ykt_3:
         im.FactorScale("cg/kuka/kuka_yukata_3.png", 1.0)
+
+    image cg_kuka_onsen_01:
+        im.FactorScale("cg/kuka/kuka_onsen_01.png", 0.67)
+    image cg_kuka_onsen_02:
+        im.FactorScale("cg/kuka/kuka_onsen_02.png", 0.67)
+    image cg_kuka_onsen_03:
+        im.FactorScale("cg/kuka/kuka_onsen_03.png", 0.67)
+    image cg_kuka_onsen_hand_01:
+        im.FactorScale("cg/kuka/kuka_onsen_hand_01.png", 0.67)
+    image cg_kuka_onsen_hand_02:
+        im.FactorScale("cg/kuka/kuka_onsen_hand_02.png", 0.67)
+    
+    image cg_kuka_end1:
+        im.FactorScale("cg/kuka/1.png", 1.0)
+    image cg_kuka_end2:
+        im.FactorScale("cg/kuka/2.png", 1.0)
+    image cg_kuka_end3:
+        im.FactorScale("cg/kuka/3.png", 1.0)
+    image cg_kuka_end4:
+        im.FactorScale("cg/kuka/4.png", 1.0)
+    image cg_kuka_end5:
+        im.FactorScale("cg/kuka/5.png", 1.0)
+    image cg_kuka_end6:
+        im.FactorScale("cg/kuka/6.png", 1.0)
+    image cg_kuka_end7:
+        im.FactorScale("cg/kuka/7.png", 1.0)
+    image cg_kuka_end8:
+        im.FactorScale("cg/kuka/8.png", 1.0)
+    image cg_kuka_end9:
+        im.FactorScale("cg/kuka/9.png", 1.0)
+    image cg_kuka_end10:
+        im.FactorScale("cg/kuka/10.png", 1.0)
+    image cg_kuka_end11:
+        im.FactorScale("cg/kuka/11.png", 1.0)
+    image cg_kuka_end12:
+        im.FactorScale("cg/kuka/12.png", 1.0)
+    image cg_kuka_end13:
+        im.FactorScale("cg/kuka/13.png", 1.0)
+    image cg_kuka_end14:
+        im.FactorScale("cg/kuka/14.png", 1.0)
+    image cg_kuka_end15:
+        im.FactorScale("cg/kuka/15.png", 1.0)
+    image cg_kuka_end16:
+        im.FactorScale("cg/kuka/16.png", 1.0)
+    image cg_kuka_end17:
+        im.FactorScale("cg/kuka/17.png", 1.0)
+    image cg_kuka_end18:
+        im.FactorScale("cg/kuka/18.png", 1.0)
+    image cg_kuka_end19:
+        im.FactorScale("cg/kuka/19.png", 1.0)
     ## 유키
     image bg_cg_yuki_01:
         im.FactorScale("library/bg_cg_yuki_01.png", 1.0)
@@ -839,6 +899,12 @@ init:
         im.FactorScale("library/yuki_03.png", 1.0)
     image cg_yuki_03_plus:
         im.FactorScale("library/yuki_03_plus.png", 1.0)
+
+    image cg_yuki_onsen_01:
+        im.FactorScale("cg/yuki/yuki_01.png", 1.0)
+    image cg_yuki_onsen_02:
+        im.FactorScale("cg/yuki/yuki_02.png", 1.0)
+    
     ## 모니카
     image cg_monica_first_01:
         im.FactorScale("cg/monica/monica_1_01.png", 1.0)
@@ -3726,11 +3792,11 @@ label start:
 
         "자기 자신만을 중시하며 동료를 배려하지 않는 것choice_4":
             $love_point = 4 ## 유키
-    ##hide bg_black onlayer background
-    ##hide bg_guildhouse onlayer middle
-    ##hide stand_Monica onlayer forward
-    ##stop music
-    ##jump scene20Common ## 버그테스트 용
+    hide bg_black onlayer background
+    hide bg_guildhouse onlayer middle
+    hide stand_Monica onlayer forward
+    stop music
+    jump scene20Common ## 버그테스트 용
 
     show stand_Monica onlayer forward with dissolve ## 기본 표정
 
@@ -10238,7 +10304,7 @@ label scene21Common:
         hide stand_Yuki_yukata_ddung
         show stand_Kuka_yukata_mousou with dissolve
 
-        ch_kuka "{cps=* 0.5}다, 다다(/cps}단둘이서 밤새도록……!! 후히히힛……!!"
+        ch_kuka "다, 다다단둘이서 밤새도록……!! 후히히힛……!!"
         hide stand_Kuka_yukata_mousou
     
     show stand_Monica_yukata_ddung with dissolve
@@ -10570,7 +10636,7 @@ label scene23Common:
 
         hide stand_Monica_yukata_surprised
 
-        play sound "audio/sound/monkey.wav"
+        play sound "audio/sound/monkey.mp3"
 
         hatena "끼에!!!!! 끼에에!!! 끼아아아아악!!!!!!!!"
 
@@ -10578,7 +10644,7 @@ label scene23Common:
 
         $renpy.pause(2.0)
 
-        play sound "audio/sound/monkey2.wav"
+        play sound "audio/sound/monkey2.mp3"
 
         monster "{b}{size=30}야스각이다!!!! 야스각!!!!!{/size}{/b}"
 
@@ -10645,7 +10711,7 @@ label scene23Common:
 
         hide stand_Kuka_yukata_surprised
 
-        play sound "audio/sound/monkey.wav"
+        play sound "audio/sound/monkey.mp3"
 
         hatena "끼에!!!!! 끼에에!!! 끼아아아아악!!!!!!!!"
 
@@ -10654,7 +10720,7 @@ label scene23Common:
 
         $renpy.pause(2.0)
 
-        play sound "audio/sound/monkey2.wav"
+        play sound "audio/sound/monkey2.mp3"
 
         monster "{b}{size=30}야스각이다!!!! 야스각!!!!!{/size}{/b}"
 
@@ -10721,7 +10787,7 @@ label scene23Common:
 
         hide stand_Yuki_yukata_shamed
 
-        play sound "audio/sound/monkey.wav"
+        play sound "audio/sound/monkey.mp3"
 
         hatena "끼에!!!!! 끼에에!!! 끼아아아아악!!!!!!!!"
 
@@ -10730,7 +10796,7 @@ label scene23Common:
 
         $renpy.pause(2.0)
 
-        play sound "audio/sound/monkey2.wav"
+        play sound "audio/sound/monkey2.mp3"
 
         monster "{b}{size=30}야스각이다!!!! 야스각!!!!!{/size}{/b}"
 
@@ -11626,6 +11692,187 @@ label cg_monicasecond:
 
     player "모니카……"
 
+    show cg_monica_onsen_03 onlayer middle with dissolve
+    hide cg_monica_onsen_02
+
+    $camera_move(-200, -500, 400, 0, 1)
+
+    ch_monica "귀, 귀공?!"
+
+    ch_monica "갑자기…… 무슨?!"
+
+    player "됐으니까, 그대로……"
+
+    player "가만히 있어……"
+
+    show cg_monica_onsen_02 onlayer middle with dissolve
+    hide cg_monica_onsen_03 onlayer middle
+
+    ch_monica "……"
+
+    ch_monica "……사, 상냥하게 해 다오……"
+
+    $renpy.pause(1.0)
+
+    play sound "audio/sound/surp.mp3"
+
+    show stand_gura onlayer forward with dissolve:
+        xalign 0.5 yalign 0.4
+
+    show highlight onlayer forward
+
+    ch_gura "여러부우우{font=NanumGothic.ttf}————{/font}우운!!!!!!!!!!!"
+
+    ch_gura "구하러 왔슴다{font=NanumGothic.ttf}————{/font}아앗!!!!!!!!!!!!"
+
+    $camera_move(0, 0, 0, 0, 0)
+
+    show bg_outside_onsen_2
+    hide highlight onlayer forward
+    hide stand_gura onlayer forward
+    hide cg_monica_onsen_02 onlayer middle
+
+    show ob_yas3 with dissolve
+
+    play sound "audio/sound/monkey.mp3"
+
+    play music "audio/main/7emergencycommon.mp3"
+
+    monster "아 씹빨!!!!! 폭풍야스 왜 안하냐고!!!!!!!!"
+
+    hide ob_yas3
+
+    ch_monica dere "우…… 우아아아악~~~!!!!"
+
+    player "뭐, 뭐야!!!!"
+
+    show stand_gura with dissolve
+
+    ch_gura "다들 무사하시군요!!!! 다행히 늦지 않았습니다!!!!!"
+
+    hide stand_gura
+
+    player "뭐가…… 뭐가 어떻게 된 거야……?!"
+
+    player "난 여기서 뭘 하고 있었던 거지?!"
+
+    show stand_gura with dissolve
+
+    ch_gura "자세히 설명할 시간이 없습니다!!!"
+
+    ch_gura "여러분들은 저 마물에게 홀렸던 겁니다!!!"
+
+    hide stand_gura
+
+    show ob_yas1 with dissolve
+
+    play sound "audio/sound/monkey2.mp3"
+
+    monster "우끼긱!!!!!! 우꺅!!!!!!!"
+
+    ch_monica dere "저, 저게 대체 뭐냐!!!"
+
+    hide ob_yas1
+
+    show stand_gura with dissolve
+
+    ch_gura "정신 차리십쇼!!!!! 지금 당장 놈을 퇴치해야 합니다!!!!"
+
+    hide stand_gura
+
+    player "퇴치?! 때려잡으면 되는 거야?!"
+
+    show stand_gura with dissolve
+
+    ch_gura "아니오!!!! 놈은 야스를 하지 못하고 죽은 원념이 모여 탄생한 정신체!!!!"
+
+    ch_gura "물리적 공격은 통하지 않습니다!!!!"
+
+    hide stand_gura
+
+    player "그…… 그러면 어떻게 해?!!"
+
+    show stand_gura with dissolve
+
+    ch_gura "방법은 하나!!!!"
+
+    ch_gura "20년이 넘도록 순결을 지켜 온 청년의 피가 스며든 물건을…… 녀석의 눈앞에서 불태우는 의식을 행해야 합니다!!!!"
+
+    hide stand_gura
+
+    play sound "audio/sound/monkey2.mp3"
+
+    show ob_yas3 with dissolve
+
+    monster "우끽!!! 우끽!!! 우끼긱!!!!! 우끽!!!!! 우꺅!!!!"
+
+    hide ob_yas3
+
+    player "아 진짜!!! 어디서부터 태클을 걸어야 할지 모르겠어!!!!"
+
+    player "그리고 그딴 걸 갑자기 어디서 구……"
+
+    player "……"
+
+    $renpy.pause(1.0)
+
+    show ob_hankachi with dissolve:
+        xpos 430 yalign 0.3
+
+    player "……이거……"
+
+    player "……불태우면…… 될 것 같은데……"
+
+    ch_gura "전…… 전라 상태인데?! 어디서 그런 걸 꺼내신 겁니까?!!"
+
+    player "그런 건 중요하지 않아!!!!"
+
+    player "불!!! 빨리 불!!!!"
+
+    hide ob_hankachi
+    show stand_gura with dissolve
+
+    ch_gura "네…… 넵!!!!!!"
+
+    play sound "audio/sound/fire.mp3"
+    show fire_small:
+        xpos 100 ypos 210
+
+    ch_gura "퐈이야{font=NanumGothic.ttf}——{/font}!!!!!!!!"
+
+    hide fire_small
+
+    show ob_yas2 with dissolve
+
+    play sound "audio/sound/monkey2.mp3"
+
+    monster "아 ㅋㅋ 야스각이었는데 ㅋ"
+
+    monster "까비아깝송~"
+
+    hide ob_yas2 with squares
+
+    stop music
+
+    show stand_gura with dissolve
+
+    ch_gura "허억…… 후우……"
+
+    ch_gura "해……"
+
+    ch_gura "해치웠다!!!!!! 드디어!!!!!!"
+
+    show bg_outside_onsen_2 at fast_rotating
+
+    ch_gura "여러분 덕분임다!!!! 감사함다———아앗!!!!!!"
+
+    hide stand_gura
+
+    ch_ninon ddung "……귀공, 그런데……"
+
+    ch_ninon ddung "저걸 불태웠다는 것은…… 20년 넘게 동정……"
+
+    player "시끄러워……"
 
     return
 
@@ -11821,8 +12068,333 @@ label cg_kukafirst:
 
 label cg_kukasecond:
 
-    centered "탕 속에서 망상에 빠져 침을 흘리자 엄지손가락으로 입을 닦아주는 주인공을 깜짝 놀란 표정으로 바라보는 목욕가운 차림의 쿠우카"
+    scene cg_kuka_onsen_01 with fade
 
+    ## 아련한 bgm
+
+    ch_kuka "으헤…… 흐헤헤헷……♥"
+
+    player "뭐가 그렇게 좋은 거야?"
+
+    ch_kuka "크흐흐…… 좋지 않을 리가 있나요……!"
+
+    ch_kuka "반나체 상태로 야외에 쫓겨나, 부끄러운 몰골을 누군가에게 들킬세라 근처의 물웅덩이에 허겁지겁 몸을 숨긴 채 행여 지나가는 사람이 없는지 불안에 떨며 날밤을 지새워야 하는 비합리적 상황!!!"
+
+    ch_kuka "거기다 좋아하는 도S 씨와 단둘이 있을 수 있어서……!"
+
+    show cg_kuka_onsen_02 with dissolve
+    hide cg_kuka_onsen_01
+
+    ch_kuka "……아, 바…… 방금 말은…… 못 들은 걸로 해 주세요……"
+
+    show cg_kuka_onsen_01 with dissolve
+    hide cg_kuka_onsen_02
+
+    ch_kuka "그흐흐…… 떨림이 멈추지 않아…… 흥분할 대로 흥분한 나머지, 견딜 수 없을 만큼 뜨거워진 쿠우카의 몸과 마음이…… 차디찬 밤공기를 격렬하게 달구고 있어요……!!! 이건 마치 음양의 조화…… 남과 여의 화합!!!! 츄르르릅……"
+
+    player "……쿠우카, 가만히 있어 봐."
+
+    show cg_kuka_onsen_hand_01 with dissolve
+    hide cg_kuka_onsen_01
+
+    ch_kuka "……"
+
+    show cg_kuka_onsen_03 with hpunch
+    hide cg_kuka_onsen_hand_01
+
+    ch_kuka "{b}{size=30}……햐앗?!?!!{/size}{/b}"
+
+    ch_kuka "으, 아우, 으아……?!"
+
+    ch_kuka "어, 도…… 도S 씨!?"
+
+    ch_kuka "가, 가, 가, 갑자기 무슨……?!"
+
+    show cg_kuka_onsen_hand_01 with dissolve
+    hide cg_kuka_onsen_03
+
+    ch_kuka "여, 역시 도S씨는…… 쿠우카가 방심하는 순간만을 기다렸던 것이군요!!!"
+
+    ch_kuka "이대로 쿠, 쿠우카는, 「아름다운 꽃이로구나. 꺾어서 내가 가져야겠어」 라며 덮쳐 오는 음흉한 손길에 저항할 새도 없이 어른의 계단을 오르게 되고…… 크흣, 크흐흐……"
+
+    ch_kuka "이…… 이제 쿠우카는 몸도 마음도 도S씨에게 사로잡힌 채 절대복종하는 노예가 되어버리는 거네요!!!"
+
+    player "……?"
+
+    player "침을 너무 흘리길래 닦아 주려던 건데."
+
+    ch_kuka "……에?"
+
+    ch_kuka "……침…… 말인가요?"
+
+    player "응."
+
+    ch_kuka "그러니까…… 쿠우카의 침을 닦아 주기 위해 손을 내밀었을 뿐이고, 다른 의도는 없었다…… 라고요?"
+
+    player "응."
+
+    show cg_kuka_onsen_hand_02 with dissolve
+    hide cg_kuka_onsen_hand_01
+
+    ch_kuka "…………"
+
+    ch_kuka "쿠…… 쿠우카는 도S 씨의 꿍꿍이를 알고 있어요……"
+
+    ch_kuka "이, 이렇게 상냥한 모습을 보여 주면서 안심시킨 뒤……"
+
+    show cg_kuka_onsen_hand_01 with dissolve
+    hide cg_kuka_onsen_hand_02
+
+    show highlight
+
+    ch_kuka "{b}완전히 경계심이 풀어졌을 때!!! 쿠우카를 온전히 취할 수 있는 그 순간을 노리신다는 것을!!!! 쿠헤헤헤헷!!!!{/b}"
+
+    menu:
+        "“그딴 거 관심 없어.”choice_1":
+            $point_kuka -= 1
+            show cg_kuka_onsen_01 with dissolve
+            hide cg_kuka_onsen_hand_01
+
+            ch_kuka "{b}{size=30}엣.{/size}{/b}"
+
+            ch_kuka "……도S 씨…… 방금 뭐라고……?"
+
+            player "못 들었어?"
+
+            player "관심 없다고."
+
+            ch_kuka "엣…… 에에?"
+
+            player "그…… 그럴 리가? 도S 씨 정도의 음탕한 남성이…… 이런 일에 관심이 없다니……?!"
+
+            $renpy.pause(1.0)
+
+            ch_kuka "……그, 그렇군요!!!"
+
+            ch_kuka "도S 씨가 혼자 쏙 빠져 나가면…… 쿠우카만 정신 나간 변태가 되는 거니까!!!!"
+
+            ch_kuka "순진한 쿠우카를 변태로 몰아, 억울함과 수치심에 몸서리치는 상황을 유도하신 거였네요!!!"
+
+            ch_kuka "역시 도S 씨는…… 최악이에요!!!! 이…… 도덕 분쇄자!! 두 발로 걷는 짐승!!!!"
+
+            ch_kuka "쿠히히히히!!! 이제 만족하시나요!!! 좀 더…… 좀 더 쿠우카를 괴롭혀 주세요……!!! 지금 당장……!!!"
+
+        "   “그런 심한 짓은 하지 않아.”choice_2":
+            $point_kuka += 1
+
+            ch_kuka "거, 거짓말……!!"
+
+            ch_kuka "지…… 지금도 기회를 호시탐탐 노리고 있는 도S 씨의 손이 그것을 증명……"
+
+            show cg_kuka_onsen_01 with dissolve
+            hide cg_kuka_onsen_hand_01
+
+            ch_kuka "……에?"
+
+            player "쿠우카는……"
+
+            player "정말로 나를…… 그런 놈이라고 생각해?"
+
+            show cg_kuka_onsen_02 with dissolve
+            hide cg_kuka_onsen_01
+
+            ch_kuka "……"
+
+            ch_kuka "도S 씨가 그런 무뢰한이 아니라는 것쯤은…… 저도 알아요……"
+
+            ch_kuka "그, 그치만……"
+
+            show cg_kuka_onsen_01 with dissolve
+            hide cg_kuka_onsen_02
+
+            ch_kuka "{b}{size=30}오…… 오히려 쿠우카의 욕망이……!!! 도S 씨가 그렇게 해 주기를 바라고 있어요!!!!!{/size}{/b}"
+
+            ch_kuka "{b}{size=30}도S 씨!!!! 지금 당장…… 쿠우카에게 심한 짓을 해 주세요!!!!! 쿠헤헤헤헷!!!!{/size}{/b}"
+
+
+        "“들켰네?”choice_3":
+            show cg_kuka_onsen_01 with dissolve
+            hide cg_kuka_onsen_hand_01
+
+            ch_kuka "여…… 역시……!!!"
+
+            ch_kuka "도S 씨는 갱생조차 불가능한 인간쓰레기네요!!!"
+
+            ch_kuka "……아니, 오히려 좋아……!!"
+
+            ch_kuka "더 이상 더러워질 수도 없는 도S 씨의 시커먼 욕망을…… 전부!!! 쿠우카에게 쏟아부어 주세요!!!!"
+
+    show cg_kuka_onsen_01 onlayer middle
+    hide cg_kuka_onsen_01
+
+    $camera_move(-100, -500, 500, 0, 1)
+
+    ch_kuka "크히히히히…… 도S 씨……!!!"
+
+    ch_kuka "어서…… 어서 쿠우카를……!!! 엉망진창 덮쳐 주세요오오……!!!! 케케케켓!!!"
+
+    $renpy.pause(1.0)
+
+    play sound "audio/sound/surp.mp3"
+
+    show stand_gura onlayer forward with dissolve:
+        xalign 0.5 yalign 0.4
+
+    show highlight onlayer forward
+
+    ch_gura "여러부우우{font=NanumGothic.ttf}————{/font}우운!!!!!!!!!!!"
+
+    ch_gura "구하러 왔슴다{font=NanumGothic.ttf}————{/font}아앗!!!!!!!!!!!!"
+
+    $camera_move(0, 0, 0, 0, 0)
+
+    show bg_outside_onsen_2
+    hide highlight onlayer forward
+    hide stand_gura onlayer forward
+    hide cg_kuka_onsen_01 onlayer middle
+
+    show ob_yas3 with dissolve
+
+    play sound "audio/sound/monkey.mp3"
+
+    play music "audio/main/7emergencycommon.mp3"
+
+    monster "아 씹빨!!!!! 폭풍야스 왜 안하냐고!!!!!!!!"
+
+    hide ob_yas3
+
+    ch_kuka surp "꺄아아아악~~~?!?!!"
+
+    player "뭐, 뭐야!!!!"
+
+    show stand_gura with dissolve
+
+    ch_gura "다들 무사하시군요!!!! 다행히 늦지 않았습니다!!!!!"
+
+    hide stand_gura
+
+    player "뭐가…… 뭐가 어떻게 된 거야……?!"
+
+    player "난 여기서 뭘 하고 있었던 거지?!"
+
+    show stand_gura with dissolve
+
+    ch_gura "자세히 설명할 시간이 없습니다!!!"
+
+    ch_gura "여러분들은 저 마물에게 홀렸던 겁니다!!!"
+
+    hide stand_gura
+
+    show ob_yas1 with dissolve
+
+    play sound "audio/sound/monkey2.mp3"
+
+    monster "우끼긱!!!!!! 우꺅!!!!!!!"
+
+    ch_kuka surp "저…… 저게 대체 뭔가요……!!!"
+
+    hide ob_yas1
+
+    show stand_gura with dissolve
+
+    ch_gura "정신 차리십쇼!!!!! 지금 당장 놈을 퇴치해야 합니다!!!!"
+
+    hide stand_gura
+
+    player "퇴치?! 때려잡으면 되는 거야?!"
+
+    show stand_gura with dissolve
+
+    ch_gura "아니오!!!! 놈은 야스를 하지 못하고 죽은 원념이 모여 탄생한 정신체!!!!"
+
+    ch_gura "물리적 공격은 통하지 않습니다!!!!"
+
+    hide stand_gura
+
+    player "그…… 그러면 어떻게 해?!!"
+
+    show stand_gura with dissolve
+
+    ch_gura "방법은 하나!!!!"
+
+    ch_gura "20년이 넘도록 순결을 지켜 온 청년의 피가 스며든 물건을…… 녀석의 눈앞에서 불태우는 의식을 행해야 합니다!!!!"
+
+    hide stand_gura
+
+    play sound "audio/sound/monkey2.mp3"
+
+    show ob_yas3 with dissolve
+
+    monster "우끽!!! 우끽!!! 우끼긱!!!!! 우끽!!!!! 우꺅!!!!"
+
+    hide ob_yas3
+
+    player "아 진짜!!! 어디서부터 태클을 걸어야 할지 모르겠어!!!!"
+
+    player "그리고 그딴 걸 갑자기 어디서 구……"
+
+    player "……"
+
+    $renpy.pause(1.0)
+
+    show ob_hankachi with dissolve:
+        xpos 430 yalign 0.3
+
+    player "……이거……"
+
+    player "……불태우면…… 될 것 같은데……"
+
+    ch_gura "전…… 전라 상태인데?! 어디서 그런 걸 꺼내신 겁니까?!!"
+
+    player "그런 건 중요하지 않아!!!!"
+
+    player "불!!! 빨리 불!!!!"
+
+    hide ob_hankachi
+    show stand_gura with dissolve
+
+    ch_gura "네…… 넵!!!!!!"
+
+    play sound "audio/sound/fire.mp3"
+    show fire_small:
+        xpos 100 ypos 210
+
+    ch_gura "퐈이야{font=NanumGothic.ttf}——{/font}!!!!!!!!"
+
+    hide fire_small
+
+    show ob_yas2 with dissolve
+
+    play sound "audio/sound/monkey2.mp3"
+
+    monster "아 ㅋㅋ 야스각이었는데 ㅋ"
+
+    monster "까비아깝송~"
+
+    hide ob_yas2 with squares
+
+    stop music
+
+    show stand_gura with dissolve
+
+    ch_gura "허억…… 후우……"
+
+    ch_gura "해……"
+
+    ch_gura "해치웠다!!!!!! 드디어!!!!!!"
+
+    show bg_outside_onsen_2 at fast_rotating
+
+    ch_gura "여러분 덕분임다!!!! 감사함다———아앗!!!!!!"
+
+    hide stand_gura
+
+    ch_kuka dere "……도S 씨, 그런데……"
+
+    ch_kuka dere "저, 저걸 불태웠다는 건…… 20년 넘게 동정……"
+
+    player "시끄러워……"
+    
     return
 
 ## 유키 루트 ##################################
@@ -11956,8 +12528,226 @@ label cg_yukifirst:
     jump sceneNum11_2Common
 
 label cg_yukisecond:
+    scene cg_yuki_onsen_01 with fade
+    play music "audio/main/8sad.mp3"
 
-    centered "탕에 몸을 반쯤 담근 채 요염한 자세로 주인공을 바라보는 유키"
+    ch_yuki "아아~ 곤란한걸."
+
+    ch_yuki "그렇지 않아도 눈부시던 나의 미모가…… 달빛을 받아 더욱 환하게 빛나고 있어."
+
+    ch_yuki "이대로라면, 나의 아름다움만으로 온 세상의 어둠을 걷어 낼 수 있을지도 모르겠네……♪"
+
+    ch_yuki "그나저나 참 신기해."
+
+    ch_yuki "땀냄새 나는 남자들이 몸을 담갔던 곳이라 생각하면 불쾌해야 할 텐데……"
+
+    ch_yuki "왠지 모르게 좋은 기분이 들어…… 구름 위에 둥둥 떠있는 느낌♪"
+
+    ch_yuki "……너와 단둘이 있어서일까?"
+
+    $renpy.pause(1.0)
+
+    ch_yuki "그보다…… 아까부터 왜 그러고 있어~?"
+
+    ch_yuki "{b}남자끼리인데도{/b} 부끄러운 거야? 귀엽긴~"
+
+    ch_yuki "자꾸 그러면, {color=#FF2929}여기 아래{/color}…… 들춰서 보여줘 버릴까나……♬"
+
+    menu:
+        "“그건 좀……”choice_1":
+            $point_yuki -= 1
+
+        "  “보여 줘!!!!”choice_2":
+
+        "“만지게 해 줘!!!!!”choice_3":
+            $point_yuki += 1
+            ch_yuki "만지게 해 달라구?"
+
+            ch_yuki "흐음…… 보여주는 것 이상은 NG인데……"
+
+            ch_yuki "……어쩔까나~?"
+
+            player "{b}{size=30}나…… 나도!!!{/size}{/b}"
+
+            player "{b}{size=30}나도 만질 거야!!!!{/size}{/b}"
+
+            show cg_yuki_onsen_02 with dissolve
+            hide cg_yuki_onsen_01
+
+            ch_yuki "……오늘의 너는 조금…… 무섭네……"
+
+            show cg_yuki_onsen_01 with dissolve
+            hide cg_yuki_onsen_02
+
+            ch_yuki "뭐, 상관 없나."
+
+            ch_yuki "좋아! 그렇게까지 바란다면…… 어쩔 수 없네."
+
+            ch_yuki "그치만, 착각은 금물이야."
+
+            ch_yuki "……너니까 허락해 준 거라구?"
+
+            ch_yuki "세계 최고로 귀여운 나를 아무나 만지게 해 줄 리가 없잖아? 영광으로 알아~♪"
+
+    play sound "audio/sound/surp.mp3"
+
+    show stand_gura onlayer forward with dissolve:
+        xalign 0.5 yalign 0.4
+
+    show highlight onlayer forward
+
+    ch_gura "여러부우우{font=NanumGothic.ttf}————{/font}우운!!!!!!!!!!!"
+
+    ch_gura "구하러 왔슴다{font=NanumGothic.ttf}————{/font}아앗!!!!!!!!!!!!"
+
+    $camera_move(0, 0, 0, 0, 0)
+
+    show bg_outside_onsen_2
+    hide highlight onlayer forward
+    hide stand_gura onlayer forward
+    hide cg_ninon_onsen_03 onlayer middle
+
+    show ob_yas3 with dissolve
+
+    play sound "audio/sound/monkey.mp3"
+
+    play music "audio/main/7emergencycommon.mp3"
+
+    monster "아 씹빨!!!!! 폭풍야스 왜 안하냐고!!!!!!!!"
+
+    hide ob_yas3
+
+    ch_ninon panic "꺄아아아악~~~!!!! 입니다!!!!!"
+
+    player "뭐, 뭐야!!!!"
+
+    show stand_gura with dissolve
+
+    ch_gura "다들 무사하시군요!!!! 다행히 늦지 않았습니다!!!!!"
+
+    hide stand_gura
+
+    player "뭐가…… 뭐가 어떻게 된 거야……?!"
+
+    player "난 여기서 뭘 하고 있었던 거지?!"
+
+    show stand_gura with dissolve
+
+    ch_gura "자세히 설명할 시간이 없습니다!!!"
+
+    ch_gura "여러분들은 저 마물에게 홀렸던 겁니다!!!"
+
+    hide stand_gura
+
+    show ob_yas1 with dissolve
+
+    play sound "audio/sound/monkey2.mp3"
+
+    monster "우끼긱!!!!!! 우꺅!!!!!!!"
+
+    ch_ninon panic "저게 대체 뭐야 입니다!!!!"
+
+    hide ob_yas1
+
+    show stand_gura with dissolve
+
+    ch_gura "정신 차리십쇼!!!!! 지금 당장 놈을 퇴치해야 합니다!!!!"
+
+    hide stand_gura
+
+    player "퇴치?! 때려잡으면 되는 거야?!"
+
+    show stand_gura with dissolve
+
+    ch_gura "아니오!!!! 놈은 야스를 하지 못하고 죽은 원념이 모여 탄생한 정신체!!!!"
+
+    ch_gura "물리적 공격은 통하지 않습니다!!!!"
+
+    hide stand_gura
+
+    player "그…… 그러면 어떻게 해?!!"
+
+    show stand_gura with dissolve
+
+    ch_gura "방법은 하나!!!!"
+
+    ch_gura "20년이 넘도록 순결을 지켜 온 청년의 피가 스며든 물건을…… 녀석의 눈앞에서 불태우는 의식을 행해야 합니다!!!!"
+
+    hide stand_gura
+
+    play sound "audio/sound/monkey2.mp3"
+
+    show ob_yas3 with dissolve
+
+    monster "우끽!!! 우끽!!! 우끼긱!!!!! 우끽!!!!! 우꺅!!!!"
+
+    hide ob_yas3
+
+    player "아 진짜!!! 어디서부터 태클을 걸어야 할지 모르겠어!!!!"
+
+    player "그리고 그딴 걸 갑자기 어디서 구……"
+
+    player "……"
+
+    $renpy.pause(1.0)
+
+    show ob_hankachi with dissolve:
+        xpos 430 yalign 0.3
+
+    player "……이거……"
+
+    player "……불태우면…… 될 것 같은데……"
+
+    ch_gura "전…… 전라 상태인데?! 어디서 그런 걸 꺼내신 겁니까?!!"
+
+    player "그런 건 중요하지 않아!!!!"
+
+    player "불!!! 빨리 불!!!!"
+
+    hide ob_hankachi
+    show stand_gura with dissolve
+
+    ch_gura "네…… 넵!!!!!!"
+
+    play sound "audio/sound/fire.mp3"
+    show fire_small:
+        xpos 100 ypos 210
+
+    ch_gura "퐈이야{font=NanumGothic.ttf}——{/font}!!!!!!!!"
+
+    hide fire_small
+
+    show ob_yas2 with dissolve
+
+    play sound "audio/sound/monkey2.mp3"
+
+    monster "아 ㅋㅋ 야스각이었는데 ㅋ"
+
+    monster "까비아깝송~"
+
+    hide ob_yas2 with squares
+
+    stop music
+
+    show stand_gura with dissolve
+
+    ch_gura "허억…… 후우……"
+
+    ch_gura "해……"
+
+    ch_gura "해치웠다!!!!!! 드디어!!!!!!"
+
+    show bg_outside_onsen_2 at fast_rotating
+
+    ch_gura "여러분 덕분임다!!!! 감사함다———아앗!!!!!!"
+
+    hide stand_gura
+
+    ch_ninon surp "……쇼군, 그런데……"
+
+    ch_ninon surp "저걸 불태웠다는 건…… 20년 넘게 동정……"
+
+    player "시끄러워……"
 
     return
                 
@@ -12284,8 +13074,205 @@ label monicaHappy:
     return
 ## 쿠우카 해피 엔딩 ############
 label kukaHappy:
+    scene cg_kuka_end16 onlayer middle with fade
+    play music "audio/main/10end.mp3"
 
-    ch_kuka "쿠우카 해피엔딩"
+    $camera_move(-300, -600, 600, 0, 1)
+
+    ch_kuka "도, 도S 씨에게는…… 이래저래 신세를 많이 지게 되네요……"
+
+    ch_kuka "오늘 누군가를 만날 거라곤 상상도 못했는데…… 이렇게 쿠우카와 함께 있어 주셔서 감사해요……"
+
+    player "신세는 무슨……"
+
+    player "안 그래도 만날 사람이 없어서 심심하던 참이었어. 부담 가지지 마."
+
+    ch_kuka "그, 그렇지만……"
+
+    ch_kuka "“이번 크리스마스에도 쿠우카는 홀몸으로 방치되는 거네요, 쿠후훗—”"
+
+    ch_kuka "……하고, 지나가듯 한 마디 던졌을 뿐인데…… 정말로 만나주실 줄은……"
+
+    $renpy.pause(1.0)
+
+    show cg_kuka_end3 onlayer middle with dissolve
+    hide cg_kuka_end16 onlayer middle
+
+    ch_kuka "……"
+
+    player "……쿠우카?"
+
+    player "왜 그래……? 어디 안 좋은 데라도 있어?"
+
+    show cg_kuka_end11 onlayer middle with dissolve
+    hide cg_kuka_end3 onlayer middle
+
+    ch_kuka "아……. 네, 넷?! 부, 부르셨나요?!"
+
+    ch_kuka "아뇨! 아뇨! 시…… 신경 쓰실 것 없어요!"
+
+    show cg_kuka_end15 onlayer middle with dissolve
+    hide cg_kuka_end11 onlayer middle
+
+    ch_kuka "그…… 나, 남자랑 둘이서 이런 엄청난 걸 하는 건 처음이라……"
+    
+    ch_kuka "쿠우카, 조금 긴장했을지도……"
+
+    player "……그런 거였구나. 걱정했잖아."
+
+    show cg_kuka_end7 onlayer middle with dissolve
+    hide cg_kuka_end15 onlayer middle
+
+    ch_kuka "죄, 죄송해요……"
+
+    player "이럴 때엔…… 긴장을 푸는 데 좋은 방법을 하나 알고 있지."
+
+    ch_kuka "……에? 긴장을 푸는 데 좋은 방법……?"
+
+    show cg_kuka_end18 onlayer middle with dissolve
+    hide cg_kuka_end7 onlayer middle
+
+    $camera_move(0, 0, 0, 0, 0.5)
+
+    ch_kuka "?!?!?!?!"
+
+    player "자…… 어때?"
+
+    ch_kuka "으, 에에?!!"
+
+    ch_kuka "으……앗, 에에……??!!"
+
+    ch_kuka "자, 자, 자, 잠깐, 만요……!!"
+
+    ch_kuka "길 한복판에서 이런 부끄러운 행위를 아무렇지도 않게……!"
+
+    ch_kuka "쿠, 쿠우카, 이대로는 도저히……!!"
+
+    player "……쿠우카는 나랑 손 잡는 거 싫어?"
+
+    ch_kuka "……에? 시…… 싫냐고 물으시면……"
+
+    ch_kuka "따, 딱히 그런 건…… 아니지만…… 그게……"
+
+    show cg_kuka_end6 onlayer middle with dissolve
+    hide cg_kuka_end18 onlayer middle
+
+    ch_kuka "……도S 씨의 손…… 너무 따뜻해서……"
+
+    ch_kuka "나, 남자 손을 잡아 보는 건 처음이기도 하고……"
+
+    ch_kuka "……누군가가 먼저 쿠우카의 손을 잡아 준 것도, 처음이라……"
+
+    show cg_kuka_end10 onlayer middle with dissolve
+    hide cg_kuka_end6 onlayer middle
+
+    ch_kuka "……후에?! 하, 하, 하마터면, 넘어가 버릴 뻔했네요……!!"
+
+    ch_kuka "여, 역시 도S 씨는…… 처음부터 이런 일을 목적으로 쿠우카를……!"
+
+    player "그런 목적으로 만나자고 한 게 맞다면?"
+
+    show cg_kuka_end18 onlayer middle with dissolve
+    hide cg_kuka_end10 onlayer middle
+
+    ch_kuka "………?!?!"
+
+    ch_kuka "마, 맞……"
+
+    player "있잖아, 나……"
+
+    player "쿠우카의 처음을 가져가고 싶어."
+
+    $renpy.pause(1.0)
+
+    show cg_kuka_end16 onlayer middle with dissolve
+    hide cg_kuka_end18 onlayer middle
+
+    ch_kuka "아, 네에……? 쿠우카도 도S 씨와 처음을 보내고 싶으에엣?"
+    
+    show cg_kuka_end18 onlayer middle with dissolve
+    hide cg_kuka_end16 onlayer middle
+
+    ch_kuka "에? 엣?! 에?!?!"
+
+    ch_kuka "도S 씨?! 방, 방금 뭐라고 하셨……?!"
+
+    ch_kuka "쿠, 쿠, 쿠우카의 처음을?! 가, 가, 가, 가져가고 싶다?!! 에엣? 에?!?!"
+
+    $renpy.pause(1.0)
+
+    show bg_black onlayer middle with dissolve
+    hide cg_kuka_end18 onlayer middle
+
+    $renpy.pause(1.5)
+
+    show cg_kuka_end14 onlayer middle with dissolve
+    hide bg_black onlayer middle
+
+    ch_kuka "네……? 이상한 의미가 아니라……"
+
+    ch_kuka "쿠우카가 경험해 보지 못한 많은 일들을, 앞으로도 단둘이서 함께 하고 싶다……는 말이었다구요……?"
+
+    show cg_kuka_end6 onlayer middle with dissolve
+    hide cg_kuka_end14 onlayer middle
+
+    ch_kuka "으으…… 쿠우카는 또 무슨 굉장한 착각을……"
+
+    show cg_kuka_end10 onlayer middle with dissolve
+    hide cg_kuka_end6 onlayer middle
+
+    ch_kuka "그, 그런데, 그…… 그건 그것대로 엄청나게 부끄러운 말……인데요……!!"
+
+    ch_kuka "어, 어째서 그런 말과 행동을 아무렇지도 않다는 듯이……!!!"
+
+    show cg_kuka_end4 onlayer middle with dissolve
+    hide cg_kuka_end10 onlayer middle
+
+    ch_kuka "……그렇군요."
+
+    ch_kuka "도S 씨는 이런 게 익숙하신가 보네요……"
+
+    ch_kuka "뭐…… 그렇겠죠. 어디에 있든 반짝반짝 빛이 나는 도S 씨라면……"
+
+    ch_kuka "모두에게 사랑받고, 누구에게도 미움받지 않는…… 그런, 멋진 삶을 살아왔을 테니까……"
+
+    ch_kuka "……기분 나쁜 망상이나 하는 음침한 외톨이와는 다르게 말이에요."
+
+    ch_kuka "하긴, 도S 씨 정도의 남자가 쿠우카 따위를 만나 준다는 것부터 눈치챘어야 했는데."
+
+    ch_kuka "역시…… 쿠우카와의 만남은……"
+
+    ch_kuka "……도S 씨에게는 그저, 쾌락을 탐닉하는 엔조이 정도에 불과……"
+
+    show cg_kuka_end12 onlayer middle with hpunch
+    hide cg_kuka_end4 onlayer middle
+
+    $camera_move(-300, -600, 600, 0, 1)
+
+    ch_kuka "꺅?!!"
+
+    ch_kuka "도……S 씨?! 쿠, 쿠우카, 이상한 소리를 내 버렸……"
+
+    player "……쿠우카."
+
+    player "앞으로는…… 장난으로라도 그런 말은 하지 마."
+
+    show cg_kuka_end14 onlayer middle with dissolve
+    hide cg_kuka_end12 onlayer middle
+
+    $camera_move(0, 0, 0, 0, 0.5)
+
+    ch_kuka "……네……? 장난으로라도, 라니……"
+
+    ch_kuka "그치만, 도S 씨는 진심이……"
+
+    player "……"
+
+    
+
+
+
+
 
     show bg_end with fade
 

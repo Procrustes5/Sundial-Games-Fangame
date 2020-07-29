@@ -513,7 +513,7 @@ init python:
     g.unlock_image("end8")
 
     g.button("5")
-    g.unlock_image("end8")
+    g.unlock_image("cg_yuki_onsen_01")
 
     g.button("6")
     g.unlock_image("cg_ninon_onsen_02")
@@ -522,7 +522,7 @@ init python:
     g.unlock_image("end8")
 
     g.button("8")
-    g.unlock_image("end8")
+    g.unlock_image("cg_kuka_onsen_hand_01")
 
     g.transition = dissolve
     
@@ -574,19 +574,19 @@ init:
         add g.make_button("ninon1", "images/gallery/transbutton.png", xpos = 57, ypos = 45, idle_border = "images/gallery/1.png", hover_border = "gal1")
         add g.make_button("ninon2", "images/gallery/transbutton.png", xpos = 57, ypos = 200, idle_border = "images/gallery/2.png", hover_border = "gal2")
         add g.make_button("monica1", "images/gallery/transbutton.png", xpos = 57, ypos = 355, idle_border = "images/gallery/3.png", hover_border = "gal3")
-        add g.make_button("monica2", "images/gallery/transbutton.png", xpos = 57, ypos = 505, idle_border = "images/gallery/4.png", hover_border = "gal4")
+        add g.make_button("monica2", "images/gallery/transbutton.png", xpos = 57, ypos = 515, idle_border = "images/gallery/4.png", hover_border = "gal4")
         add g.make_button("kuka1", "images/gallery/transbutton.png", xpos = 350, ypos = 45, idle_border = "images/gallery/5.png", hover_border = "gal5")
         add g.make_button("kuka2", "images/gallery/transbutton.png", xpos = 350, ypos = 200, idle_border = "images/gallery/6.png", hover_border = "gal6") 
         add g.make_button("yuki1", "images/gallery/transbutton.png", xpos = 350, ypos = 355, idle_border = "images/gallery/7.png", hover_border = "gal7")
-        add g.make_button("yuki2", "images/gallery/transbutton.png", xpos = 350, ypos = 505, idle_border = "images/gallery/8.png", hover_border = "gal8")
+        add g.make_button("yuki2", "images/gallery/transbutton.png", xpos = 350, ypos = 515, idle_border = "images/gallery/8.png", hover_border = "gal8")
         add g.make_button("1", "images/gallery/transbutton.png", xpos = 645, ypos = 45, idle_border = "images/gallery/9.png", hover_border = "gal9")
         add g.make_button("2", "images/gallery/transbutton.png", xpos = 645, ypos = 200, idle_border = "images/gallery/10.png", hover_border = "gal10")            
         add g.make_button("3", "images/gallery/transbutton.png", xpos = 645, ypos = 355, idle_border = "images/gallery/11.png", hover_border = "gal11")
-        add g.make_button("4", "images/gallery/transbutton.png", xpos = 645, ypos = 505, idle_border = "images/gallery/12.png", hover_border = "gal12")
+        add g.make_button("4", "images/gallery/transbutton.png", xpos = 645, ypos = 515, idle_border = "images/gallery/12.png", hover_border = "gal12")
         add g.make_button("5", "images/gallery/transbutton.png", xpos = 940, ypos = 45, idle_border = "images/gallery/13.png", hover_border = "gal13")
         add g.make_button("6", "images/gallery/transbutton.png", xpos = 940, ypos = 200, idle_border = "images/gallery/14.png", hover_border = "gal14") 
         add g.make_button("7", "images/gallery/transbutton.png", xpos = 940, ypos = 355, idle_border = "images/gallery/15.png", hover_border = "gal15")
-        add g.make_button("8", "images/gallery/transbutton.png", xpos = 940, ypos = 505, idle_border = "images/gallery/16.png", hover_border = "gal16")    
+        add g.make_button("8", "images/gallery/transbutton.png", xpos = 940, ypos = 515, idle_border = "images/gallery/16.png", hover_border = "gal16")    
     
                 # 이제 위에서 만들었던 g.button 들을 추가할 차례입니다.
                 # 위에서처럼 g.button으로 설정한 버튼이 없다면 CG버튼은 만들 수 없습니다.
