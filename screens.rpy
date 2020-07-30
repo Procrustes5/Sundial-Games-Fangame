@@ -501,16 +501,16 @@ init python:
     g.unlock_image("end8")
 
     g.button("1")
-    g.unlock_image("end8")
+    g.unlock_image("cg_kuka_end19")
 
     g.button("2")
-    g.unlock_image("end8")
+    g.unlock_image("cg_kyaru")
 
     g.button("3")
     g.unlock_image("cg_kokoro_01")
 
     g.button("4")
-    g.unlock_image("end8")
+    g.unlock_image("cg_common")
 
     g.button("5")
     g.unlock_image("cg_yuki_onsen_01")
@@ -519,7 +519,7 @@ init python:
     g.unlock_image("cg_ninon_onsen_02")
 
     g.button("7")
-    g.unlock_image("end8")
+    g.unlock_image("cg_kimura")
 
     g.button("8")
     g.unlock_image("cg_kuka_onsen_hand_01")
@@ -579,10 +579,10 @@ init:
         add g.make_button("kuka2", "images/gallery/transbutton.png", xpos = 350, ypos = 200, idle_border = "images/gallery/6.png", hover_border = "gal6") 
         add g.make_button("yuki1", "images/gallery/transbutton.png", xpos = 350, ypos = 355, idle_border = "images/gallery/7.png", hover_border = "gal7")
         add g.make_button("yuki2", "images/gallery/transbutton.png", xpos = 350, ypos = 515, idle_border = "images/gallery/8.png", hover_border = "gal8")
-        add g.make_button("1", "images/gallery/transbutton.png", xpos = 645, ypos = 45, idle_border = "images/gallery/9.png", hover_border = "gal9")
-        add g.make_button("2", "images/gallery/transbutton.png", xpos = 645, ypos = 200, idle_border = "images/gallery/10.png", hover_border = "gal10")            
-        add g.make_button("3", "images/gallery/transbutton.png", xpos = 645, ypos = 355, idle_border = "images/gallery/11.png", hover_border = "gal11")
-        add g.make_button("4", "images/gallery/transbutton.png", xpos = 645, ypos = 515, idle_border = "images/gallery/12.png", hover_border = "gal12")
+        add g.make_button("1", "images/gallery/transbutton.png", xpos = 640, ypos = 45, idle_border = "images/gallery/9.png", hover_border = "gal9")
+        add g.make_button("2", "images/gallery/transbutton.png", xpos = 640, ypos = 200, idle_border = "images/gallery/10.png", hover_border = "gal10")            
+        add g.make_button("3", "images/gallery/transbutton.png", xpos = 640, ypos = 355, idle_border = "images/gallery/11.png", hover_border = "gal11")
+        add g.make_button("4", "images/gallery/transbutton.png", xpos = 640, ypos = 515, idle_border = "images/gallery/12.png", hover_border = "gal12")
         add g.make_button("5", "images/gallery/transbutton.png", xpos = 940, ypos = 45, idle_border = "images/gallery/13.png", hover_border = "gal13")
         add g.make_button("6", "images/gallery/transbutton.png", xpos = 940, ypos = 200, idle_border = "images/gallery/14.png", hover_border = "gal14") 
         add g.make_button("7", "images/gallery/transbutton.png", xpos = 940, ypos = 355, idle_border = "images/gallery/15.png", hover_border = "gal15")
@@ -1275,13 +1275,6 @@ screen preferences():
                         label _("화면 모드")
                         textbutton _("창 화면") action Preference("display", "window")
                         textbutton _("전체 화면") action Preference("display", "fullscreen")
-
-                vbox:
-                    style_prefix "check"
-                    label _("넘기기")
-                    textbutton _("읽지 않은 지문") action Preference("skip", "toggle")
-                    textbutton _("선택지 이후") action Preference("after choices", "toggle")
-                    textbutton _("화면 전환 효과") action InvertSelected(Preference("transitions", "toggle"))
 
                 ## "radio_pref" 나 "check_pref" 를 추가하여 그 외에도 환경설정
                 ## 항목을 추가할 수 있습니다.
