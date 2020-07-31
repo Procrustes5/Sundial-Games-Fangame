@@ -492,13 +492,13 @@ init python:
     g.unlock_image("cg_kuka_ykt_3")
 
     g.button("kuka2")
-    g.unlock_image("end6")
+    g.unlock_image("cg_yukiend1")
 
     g.button("yuki1")
     g.unlock_image("cg_yuki_03_plus")
     
     g.button("yuki2")
-    g.unlock_image("end8")
+    g.unlock_image("cg_monica_basic")
 
     g.button("1")
     g.unlock_image("cg_kuka_end19")
@@ -917,23 +917,39 @@ screen about():
     ## 이 use 명령어로 game_menu 스크린을 이 스크린 내에 불러옵니다. use 명령어
     ## 하위블럭(vbox 내용)은 game_menu 스크린 내 transclude 명령어가 있는 곳에
     ## 다시 불려집니다.
-    use game_menu(_("버전정보"), scroll="viewport"):
+    use game_menu(_("제작진"), scroll="viewport"):
 
         style_prefix "about"
 
         vbox:
-
-            label "[config.name!t]"
-            text _("version [config.version!t]\n")
+            label "[config.name!t] by Sundial Games" text_size 40 text_color "#000000" xalign 0.5
+            text _("{color=#000000}프린세스 커넥트 Re:Dive 팬 게임{/color}\n") xalign 0.5
 
             ## gui.about 의 내용은 보통 options.rpy에 있습니다.
             if gui.about:
                 text "[gui.about!t]\n"
-            text "Leviathan {a=https://www.pixiv.net/en/users/27350443}Pixiv{/a}, {a=https://twitter.com/hikinito0902}트위터{/a}"
-            text "Jynack {a=https://twitter.com/Nackjy09}트위터{/a}"
-            text "대노 {a=https://www.pixiv.net/users/8407788}Pixiv{/a}"
-            text "??? {a=https://www.pixiv.net/users/29074698}Pixiv{/a}"
-            text _("{a=https://www.renpy.org/}Ren'Py{/a} [renpy.version_only] 으로 만들어진 게임입니다.\n\n[renpy.license!t]")
+
+
+
+            text "{color=#000000}{b}Art{/b}{/color}\n" xalign 0.5
+            
+            text "{color=#000000}  Leviathan {a=https://www.pixiv.net/en/users/27350443}{color=#000000}Pixiv{/color}{/a}, {a=https://twitter.com/hikinito0902}{color=#000000}트위터{/color}{/a}{/color}" xalign 0.5
+            text "{color=#000000}  Jynack {a=https://twitter.com/Nackjy09}{color=#000000}트위터{/color}{/a}{/color}" xalign 0.5
+            text "{color=#000000}  대노 {a=https://www.pixiv.net/users/8407788}{color=#000000}Pixiv{/color}{/a}{/color}" xalign 0.5
+            text "{color=#000000}  ??? {a=https://www.pixiv.net/users/29074698}{color=#000000}Pixiv{/color}{/a}{/color}" xalign 0.5
+
+            text "\n{color=#000000}{b}Scenario{/b}{/color}\n" xalign 0.5
+
+            text "{color=#000000}  모랑모랑{/color}" xalign 0.5
+
+            text "\n{color=#000000}{b}Programming{/b}{/color}\n" xalign 0.5
+
+            text "{color=#000000}  Procrustes{/color}\n" xalign 0.5
+
+            text "{color=#000000}{size=10}\n본 게임은 수익을 목적으로 하지 않는 비영리 저작물입니다. 배경 음악 등 일부 요소는 본 팀의 저작물이 아님을 밝힙니다.{/size}{/color}"
+
+
+            text _("{size=10}{a=https://www.renpy.org/}Ren'Py{/a} [renpy.version_only] 으로 만들어진 게임입니다.\n\n[renpy.license!t]{/size}")
 
 ## options.rpy에서 규정된 내용이 about 스크린에 추가됩니다.
 define gui.about = ""
