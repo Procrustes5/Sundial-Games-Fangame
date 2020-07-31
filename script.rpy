@@ -1049,7 +1049,7 @@ init:
 
     image cg_kokoro:
         "cg/kokoro/1.png"
-        pause 0.05
+        pause 2.0
         "cg/kokoro/2.png"
         pause 0.05
         "cg/kokoro/3.png"
@@ -1057,11 +1057,13 @@ init:
         "cg/kokoro/4.png"
         pause 0.05
         "cg/kokoro/5.png"
-        pause 0.05
+        pause 0.1
         "cg/kokoro/6.png"
-        pause 0.05
+        pause 0.1
         "cg/kokoro/7.png"
         pause 0.05
+
+        repeat
 
 
     ## 공통
@@ -3938,11 +3940,11 @@ label start:
 
         "자기 자신만을 중시하며 동료를 배려하지 않는 것choice_4":
             $love_point = 4 ## 유키
-    ##hide bg_black onlayer background
-    ##hide bg_guildhouse onlayer middle
-    ##hide stand_Monica onlayer forward
-    ##stop music
-    ##jump yukiHappy ## 버그테스트 용
+    hide bg_black onlayer background
+    hide bg_guildhouse onlayer middle
+    hide stand_Monica onlayer forward
+    stop music
+    jump scene19_2 ## 버그테스트 용
 
     show stand_Monica onlayer forward with dissolve ## 기본 표정
 
@@ -4734,13 +4736,13 @@ label onsen:
 
             ## 유키 자뻑하는 표정
             hide stand_Yuki
-            show stand_Yuki_proud with dissolve
+            show stand_Yuki_proud 
 
             ch_yuki "……흐흥♪"
 
             ## 유키 질색하는 표정
             hide stand_Yuki_proud
-            show stand_Yuki_angry with dissolve
+            show stand_Yuki_angry 
 
             ch_yuki "너 같은 건 안 따라왔으면 좋겠는데?"
 
@@ -4748,7 +4750,7 @@ label onsen:
 
             ## 유키 자뻑하는 표정
             hide stand_Yuki_angry
-            show stand_Yuki_proud with dissolve
+            show stand_Yuki_proud 
 
             ch_yuki "……라고 하면, 정말로 안 따라올 거야?"
 
@@ -4760,7 +4762,7 @@ label onsen:
 
             ## 유키 웃는 표정
             hide stand_Yuki_proud
-            show stand_Yuki with dissolve
+            show stand_Yuki 
 
             ch_yuki "네가 함께 가는 거라면, 난 찬성이야."
 
@@ -4768,7 +4770,7 @@ label onsen:
 
             ## 유키 자뻑하는 표정
             hide stand_Yuki
-            show stand_Yuki_proud with dissolve
+            show stand_Yuki_proud 
 
             ch_yuki "꺄~ 부끄러워~"
 
@@ -5523,7 +5525,7 @@ label routen:
     jump scene_eight
 ## S# 8. 온천 건물 내부 #####################
 label scene_eight:
-    
+    $renpy.pause(1.5)
     play music "audio/main/5orientalcommon.mp3"
     #3 온천 건물 내부 cg 
     scene bg_onsen onlayer middle
@@ -7193,7 +7195,7 @@ label sceneNum17Common:
     show npc_1 with dissolve
     show bg_onsen_heya_02 with hpunch
 
-    ch_syokuin "{font=NanumGothic.ttf}———{/font}아아악?!!!?!!!!!"
+    ch_syokuin "꺄{font=NanumGothic.ttf}———{/font}아아악?!!!?!!!!!"
 
     show npc_1 at movetoleft
 
@@ -7653,7 +7655,7 @@ label scene18_1:
 
         player "응애!!!!!!!!!!!"
 
-        ch_syokuin "{font=NanumGothic.ttf}———{/font}아아악?!!!?!!!!!"
+        ch_syokuin "꺄{font=NanumGothic.ttf}———{/font}아아악?!!!?!!!!!"
 
         hide stand_Kuka_yukata_mousou
 
@@ -8195,7 +8197,7 @@ label scene18_2:
 
         player "응애!!!!!!!!!!"
 
-        ch_syokuin "{font=NanumGothic.ttf}———{/font}아아악?!!!?!!!!!"
+        ch_syokuin "꺄{font=NanumGothic.ttf}———{/font}아아악?!!!?!!!!!"
 
         hide stand_Monica_yukata_crying
         show bg_black
@@ -8641,7 +8643,7 @@ label scene18_2:
         hide cg_babybung
         show stand_Yuki_yukata_shamed with dissolve
 
-        ch_yuki "그…… 호…… 혼자서 많이 무서웠습니다……? 가 아니고…… 무서웠지 입니다……? 아니 아니……"
+        ch_yuki "그…… 호…… 혼자서 많이 무서웠지……? 으으으으…… 뭐, 뭐라고 말해야 하는 거야……"
 
         hide stand_Yuki_yukata_shamed
         show bg_naibu onlayer middle
@@ -8833,8 +8835,6 @@ label scene18_2:
 
     ch_monica "……? 으음……"
 
-    ch_nar "??"
-
     ch_monica "그 정도는 누구나 떠올릴 수 있는 생각인 것 같다만, 그게 다는 아닐 테고……"
 
     ch_nar "그게 다야 뭘 더 바래……!!"
@@ -9021,12 +9021,12 @@ label scene19_1:
 
     ch_rima "꾸웨에엑??!!"
 
+    play sound "audio/sound/spit.mp3"
     show npc_3:
         linear 0.2 xalign 0.4
         linear 0.2 xalign 0.6
         linear 0.2 xalign 0.5
 
-    play sound "audio/sound/spit.mp3"
 
     ch_rima "퉤에엣! 퉷!! 퉤퉷!!!"
 
@@ -9096,7 +9096,7 @@ label scene19_1:
     show stand_Kuka_yukata_mousou:
         linear 0.5 ypos 1100
 
-    ch_kuka "끄!!!!! 끈적거려!!!!! 최고예요~~~~!!!! 이런 불쾌하고 더러운 감각!!!! 이쪽 업계에서는 포상입니다!!!!! 이…… 이러면 더 이상 이전의 쿠우카로는 돌아갈 수 없어요~~~~!!! 쿠우카를……!!!! 망가질 대로 망가진 쿠우카르을~~~!!!!! 좀 더 심하게 더럽혀 주세요!!!! 키——히히히히힉!!! 케헤헤헥~~~!!!!!"
+    ch_kuka "끄!!!!! 끈적거려!!!!! 최고예요~~~~!!!! 이런 불쾌하고 더러운 감각!!!! 이쪽 업계에서는 포상입니다!!!!! 이…… 이러면 더 이상 이전의 쿠우카로는 돌아갈 수 없어요~~~~!!! 쿠우카를……!!!! 망가질 대로 망가진 쿠우카르을~~~!!!!! 좀 더 심하게 더럽혀 주세요!!!! 키{font=NanumGothic.ttf}——{/font}히히히히힉!!! 케헤헤헥~~~!!!!!"
 
     hide stand_Kuka_yukata_mousou
     show stand_Ninon_yukata_panic with dissolve
@@ -9342,12 +9342,12 @@ label scene19_2:
 
     ch_rima "꾸웨에엑??!!"
 
+    play sound "audio/sound/spit.mp3"
+ 
     show npc_3:
         linear 0.2 xalign 0.4
         linear 0.2 xalign 0.6
         linear 0.2 xalign 0.5
-
-    play sound "audio/sound/spit.mp3"
 
     ch_rima "퉤에엣! 퉷!! 퉤퉷!!!"
 
@@ -9356,6 +9356,7 @@ label scene19_2:
     player "저…… 저거 침 뱉는다!!!"
 
     show stand_Monica_yukata_dere with dissolve:
+        xalign 0.5
         easeout 0.3 ypos -50
         ease 0.2 ypos 50
         easeout 0.3 ypos -50
@@ -9399,14 +9400,16 @@ label scene19_2:
 
     hide stand_Monica_yukata_surprised
     
+    show stand_Yuki_yukata with dissolve
+
+    ch_yuki "가르르……"
+
     show stand_Yuki_yukata:
         rotate 0
         linear 0.5 rotate 360
     hide stand_Yuki_yukata with dissolve
     
     play music "audio/main/11fun.mp3"
-
-    ch_yuki "가르르……"
 
     show stand_Monica_yukata_surprised with dissolve
 
@@ -12222,6 +12225,7 @@ label cg_ninonsecond:
 
     $renpy.pause(1.0)
 
+    stop music
     play sound "audio/sound/surp.mp3"
 
     show stand_gura onlayer forward with dissolve:
@@ -12370,7 +12374,7 @@ label cg_ninonsecond:
 
     ch_gura "해치웠다!!!!!! 드디어!!!!!!"
 
-    show bg_outside_onsen_2 at fast_rotating
+    show bg_outside_onsen_2
 
     ch_gura "여러분 덕분임다!!!! 감사함다{font=NanumGothic.ttf}———{/font}아앗!!!!!!"
 
@@ -12740,6 +12744,8 @@ label cg_monicasecond:
 
     $renpy.pause(1.0)
 
+    stop music
+
     play sound "audio/sound/surp.mp3"
 
     show stand_gura onlayer forward with dissolve:
@@ -12888,7 +12894,7 @@ label cg_monicasecond:
 
     ch_gura "해치웠다!!!!!! 드디어!!!!!!"
 
-    show bg_outside_onsen_2 at fast_rotating
+    show bg_outside_onsen_2
 
     ch_gura "여러분 덕분임다!!!! 감사함다{font=NanumGothic.ttf}———{/font}아앗!!!!!!"
 
@@ -13259,6 +13265,7 @@ label cg_kukasecond:
     ch_kuka "어서…… 어서 쿠우카를……!!! 엉망진창 덮쳐 주세요오오……!!!! 케케케켓!!!"
 
     $renpy.pause(1.0)
+    stop music
 
     play sound "audio/sound/surp.mp3"
 
@@ -13408,7 +13415,7 @@ label cg_kukasecond:
 
     ch_gura "해치웠다!!!!!! 드디어!!!!!!"
 
-    show bg_outside_onsen_2 at fast_rotating
+    show bg_outside_onsen_2
 
     ch_gura "여러분 덕분임다!!!! 감사함다{font=NanumGothic.ttf}———{/font}아앗!!!!!!"
 
@@ -13656,6 +13663,7 @@ label cg_yukisecond:
 
     $renpy.pause(2.0)
 
+    stop music
     play sound "audio/sound/surp.mp3"
 
     show stand_gura onlayer forward with dissolve:
@@ -13804,7 +13812,7 @@ label cg_yukisecond:
 
     ch_gura "해치웠다!!!!!! 드디어!!!!!!"
 
-    show bg_outside_onsen_2 at fast_rotating
+    show bg_outside_onsen_2
 
     ch_gura "여러분 덕분임다!!!! 감사함다{font=NanumGothic.ttf}———{/font}아앗!!!!!!"
 
@@ -14120,7 +14128,7 @@ label ninonHappy:
     ## 랜드솔 마을 #####################
 
 
-    play music "audio/main/3town.mp3"
+    play music "audio/main/8sad.mp3"
     show bg_town with fade
     hide ames_swift
 
@@ -15290,7 +15298,7 @@ label yukiHappy:
 
     ch_nar "이를테면, 지금 내 눈 앞에 피어 있는 {b}꽃이라거나{/b}……"
 
-    ch_nar "……’꽃’이다, ‘꽃’."
+    ch_nar "……‘꽃’이다, ‘꽃’."
 
     ch_nar "발음할 때 각별히 주의해야 한다. 잘못 발음하면 재앙이 일어난다."
 
@@ -16204,6 +16212,8 @@ label Kimura:
 
     scene bg_black
 
+    play music "audio/sound/fire.mp3"
+
     play sound "audio/sound/hit.wav"
 
     $renpy.pause(2.0)
@@ -16264,6 +16274,8 @@ label BAD:
     player "음…… 그럴까?"
 
     player "좋아, 같이 가자!"
+
+    stop music fadeout 2.0
 
     $renpy.pause(2.0)
 

@@ -12,7 +12,7 @@ define config.layers = [ 'master', 'background', 'middle', 'forward', 'transient
 ##
 ## 문자열을 _()로 둘러 쌓으면 씌우면 번역의 대상으로 표시됩니다.
 
-define config.name = _("TestPrincess")
+define config.name = _("비상을 위한 순백색 날갯짓")
 
 
 ## 위에 주어진 제목이 주 메뉴 화면에 표시되는지 결정합니다. 제목을 숨기려면 이것
@@ -182,8 +182,8 @@ init python:
 
     ## 파일을 아카이브하려면 'archive'로 분류하십시오.
 
-    # build.classify('game/**.png', 'archive')
-    # build.classify('game/**.jpg', 'archive')
+    build.classify('game/**.png', 'archive')
+    build.classify('game/**.jpg', 'archive')
 
     ## 파일들의 매칭 문서 패턴은 맥앱(Mac App) 빌드에서 중복되므로 app 및 zip 파
     ## 일에 모두 나타납니다.
@@ -202,4 +202,4 @@ init python:
 ## itch.io 프로젝트와 연관된 사용자 이름과 프로젝트 이름이며 슬래시로 구분됩니
 ## 다.
 
-# define build.itch_project = "renpytom/test-project"
+define build.itch_project = "studiosundial/Bisang"
